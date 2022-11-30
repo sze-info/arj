@@ -16,6 +16,6 @@ A tárgyban bemutatott ismeretekre alapozva diplomamunka, szakdolgozat, projektm
 
 
 <br><br><br>
-## [github.com/szepilot/web](https://sze-info.github.io/arj)
+## [sze-info.github.io/arj](https://sze-info.github.io/arj)
 
 <br><br><br>

@@ -2,7 +2,7 @@
 title: Autonomous vehicles and robots software engineering
 description: Autonóm járművek és robotok programozása # EDIT: Fill this in
 
-remote_theme: pmarsceill/just-the-docs # Borrowing the theme from https://github.com/pmarsceill/just-the-docs
+remote_theme: just-the-docs/just-the-docs # Borrowing the theme from https://github.com/just-the-docs/just-the-docs
 github_repo_url: "https://github.com/sze-info/arj"
 
 # Heading anchor links appear on hover over h1-h6 tags in page content
@@ -55,5 +55,6 @@ mermaid:
   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
   version: "9.2.2"
 
+logo: "docs/_images/arj.png"
 
 # https://scds.github.io/github-pages/lesson3.html

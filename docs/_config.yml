@@ -3,7 +3,7 @@ title: Autonomous vehicles and robots software engineering
 description: Autonóm járművek és robotok programozása # EDIT: Fill this in
 
 remote_theme: pmarsceill/just-the-docs # Borrowing the theme from https://github.com/pmarsceill/just-the-docs
-github_repo_url: "https://sze-info.github.io/arj"
+github_repo_url: "https://github.com/sze-info/arj"
 
 # Heading anchor links appear on hover over h1-h6 tags in page content
 # allowing users to deep link to a particular heading on a page. (true or false)
@@ -20,7 +20,7 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 # A footer with "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link
 gh_edit_link_text: "View this content on GitHub"
-gh_edit_repository: "https://sze-info.github.io/arj" # EDIT: ADD THE URL TO YOUR GITHUB REPO
+gh_edit_repository: "https://github.com/sze-info/arj" # EDIT: ADD THE URL TO YOUR GITHUB REPO
 gh_edit_branch: "master" # the branch that your docs is served from
 gh_edit_source: docs # the source that your files originate from
 source: docs

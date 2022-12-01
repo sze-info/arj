@@ -1,6 +1,6 @@
 #theme: jekyll-theme-tactile
-title: Autonomous vehicles and robots software engineering
-description: Autonóm járművek és robotok programozása # EDIT: Fill this in
+title: Autonomous robots and vehicles software engineering
+description: Autonóm robotok és járművek programozása # EDIT: Fill this in
 
 remote_theme: just-the-docs/just-the-docs # Borrowing the theme from https://github.com/just-the-docs/just-the-docs
 github_repo_url: "https://github.com/sze-info/arj"

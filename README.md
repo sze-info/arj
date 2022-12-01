@@ -1,6 +1,6 @@
 # [sze-info.github.io/arj](https://sze-info.github.io/arj)
 
-🚘 Autonóm járművek és robotok programozása || Autonomous vehicles and robots software engineering
+🚘 Autonóm robotok és járművek programozása || Autonomous robots and vehicles software engineering
 
 
 ## Acknowledgement
@@ -12,3 +12,4 @@ There are many courses who inspired this lecture, some parts were referenced or 
 - Thank you for **ETH Zürich** Programming for Robotics - ROS: Péter Fankhauser, Dominic Jud, Martin Wermelinger, Prof. Dr. Marco Hutter.
 - Thank you for "Autonomous Driving Software Engineering" by the Institute of Automotive Technology (Prof. Dr.-Ing. Lienkamp, Phillip Karle), **TU München**. GPL-3.0 license.
 - Thank you for TH Ingolstadt, Autonomous Vehicle Engineering Faculty of Electrical Engineering and Computer Science.
+- Thank you **Stanford** University Stanford University - Introduction to Robotics by Prof. Oussama Khatib.

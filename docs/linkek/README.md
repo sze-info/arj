@@ -1,1 +1,162 @@
+---
+layout: default
+title: Linkek
+has_children: false
+---
+
 # Linkek
+
+## Linux ismeretek
+
+- Egyszerű linux parancsok - [[hun](https://github.com/horverno/sze-academic-rpi/blob/master/linuxtut.md)]
+- ROS training - 0.1 Intro to Ubuntu GUI - [[eng](https://industrial-training-master.readthedocs.io/en/melodic/_source/prerequisites/Navigating-the-Ubuntu-GUI.html)]
+- ROS training - 0.2 The Linux File System - [[eng](https://industrial-training-master.readthedocs.io/en/melodic/_source/prerequisites/Exploring-the-Linux-File-System.html)]
+- ROS training - 0.3 Using the Terminal - [[eng](https://industrial-training-master.readthedocs.io/en/melodic/_source/prerequisites/The-Linux-Terminal.html)]
+- Terminal kezelése - [[hun](https://github.com/horverno/sze-academic-rpi/blob/master/linuxtut.md)]
+- 60 Linux Commands you need to know [[video, eng](https://www.youtube.com/watch?v=gd7BXuUQ91w)]
+- Git kezelése:
+  - Beadandó leírás, Git és GitHub - [[hun](https://github.com/horverno/sze-academic-rpi/blob/master/gittut.md)] 
+  - GitHub first-contributions magyar fordítás - [[hun](https://github.com/firstcontributions/first-contributions/blob/master/translations/README.hu.md)]
+  -  GitHub Learning Lab - [[eng](https://lab.github.com/)]
+- VS code - [[hun](https://github.com/horverno/sze-academic-rpi/blob/master/vscode.md)], [[vid](https://www.youtube.com/watch?v=QKFjbnWpQ-E)]
+- Python [[hun](https://github.com/horverno/sze-academic-python)]
+- C++ [[hun](https://github.com/hegyhati/ClassRoomExamples)]
+
+Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült segédanyaggal: 
+[github.com/horverno/sze-academic-rpi](https://github.com/horverno/sze-academic-rpi).
+
+## Robotikai ismeretek
+
+- Alap robotikai ismeretek [[eng](https://github.com/AtsushiSakai/PythonRobotics)]
+
+### Stanford University
+- Stanford University - Introduction to Robotics Oussama Khatib - [[eng, video playlist](https://www.youtube.com/watch?v=0yD3uBshJB0&list=PL65CC0384A1798ADF&ab_channel=Stanford)]
+
+### TU München
+
+- Github link: https://github.com/TUMFTM/Lecture_ADSE
+
+|Number| Session       | Description   | Video | Lecture Slides|
+|:----:| ------------- |:-------------| :-----:|:-----:|
+|  1   | Python intro| Some basics of programming in python for beginners. [ResearchGate](https://www.researchgate.net/publication/352321561_Autonomous_Driving_Software_Engineering_-_Lecture_01_Introduction_to_Autonomous_Driving)    |
+|  2   | Basics of mapping and localization | Exemplary implementation of a Kalman filter and application for localization via GNSS-signal. | [YouTube](https://youtu.be/JW8z7tn8WH8) | [ResearchGate](https://www.researchgate.net/publication/352321825_Autonomous_Driving_Software_Engineering_-_Lecture_02_Perception_I_-_Basics_of_Mapping_and_Localization)    |
+|  3   | SLAM | The google cartographer SLAM algorithm is applied to data from the KITTI-dataset. Note, that this lecture is held in Linux and has its own dependencies, please refer to the local readme.  | [YouTube](https://youtu.be/IMSpasiy8Lk) | [ResearchGate](https://www.researchgate.net/publication/352321792_Autonomous_Driving_Software_Engineering_-_Lecture_03_Perception_II_-_SLAM)    |
+|  4   | Detection   | Overview about the YOLO-approach from network  architecture to exemplary usage. | [YouTube](https://youtu.be/THyozTdumMc) | [ResearchGate](https://www.researchgate.net/publication/352322076_Autonomous_Driving_Software_Engineering_-_Lecture_04_Perception_III_-_Detection)  |
+|  5   | Prediction | Implementation of the pipeline to setup a motion prediction algorithm based on a Encoder-Decoder architecture.  | [YouTube](https://youtu.be/8ja6IRxHa_U) | [ResearchGate](https://www.researchgate.net/publication/352321496_Autonomous_Driving_Software_Engineering_-_Lecture_05_Prediction)    |
+|  6   | Global plannings | A global optimal race line optimization is shown. This lecture has its own dependencies, please refer to the local readme.  | [YouTube](https://youtu.be/1MD_IqJIaz4) | [ResearchGate](https://www.researchgate.net/publication/352350798_Autonomous_Driving_Software_Engineering_-_Lecture_06_Planning_I_-_Global_Planning)    |
+|  7   | Local planning | A local planning algorithm based on a graph-based approach is presented. | [YouTube](https://youtu.be/OB-JaJ5KROQ) | [ResearchGate](https://www.researchgate.net/publication/352322244_Autonomous_Driving_Software_Engineering_-_Lecture_07_Planning_II_-_Local_Planning)    |
+|  8   | Control | The design of a velocity controller and numerical solver for differential equation are covered.  | [YouTube](https://youtu.be/WJ-mR0OGgzg) | [ResearchGate](https://www.researchgate.net/publication/352322266_Autonomous_Driving_Software_Engineering_-_Lecture_08_Control)    |
+|  9   | Safety assessment | The evaluation of the criticality of planned trajectories based on various metrics and their sensitivity is discussed. | [YouTube](https://youtu.be/axC4tI5OL3M) | [ResearchGate](https://www.researchgate.net/publication/352322387_Autonomous_Driving_Software_Engineering_-_Lecture_09_Safety_Assessment)    |
+|  10  | Teleoperated driving | How to send and receive data via MQTT over network is shown in this practice session. | [YouTube](https://youtu.be/Z95BMnuFSio) | [ResearchGate](https://www.researchgate.net/publication/352322590_Autonomous_Driving_Software_Engineering_-_Lecture_10_Teleoperated_Driving)    |
+|  11  | End-to-End | The exemplary pipeline of data collection from expert demonstration, training and application are treated in this session. This lecture has its own dependencies, please refer to the local | [YouTube](https://youtu.be/CobI-h1wRAs) | [ResearchGate](https://www.researchgate.net/publication/352322925_Autonomous_Driving_Software_Engineering_-_Lecture_11_End-to-End_Combined_Modules)    |
+
+
+## Magyar nyelvű ROS oktatóanyagok
+- ROS-gyakorlatok kezdőoldal: [horverno.github.io/ros-gyakorlatok](https://horverno.github.io/ros-gyakorlatok/)
+- [ROS telepítése (hun)](https://horverno.github.io/ros-gyakorlatok/0-linux-alapok/rosinstall.html) - Melodic
+
+## Angol nyelvű ROS oktatóanyagok
+
+- [ROS telepítése (eng)](http://wiki.ros.org/melodic/Installation/Ubuntu)
+- [ETH Zürich - Programming for Robotics (ROS)](https://www.youtube.com/watch?v=0BxVPCInS3M&list=PLE-BQwvVGf8HOvwXPgtDfWoxd4Cc6ghiP)
+- [edX - Hello (Real) World with ROS](https://www.edx.org/course/hello-real-world-with-ros-robot-operating-system)
+- [ROS.org tutorials](http://wiki.ros.org/ROS/Tutorials)
+### Apex AI
+
+- [Apex AI youtube](https://www.youtube.com/channel/UCyo9zNZTbdJKFog2q8f-cEw/playlists)
+  - [1: Development Environment](https://www.youtube.com/watch?v=XTmlhvlmcf8&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;ab_channel=ApexAI)
+  - [2: ROS2 101](https://www.youtube.com/watch?v=FTA4Ia2vLS8&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=2&amp;ab_channel=ApexAI)
+  - [3: ROS 2 Tooling - Develop Like a Pro](https://www.youtube.com/watch?v=wcibIqiRb04&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=3&amp;ab_channel=ApexAI)
+  - [4: Platform HW, RTOS and DDS](https://www.youtube.com/watch?v=IyycN6ldsIs&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=4&amp;ab_channel=ApexAI)
+  - [5: Autonomous Driving Stacks](https://www.youtube.com/watch?v=nTI4fnn2tuU&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=5&amp;ab_channel=ApexAI)
+  - [6: Autoware 101](https://www.youtube.com/watch?v=eSHHmJrqpMU&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=6&amp;ab_channel=ApexAI)
+  - [7: Object Perception: LIDAR](https://www.youtube.com/watch?v=xSGCpb24dhI&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=7&amp;ab_channel=ApexAI)
+  - [8: Object Perception: CAMERA](https://www.youtube.com/watch?v=OtjTa-meJ-E&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=8&amp;ab_channel=ApexAI)
+  - [9: Object Perception: Radar](https://www.youtube.com/watch?v=PcVIO-xoNv8&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=9&amp;ab_channel=ApexAI)
+  - [10: State Estimation for Localization](https://www.youtube.com/watch?v=g2YURb-d9vY&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=10&amp;ab_channel=ApexAI)
+  - [11: LGSVL Simulator](https://www.youtube.com/watch?v=OcB6FUbjZXo&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=11&amp;ab_channel=ApexAI)
+  - [12: Motion Control](https://www.youtube.com/watch?v=fQJpAVRQBrI&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=12&amp;ab_channel=ApexAI)
+  - [13: Data Storage and Analytics](https://www.youtube.com/watch?v=vinP0zrnkyU&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=13&amp;ab_channel=ApexAI)
+  - [14: HD Maps](https://www.youtube.com/watch?v=cl9m6O4Yt0Y&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=14&amp;ab_channel=ApexAI)
+- [F1/10 ROS](https://linklab-uva.github.io/autonomousracing/page3.html#content10-u)
+
+### ETH Zürich
+- Programming for Robotics - ROS: Péter Fankhauser, Dominic Jud, Martin Wermelinger, Prof. Dr. Marco Hutter. https://rsl.ethz.ch/education-students/lectures/ros.html
+
+<table><!----> <thead class=""><tr><th id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-0" scope="col" style="text-align: left; vertical-align: middle;"><div><span style="font-size: 12px; font-weight: normal;"><b>2021</b></span></div></th><th id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-1" scope="col" style="text-align: left;"><div><span style="font-size: 12px; font-weight: normal;">Topics</span></div></th><th id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-2" scope="col" style="text-align: left;"><div><span style="font-size: 12px; font-weight: normal;">Material</span></div></th></tr></thead> <tbody><tr><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-0-cell-0" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-0">22.02.<br></td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-0-cell-1" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-1"><ul> 
+ <li>ROS architecture &amp; philosophy</li> 
+ <li>ROS master, nodes, and topics</li> 
+ <li>Console commands</li> 
+ <li>Catkin workspace and build system</li> 
+ <li>Launch-files</li> 
+ <li>Gazebo simulator</li> 
+ <li>Programming Tools</li> 
+</ul></td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-0-cell-2" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-2"><ul> 
+ <li><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec1/ROS%20Course%20Slides%20Course%201.pdf" target="_blank" class="eth-link">Lecture Slides (PDF, 2.4 MB)</a></li> 
+ <li><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec1/Exercise%20Session%201.pdf" target="_blank" class="eth-link">Exercises (PDF, 314 KB)</a></li> 
+ <li>Files: <a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec1/smb_common.zip" target="_blank" class="eth-link">smb_common.zip (ZIP, 2.3 MB)</a></li> 
+ <li><a href="https://www.youtube.com/watch?v=aL7zLnaEdAg" class="eth-link">Video Recording</a><br> </li> 
+</ul></td></tr><tr><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-1-cell-0" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-0">24.02.</td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-1-cell-1" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-1"><ul> 
+ <li>ROS package structure</li> 
+ <li>Integration and programming with Eclipse</li> 
+ <li>ROS C++ client library (roscpp)</li> 
+ <li>ROS subscribers and publishers</li> 
+ <li>ROS parameter server</li> 
+ <li>RViz visualization</li> 
+</ul></td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-1-cell-2" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-2"><ul> 
+ <li><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec2/ROS%20Course%20Slides%20Course%202.pdf" target="_blank" class="eth-link">Lecture Slides (PDF, 2.4 MB)</a></li> 
+ <li><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec2/Exercise%20Session%202.pdf" target="_blank" class="eth-link">Exercises (PDF, 219 KB)</a><br> </li> 
+ <li>Files: <a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec2/smb_highlevel_controller.zip" target="_blank" class="eth-link">smb_highlevel_controller.zip (ZIP, 3 KB)</a></li> 
+ <li><a href="https://youtu.be/v9RgXcosuww" class="eth-link">Video Recording</a></li> 
+</ul></td></tr><tr><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-2-cell-0" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-0">26.02.</td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-2-cell-1" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-1"><ul> 
+ <li>TF Transformation System</li> 
+ <li>rqt User Interface</li> 
+ <li>Robot models (URDF)</li> 
+ <li>Simulation descriptions (SDF)</li> 
+</ul></td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-2-cell-2" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-2"><ul> 
+ <li><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec3/ROS%20Course%20Slides%20Course%203.pdf" target="_blank" class="eth-link">Lecture Slides (PDF, 2 MB)</a></li> 
+ <li><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec3/Exercise%20Session%203.pdf" target="_blank" class="eth-link">Exercises (PDF, 170 KB)</a></li> 
+ <li>Files: <a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec3/smb_common_v2.zip" target="_blank" class="eth-link">smb_common_v2.zip (ZIP, 2.3 MB)</a></li> 
+ <li>Files: <a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec3/singlePillar.world" target="_blank" class="eth-link">singlePillar.world (WORLD, 1 KB)</a></li> 
+ <li><a href="https://www.youtube.com/watch?v=WcArOQuJRDI" class="eth-link">Video Recording</a><br> </li> 
+</ul></td></tr><tr><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-3-cell-0" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-0">01.03.<br></td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-3-cell-1" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-1"><ul> 
+ <li>ROS services</li> 
+ <li>ROS actions (actionlib)</li> 
+ <li>ROS time</li> 
+ <li>ROS bags</li> 
+ <li>Debugging strategies</li> 
+ <li>Introduction to ROS2<br> </li> 
+</ul></td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-3-cell-2" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-2"><ul> 
+ <li><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec4/ROS%20Course%20Slides%20Course%204.pdf" target="_blank" class="eth-link">Lecture Slides (PDF, 932 KB)</a></li> 
+ <li><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec4/Exercise%20Session%204.pdf" target="_blank" class="eth-link">Exercises (PDF, 283 KB)</a></li> 
+ <li>Files: <a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec4/smb_navigation.bag" target="_blank" class="eth-link">smb_navigation.bag (BAG, 158.9 MB)</a></li> 
+ <li><a href="https://www.youtube.com/watch?v=ZQezxGadsqw" class="eth-link">Video Recording</a><br> </li> 
+</ul></td></tr><tr><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-4-cell-0" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-0">05.03.</td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-4-cell-1" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-1"><ul> 
+ <li>Case study: Using ROS in complex real-world applications</li> 
+</ul></td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-4-cell-2" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-2"><ul> 
+ <li><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec5/Exercise%20Session%205.pdf" target="_blank" class="eth-link">Exercises (PDF, 67 KB)</a></li> 
+</ul> 
+<div>
+ <b>2021:</b>
+</div> 
+<ul> 
+ <li><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec5/ANYbotics_ROS_Case_Study_2021.pdf" target="_blank" class="eth-link">ANYbotics Case Study (PDF, 8.6 MB)</a></li> 
+ <li><a href="https://www.youtube.com/watch?v=3-Enj1gIDiQ" class="eth-link">Video Recording</a><br> </li> 
+</ul> 
+<div>
+ <b>2020:</b>
+</div> 
+<ul> 
+ <li><a title="ANYbotics Case Study" href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2020/ANYbotics_ROS_Case_Study_2020.pdf" target="_blank" class="eth-link">ANYbotics Case Study (PDF, 7.6 MB)</a></li> 
+</ul> 
+<div>
+ <b>2018:</b>
+</div> 
+<ul> 
+ <li><a href="https://youtu.be/5BkoGug8HhE" class="eth-link">Building a Legged Robot with ROS</a> <a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2019/case_study_2018_anymal.pdf" target="_blank" class="eth-link">slides (PDF, 11.5 MB)</a></li> 
+ <li><a href="https://youtu.be/-YSiJu7eNxk" class="eth-link">mANYpulator – Mobile Manipulation</a>&nbsp;<br> &nbsp;<a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2019/case_study_2018_manypulator.pdf" target="_blank" class="eth-link">slides (PDF, 2 MB)</a></li> 
+ <li><a href="https://youtu.be/ZDTSyDsgbzg" class="eth-link">Using ROS with other Simulators</a>&nbsp;<a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2019/case_study_2018_vortex.pdf" target="_blank" class="eth-link">slides (PDF, 1.6 MB)</a></li> 
+</ul> <b>2017:</b>
+<ul> 
+ <li><a href="https://vimeo.com/187696096" class="eth-link">ANYmal at the ARGOS Challenge</a>&nbsp;<a href="https://www.researchgate.net/publication/308953021_ANYmal_at_the_ARGOS_Challenge_-_Tools_and_Experiences_from_the_Autonomous_Inspection_of_Oil_Gas_Sites_with_a_Legged_Robot" class="eth-link">slides</a></li> 
+</ul></td></tr></tbody> <!----></table>

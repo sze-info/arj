@@ -4,6 +4,20 @@ title: Linkek
 has_children: false
 ---
 
+{: .no_toc }
+
+<details open markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+---
+
+
 # Linkek
 
 ## Linux ismeretek

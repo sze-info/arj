@@ -10,7 +10,7 @@ has_children: true
 
 Kálmán Rudolf Emil (Budapest, 1930. május 19. – Gainesville, 2016. július 2.) amerikai magyar villamosmérnök, matematikus, a műszaki tudományok doktora, a Magyar Tudományos Akadémia tiszteleti tagja. Munkássága a matematikai eljárások folyamatirányítási és szabályozáselméleti alkalmazásában, az operációkutatásban jelentős, többek között a nevéhez fűződik a Kálmán-szűrő elvének kidolgozása.
 
-<img src="../_images/rudolf-kalman.jpg" width=297/>
+<img src="rudolf-kalman.jpg" width=297/>
 
 Newton's Equations of Motion
 

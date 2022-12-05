@@ -41,6 +41,8 @@ Hogy ne kelljen minden terminalban megadnunk a workspace-t, tegyük azt is a bas
 echo "source ~/sim_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
-A csomagok telepítését és a workspace létrehozását bemutató videó itt érhető el: https://youtu.be/cXABl5jbmVc
+A csomagok telepítését és a workspace létrehozását bemutató videó itt érhető el: [youtu.be/cXABl5jbmVc](https://youtu.be/cXABl5jbmVc)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cXABl5jbmVc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Később, ha a verseny után már nem szükséges, a `bashrc`-ből törölhető ez a sor, nyissuk meg vs code-ból: `code ~/.bashrc`, majd a fájl utolsó soraiból töröljük a korábban hozzáadottat. 

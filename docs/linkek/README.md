@@ -48,7 +48,7 @@ Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült 
 
 ### TU München
 
-- Github link: https://github.com/TUMFTM/Lecture_ADSE
+- Github link: [github.com/TUMFTM/Lecture_ADSE](https://github.com/TUMFTM/Lecture_ADSE)
 
 |Number| Session       | Description   | Video | Lecture Slides|
 |:----:| ------------- |:-------------| :-----:|:-----:|
@@ -95,7 +95,7 @@ Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült 
 - [F1/10 ROS](https://linklab-uva.github.io/autonomousracing/page3.html#content10-u)
 
 ### ETH Zürich
-- Programming for Robotics - ROS: Péter Fankhauser, Dominic Jud, Martin Wermelinger, Prof. Dr. Marco Hutter. https://rsl.ethz.ch/education-students/lectures/ros.html
+- Programming for Robotics - ROS: Péter Fankhauser, Dominic Jud, Martin Wermelinger, Prof. Dr. Marco Hutter. [rsl.ethz.ch/education-students/lectures/ros.html](https://rsl.ethz.ch/education-students/lectures/ros.html)
 
 <table><!----> <thead class=""><tr><th id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-0" scope="col" style="text-align: left; vertical-align: middle;"><div><span style="font-size: 12px; font-weight: normal;"><b>2021</b></span></div></th><th id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-1" scope="col" style="text-align: left;"><div><span style="font-size: 12px; font-weight: normal;">Topics</span></div></th><th id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-2" scope="col" style="text-align: left;"><div><span style="font-size: 12px; font-weight: normal;">Material</span></div></th></tr></thead> <tbody><tr><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-0-cell-0" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-0">22.02.<br></td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-0-cell-1" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-1"><ul> 
  <li>ROS architecture &amp; philosophy</li> 

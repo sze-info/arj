@@ -1,3 +1,9 @@
+---
+layout: default
+title: Transzformációk
+has_children: true
+---
+
 # Transzformációk
 
 ROS-ben (és álatalában robotikában) a transformok határozzák meg a hogy, mi merre található az adott vonatkozatási ponttól (frame).

@@ -55,6 +55,10 @@ mermaid:
   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
   version: "9.2.2"
 
+# Sort order for navigation links
+# nav_sort: case_insensitive # default, equivalent to nil
+nav_sort: case_sensitive # Capital letters sorted before lowercase
+
 logo: "docs/_images/arj.png"
 
 # https://scds.github.io/github-pages/lesson3.html

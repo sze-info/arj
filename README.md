@@ -13,3 +13,7 @@ There are many courses who inspired this lecture, some parts were referenced or 
 - Thank you for "Autonomous Driving Software Engineering" by the Institute of Automotive Technology (Prof. Dr.-Ing. Lienkamp, Phillip Karle), **TU München**. GPL-3.0 license.
 - Thank you for TH Ingolstadt, Autonomous Vehicle Engineering Faculty of Electrical Engineering and Computer Science.
 - Thank you **Stanford** University Stanford University - Introduction to Robotics by Prof. Oussama Khatib.
+
+## Sources
+
+1. Korondi Péter: "Rendszertechnika: Integrált gépészeti és villamos rendszerek leírása irányításelméleti megközelítésben", egyetemi jegyzet, Budapesti Műszaki és Gazdaságtudományi Egyetem, Mechatronika, Optika és Gépészeti Informatika tanszék, Budapest, 2016. december 27.

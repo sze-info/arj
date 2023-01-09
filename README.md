@@ -13,6 +13,9 @@ There are many courses who inspired this lecture, some parts were referenced or 
 - Thank you for "Autonomous Driving Software Engineering" by the Institute of Automotive Technology (Prof. Dr.-Ing. Lienkamp, Phillip Karle), **TU München**. [GPL-3.0 license](https://github.com/TUMFTM/Lecture_ADSE/blob/master/LICENSE.md).
 - Thank you for TH Ingolstadt, Autonomous Vehicle Engineering Faculty of Electrical Engineering and Computer Science.
 - Thank you **Stanford University** - Introduction to Robotics by Prof. Oussama Khatib.
+- Thank you **Stanford University** - CS231n: Convolutional Neural Networks for Visual Recognition. Andrej Karpathy. [MIT license](https://github.com/cs231n/cs231n.github.io/blob/master/LICENSE)
+- Thank you **Autoware** Foundation for the software and the documentation. [Apache License 2.0](https://github.com/autowarefoundation/autoware-documentation/blob/main/LICENSE).
+
 
 ## Sources
 

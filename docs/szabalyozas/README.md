@@ -4,14 +4,22 @@ title: Szabályozás
 has_children: true
 ---
 
-# Szabályozás
+{: .no_toc }
 
-Tartalom:
-1. Motiváció a zárthurkú szabályozás mögött - bevezetés
-2. Architekurális áttekintés, visszatekintés
-3. Szabályzási alapok
-4. Járműirányítási megoldások
-5. Aktuátorok
+<details open markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+---
+
+
+
+# Szabályozás
 
 ## 1. Motiváció a zárthurkú szabályozás mögött - bevezetés
 
@@ -25,9 +33,10 @@ Ez az egyszerű példa legtöbb részét a tervezési és szabályzási komponen
 Az utolsó pontot szokás ún. **előrecsatolt ágnak** is hívni (lásd 3. alfejezet), avagy **nyílthurkú szabályzásnak** (amennyiben nincs semmilyen infónk az érzékelésről).
 Egy nagyon durva összehasonlítást tartalmaz az 1. Ábra. Képzeljünk el egy helyzetet, amikor nincs információnk arról, milyen gyorsan megy a jármű, csupán a pedált tudjuk kezelni. A feladat hogy álló helyből gyorsítva elérjük a 90 km/h sebességet, majd ezt a sebességet tartsuk. Ha nem tudjuk, épp mennyivel megyünk, honnan tudjuk, hogy kell-e még nyomni a pedált avagy nem? Ilyenkor arra tudunk alapozni, hogy ismerjük az útviszonyokat (pl. sík talaj, aszfaltos út), ismerjük az autónkat (milyen motor, milyen nyomatékviszonyok...stb.). Így *nagyjából* meg tudjuk határozni, milyen hosszan kell nyomni a gázpedált, majd amikor *nagyjából* elértük a sebességet, mennyire kell ott tartani a pedálon a lábunkat, hogy ne lassuljunk, ne gyorsuljunk. Az eredmény valószínűleg hasonlítani fog a kívánt sebességgörbéhez, de messze nem lesz pontos. Hiszen pontatlanul ismerjük az utat, a saját autónkat, befolyásolja a gyorsulást a hőmérséklet, emelkedő/lejtő, szembeszél...stb. Ezért általában nem, vagy nem csak ezt a **nyílthurkú** megközelítést használjuk, hanem minél pontosabb érzékelők segítségével *korrigáljuk* az általunk előre meghatározott pedál állásokat, és ezzel bármilyen **zavar** hatását le tudjuk kezelni. Ez utóbbi megközelítést nevezzük **zárthurkú szabályzásnak**, az érzékelésből kapott információkat pedig **visszacsatolásnak**.
 
+{: .highlight }
 A magyar terminológiában szokás a *nyílthurkú szabályzást* **vezérlésnek**, a *zárthurkú szabályzást* röviden csak **szabályzásnak** hívni. A kettőt együtt pedig **irányításnak**. Az angol terminológia ezzel szemben mindkettőt **controlnak**, azon belül is **closed loop controlnak** illetve **open loop controlnak** hívja. A visszacsatolást **feedbacknek**, az előrecsatolást **feed-forwardnak** szokás hívni. 
 
-![image info](../_images/control/arj_control_01.png)
+![image info](arj_control_01.png)
 
 *1. Ábra: a zárthurkú szabályozás mögötti motiváció. Forrás: Autonomous Driving Software Engineering - Lecture 08: Control*
 
@@ -41,7 +50,7 @@ Ahogyan azt a korábbi fejezetekben is láttuk, a teljes járműirányítási l�
 
 Ez a fejezet a szabályzásról szól. A szabályzások alapjairól a 3. alfejezetben olvashatunk. A szabályzó rétegnek a tervezés biztosítja a bemenetet. Így - némileg kiegészítve - vessünk egy pillantást az architektúrára! Ezt a 2. Ábra mutatja.
 
-![image info](../_images/control/arj_control_02.svg)
+![image info](arj_control_02.svg)
 *2. Ábra: a legfőbb tervezési és szabályzási rétegek az architektúrában.*
 
 A szabályzó réteg általában több szinre bomlik. Minimum két ilyen szintet megkülönböztetünk:
@@ -111,16 +120,16 @@ Ezen fogalmak összessége elegendő a járműirányítási alapok megértéséh
 - a szabályzás energiája.
 
 A szabályzási láncot a 3. Ábrán látható módon írhatjuk fel. A következő jelöléseket használjuk:
-- $r(t)$: a célérték, avagy referenciajel
-- $y(t)$: a visszacsatolt érték.
-- $m(t)$: a valós rendszeren mért érték. Megjegyzés: sokszor az érzékelőt ideálisnak tekintjük, így $y(t)=m(t)$, és így a visszacsatolt érték egyben az absztrakt rendszer kimenete.
-- $e(t)$: hibajel, a szabályzó bemenete.
-- $i(t)$: a szabályzó által meghatározott beavatkozó jel.
-- $f(t)$: előrecsatolt ág.
-- $u(t)$: a rendszer bemenete
-- $d(t)$: külső zavarok.
+- $$r(t)$$: a célérték, avagy referenciajel
+- $$y(t)$$: a visszacsatolt érték.
+- $$m(t)$$: a valós rendszeren mért érték. Megjegyzés: sokszor az érzékelőt ideálisnak tekintjük, így $$y(t)=m(t)$$, és így a visszacsatolt érték egyben az absztrakt rendszer kimenete.
+- $$e(t)$$: hibajel, a szabályzó bemenete.
+- $$i(t)$$: a szabályzó által meghatározott beavatkozó jel.
+- $$f(t)$$: előrecsatolt ág.
+- $$u(t)$$: a rendszer bemenete
+- $$d(t)$$: külső zavarok.
 
-<img src="../_images/control/arj_control_03.svg" width="600" height="260" /> <br>
+<img src="arj_control_03.svg" width="600" height="260" /> <br>
 *3. Ábra: a szabályzási lánc blokkdiagramja.*
    
 A szabályzó feladata, hogy a bemenetén keletkező hibát minimalizálja. A teljes szabályzási lánc feladata, hogy a valós fizikai rendszer kimenete a lehető legnagyobb pontossággal kövesse le a referencia jelet. 
@@ -147,89 +156,89 @@ Az egyenletünk így egy koncentrált tömegpont lineáris mozgásává egyszer�
 - a jármű sebességarányos súrlódása.
 
 Newton II. tételének megfelelően írjuk fel a következő dinamikai egyensúlyi egyenletet: <br>
-$\ddot I = \sum F$ <br>
+$$\ddot I = \sum F$$ <br>
 Azaz: <br>
-$m*\ddot v(t) = F_{prop}(t) - F_{aero}(t) - F_{fric}(t)$  <br>
+$$m*\ddot v(t) = F_{prop}(t) - F_{aero}(t) - F_{fric}(t)$$  <br>
 Láthatjuk, hogy mind a bemenet, mind a kimenet szerepel az egyenletünkben, így valóban megtaláltuk a rendszer modelljét. Alakítsuk tovább, hogy *csak* a ki- és bemenet szerepeljen benne:<br>
-$m*\ddot v(t) = F_{prop}(t) - \frac{1}{2}*v(t)^2*\rho*c*A - v(t)*b$ <br>
+$$m*\ddot v(t) = F_{prop}(t) - \frac{1}{2}*v(t)^2*\rho*c*A - v(t)*b$$ <br>
 
 Ebben a formában az időben változó jelek a be- és kimenet (a sebesség illetve a hajtóerő), és vannak időben állandó (időinvariáns) paraméterek:
-- $\rho$: a levegő sűrűsége
-- $A$: homlokfelület mérete
-- $c$: jármű légellenállási együtthatója
-- $b$: Coloumb-féle súrlódási tényező
+- $$\rho$$: a levegő sűrűsége
+- $$A$$: homlokfelület mérete
+- $$c$$: jármű légellenállási együtthatója
+- $$b$$: Coloumb-féle súrlódási tényező
 
-<img src="../_images/control/arj_control_04.svg" width="800" height="260" /> <br>
+<img src="arj_control_04.svg" width="800" height="260" /> <br>
 *4. Ábra: a jármű modellezett erőegyensúlya*
 
 
 Ahhoz, hogy megkapjuk a sebességet, mint választott kimenet, meg kell oldanunk a differenciálegyenletet. Ezt Simulinkben numerikusan végezzük el. A megoldást az 5. Ábra mutatja.
 
-<img src="../_images/control/arj_control_06.png" width="400" height="130" /> <br>
+<img src="arj_control_06.png" width="400" height="130" /> <br>
 *5. Ábra: a differenciálegyenlet numerikus megoldása.*
 
 A teljes szabályzási lánc blokkdiagramját a 6. Ábra mutatja. Ezen az ábrán nem használjuk a visszacsatolt ágat. A kezdő sebességet 20 m/s-ra állítottuk. A hajtóerő ez esetben nulla, így voltaképp a jármű tehetetlenségénél fogva gurul, és folyamatosan lassul a terheléssel arányosan. 
 
-<img src="../_images/control/arj_control_05.png" width="800" height="260" /> <br>
+<img src="arj_control_05.png" width="800" height="260" /> <br>
 *6. Ábra: a teljes szabályzási lánc blokkdiagramja.*
 
 A következő paraméter értékeket választottuk a szimulációhoz:
-- $A = 1.2m^2$
-- $b = 10 Ns/m$
-- $c = 0.4$
-- $\rho = 1 kg/m^3$
-- $m = 1250 kg$
+- $$A = 1.2m^2$$
+- $$b = 10 Ns/m$$
+- $$c = 0.4$$
+- $$\rho = 1 kg/m^3$$
+- $$m = 1250 kg$$
 
 A 7. Ábrán látható a futtatás eredménye. 100s-ig futott a szimuláció, ez idő alatt 20 m/s-ról nagyjából 7 m/s-ra lassul a jármű.
 
-<img src="../_images/control/arj_control_07.png" width="400" height="300" /> <br>
+<img src="arj_control_07.png" width="400" height="300" /> <br>
 *7. Ábra: a teljes szabályzási lánc blokkdiagramja.*
 
 A 8. Ábrán a visszacsatolt szabályzónak egy arányos szabályzót (P szabályzót) választunk, amely a hibával arányosan határozza meg a beavatkozó jelet. Az erősítést 100-ra választjuk, azaz 1 m/s sebességhiba 100N hajtóerőt eredményez. A kezdő sebesség 15 m/s, a célsebesség 20 m/s, így kezdetben 500N hajtóerőnk lesz.
 
-<img src="../_images/control/arj_control_08.png" width="300" height="80" /> <br>
+<img src="arj_control_08.png" width="300" height="80" /> <br>
 *8. Ábra: arányos szabályzó, 100-as erősítéssel.**
 
 A 9. Ábrán látható a szabályzó karakterisztikája, P szabályzóval, 100-as erősítéssel. A maradandó hiba relatíve nagy (több mint 10%). Ennek oka, hogy az arányos szabályzó a hibával arányos bemeneti jelet állít elő, és mivel a járműre hat ellentétes irányú erő, így a szabályzó ezzel fog egyensúlyt tartani. Amennyiben növeljük az erősítést, úgy csökken az állandósult állapotbeli hiba. Elméletben végtelen nagy erősítés nullára csökkenti ezt a hibát, viszont a végtelen erősítés végtelen beavatkozó jelet jelent, ami nem megvalósítható. A gyakorlatban ennél sokkal hamarabb elérjük a korlátokat, hiszen az aktuátorok csak véges erő kifejtésére képesek. Ezt a szabályzó megtervezésénél figyelembe kell venni.
 
-<img src="../_images/control/arj_control_09.png" width="400" height="300" /> <br>
+<img src="arj_control_09.png" width="400" height="300" /> <br>
 *9. Ábra: arányos szabályzó karakterisztikája.*
 
 Az állandósult állapotbeli hibát úgy is eliminálhatjuk, ha az erősítés mellett egy olyan szabályzó tagot is hozzáadunk, ami "észre veszi", ha sokáig adott hiba áll fent, és növeli ennek megfelelően a beavatkozó jelet. Minél tovább áll fent a hiba, annál jobban növeljük a beavatkozó jelet. Ez gyakorlatilag a hiba időbeli integráljával arányos bevatkozó tagot jelent. Ezt szokás I tagnak nevezni. Az így kialakuló szabályzót pedig PI szabályzónak nevezni. A szabályzó elrendezését 10. Ábra mutatja, a kimeneti karakterisztikát a 11. Ábra. Láthatjuk, hogy a hiba valóban eltűnt, ugyanakkor a kezdeti tranziens szakasz is megváltozott. Megjelent a túllendülés, ezzel együtt a célérték körüli oszcilláció, továbbá a beállás is lassabb lett.
 
-<img src="../_images/control/arj_control_10.png" width="300" height="120" /> <br>
+<img src="arj_control_10.png" width="300" height="120" /> <br>
 *10. Ábra: arányos szabályzó 100-as erősítéssel és integrátor, 10-es erősítéssel.*
 
-<img src="../_images/control/arj_control_11.png" width="400" height="300" /> <br>
+<img src="arj_control_11.png" width="400" height="300" /> <br>
 *11. Ábra: arányos szabályzó 100-as erősítéssel és integrátor, 10-es erősítéssel.*
 
 A fenti beállási oszcillációt és túllendülést javíthatjuk a paraméterek megváltoztatásával, illetve egy olyan szabályzó tag hozzáadásával, amely a hiba változására reagál. Ez gyorsítja a beállást, és a túllendülést is gyorsabban kompenzálja. Ez gyakorlatilag a hiba változásával arányos tagot jelent, ami egyenértékű a hiba deriváltjának figyelembevételével. Ezt a tagot szokás D tagnak nevezni, a kialakuló szabályzót PID szabályzónak nevezni. Ugyanakkor a D tag erősítését óvatosan kell megválasztani, mert könnyen instabillá teheti a rendszert. A szabályzó felépítését a 12. Ábra mutatja, a karakterisztikáját a 13. Ábra.
 
-<img src="../_images/control/arj_control_12.png" width="300" height="160" /> <br>
+<img src="arj_control_12.png" width="300" height="160" /> <br>
 *12. Ábra: arányos szabályzó 100-as erősítéssel és integrátor, 10-es erősítéssel, D tag 10-es erősítéssel.*
 
-<img src="../_images/control/arj_control_13.png" width="400" height="300" /> <br>
+<img src="arj_control_13.png" width="400" height="300" /> <br>
 *13. Ábra: arányos szabályzó 100-as erősítéssel és integrátor 10-es erősítéssel, D tag 10-es erősítéssel.*
 
 Empirikus úton, figyelembe véve a túllendülés mértékét, a beállási időt és az állandósult állapotbeli hibát, válasszuk a következő paraméter értékeket:
-$P=175$
-$I=10$
-$D=50$
+$$P=175$$
+$$I=10$$
+$$D=50$$
 Ezzel a beállás már nagyon szép, az eredményt a 14. Ábra mutatja.<br>
-<img src="../_images/control/arj_control_14.png" width="400" height="300" /> <br>
+<img src="arj_control_14.png" width="400" height="300" /> <br>
 *14. Ábra: arányos szabályzó, 170-es erősítéssel, I tag 10-es erősítéssel, D tag 50-es erősítéssel.*
 
 A 15. Ábrán látható, milyen hatása van, ha hozzádunk egy 3°-os lejtő által keltett extra gyorsító erőt. A túllendülés nagyobb lesz, hiszen a szabályzót egy olyan modellel állítottuk be, amely sík talajon mozgó autót feltételez.
 
-<img src="../_images/control/arj_control_15.png" width="400" height="300" /> <br>
+<img src="arj_control_15.png" width="400" height="300" /> <br>
 *15. Ábra: lejtő hatása a zárt hurkú szabályzóra.*
 
 Ezt kompenzálhatjuk, ha a lejtővel arányos előrecsatolt ágat alkotunk meg. Azonban a lejtő becslése nehéz, általában a jármű mozgása alapján következtethetünk rá, ami így csak késve jelzi a lejtő mértékét. Adjunk hozzá egy 1 s-mal eltolt, 5%-os hibával rendelkező lejtőkompenzációt. A blokkdiagramot a 16. Ábra, az eredményt a 17. Ábra mutatja.
 
-<img src="../_images/control/arj_control_16.png" width="600" height="180" /> <br>
+<img src="arj_control_16.png" width="600" height="180" /> <br>
 *16. Ábra: előrecsatolt ággal kiegészített szabályzó rendszer.*
 
-<img src="../_images/control/arj_control_17.png" width="400" height="300" /> <br>
+<img src="arj_control_17.png" width="400" height="300" /> <br>
 *17. Ábra: előrecsatolt ág hatása a szabályzóra.*
 
 ### Összegzés
@@ -260,25 +269,30 @@ Mivel a jármű automatikus irányítási feladata nagyban hasonlít az emberek 
 Az inverz modelleket angol terminológiában *pursuit* modelleknek is szokás hívni, amely a legjobban talán *előre tekintő*, *előre toló*nak lehet fordítani. A lényege, hogy a kormányzáshoz szükséges célértéket az két információ alapján határozza meg:
 - egy előretekintési pontban mi a jármű célállapota?
 - a járműről előzetesen felállított modell.
-Ezt felfoghatjuk úgy is, mint egy előrecsatolt szabályzási ág, avagy egy nyílthurkú szabályzás, azaz vezérlés. Amennyiben ez utóbbi áll fent (azaz nincs visszacsatolt ág), azt nevezzük *tisztán előre tekintő*, ismertebb angol nevén **pure-pursuit** irányításnak. A pure-pursuit megoldás az egyik legrégebbi irányítási megoldás a járművek terén. Már az 1980as években a Robotics Institute of Pittsburgh fejlesztette ki [4]. A lényege, hogy egy megadott előretekintési távolságban (ami az irányítás legfontosabb paramétere) meghatározzuk a jármű kívánt pozícióját (pl. a korábban tervezett trajektória alapján). Ennek a pontnak a koordinátái alapján meg tudjuk határozni, milyen görbületű **köríven** kell haladnunk ahhoz, hogy az aktuális pontból a célpontba érjünk. Fontos, hogy a pure-pursuit megoldás mindig köríveket használ. A geometriai összefüggéseket a 18. Ábra szemlélteti.
+Ezt felfoghatjuk úgy is, mint egy előrecsatolt szabályzási ág, avagy egy nyílthurkú szabályzás, azaz vezérlés. Amennyiben ez utóbbi áll fent (azaz nincs visszacsatolt ág), azt nevezzük *tisztán előre tekintő*, ismertebb angol nevén **pure-pursuit** irányításnak. 
+
+{: .note }
+A pure-pursuit megoldás az egyik legrégebbi irányítási megoldás a járművek terén. Már az 1980as években a Robotics Institute of Pittsburgh fejlesztette ki [4]. A lényege, hogy egy megadott előretekintési távolságban (ami az irányítás legfontosabb paramétere) meghatározzuk a jármű kívánt pozícióját (pl. a korábban tervezett trajektória alapján). 
+
+Ennek a pontnak a koordinátái alapján meg tudjuk határozni, milyen görbületű **köríven** kell haladnunk ahhoz, hogy az aktuális pontból a célpontba érjünk. Fontos, hogy a pure-pursuit megoldás mindig köríveket használ. A geometriai összefüggéseket a 18. Ábra szemlélteti.
 Egyszerű trigonometriai megfontolások alapján a következő összefüggést írhatjuk fel az előretekintési pont és a célgörbület között:
 <br>
-$\kappa_{target}=\frac{2x}{l^2}$
+$$\kappa_{target}=\frac{2x}{l^2}$$
 
 Mint látjuk, a jármű szintjén megfogalmaztunk egy mennyiséget (görbület) a bemeneti trajektória alapján, így elméletben teljesítettük a járműirányítás fő feladatát. Azonban a megvalósítás során általában olyan mennyiséget állítunk elő, amely már az aktuátorok szintjén értelmezhető. Ehhez használjuk a jármű modelljét: összefüggést adunk meg a célgörbület és kormányszög között. A leggyakrabban a jármű kinematikai bicikli modelljét használjuk, azonban ez nagyobb sebességek esetén (>10 km/h) nagyon pontatlan. A kinematikai bicikli modell összefüggéseit felhasználva megkaphatjuk a kormányszöget:
 <br>
-$\delta_f=atan(L_w*\kappa)$
+$$\delta_f=atan(L_w*\kappa)$$
 <br>
-Ahol $L_w$ a jármű tengelytávja. <br>
+Ahol $$L_w$$ a jármű tengelytávja. <br>
 Feltételezzük a modellben, hogy a jármű elsőkerék-kormányzású. A kapott szög az út-kerék szög, amely a kormánymű geometriájának függvényében átszámítható pl. szervó motor szöggé, és így közvetlenül megvalósítható.
 
-<img src="../_images/control/arj_control_18.png" width="400" height="300" /> <br>
+<img src="arj_control_18.png" width="400" height="300" /> <br>
 *18. Ábra: a pure pursuit szabályzó geometriai összefüggései.*
 
 A 19. Ábrán láthatjuk, milyen hatással van az előretekintési távolság a jármű viselkedésére. Amennyiben túl közeli pontot választunk, a jármű hajlamos oszcillációra (ez hasonló hatás, mint egy PID szabályzó túl nagy P erősítéssel). A túl nagy előretekintési távolság esetén a reakció lassul, de pl. élesebb kanyarokban a jármű hajlamos lesz *kanyarlevágásra*.
 Szokás az előretekintési távot adaptívan, pl. a sebesség függvényében megadni. Ilyenkor gyakorlatilag előretekintési időről beszélünk.
 
-<img src="../_images/control/arj_control_19.png" width="300" height="65" /> <br>
+<img src="arj_control_19.png" width="300" height="65" /> <br>
 *19. Ábra: a pure pursuit előretekintési távolságának hatása a jármű viselkedésére*
 
 A pure-pursuit modellek továbbfejlesztett változatairól pl. a [2] és [3] cikkben olvashatunk.
@@ -298,29 +312,29 @@ Mivel itt egy véges hosszúságú időhorizonton szeretnénk az optimális mozg
 A szabályzás energiája voltaképp a beavatkozó jel vektorának amplitúdójával van összefüggésben. Azaz úgy szeretnénk elérni minél jobb eredményt, hogy közben alacsony jellel hatunk a rendszerre (pl. minél kevésbé szeretnénk gyorsulni, vagy a kormányra nyomatékot kifejteni...stb.). Ez a 2. kritérium, amely ellentétes igényt jelent a szabályzásra nézve, mint az 1. kritérium.<br>
 Ezeket a szabályzókat szokás **Modell Prediktív Szabályzóknak (Model Predictive Controls, MPC)** is hívni. A következő egyenlet egy példa arra, hogyan írhatjuk fel a megoldandó költségfüggvényt:
 <br>
-$J(k)=\sum_{i=1}^{N_p}\|y(k+i)-y_{ref}(k+i)\|^2_M + \sum_{i=1}^{N_c-1}\|\Delta U(k+i)\|^2_N$
+$$J(k)=\sum_{i=1}^{N_p}\|y(k+i)-y_{ref}(k+i)\|^2_M + \sum_{i=1}^{N_c-1}\|\Delta U(k+i)\|^2_N$$
 <br>
 Ahol:
-- $N_p$: a predikciós horizont, számítási ciklusban kifejezve (a modell figyelembe vétele)
-- $k$: az akutális számítási ciklus
-- $y(k+i)$: az $i.$ ciklusban a modell által becsült jármű keresztirányú pozíció
-- $y_{ref}(k+i)$: az $i.$ ciklusban a referencia pozíció (cél pozíció)
-- $N_c$: a szabályzási horizont (a bemenet figyelembe vétele)
-- $\Delta U$: a bemeneti vektor növekmény a szabályzási horizonton
-- $M$ és $N$: a súlymátrixok a hibára és a bemeneti energiára.
+- $$N_p$$: a predikciós horizont, számítási ciklusban kifejezve (a modell figyelembe vétele)
+- $$k$$: az akutális számítási ciklus
+- $$y(k+i)$$: az $$i.$$ ciklusban a modell által becsült jármű keresztirányú pozíció
+- $$y_{ref}(k+i)$$: az $$i.$$ ciklusban a referencia pozíció (cél pozíció)
+- $$N_c$$: a szabályzási horizont (a bemenet figyelembe vétele)
+- $$\Delta U$$: a bemeneti vektor növekmény a szabályzási horizonton
+- $$M$$ és $$N$$: a súlymátrixok a hibára és a bemeneti energiára.
 
 Ilyen szabályzókra találunk példát [1], [5-7] irodalmakban.
 Az MPC-k előnye, hogy nagyon nagy pontossággal, stabil szabályzást adnak, amennyiben az alkalmazott modell nagy pontosságú. Ugyanakkor ez is a hátránya, hiszen ha a modell nem megfelelő, akkor a hiba exponenciálisan elnőhet. 
 Erre látunk példát a 20-22. Ábrán. Mindegyik szimulációban egy kinematikai bicikli modellt használtunk az MPC megtervezéséhez. A PID szabályzó a pozícióhibát minimalizálja. A szimulációban a jármű dinamikai modelljét alkalmaztuk, mint valós fizikai rendszer. Látható, hogy 5 m/s-on az MPC egyértelműen jobban teljesít, mint a PID szabályzó, sokkal pontosabb és stabilabb is. Azonban 2 m/s-on az MPC szétesik, az alacsony sebesség miatt a modell összefüggések nem lesznek érvényesek. Hasonló figyelhető meg a 22. Ábrán is.
 A 21. Ábrán azt látjuk, hogy 10 m/s-ig az MPC és a PID is jól teljesít, az MPC továbbra is jobb, mint a PID. Azonban 10 m/s felett a dinamikai hatások felerősdnek, és a kinematikai modell nem megfelelő. Így az MPC instabillá válik, míg a PID - bár jelentős hibával - továbbra is stabil működésre képes.
 
-<img src="../_images/control/arj_control_20.png" width="500" height="350" /> <br>
+<img src="arj_control_20.png" width="500" height="350" /> <br>
 *20. Ábra: MPC és PID szabályzó összevetése, kinematikai modell esetén, kanyarodás, alacsony sebességeken*
 
-<img src="../_images/control/arj_control_21.png" width="500" height="350" /> <br>
+<img src="arj_control_21.png" width="500" height="350" /> <br>
 *21. Ábra: MPC és PID szabályzó összevetése, kinematikai modell esetén, kanyarodás, magasabb sebességeken*
 
-<img src="../_images/control/arj_control_22.png" width="500" height="350" /> <br>
+<img src="arj_control_22.png" width="500" height="350" /> <br>
 *22. Ábra: MPC és PID szabályzó összevetése, kinematikai modell esetén, körpálya, alacsony sebességeken*
 
 ### Zárthurkú modellek
@@ -328,26 +342,26 @@ A 21. Ábrán azt látjuk, hogy 10 m/s-ig az MPC és a PID is jól teljesít, az
 Az ilyen típusú modellek, ahogy a neve is sugallja, a PID szabályzók logikáján alapszanak. Jellemzően egy vagy több visszacsatolt mennyiség hibáját minimalizálják. Ilyen modellekre találunk példát a [3] és [8] irodalomban. 
 A 23. Ábrán a [3]-ban bemutatott példa illusztrációját látjuk. Eszerint kijelölünk kettő előretekintési pontot: egy közelit (a jármű előtt) és egy távolit (a horizonton). Hasonlóan a pure-pursuit megoldásokhoz, itt is azt vizsgáljuk, hogyan juthatunk el a jelenlegi pozícióból a távoliba. Azonban nem egy egyszerű görbületszámolással, hanem a hiba minimalizálásával érjük ezt el, a következő egyenlet szerint:
 <br>
-$\phi=k_f\dot\Theta_f + k_n\dot\Theta_n + k_i\Theta_n$
+$$\phi=k_f\dot\Theta_f + k_n\dot\Theta_n + k_i\Theta_n$$
 <br>
 Ahol:
-- $\dot\Theta_f$ és $\dot\Theta_n$ a távoli és a közeli pont hozzánk viszonyított irányának megváltozása (szögsebessége)
-- $\Theta_n$ a közeli pont iránya hozzánk képest (szöge)
-- $k$ tagok: súlyok.
-- $\phi$: az út kerék szög.
+- $$\dot\Theta_f$$ és $$\dot\Theta_n$$ a távoli és a közeli pont hozzánk viszonyított irányának megváltozása (szögsebessége)
+- $$\Theta_n$$ a közeli pont iránya hozzánk képest (szöge)
+- $$k$$ tagok: súlyok.
+- $$\phi$$: az út kerék szög.
 
 Ez az egyenlet felírás voltaképp egy minimalizálása a szög hibáknak, hiszen a cél, hogy mindig *irányba* álljunk. A visszacsatolás a környezet érzékelésből jön. A kimenet az út kerék szög.
 
-<img src="../_images/control/arj_control_23.png" width="300" height="80" /> <br>
+<img src="arj_control_23.png" width="300" height="80" /> <br>
 *23. Ábra: a dual-point irányítási megoldás szemléltetése*
 
 A 24. Ábrán a [8]-ban ismertetett megoldást látjuk. A lényege, hogy több egymásba ágyazott PID szabályzó segítségével a pozíció hibát minimalizálja. Ehhez a szabályzási feladatot szétbontja egy alacsony frekvenciás szabályzásra (pozíció hiba) és egy magasfrekvenciás szabályzásra (kormányszög hiba). Az átviteli függvények egy-egy szabályzót testesítenek meg, sorban a következőket jelentik:
-- $G_c$: a pozíció szabályzása egy PI szabályzóval
-- $G_L$: az emberi szabályzás késése (reakcióideje)
-- $G_NM$: a neuromotoros szabályzás, ahogyan az emberek a kormányt mozgatják. Ennek dinamikája nagyban függ az emberek izomszerkezetétől.
-- $G_{P1}$ és $G_{P2}$: a visszacsatolásba illesztett *érzékelő modellek*. Ezek reprezentálják az ember érzékelési dinamikáját, sorban a kormányon lévő nyomaték és a kormány szög tekintétben.
+- $$G_c$$: a pozíció szabályzása egy PI szabályzóval
+- $$G_L$$: az emberi szabályzás késése (reakcióideje)
+- $$G_NM$$: a neuromotoros szabályzás, ahogyan az emberek a kormányt mozgatják. Ennek dinamikája nagyban függ az emberek izomszerkezetétől.
+- $$G_{P1}$$ és $$G_{P2}$$: a visszacsatolásba illesztett *érzékelő modellek*. Ezek reprezentálják az ember érzékelési dinamikáját, sorban a kormányon lévő nyomaték és a kormány szög tekintétben.
 
-<img src="../_images/control/arj_control_24.png" width="500" height="300" /> <br>
+<img src="arj_control_24.png" width="500" height="300" /> <br>
 *24. Ábra: egy teljes zárthurkú szabályzó, egyesítve a kormányszög szabályzással*
 
 ### Összefoglalás

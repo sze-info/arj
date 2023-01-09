@@ -28,6 +28,7 @@ has_children: false
 - ROS training - 0.3 Using the Terminal - [[eng](https://industrial-training-master.readthedocs.io/en/melodic/_source/prerequisites/The-Linux-Terminal.html)]
 - Terminal kezelése - [[hun](https://github.com/horverno/sze-academic-rpi/blob/master/linuxtut.md)]
 - 60 Linux Commands you need to know [[video, eng](https://www.youtube.com/watch?v=gd7BXuUQ91w)]
+- The 50 Most Popular Linux & Terminal Commands, freeCodeCamp [[video, eng](https://youtu.be/ZtqBQ68cfJc)]
 - Git kezelése:
   - Beadandó leírás, Git és GitHub - [[hun](https://github.com/horverno/sze-academic-rpi/blob/master/gittut.md)] 
   - GitHub first-contributions magyar fordítás - [[hun](https://github.com/firstcontributions/first-contributions/blob/master/translations/README.hu.md)]

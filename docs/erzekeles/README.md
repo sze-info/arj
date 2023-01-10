@@ -37,3 +37,9 @@ LIDAR gyártókat, dataseteket, algoritmusokat tartlamazó gyűjtemény: [github
 ## Radar
 
 ## IMU
+
+## GNSS (GPS)
+
+A [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation) (global navigation satellite system) globális szatelit-alapú navigációs rendszert jelent, köznapi szóhasználatban ezt szokás GPS-nek nevezni. Ha pontosak szeretnénk lenni, akkor a GPS csupán az első ilyen technológia ezen kívül létezik még GLONASS, BeiDou, Galileo és QZSS rendszer is, ezek üzemeltetése különböző államokhoz / szövetségekhez kötődik.
+
+## CAN bus

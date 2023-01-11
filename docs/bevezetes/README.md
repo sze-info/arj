@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Bevezetés
-has_children: false
+has_children: true
 ---
 
 {: .no_toc }

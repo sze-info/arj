@@ -15,3 +15,13 @@ has_children: true
 | Windows 11 (natív)| |  | ROS2 humble|
 | Windows 10 (WSL2)|ROS melodic  | ROS noetic | ROS2 humble|
 | Windows 11 (WSL2)|ROS melodic | ROS noetic | ROS2 humble|
+
+
+Melodic
+{: .label .label-green }
+
+Noetic
+{: .label .label-purple }
+
+Humble
+{: .label .label-yellow }

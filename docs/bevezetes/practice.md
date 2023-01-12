@@ -30,7 +30,7 @@ Bevezetésképpen nézzük egy önvezető jármű jellemző adatait. Példaképp
 
 Töltsük le a fent vizualizált rosbag `.bag` fájlt és a Foxglove Studio layout-ot:
 
-[Rosbag letöltése 3.37 GB](https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EYl_ahy5pgBBhNHt5ZkiBikBoy_j_x95E96rDtTsxueB_A?download=1){: .btn .btn-red }
+[Rosbag letöltése 3.37 GB](https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EYl_ahy5pgBBhNHt5ZkiBikBoy_j_x95E96rDtTsxueB_A?download=1){: .btn .btn-green .mr-4 } 
 [Layout letöltése](https://jkk-research.github.io/data/leaf01foxglove.json){: .btn .btn-blue }
 
 {: .new }
@@ -38,7 +38,7 @@ A [https://jkk-research.github.io/#dataset](https://jkk-research.github.io/#data
 
 ## A Foxglove bemutatása
 
-Amíg a `.bag` töltődik, röviden mebutatjuk a Foxglove Studio programot. A Foxglove Studio egy nyílt forráskódú, robotikai adatokat vizualizáló és hibakereső eszköz. Elérhető számos módon:
+Amíg a `.bag` töltődik, röviden bemutatjuk a Foxglove Studio programot. A Foxglove Studio egy nyílt forráskódú, robotikai adatokat vizualizáló és hibakereső eszköz. Elérhető számos módon:
 - önálló asztali alkalmazásként futtatható
 - böngészőben hozzáférhető
 - saját domainen, önállóan hostolható

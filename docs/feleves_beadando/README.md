@@ -18,7 +18,7 @@ Az alábbi példák nem feltétlenül féléves munkának készültek, de annak 
 - 👍 Branch-ek.
 - 👍 Gitignore.
 - 👍 Licensz.
-- 👍 Repository topic-ok, köztük a tárgykód és a SZE.
+- 👍 Repository topic-ok, köztük a tárgykód és a SZE. A topic-ok alapján aztán pl itt is listázódik a repository: [github.com/topics/sze](https://github.com/topics/sze).
 
 ## *Komoly hibák*, ami miatt a *féléves* akár több érdemjeggyel is rosszabb  lehet:
 - 😡 Tömörített állomány a GitHub repositoryban (pl. `zip` és még rosszabb, ha `rar`). Kivétel lehet, ha direkt tömörített állománykezelés a cél, de forráskód, kép, stb. soha ne kerüljön így fel. 

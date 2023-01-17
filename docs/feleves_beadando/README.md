@@ -28,3 +28,9 @@ Az alábbi példák nem feltétlenül féléves munkának készültek, de annak 
 - 😡 A dokumentáció pdf / docx-ként feltöltve a `/wiki` helyett.
 - 😡 File upload commit helyett.
 - 😡 Forráskód kiképmetszőzve markdown szintaxis kiemelés helyett. (Mivel képként nem másolható, kereshető, stb a kód.)
+
+## Ötletek témaválasztáshoz
+
+- Inspriráció lehet a korábbi vagy jelenlegi szakdolgozatok / diplomamunkák témái: [horverno.github.io/temaajanlatok](https://horverno.github.io/temaajanlatok/)
+- Olyan témát célszerű választani, amin szívesen dolgoznál heteken/hónapokon keresztül is. Ha pl. a vizualizáció, az algoritmusok gyakorlata, a 3D vagy épp a mesterséges intelligencia vonzó, akkor ennek megfelelő témát célszerű választani.
+- Korábbi szakdolgozatok, félévesek elérhetőek, ezeket igényelni [itt lehet](https://docs.google.com/forms/d/e/1FAIpQLSdtMK--IQl4v5pHiATDP4MJwuU-M0Ycd2keMndQfuuhvlr1rA/viewform?usp=sf_link). Fontos, hogy ezeket **tilos** továbbosztani, csak oktatási céllal állnak rendelkezésre.

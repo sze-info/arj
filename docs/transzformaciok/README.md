@@ -38,3 +38,22 @@ rosrun tf static_transform_publisher 1.769 0.58 1.278 3.1415926535 0.0 0.0 /base
 ``` 
 
 Példa a statikus transzform launch fájlra: [tf_nissanleaf_statictf.launch](https://github.com/szenergy/nissan_leaf_ros/blob/master/nissan_bringup/launch/tf_setup/tf_nissanleaf_statictf.launch)
+
+
+# Quaternion (kvaterniók)
+A roll pitch yaw alternatívája, a komplex számokhoz hasonló kiterjesztéssel. 
+
+Demonstáció: [www.quaternions.online](https://quaternions.online/)
+
+Előnyei:
+- Numerikus stabilitás
+- Gyors számítás
+- Pontosság
+- Gimbal lock
+
+Hátrány:
+- Nem intuitív az ember számára
+
+$$tan(\frac{\pi}{2}) = \infty $$
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zjMuIxRvygQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

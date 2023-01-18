@@ -88,26 +88,26 @@ Szenzorai: Ouster OS2-64 LIDAR, 2x OS1-32 LIDAR, Stereolabs Zed2i
 Szenzorai: 2x Ouster OS1-64 LIDAR, 2x Velodyne VLP16 LIDAR, SICK LMS111 LIDAR, Stereolabs Zed / Zed2
 [Link](https://github.com/szenergy/szenergy-public-resources/wiki/H-sensorset2020.A)
 
-<center><img src="vehcile_leaf01.png" width=80%/></center>
+<center><img src="vehcile_leaf01.png" width="80%" /></center>
 
 ## Szenergy (autó)
 Szenzorai: Ouster OS1-128 LIDAR, SICK LMS111 LIDAR, Stereolabs Zed2i
 [Link](https://www.youtube.com/szenergyteam)
 
-<center><img src="vehicle_szenergy01.png" width=80%/></center>
+<center><img src="vehicle_szenergy01.png" width="80%" /></center>
 
 ## Segway Loomo (robot)
 [Link](https://github.com/jkk-research/loomo_base)
 
-<center><img src="vehcile_segway01.png" width=40%/></center>
+<center><img src="vehcile_segway01.png" width="40%" /></center>
 
 ## Roboworks Rosbot mini Ackermann (robot)
 [Link](https://robotverseny.github.io/megoldas_zala23/)
 
-<center><img src="vehcile_rosbot01.png" width=60%/></center>
+<center><img src="vehcile_rosbot01.png" width="60%" /></center>
 
 ## DJI Matrice 600 Pro drone (robot)
 Szenzorai: Ouster OS1-64 LIDAR
 [Link](https://www.youtube.com/watch?v=In_6XPS6JAw)
 
-<center><img src="vehcile_dji01.png" width=50%/></center>
+<center><img src="vehcile_dji01.png" width="50%" /></center>

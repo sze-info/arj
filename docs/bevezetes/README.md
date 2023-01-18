@@ -81,25 +81,33 @@ A Széchenyi István Egyetem szerencsére relatív sok átalakított személyép
 ## Lexus RX450h MY2016+ (autó)
 Szenzorai: Ouster OS2-64 LIDAR, 2x OS1-32 LIDAR, Stereolabs Zed2i
 [Link](https://github.com/szenergy/szenergy-public-resources/wiki/H-sensorset2021.L)
+
+<center><img src="vehcile_lexus01.png" width=80%/></center>
+
 ## Nissan Leaf (autó)
 Szenzorai: 2x Ouster OS1-64 LIDAR, 2x Velodyne VLP16 LIDAR, SICK LMS111 LIDAR, Stereolabs Zed / Zed2
 [Link](https://github.com/szenergy/szenergy-public-resources/wiki/H-sensorset2020.A)
-![leaf](vehcile_leaf01.png)
+
+<center><img src="vehcile_leaf01.png" width=80%/></center>
 
 ## Szenergy (autó)
 Szenzorai: Ouster OS1-128 LIDAR, SICK LMS111 LIDAR, Stereolabs Zed2i
 [Link](https://www.youtube.com/szenergyteam)
-![szenergy](vehicle_szenergy01.png)
+
+<center><img src="vehicle_szenergy01.png" width=80%/></center>
 
 ## Segway Loomo (robot)
 [Link](https://github.com/jkk-research/loomo_base)
-![segway](vehcile_segway01.png)
+
+<center><img src="vehcile_segway01.png" width=40%/></center>
 
 ## Roboworks Rosbot mini Ackermann (robot)
 [Link](https://robotverseny.github.io/megoldas_zala23/)
-![rosbot](vehcile_rosbot01.png)
+
+<center><img src="vehcile_rosbot01.png" width=60%/></center>
 
 ## DJI Matrice 600 Pro drone (robot)
 Szenzorai: Ouster OS1-64 LIDAR
 [Link](https://www.youtube.com/watch?v=In_6XPS6JAw)
-![dji](vehcile_dji01.png)
+
+<center><img src="vehcile_dji01.png" width=50%/></center>

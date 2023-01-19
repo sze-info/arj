@@ -82,7 +82,7 @@ A Széchenyi István Egyetem szerencsére relatív sok átalakított személyép
 Szenzorai: Ouster OS2-64 LIDAR, 2x OS1-32 LIDAR, Stereolabs Zed2i
 [Link](https://github.com/szenergy/szenergy-public-resources/wiki/H-sensorset2021.L)
 
-<center><img src="vehcile_lexus01.png" width=80%/></center>
+<center><img src="vehcile_lexus01.png" width="80%" /></center>
 
 ## Nissan Leaf (autó)
 Szenzorai: 2x Ouster OS1-64 LIDAR, 2x Velodyne VLP16 LIDAR, SICK LMS111 LIDAR, Stereolabs Zed / Zed2
@@ -105,6 +105,17 @@ Szenzorai: Ouster OS1-128 LIDAR, SICK LMS111 LIDAR, Stereolabs Zed2i
 [Link](https://robotverseny.github.io/megoldas_zala23/)
 
 <center><img src="vehcile_rosbot01.png" width="60%" /></center>
+
+## Husarion ROSbot 2 Pro (robot)
+[Link](https://husarion.com/manuals/rosbot/)
+
+<center><img src="vehcile_husarion01.png" width="40%" /></center>
+
+## Robotis ROS TurtleBot 3 (robot)
+[Link](https://husarion.com/manuals/rosbot/)
+
+<center><img src="vehcile_turtlebot01.png" width="80%" /></center>
+
 
 ## DJI Matrice 600 Pro drone (robot)
 Szenzorai: Ouster OS1-64 LIDAR

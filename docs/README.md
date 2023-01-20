@@ -39,6 +39,8 @@ Szabályzás: zárthurkú modellezett jármű, szabályzó építése (pl PID va
 A tárgy összeállítása során olyan nemzetközileg is elismert egyetemek tananyagát vettük alapul, mint az MIT, ETH Zürich, TU München, Univerisity of Virginia vagy a Stanford University. A megfelelő licenc betarása mellett bizonyos tanangyag részeket át is vettünk, másokat inspirációként használtunk, [erről részletesen itt](https://github.com/sze-info/arj#acknowledgement) lehet olvasni.
 
 
+![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/technology01.svg)
+
 <br><br><br>
 ## [sze-info.github.io/arj](https://sze-info.github.io/arj)
 

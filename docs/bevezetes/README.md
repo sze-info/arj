@@ -112,7 +112,7 @@ Szenzorai: Ouster OS1-128 LIDAR, SICK LMS111 LIDAR, Stereolabs Zed2i
 <center><img src="vehcile_husarion01.png" width="40%" /></center>
 
 ## Robotis ROS TurtleBot 3 (robot)
-[Link](https://husarion.com/manuals/rosbot/)
+[Link](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
 
 <center><img src="vehcile_turtlebot01.png" width="80%" /></center>
 

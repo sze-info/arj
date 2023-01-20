@@ -46,6 +46,7 @@ Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült 
 
 - Alap robotikai ismeretek [[eng](https://github.com/AtsushiSakai/PythonRobotics)]
 - Kálmán filter [[eng]](https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python)
+- Universitat Politècnica de Catalunya BarcelonaTech (UPC) - [[eng]](https://sir.upc.edu/projects/rostutorials/1-ROS_basic_concepts/index.html)
 
 ### Stanford University
 - Stanford University - Introduction to Robotics Oussama Khatib - [[eng, video playlist](https://www.youtube.com/watch?v=0yD3uBshJB0&list=PL65CC0384A1798ADF&ab_channel=Stanford)]

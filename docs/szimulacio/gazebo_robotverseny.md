@@ -6,7 +6,7 @@ parent: Szimuláció
 
 # Gazebo robotverseny
 
-A leírás egy középiskolásoknak szóló [roboversenyre](https://robotverseny.github.io/) készült, de egyetemi környezetben is használható. A támogatott operációs rendszer Ubuntu 18.04, az ROS verzió pedig melodic.
+A leírás egy középiskolásoknak szóló [roboversenyre](https://robotverseny.github.io/) készült, de egyetemi környezetben is használható. A [github.com/sze-info/racecar_gazebo](https://github.com/sze-info/racecar_gazebo) a [github.com/robotverseny/racecar_gazebo](https://github.com/robotverseny/racecar_gazebo) forkja, az pedig szintén forkolva lett a [University of Virginia](https://github.com/linklab-uva/f1tenth_gtc_tutorial) repojáról. A támogatott operációs rendszer Ubuntu 18.04, az ROS verzió pedig melodic.
 
 
 A szükésges csomagok így telepíthetőek:
@@ -21,8 +21,7 @@ Készítsünk egy külön workspace-t ('sim_ws'), hogy később könnyen töröl
 cd ~
 mkdir -p sim_ws/src
 cd ~/sim_ws/src
-git clone https://github.com/robotverseny/racecar_gazebo
-git clone https://github.com/robotverseny/megoldas
+git clone https://github.com/sze-info/racecar_gazebo
 cd ~/sim_ws
 catkin build
 ```
@@ -45,4 +44,12 @@ A csomagok telepítését és a workspace létrehozását bemutató videó itt �
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cXABl5jbmVc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
+Képek a szimulátroból:
+
+![](https://raw.githubusercontent.com/sze-info/racecar_gazebo/master/assets/images/gazebo_track_race01.png)
+![](https://raw.githubusercontent.com/sze-info/racecar_gazebo/master/assets/images/gazebo_robot01.png)
+![](https://raw.githubusercontent.com/sze-info/racecar_gazebo/master/assets/images/gazebo_track_empty01.png)
+
+{: .note }
 Később, ha a verseny után már nem szükséges, a `bashrc`-ből törölhető ez a sor, nyissuk meg vs code-ból: `code ~/.bashrc`, majd a fájl utolsó soraiból töröljük a korábban hozzáadottat. 

@@ -70,5 +70,5 @@ A [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation) (global navigation 
 
 ## CAN bus
 
-- Sebesség adat legérdezése, refencia jel
-- Kormányszög adat legérdezése, refencia jel
+- Sebesség adat lekérdezése, refencia jel
+- Kormányszög adat lekérdezése, refencia jel

@@ -30,7 +30,8 @@ gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into t
 plugins:
   - jekyll-relative-links
   - jekyll-remote-theme
- 
+color_scheme: blue
+
 math: mathjax
  
 callouts_level: quiet # or loud

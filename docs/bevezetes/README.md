@@ -28,7 +28,7 @@ Irodalom: [[TU München](https://github.com/TUMFTM/Lecture_ADSE)], [[Autoware](h
 
 1. **Érzékelés**: egyszerű driver-program szintű nyers adatok előállításával foglakozik, pl egy kamera szenzorból a kép előállítása a rendszer számára
 2. **Észlelés**: ez már összetettebb folyamat, a bemeneti adatokból kinyerni a rendszer számára fontos információkat, pl. a kamera képből a gyalogos felismerése
-3. **Tervezés**: a jármű útját vagy trajektóriáját tervezi meg globális szinten (a szenzorok érzékelési tarományán túl) illetve lokális szinten (a szenzorok érzékelés tartományán belül)
+3. **Tervezés**: a jármű útját vagy trajektóriáját tervezi meg globális szinten (a szenzorok érzékelési tartományán túl) illetve lokális szinten (a szenzorok érzékelés tartományán belül)
 4. **Szabályozás**: a tervező által előállított útvonal vagy tarjektória lekövetése, pl Pure-pursuit szabályzó, Modell Prediktív Szabályzó (Model Predictive Control, MPC) stb. segítségével
 5. **Aktuálás**: a rendszer által előállított referenciajelek (kormányszög, gáz és fékpedál) kiadása (pl [CAN bus](https://en.wikipedia.org/wiki/CAN_bus) rendszeren)
 

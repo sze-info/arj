@@ -83,6 +83,7 @@ Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült 
 - [ETH Zürich - Programming for Robotics (ROS)](https://www.youtube.com/watch?v=0BxVPCInS3M&list=PLE-BQwvVGf8HOvwXPgtDfWoxd4Cc6ghiP)
 - [edX - Hello (Real) World with ROS](https://www.edx.org/course/hello-real-world-with-ros-robot-operating-system)
 - [ROS.org tutorials](http://wiki.ros.org/ROS/Tutorials)
+- [ROS PCL tutorial](https://github.com/methylDragon/pcl-ros-tutorial/blob/master/PCL%20Reference%20with%20ROS.md)
 
 ### Apex AI
 

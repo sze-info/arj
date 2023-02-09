@@ -76,6 +76,7 @@ Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült 
 ## Magyar nyelvű ROS oktatóanyagok
 - ROS-gyakorlatok kezdőoldal: [horverno.github.io/ros-gyakorlatok](https://horverno.github.io/ros-gyakorlatok/)
 - [ROS telepítése (hun)](https://horverno.github.io/ros-gyakorlatok/0-linux-alapok/rosinstall.html) - Melodic
+- [ROS Óbudai Egytem - Antal Bejczy Center for Intelligent Robotics (hun)](https://abc-irobotics.github.io/ros_course_materials_hu)
 
 ## Angol nyelvű ROS oktatóanyagok
 

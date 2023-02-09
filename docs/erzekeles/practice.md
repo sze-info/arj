@@ -49,6 +49,8 @@ A szükséges parancsok listája a következő:
 - `sudo apt-get install`: szoftver csomagkezelővel történő telepítés
 - `catkin`: catkin tools: wrapper a `cmake` és `make` parancsok egyszerűbb használatához
 
+Készült külön oktatóanyag a [Linux elsajátításához](https://sze-info.github.io/arj/erzekeles/linux.html).
+
 ![terminal intro](terminalintro01.gif)
 
 # Előkészületek

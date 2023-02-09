@@ -15,7 +15,7 @@ There are many courses who inspired this lecture, some parts were referenced or 
 - Thank you **Stanford University** - Introduction to Robotics by Prof. Oussama Khatib.
 - Thank you **Stanford University** - CS231n: Convolutional Neural Networks for Visual Recognition. Andrej Karpathy. [MIT license](https://github.com/cs231n/cs231n.github.io/blob/master/LICENSE)
 - Thank you **Autoware** Foundation for the software and the documentation. [Apache License 2.0](https://github.com/autowarefoundation/autoware-documentation/blob/main/LICENSE).
-
+- Thank you **Óbuda University** Antal Bejczy Center for Intelligent Robotics - Tamás D. Nagy and Péter Galambos [CC BY-NC-SA 4.0](https://github.com/ABC-iRobotics/ros_course_materials_hu/blob/main/LICENSE.md)
 
 ## Sources
 

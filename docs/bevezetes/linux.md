@@ -148,7 +148,7 @@ A fejlesztőkörnyezet beépített terminálja, mind Windowson, mind Linuxon mű
 - `Ctrl + a` vagy `home`: A sor elejére dob.
 - `Ctrl + e` vagy `end`: A sor végére dob.
 - `Ctrl + ◀` / `Ctrl + ▶`: Az előző / következő szóra ugrik. 
-- `grep`: (Global | Regular Expression | Print) fájlokban illetve parancsok kimenetében keres. 
+- `grep`: (Global \ Regular Expression \ Print) fájlokban illetve parancsok kimenetében keres. 
   - pl `grep 'ROS' ~/.bashrc`: listázza a `bashrc` fájlban az `ROS` szöveget tartalmazó sorokat
 
 Forrás: 

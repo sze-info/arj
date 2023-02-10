@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Linux
+title: VS code IDE
 parent: Bevezetés
 ---
 
@@ -70,7 +70,7 @@ Ha még nincs klónozva repository, akkor a Forráskezelés nézetben a **Open F
 
 ![Forrásvezérlési első futtatása](https://code.visualstudio.com/assets/docs/sourcecontrol/overview/firstrun-source-control.png)
 
-Ha a **Clone Repositorya** lehetőséget választja, a rendszer meg fogja kérni a távoli tárhely URL-címét (például a [GitHubon](https://github.com/)) és azt a könyvtárat, amelybe a helyi tárat helyezi.
+A **Clone Repository** lehetőséget választva, a rendszer meg fogja kérni a távoli tárhely URL-címét (például a [GitHubon](https://github.com/)) és azt a könyvtárat, amelybe a helyi tárat helyezi.
 
 GitHub-tárhely esetén az URL-t a GitHub **Kód** párbeszédpanelen találja meg.
 

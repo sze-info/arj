@@ -26,8 +26,39 @@ Ez a tutorial segít a linux terminál alapjainak megismertetésében.
 {: .highlight }
 Fontos, hogy a megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`shift`+`c` működik. A `ctr`+`c` pl. egy ROS node (program) befejezésére használható itt. 
 
-# Terminal
+# Ajánlott terminálprogramok
 
+Számos program választható a szöveges parancssor elérésére. ROS/ROS2 esetén talán a következők a legjobb választások.
+
+## Windows Terminal
+
+Ahogy a neve is mutaja ez WSL esetén, Windows-on releváns. Előnye, hogy egy helyen használhatunk több Linux disztribúciót akár Windows parancssorral is. `Ctrl-Shift-P` billentyű kombinációkkal majd a Split down, Split left parancsokkal oszhatjuk szét hasonló módon a terminált:
+
+![Alt text](windows_terminal01.png)
+
+## Terminator
+
+Linuxon értelmezett terminál, de telepíteni kell.
+
+``` bash
+sudo apt update
+sudo apt install terminator
+```
+
+Terminator-ban `Ctrl-Shift-O`, `Ctrl-Shift-E` billentyű kombinációkkal oszthatjuk tovább az adott ablakot. `Ctrl-Shift-W` bezárja az aktív ablakot.
+
+![Alt text](terminator01.png)
+
+
+## VS code terminal
+
+A fejlesztőkörnyezet beépített terminálja, mind Windowson, mind Linuxon működik.
+
+![Alt text](windows_vs_code_terminal01.png)
+
+![](https://code.visualstudio.com/assets/updates/1_54/local-terminal-reconnection.gif)
+
+# Fontosabb terminal parancsok
 ## Korábbi parancsok
 
 - `Ctrl+R` billenytűkombinációval korábbi parancsok hívhatók elő, időrenben egyre korábbiak
@@ -101,49 +132,24 @@ Fontos, hogy a megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v
 - `code`: szövegszerkesztő: GUI, VS code
   - pl `code .` megnyintja az aktuális mappa tartalmát
   - pl `code ~/.bashrc` megnyintja a  `~/.bashrc` tartalmát szerkesztésre
-- `sudo apt-get install`: szoftver csomagkezelővel történő telepítés
 - `catkin`: catkin tools: wrapper a `cmake` és `make` parancsok egyszerűbb használatához
 
 
 ## Telepítés
-- `sudo apt install` 
+- `sudo apt install` vagy `sudo apt-get install`: szoftver csomagkezelővel történő telepítés, Advanced Packaging Tool (APT). 
   - pl `sudo apt install tree mc` - tree és mc programok telepítése 
 - `sudo`: (Superuser do) Lehetővé teszi, hogy rendszergazdaként vagy más felhasználó nevében hajtsunk végre parancsokat.
+- `sudo apt update`: csomagindex frissítése, ha új verziók jönnek ki különböző szoftverekből, ezt a paracsot a telepítés (`apt install`) előtt célszerű kiadni.
+- `sudo apt update`: már telepített csomagok frissítése
+- `apt list`: listázza asz összes telepített csomagot
+  - pl `apt list | grep ros`: leszűri csak az ros 
 
 ## Egyéb hasznos
 - `Ctrl + a` vagy `home`: A sor elejére dob.
 - `Ctrl + e` vagy `end`: A sor végére dob.
 - `Ctrl + ◀` / `Ctrl + ▶`: Az előző / következő szóra ugrik. 
-
-# Ajánlott terminálprogramok
-
-## Windows Terminal
-
-Ahogy a neve is mutaja ez WSL esetén, Windows-on releváns. Előnye, hogy egy helyen használhatunk több Linux disztribúciót akár Windows parancssorral is. `Ctrl-Shift-P` billentyű kombinációkkal majd a Split down, Split left parancsokkal oszhatjuk szét hasonló módon a terminált:
-
-![Alt text](windows_terminal01.png)
-
-## Terminator
-
-Linuxon értelmezett terminál, de telepíteni kell.
-
-``` bash
-sudo apt update
-sudo apt install terminator
-```
-
-Terminator-ban `Ctrl-Shift-O`, `Ctrl-Shift-E` billentyű kombinációkkal oszthatjuk tovább az adott ablakot. `Ctrl-Shift-W` bezárja az aktív ablakot.
-
-![Alt text](terminator01.png)
-
-
-## VS code terminal
-
-A fejlesztőkörnyezet beépített terminálja, mind Windowson, mind Linuxon működik.
-
-![Alt text](windows_vs_code_terminal01.png)
-
-![](https://code.visualstudio.com/assets/updates/1_54/local-terminal-reconnection.gif)
+- `grep`: (Global | Regular Expression | Print) fájlokban illetve parancsok kimenetében keres. 
+  - pl `grep 'ROS' ~/.bashrc`: listázza a `bashrc` fájlban az `ROS` szöveget tartalmazó sorokat
 
 Forrás: 
 [Ubuntu magyar dokumentációs projekt `CC by-sa 2.5`](http://sugo.ubuntu.hu/community-doc/hardy/universe/basic/terminal_hasznalata.html), [Óbuda University `CC BY-NC-SA 4.0`](https://github.com/ABC-iRobotics/ros_course_materials_hu/blob/main/LICENSE.md)

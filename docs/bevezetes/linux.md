@@ -88,7 +88,23 @@ A fejlesztőkörnyezet beépített terminálja, mind Windowson, mind Linuxon mű
 - `mv`: Ezzel adott fájlt vagy könyvtárat tudunk mozgatni (áthelyezni) vagy átnevezni. (`mv /a/fájl/helye *fájl új neve`, `mv /a/fájl/helye /a/fájl/új/helye`)
 - `rm`: Fájlok törlése. (`rm /a/fájl/helye, rm -r /a/fájlok/és/mappák/helye`) Az `rm -r` parancsnál minden törlődni fog a meghatározott helyen.
 - `rmdir`: Egy üres könyvtár törlése.
+- `chmod`: (change mode) Arra alkalmas, hogy megváltoztassuk az fájlok / mappák hozzáférési jogait. Thetetjük ezt például karakteres kapcsolókkal (r, w, stb.), vagy oktálisan (számjegyekkel).
+  - pl `chmod +x my_python_node.py`: írási jog hozzáadása
+  - pl `chmod 777 everything.py`: minden jog hozzáadása
 
+### `chmod`
+|#|Sum	|`rwx`	|Permission
+-|-|-|-
+`7`	|4(r)+ 2(w) + 1(x)|	`rwx`	|read, write and execute
+`6`	|4(r)+ 2(w)|	`rw-`	|read and write
+`5`	|4(r)+ 1(x)|	`r-x`	|read and execute
+`4`	|4(r)|`r--`	|read only
+`3`	|2(w)+ 1(x)|`-wx`	|write and execute
+`2`	|2(w)|`-w-`	|write only
+`1`	|1(x)|`--x`	|execute only
+`0`	|0   |`---`	|none
+
+### `Könyvtárak`
 | Hely  |  Magyarázat |
 |-------|---|
 |`/`    | A könyvtárfa kiindulópontja, gyökér  |

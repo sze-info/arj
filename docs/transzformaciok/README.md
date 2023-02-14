@@ -57,3 +57,7 @@ Hátrány:
 $$tan(\frac{\pi}{2}) = \infty $$
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zjMuIxRvygQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+# Konvenciók
+
+![rh](right_hand_rule01.svg)

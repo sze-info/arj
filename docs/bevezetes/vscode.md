@@ -95,4 +95,8 @@ A fejlesztőkörnyezet beépített terminálja, mind Windowson, mind Linuxon mű
 - pl `code .` megnyintja az aktuális mappa tartalmát
 - pl `code ~/.bashrc` megnyintja a  `~/.bashrc` tartalmát szerkesztésre
 
+## WSL VS code videó
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fAkpQ4Q3S2g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Források: [code.visualstudio.com/docs/sourcecontrol/overview](https://code.visualstudio.com/docs/sourcecontrol/overview)

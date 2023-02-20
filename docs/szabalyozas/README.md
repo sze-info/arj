@@ -286,7 +286,8 @@ $$\delta_f=atan(L_w*\kappa)$$
 Ahol $$L_w$$ a jármű tengelytávja. <br>
 Feltételezzük a modellben, hogy a jármű elsőkerék-kormányzású. A kapott szög az út-kerék szög, amely a kormánymű geometriájának függvényében átszámítható pl. szervó motor szöggé, és így közvetlenül megvalósítható.
 
-<img src="arj_control_18.png" width="400" height="300" /> <br>
+![](https://raw.githubusercontent.com/sze-info/arj/main/docs/transzformaciok/vehicle_axes01.svg)
+![](arj_control_18.svg)
 *18. Ábra: a pure pursuit szabályzó geometriai összefüggései.*
 
 A 19. Ábrán láthatjuk, milyen hatással van az előretekintési távolság a jármű viselkedésére. Amennyiben túl közeli pontot választunk, a jármű hajlamos oszcillációra (ez hasonló hatás, mint egy PID szabályzó túl nagy P erősítéssel). A túl nagy előretekintési távolság esetén a reakció lassul, de pl. élesebb kanyarokban a jármű hajlamos lesz *kanyarlevágásra*.

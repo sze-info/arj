@@ -32,6 +32,13 @@ Első feladatunk, hogy 3D LIDAR szenzoradatokat tartalmazó rosbag-et játszunk 
 
 ## Előkészületek
 
+Melodic
+{: .label .label-green }
+
+Noetic
+{: .label .label-purple }
+
+
 Az előző gyakorlatok után továbbhaladva, azok eredményeit felhasználva lépünk tovább. Töltsük le a több szenzoradatot is tartalmazó rosbag fájlt.
 
 ```

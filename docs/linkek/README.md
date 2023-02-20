@@ -202,37 +202,45 @@ Introduction lecture for the course “Techniques for Self-Driving Cars” taugh
 
 
 Self-Driving Cars: Localization (Daniel Wilbers)
-Localization lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. Further Information on Deep Learning and CNNs, see our Machine Learning for Robotics and Computer Vision Course: Link
+Localization lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. Further Information on Deep Learning and CNNs, see our Machine Learning for Robotics and Computer Vision Course: [Youtube Link](https://youtube.com/playlist?list=PL_14p0-P-YfR2XPdHgZK-DxRifUjG_LLV")
 
 
 Self-Driving Cars: Control (Nived Chebrolu)
-Control lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. A course by Cyrill Stachniss, Jens Behley, Nived Chebrolu, Benedikt Mersch, Igor Bogoslavskyi.
+Control lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. A course by Cyrill Stachniss, Jens Behley, Nived Chebrolu, Benedikt Mersch, Igor Bogoslavskyi. [Youtube Link](https://www.youtube.com/watch?v=XmjjmnDcduU)
 
 
 Model Predictive Control – Part 1: Introduction to MPC (Lasse Peters)
-Introduction to Model Predictive Control; lecture presented by Lasse Peters.
+Introduction to Model Predictive Control; lecture presented by Lasse Peters. [Youtube Link](https://www.youtube.com/watch?v=XaD8Lngfkzk)
 
 
 Model Predictive Control – Part 2: Numerical Methods for MPC (Lasse Peters)
-Numerical Methods for Model Predictive Control; lecture presented by Lasse Peters.
+Numerical Methods for Model Predictive Control; lecture presented by Lasse Peters. [Youtube Link](https://www.youtube.com/watch?v=TtGCEzYxM_A)
 
 
 Self-Driving Cars: Planning (Benedikt Mersch)
-Planning lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. A course by Cyrill Stachniss, Jens Behley, Nived Chebrolu, Benedikt Mersch, Igor Bogoslavskyi.
+Planning lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. A course by Cyrill Stachniss, Jens Behley, Nived Chebrolu, Benedikt Mersch, Igor Bogoslavskyi. [Youtube Link](https://www.youtube.com/watch?v=wpjUQ7IRQZI)
 
 
 Self-Driving Cars: Behavior Estimation (Benedikt Mersch)
-Behavior estimation lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. A course by Cyrill Stachniss, Jens Behley, Nived Chebrolu, Benedikt Mersch, Igor Bogoslavskyi, Lasse Peters.
+Behavior estimation lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. A course by Cyrill Stachniss, Jens Behley, Nived Chebrolu, Benedikt Mersch, Igor Bogoslavskyi, Lasse Peters. [Youtube Link](https://www.youtube.com/watch?v=GaCXxffLzX8)
 
 
 Self-Driving Cars: Perception – Part 1 (Jens Behley)
+[Youtube Link](https://www.youtube.com/watch?v=GaCXxffLzX8)
 Perception lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn.
-Further Information on Deep Learning and CNNs, see our Machine Learning for Robotics and Computer Vision Course: Link
-
+Further Information on Deep Learning and CNNs, see our Machine Learning for Robotics and Computer Vision Course: 
+[Youtube playlist](https://youtube.com/playlist?list=PL_14p0-P-YfR2XPdHgZK-DxRifUjG_LLV)
 
 Self-Driving Cars: Perception – Part 2 (Jens Behley)
-Perception lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn.
+Perception lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. [Youtube Link](https://www.youtube.com/watch?v=O1VVn8ULMSU)
 
 
 Self-Driving Cars: View from Practice (Igor Bogoslavskyi)
-Lecture giving a view from practice for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. A course by Cyrill Stachniss, Jens Behley, Nived Chebrolu, Benedikt Mersch, Igor Bogoslavskyi.
+Lecture giving a view from practice for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. A course by Cyrill Stachniss, Jens Behley, Nived Chebrolu, Benedikt Mersch, Igor Bogoslavskyi. [Youtube Link](https://www.youtube.com/watch?v=DtRktn4bVWg)
+
+## Articulated Robotics
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jkoGkAd0GYk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+- [Youtube playlist](https://www.youtube.com/watch?v=2lIV3dRvHmQ&list=PLunhqkrRNRhYYCaSTVP-qJnyUPkTxJnBt&ab_channel=ArticulatedRobotics)
+- [articulatedrobotics.xyz](https://articulatedrobotics.xyz/)

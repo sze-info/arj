@@ -20,7 +20,7 @@ parent: Önálló feladatok
 
 # Linux gyakorlás
 
-## Fájlrendszer létrehozása
+## Mapparendszer létrehozása - terminal
 
 A feladathoz telepítsük a `tree` parancsot: 
 ```

@@ -71,3 +71,24 @@ mkdir -p top/middle/bottom
 mkdir -p colors/{red,green,blue}
 mkdir -p animals/{cat,dog/{vizsla,puli,komondor}}
 ```
+
+## Szöveges fájlok
+
+Ha még nem hozuk létre, akkor készítsünk egy `~/tmp_text/` mappát.
+
+A mappán belül készítsünk egy `hello.py` fájlt, majd terminálból töltsük fel a következő tartalommal:
+
+``` python
+import sys
+print('\nHello vilag!\nA verzio pedig:\n' + sys.version)
+```
+
+Tegyük futtathatóvá és futtassuk.
+
+
+### Megoldás segédlet
+
+``` python
+echo "import sys" >> hello.py
+echo "print('\nHello vilag!\nA verzio pedig:\n' + sys.version)" >> hello.py
+```

@@ -61,9 +61,12 @@ A fejlesztőkörnyezet beépített terminálja, mind Windowson, mind Linuxon mű
 # Fontosabb terminal parancsok
 ## Korábbi parancsok
 
+
+- `Fel nyíl🔼` vagy `Le nyíl🔽` - A közvetlenül ezelőtti parancsokat érhetjük el így.
 - `Ctrl+R` billenytűkombinációval korábbi parancsok hívhatók elő, időrenben egyre korábbiak
 - `Ctrl+Shift+R` billenytűkombinációval korábbi parancsok hívhatóak elő, de időrenben előre haladva 
-- `Fel nyíl🔼` vagy `Le nyíl🔽` - A közvetlenül ezelőtti parancsokat érhetjük el így.
+
+A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`shift`+`c` működik. A `ctr`+`c` pl. egy ROS node (program) befejezésére használható itt.
 
 ![Alt text](linux_recent01.gif)
 
@@ -146,6 +149,13 @@ A fejlesztőkörnyezet beépített terminálja, mind Windowson, mind Linuxon mű
 ## Szöveges fájlok
 - `wget`: webes tartalmak letöltése terminalból
 - `cat`: fájl tartalmának kiiratása
+- `touch`: szöveges fájl létrehozása
+  - pl `touch hello.txt`
+- `echo`: kiíratás, vagy fájlba írás (`>>` operátor). Amennyiben nem létezik a fájl, létrehozza (`touch`).
+  - pl `echo "hello" >> hello.txt`  
+  - pl `echo "n = 5; print('\n'.join(':D ' * i for i in range(1, n + 1)))" >> hello.py` 
+  - pl `rostopic list >> hello.txt` 
+  - pl `rostopic echo -n1 /scan >> hello.txt` 
 - `nano`: szövegszerkesztő: egyszerű, terminál-alapú
 - `code`: szövegszerkesztő: GUI, VS code
   - pl `code .` megnyintja az aktuális mappa tartalmát

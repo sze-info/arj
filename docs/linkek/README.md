@@ -238,7 +238,7 @@ Perception lecture for the course “Techniques for Self-Driving Cars” taught 
 Self-Driving Cars: View from Practice (Igor Bogoslavskyi)
 Lecture giving a view from practice for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. A course by Cyrill Stachniss, Jens Behley, Nived Chebrolu, Benedikt Mersch, Igor Bogoslavskyi. [Youtube Link](https://www.youtube.com/watch?v=DtRktn4bVWg)
 
-## Articulated Robotics
+### Articulated Robotics
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jkoGkAd0GYk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

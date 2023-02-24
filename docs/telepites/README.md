@@ -25,3 +25,13 @@ Noetic
 
 Humble
 {: .label .label-yellow }
+
+
+{: .warning }
+> Az ROS melodic python 2.7-et támogat.
+
+# Ubuntu és Python
+
+- Ubuntu `18.04.6 LTS` Python `2.7.17`
+- Ubuntu `20.04.4 LTS` Python `3.8.10`
+- Ubuntu `22.04.1 LTS` Python `3.10.6`

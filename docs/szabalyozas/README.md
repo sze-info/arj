@@ -375,6 +375,9 @@ A legrégebbi inverz-modellek a legegyszerűbbek és robosztusabbak, azonban a t
 
 # Ajánlott irodalom
 
+1. [Introduction: System Modeling, University of Michigan](https://ctms.engin.umich.edu/CTMS/?example=Introduction&section=ControlPID)
+2. [Interactive Live Script Control Tutorials for MATLAB and Simulink](https://www.mathworks.com/campaigns/products/control-tutorials.html)
+
 ## Vezetői modellek
 
 1. A. Y. Ungoren and H. Peng, "An Adaptive Lateral Preview Driver Model," Vehicle System Dynamics, vol. 43, pp. 245-259, 2005. 

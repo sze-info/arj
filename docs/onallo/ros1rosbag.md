@@ -221,7 +221,11 @@ rostopic echo /odom
         z: 0.0535195507109
     covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 ```
-<a name="rqtplot"></a>
+
+{: .new }
+A gyakorlat írásakor az `rqt_plot` volt talán az egyetlen megjelenítő az adatokra, manapság erre jobb alternatívának érezzük a [Foxglove Studio](https://foxglove.dev/)t. Ezt a szoftvert több helyen fogjuk használni a tananyagban.
+
+
 
 ## rqt_plot
 

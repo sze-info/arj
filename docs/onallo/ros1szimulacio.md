@@ -61,7 +61,7 @@ source ~/.bashrc
 ```
 Később a `bashrc`-ből törölhető ez a sor, nyissuk meg vs code-ból: `code ~/.bashrc`.
 
-## Egy egyszerűbb példa
+### Egy egyszerűbb példa
 
 Külön terminalban `roscore` után nyissuk meg a szimulátort (az első indítás gyakran *lassú*, de aztán relatív gyors lesz):
 
@@ -84,7 +84,7 @@ Több nézet is beállítható, de valami hasonlót fogunk látni:
 
 ![](https://raw.githubusercontent.com/horverno/ros-gyakorlatok/master/4-szimulacio/others/rosgraph01.svg)
 
-## Egy összetettebb példa
+### Egy összetettebb példa
 
 Nyissuk meg a szimulátort:
 
@@ -119,7 +119,7 @@ source ~/.bashrc
 ```
 
 
-## Egy egyszerűbb példa Prius
+### Egy egyszerűbb példa Prius
 
 Mivel gyakran nincs joystick (game_pad) a közelben írjuk át a `joy` node helyett hasonlóan az előzőhöz `rqt_robot_steering` működésűre a Prius demo-t-
 

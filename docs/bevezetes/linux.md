@@ -173,11 +173,104 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
   - pl `apt list | grep ros`: leszűri csak az ros 
 
 ## Egyéb hasznos
+
+### Navigáció
 - `Ctrl + a` vagy `home`: A sor elejére dob.
 - `Ctrl + e` vagy `end`: A sor végére dob.
 - `Ctrl + ◀` / `Ctrl + ▶`: Az előző / következő szóra ugrik. 
+### `grep`
 - `grep`: (Global \ Regular Expression \ Print) fájlokban illetve parancsok kimenetében keres. 
   - pl `grep 'ROS' ~/.bashrc`: listázza a `bashrc` fájlban az `ROS` szöveget tartalmazó sorokat
+  - pl `rostopic list | grep pose`: listázza az összes topicot, amiben van `pose` string
+### `ssh`
+- `ssh`: (Secure Shell Protocol) linux gépektbe távoli terminal bejelentkezést tesz lehetővé
+  - pl `ssh nvidia@192.168.1.5`: belépés az adott user adott IP címen lévő gépébe.
+  - pl `ssh user01@computer4 -X`: belépés `-X` X window használatával, így az esetleges ablakok a mi gépünkön jelennek meg, de a távoli gép hostolja őket.
+  - pl `ssh laptop@192.168.0.2 touch hello.txt`: létrehoz az adott gépen egy fájlt, nyilván más parancsokkal is működik. 
+
+Az `ssh` alapvetően jelszót is kér, de ha megbízunk egy adott gépben, elmenthetjük a privát-publikus kulcspárt és akkor erre nincs szükség [például így](https://github.com/szenergy/szenergy-public-resources/wiki/H-SSH-no-password).
+
+### `rsync` hálózati másolás
+
+Hálózatba kötött gépek közötti másolás (remote sync), pl az nvidia jetsonról a saját gépünk `/mnt/c/bag/` mappájába történő másolás progress-barral így néz ki:
+
+``` r
+rsync -avzh --progress nvidia@192.168.1.5:/mnt/storage_1tb/2023-07-02/ /mnt/c/bag/2023-07-02/
+```
+
+### `screen`
+
+Virtuális terminálokat indít, kezel, pl:
+``` r
+screen -m -d -S roscore bash -c roscore
+screen -m -d -S campfly bash -c 'roslaunch drone_bringup campus_fly.launch'
+screen -m -d -S rviz1 bash -c 'rosrun rviz rviz'
+```
+
+- list screen: `screen -ls`
+- restore screen:  `screen -r roscore` / `screen -r campfly` /  `screen -r rviz1`
+- detach: `Ctrl-a` + `Ctrl-d`
+- kill: `killall -9 screen` and `screen -wipe`
+
+
+### `mc` fájlkezelő
+
+GNU Midnight Commander (`mc`), a Norton Commander inspirálta fájlkezelő:
+
+![](mc01.png)
+
+### `nmtui`
+
+Az `nmtui` (Network Manager Text User Interface) terminal-alapú Wifi / Ethernet / Hálózat konfigurátor.
+
+<img src="https://user-images.githubusercontent.com/11504709/160778891-0c06e338-405f-43c6-8aac-928af33c057e.png" width="50%" />
+
+### `nano` szövegszerkesztő
+Terminal alapú szövegszerkesztő. Szerkesztés után `Ctrl+X` a kilépés, utána `Y`-t ütve menti a fájlt.
+
+![](nano01.png)
+
+
+### `~/.bashrc` fájl
+
+A `bashrc` fájl (a `~` jelentése, hogy `user1` felhasználó esetén a `/home/user1/` mappában található, a `.` jelentése pedig, hogy rejtett fájl) minden terminal indtáskor lefutó fájl. Tehát, ha pl egy parancsot írunk bele, ami `echo "hello"` akkor minden terminal indításkor kiír egy hello üzenetet. Szerkesztése `nano`/`VS code` szövegszerkesztőből:
+
+```
+nano ~/.bashrc
+code ~/.bashrc
+```
+
+Számunkra fontos környezeti változók pl:
+``` c
+export ROS_MASTER_URI=http://192.168.1.5:11311
+export ROS_IP=192.168.1.10
+export GAZEBO_IP=127.0.0.1
+export TURTLEBOT3_MODEL=burger
+source /opt/ros/noetic/setup.bash
+source ~/catkin_ws/devel/setup.bash
+```
+
+A `bashrc` fájl módosítása után nem kell új terminált nyitni, ha kiadjuk a következő parancsot:
+
+```
+source ~/.bashrc
+```
+
+Ezután kiírathatjuk a környezeti változókat (environment variables) `echo`-val / `printenv`-vel pl:
+
+``` php
+echo $ROS_MASTER_URI
+printenv ROS_MASTER_URI
+
+http://192.168.1.5:11311
+```
+``` php
+echo $ROS_IP
+printenv ROS_IP
+
+192.168.1.10
+```
+
 
 Forrás: 
 [Ubuntu magyar dokumentációs projekt `CC by-sa 2.5`](http://sugo.ubuntu.hu/community-doc/hardy/universe/basic/terminal_hasznalata.html), [Óbuda University `CC BY-NC-SA 4.0`](https://github.com/ABC-iRobotics/ros_course_materials_hu/blob/main/LICENSE.md)

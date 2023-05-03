@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Gyakorlat
+title: ROS1 Gyakorlat
 parent: Szabályozás
 ---
 

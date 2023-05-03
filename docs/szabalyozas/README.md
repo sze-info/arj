@@ -241,6 +241,15 @@ Ezt kompenzálhatjuk, ha a lejtővel arányos előrecsatolt ágat alkotunk meg. 
 <img src="arj_control_17.png" width="400" height="300" /> <br>
 *17. Ábra: előrecsatolt ág hatása a szabályzóra.*
 
+## Interaktív PID hangolás 
+
+A következőkben a egy másik szabályozási példa (hőmérséklet szabályozás) interaktív PID hangolását lehet megtenni:
+
+<iframe width="700" height="600" src="https://thomasfermi.github.io/PID-Playground-Temperature/" frameborder="0" allowfullscreen> </iframe>
+
+Ez az interaktív vizualizáció [Mario Theers](https://thomasfermi.github.io/Algorithms-for-Automated-Driving/Control/PID.html) - [CC BY 4.0 License](https://github.com/thomasfermi/Algorithms-for-Automated-Driving/blob/master/LICENSE) megoldása.
+
+
 ### Összegzés
 
 Ebben a fejezetben áttekintettük a szabályzástechnikai alapfogalmakat, példákat hoztunk a járműirányítás területéről. Ezen kívül a gyakorlatban megalkottunk egy egyszerű matematikai modellt, amely leírja egy jármű, mint tömegpont hosszirányú mozgását. Ezen keresztül MATLAB/Simulink segítségével sebességszabályzással kapcsolatos szimulációt végeztünk. Az egyik legelterjedtebb szabályzót, a PID szabályzót mutattuk be.
@@ -377,6 +386,9 @@ A legrégebbi inverz-modellek a legegyszerűbbek és robosztusabbak, azonban a t
 
 1. [Introduction: System Modeling, University of Michigan](https://ctms.engin.umich.edu/CTMS/?example=Introduction&section=ControlPID)
 2. [Interactive Live Script Control Tutorials for MATLAB and Simulink](https://www.mathworks.com/campaigns/products/control-tutorials.html)
+3. [Mario Theers - PID](https://thomasfermi.github.io/Algorithms-for-Automated-Driving/Control/PID.html) - [CC BY 4.0 License](https://github.com/thomasfermi/Algorithms-for-Automated-Driving/blob/master/LICENSE)
+4. [Mario Theers - Pure pursuit](https://thomasfermi.github.io/Algorithms-for-Automated-Driving/Control/PurePursuit.html) - [CC BY 4.0 License](https://github.com/thomasfermi/Algorithms-for-Automated-Driving/blob/master/LICENSE)
+5. [Youtube ControlLectures](https://www.youtube.com/@ControlLectures/videos)
 
 ## Vezetői modellek
 

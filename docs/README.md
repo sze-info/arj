@@ -1,9 +1,9 @@
 
 # Start
 
-Tantárgy neve magyarul: Autonóm robotok és járművek programozása 
-
-Tantárgy neve angolul: Autonomous robots and vehicles software engineering
+- Tantárgy neve magyarul: **Autonóm robotok és járművek programozása**
+- Tantárgy neve angolul: **Autonomous robots and vehicles software engineering**
+- Neptun tárgykód: `GKNB_AUTM078`
 
 {: .important-title }
 > A tantárgy célja

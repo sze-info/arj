@@ -122,3 +122,5 @@ Szenzorai: Ouster OS1-64 LIDAR
 [Link](https://www.youtube.com/watch?v=In_6XPS6JAw)
 
 <center><img src="vehcile_dji01.png" width="50%" /></center>
+
+<center><img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/arj02.svg" width="90%" /></center>

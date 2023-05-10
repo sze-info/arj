@@ -66,6 +66,6 @@ aux_links:
     - "https://szelearning.sze.hu/"  
 
 
-logo: "docs/_images/arj.png"
+logo: "https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/arj02.svg"
 
 # https://scds.github.io/github-pages/lesson3.html

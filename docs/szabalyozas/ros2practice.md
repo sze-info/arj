@@ -21,7 +21,7 @@ parent: Szabályozás
 
 # Gyakorlat
 
-A gyakorlaton 
+A gyakorlat első részében egy példa első illetve másodrendű rendszert fogunk használni, erre fogunk PID szabályzót alkalmazni, majd hangolni.
 
 Humble
 {: .label .label-yellow }

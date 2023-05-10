@@ -62,3 +62,6 @@ $$tan(\frac{\pi}{2}) = \infty $$
 
 ![rh](right_hand_rule01.svg)
 ![va](vehicle_axes01.svg)
+
+# Olvasnivaló
+- [articulatedrobotics.xyz/ready-for-ros-6-tf](https://articulatedrobotics.xyz/ready-for-ros-6-tf/)

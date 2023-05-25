@@ -36,7 +36,7 @@ has_children: true
 ## Gazebo és ROS kompatibilitás
 
 Az ROS és Gazebo kiválasztás a [Picking the "Correct" Versions of ROS & Gazebo](https://gazebosim.org/docs/garden/ros_installation) link alapján írjuk le.
-
+*Megjegyzés*: a Gazebo 11 és előtt elévő verzióit Gazebo Classic néven, míg az utána lévőket Ignition Gazebo vagy röviden Ignition-ként említik.
 
 
 | | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   |

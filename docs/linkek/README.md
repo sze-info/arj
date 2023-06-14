@@ -240,7 +240,16 @@ Lecture giving a view from practice for the course “Techniques for Self-Drivin
 
 ### Articulated Robotics
 
+ROS 2
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jkoGkAd0GYk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - [Youtube playlist](https://www.youtube.com/watch?v=2lIV3dRvHmQ&list=PLunhqkrRNRhYYCaSTVP-qJnyUPkTxJnBt&ab_channel=ArticulatedRobotics)
 - [articulatedrobotics.xyz](https://articulatedrobotics.xyz/)
+
+### The Robotics Back-End
+
+ROS 2
+
+- [Youtube playlist](https://www.youtube.com/playlist?list=PLLSegLrePWgJudpPUof4-nVFHGkB62Izy)
+- [roboticsbackend.com](https://roboticsbackend.com/category/ros2/)

@@ -249,6 +249,8 @@ A következőkben a egy másik szabályozási példa (hőmérséklet szabályoz�
 
 Ez az interaktív vizualizáció [Mario Theers](https://thomasfermi.github.io/Algorithms-for-Automated-Driving/Control/PID.html) - [CC BY 4.0 License](https://github.com/thomasfermi/Algorithms-for-Automated-Driving/blob/master/LICENSE) megoldása.
 
+Hasonló interaktív vizualizáció érhető el a Viktor.ai oldalon, de itt még hangolni is van lehetőségünk: [cloud.viktor.ai/public/control-application](https://cloud.viktor.ai/public/control-application)
+
 
 ### Összegzés
 

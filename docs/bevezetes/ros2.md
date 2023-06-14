@@ -55,12 +55,16 @@ A `ROS` 2007-es kiadása óta inkrementális frissítéseken esett át, tehát f
 [ROS verziók és telepítés](https://sze-info.github.io/arj/telepites/README.html)
 
 ![Alt text](ros2distros.svg)
+
+
 Humble
 {: .label .label-yellow }
 
 A `Humble Hawksbill` vagy röviden `Humble` egy long term support (LTS) release, 5 évig támogatott (2022 májusától 2027 májusáig)
 
 További release-ek: [docs.ros.org/en/humble/Releases.html](https://docs.ros.org/en/humble/Releases.html)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0aPbWsyENA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Koncepciók
 
@@ -162,3 +166,6 @@ U --> |visualization_msgs/MarkerArray| E[road_marker]
 
 Több node (ROS program) kötegelt végehajtása. Megtartva az `ROS 1`konvenciókat lehet XML formátumú fájl, amely az ROS szinte minden aspektusát / műveletét meghatározhatja. Újabban viszont ezek `python` fájlok is lehetnek, így sokkkal nagyobb szabadságunk van. Node indítás, paraméterek beállítása / betöltése, topic leképezése, parancssori argumentumok átadása.
 
+Erről egy rövid videó:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PqNGvmE2Pv4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

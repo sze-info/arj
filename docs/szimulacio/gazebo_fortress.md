@@ -36,6 +36,17 @@ Ajánlott az Ubuntu és a binary telepítés: [gazebosim.org/docs/fortress/insta
 - [gazebosim.org/docs/fortress/ros2_integration](https://gazebosim.org/docs/fortress/ros2_integration)
 - [github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md)
 
+## Megjegyzés `WSL` esetén
+
+Gazebo szimulátort és Windows Subsystem for Linux-ot használva előfordulhat egy [issue](https://github.com/gazebosim/gz-sim/issues/1841), ami egy egyszerű környezeti változó beállításával javítható. A `~/.bashrc` fájlba a következőt kell beállítani:
+
+``` php
+export LIBGL_ALWAYS_SOFTWARE=1 ### GAZEBO IGNITION 
+```
+
+Új terminál vagy `source` után a `echo $LIBGL_ALWAYS_SOFTWARE` parancsra `1`-et fog kiíni.
+
+
 # Példa: Ackermann robot
 
 Ackermann robotnak a "személyautó-szerű" elől két kormányzott, hátul pedig két nem kormányzott kerékkel rendelkező járművet / robotot. Ebben a példában egy ilyen robotot szeretnénk mozgatni ROS 2-ből. Az `ign gazebo` parancsra a szimuláció-választó felület indul. Egy paranccsal indítható az Ackermann robot szimuláció:

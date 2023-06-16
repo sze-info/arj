@@ -256,7 +256,10 @@ A `bashrc` fájl módosítása után nem kell új terminált nyitni, ha kiadjuk 
 source ~/.bashrc
 ```
 
-Ezután kiírathatjuk a környezeti változókat (environment variables) `echo`-val / `printenv`-vel pl:
+#### ROS 1 
+
+*Figyelem:* a fejezetben a régi ROS 1-es könyzeteti változókról van szó, az új ROS 2-est a következő fejezet tartalmazza. 
+Kiírathatjuk a környezeti változókat (environment variables) `echo`-val / `printenv`-vel pl:
 
 ``` php
 echo $ROS_MASTER_URI
@@ -271,6 +274,70 @@ printenv ROS_IP
 192.168.1.10
 ```
 
+#### ROS 2 
+
+Kiírathatjuk a környezeti változókat (environment variables) `echo`-val / `printenv`-vel pl:
+
+``` php
+echo $ROS_DISTRO
+printenv ROS_DISTRO
+
+humble
+```
+``` php
+echo $AMENT_PREFIX_PATH
+printenv AMENT_PREFIX_PATH
+
+/opt/ros/humble
+```
+
+```php
+printenv | grep -i ROS
+
+ROS_VERSION=2
+ROS_PYTHON_VERSION=3
+ROS_DISTRO=humble
+```
+
+#### Gazebo és WSL 
+
+Gazebo szimulátort és WSL-t használva előfordulhat egy [issue](https://github.com/gazebosim/gz-sim/issues/1841), ami egy egyszerű környezeti változó beállításával javítható. A `~/.bashrc` fájlba a következőt kell beállítani.
+
+``` php
+export LIBGL_ALWAYS_SOFTWARE=1 ### GAZEBO IGNITION 
+```
+
+Új terminál vagy `source` után a `echo $LIBGL_ALWAYS_SOFTWARE` parancsra `1`-et fog kiíni.
+
+### Branch megjelenítése Linux bash-ben
+*Opcionális, de hasznos lehet*: Keressük meg és módosítsuk a `~/.bashrc` fájlban a következő részt. 
+
+*(VS code használatával a következő parancs: `code ~/.bashrc`)*
+
+``` bash
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+```
+
+Miután megvan cseréljük a következő részre:
+
+``` bash
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+if [ "$color_prompt" = yes ]; then
+ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\n\$ '
+else
+ PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\\n$ '
+fi
+``` 
+Mentsünk, majd a `source ~/.bashrc`, illetve minden új terminálnyitás hatására git repository-t tartalmazó könyvtárban a következőhöz hasonló bash fogad majd minket:
+
+![bashrc](bashrc01.png)
 
 Forrás: 
 [Ubuntu magyar dokumentációs projekt `CC by-sa 2.5`](http://sugo.ubuntu.hu/community-doc/hardy/universe/basic/terminal_hasznalata.html), [Óbuda University `CC BY-NC-SA 4.0`](https://github.com/ABC-iRobotics/ros_course_materials_hu/blob/main/LICENSE.md)

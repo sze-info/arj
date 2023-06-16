@@ -22,6 +22,7 @@ parent: Szabályozás
 # Gyakorlat
 
 A gyakorlat első részében egy példa első illetve másodrendű rendszert fogunk használni, erre fogunk PID szabályzót alkalmazni, majd hangolni.
+A gyakorlat második részében egy szimulált trajektóriakövető robot / jármű működését nézzük át és hangoljuk.
 
 Humble
 {: .label .label-yellow }
@@ -33,7 +34,7 @@ A videóhoz hasonló módon szeretnénk szemléltetni a szabályozás kérdésk�
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/G-f2eyPifbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## PID hangolás
+## `1. feladat`: PID hangolás
 
 A következő leírás azzal a feltételezéssel él, hogy a ROS 2 workspace a `~/ros2_ws/` helyen található.
 
@@ -101,6 +102,12 @@ code ~/ros2_ws/src/ros2_pid_library/
 Futtassuk és figyeljük meg az eredményeket a beavatkozó jel (`control_value`) enyhén más jelleget mutat:
 
 ![](pid_plot03.png)
+
+## `2. feladat`: Trajektóriakövetés
+
+![](https://raw.githubusercontent.com/jkk-research/sim_wayp_plan_tools/main/img/gz_rviz01.gif)
+
+[github.com/jkk-research/sim_wayp_plan_tools](https://github.com/jkk-research/sim_wayp_plan_tools)
 
 # Források / Sources
 - [github.com/dottantgal/ros2_pid_library](https://github.com/dottantgal/ros2_pid_library/) - [MIT license](https://github.com/dottantgal/ros2_pid_library/blob/main/LICENSE)

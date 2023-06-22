@@ -36,10 +36,27 @@ Az alábbi példák nem feltétlenül féléves munkának készültek, de annak 
 - Inspriráció lehet a korábbi vagy jelenlegi szakdolgozatok / diplomamunkák témái: [horverno.github.io/temaajanlatok](https://horverno.github.io/temaajanlatok/)
 - Olyan témát célszerű választani, amin szívesen dolgoznál heteken/hónapokon keresztül is. Ha pl. a vizualizáció, az algoritmusok gyakorlata, a 3D vagy épp a mesterséges intelligencia vonzó, akkor ennek megfelelő témát célszerű választani.
 - Korábbi szakdolgozatok, félévesek elérhetőek, ezeket igényelni [itt lehet](https://docs.google.com/forms/d/e/1FAIpQLSdtMK--IQl4v5pHiATDP4MJwuU-M0Ycd2keMndQfuuhvlr1rA/viewform?usp=sf_link). Fontos, hogy ezeket **tilos** továbbosztani, csak oktatási céllal állnak rendelkezésre.
+- Számos ROS 2 projekt itt: (github.com/fkromer/awesome-ros2)[https://github.com/fkromer/awesome-ros2]
 
 {: .new }
 Erősen ajánlott a [GitHub Student Developer Pack](https://education.github.com/pack) beszerzése, többek között [Copilot](https://github.com/features/copilot) is jár hozzá.
 
+## Értékelési szempontok
+
+A szempontok kialakításánaál az [Óbudai Egyetem](https://abc-irobotics.github.io/ros_course_materials_hu/#evkozi-jegy_1) hasonló kurzusának értékelési szempontjait vettük alapul.
+- Saját munka és fehasznált kódbázis aránya (megfelelő hivatkozások megléte)
+- Értékelhető eredményeket produkáló munka
+- A bemutató minősége (ppt, videók, élő demo, bármilyen plusz felhasznált eszköz)
+- A megoldás teljessége
+- Megfelelő `ROS 2` kommunikáció / best practice alkalmazása
+- A program szerkezete
+- Az implementáció minősége
+- A kód dokumentálása
+- Konzultáció
+- A választott feladat nehézsége
+
 ### Meme
-![img](meme01.jpg)
+
+<center><img src="meme01.jpg" width="60%" /></center>
+
 Credit: [pycoders](https://www.instagram.com/pycoders/)

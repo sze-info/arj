@@ -28,18 +28,27 @@ Az `ROS 2`, a `ROS` legújabb kiadása, olyan szoftverkönyvtárak és eszközö
 
 A `ROS` 2007-es kiadása óta inkrementális frissítéseken esett át, tehát fundamentális változások nem, nagyobb fejlesztések viszont folyamatosan történtek. 2017-ben jött rá a robotikai közösség, hogy olyan alapvető limitációi vannak az eredeti 2007-es elképzelésnek, amit ilyen inkrementális módon sajnos nem lehet javítani. Így végül a Noetic Ninjemis (2025-ig támogatva) az `ROS 1` utolsó kiadása, helyette párhuzamosan elkezdték fejleszteni az `ROS 2`-t. Ez egyben azt is jelenteti, hogy a korábbi forráskódokat nehezebben lehet portolni az új verzióra, cserébe rengeteg újdonságot, javítást, támogatást kaphatunk a fejlesztenő robotok, járművek számára.
 
+
+A fentiek hatására tehát az `ROS 2` átlépett az akadémiai kutatások világából az ipari fehasználásra. Érdekesség, hogy a NASA VIPER nevű holdjárója is `ROS 2`-t futtat. Emellett olyan autóipari óriások is használják, mint a Bosch, a BMW vagy a Volvo. Robotikai cégek közül pedig számos további példát lehetne hozni. Linkek: [www.nasa.gov/viper/lunar-operations](https://www.nasa.gov/viper/lunar-operations), [rosindustrial.org/ric/current-members](https://rosindustrial.org/ric/current-members/), [www.bosch.com/stories/bringing-robotics-middleware-onto-tiny-microcontrollers](https://www.bosch.com/stories/bringing-robotics-middleware-onto-tiny-microcontrollers/). 
+
+![ROS 2 in space](ros2space01.png)
+
+Kép forrása: [Robot Operating System 2: Design, Architecture, and Uses In The Wild:
+Steve Macenski et al.](https://arxiv.org/pdf/2211.07752.pdf)
+
 ## Különbségek az `ROS 1` és `ROS 2` között 
 
 - *Változások a Middleware-ben*  
   A `ROS 1` a Master-Slave architektúrát és az XML-RPC middleware-t használja. A `ROS 2` ezzel szemben a  Data Distribution Service (DDS) használ, amely nagyobb hatékonyságot és megbízhatóságot, alacsony késleltetést és skálázhatóságot, valamint konfigurálható szolgáltatásminőségi (QoS) paramétereket biztosít. Többek között így nem kell `roscore`-t indítani. Az XML-RPC jobb az egyszerű távoli eljáráshívásokhoz, míg a DDS hozzáadott komplexitása lehetővé teszi, hogy jobban támogassa a valós idejű rendszereket.
 - *Változások a ROS API-ban*  
-  A `ROS 1` két különálló könyvtárral rendelkezik: a C++ nyelvhez készült `roscpp` és a Pythonhoz készült `rospy`. Ezek nem teljesen azonosak egymással a funkciók tekintetében. Ezzel szemben a `ROS 2` egy C nyelven írt alapkönyvtárral - `rcl` (ROS klienskönyvtár) - rendelkezik, amelyre könyvtárak épülnek. Ez biztosítja, hogy az alapvető funkciók hamarabb elérhetők legyenek a különböző API-kban. Ez az egyik fő oka annak, hogy a `ROS 2` a Pythonon és a C++-on kívül több nyelvi támogatást is képes nyújtani, például Java és C#. 
+  A `ROS 1` két különálló könyvtárral rendelkezik: a C++ nyelvhez készült `roscpp` és a Pythonhoz készült `rospy`. Ezek nem teljesen azonosak egymással a funkciók tekintetében. Ezzel szemben a `ROS 2` egy C nyelven írt alapkönyvtárral - `rcl` (ROS klienskönyvtár) - rendelkezik, amelyre könyvtárak épülnek. Ez biztosítja, hogy az alapvető funkciók hamarabb elérhetők legyenek a különböző API-kban. Ez az egyik fő oka annak, hogy a `ROS 2` a korábbi Pythonon és a C++-on kívül több nyelvi támogatást is képes nyújtani: például  [rclada](https://github.com/ada-ros/rclada) Ada, [rclcpp](https://github.com/ros2/rclcpp) C++, [rclgo](https://github.com/juaruipav/rclgo) Go,  [rclpy](https://github.com/ros2/rclpy) Python, [rcljava](https://github.com/esteve/ros2_java/tree/master/rcljava)  Java, [rclnodejs](https://github.com/RobotWebTools/rclnodejs) Node.js,  [rclobjc](https://github.com/esteve/ros2_objc) Objective C (iOS),  [rclc](https://github.com/ros2/rclc) C, [ros2_rust](https://github.com/ros2-rust/ros2_rust) Rust, [ros2_dotnet](https://github.com/esteve/ros2_dotnet) .NET, [ros2cs](https://github.com/RobotecAI/ros2cs) ros2_dotnet alternatíva C# nyelven.
+ 
 - *Változások az adatformátumban*  
   A `ROS 2` az `MCAP` formátumot használja, ami nem dedikáltan az ROS saját formátuma, hanem egy nyílt forráskódú konténerfájl-formátum multimodális log-adatokhoz. Támogatja az időbélyegzővel ellátott, előre sorba rendezett adatokat, és ideális a pub/sub vagy robotikai alkalmazásokban való használatra. Bővebben: [mcap.dev](https://mcap.dev/)
 
 ## Pár hasznos újítás
 - *Valós idejű feldolgozás*  
-  A fenti funkciók összegzése, valamint a DDS használata lehetővé teszi, hogy a `ROS 2` kiválóan alkalmas legyen a valós idejű feldolgozásra, különösen akkor, ha determinisztikus, alacsony késleltetésű kommunikációra van szükség.
+  A fenti funkciók összegzése, valamint a DDS használata lehetővé teszi, hogy a `ROS 2` kiválóan alkalmas legyen a valós idejű (real time) feldolgozásra, különösen akkor, ha determinisztikus, alacsony késleltetésű kommunikációra van szükség.
 - *QoS: Quality of Service* 
   A `ROS 2` lehetővé teszi az adatáramlás konfigurálását, ami befolyásolja az adatok küldésének és fogadásának módját. Ez magában foglalja az üzenetek megbízhatóságára, határidejére és prioritására vonatkozó beállításokat, amelyek biztosíthatják, hogy a kritikus üzenetek időben kézbesítésre kerüljenek. 
 - *Többszálú végrehajtás*  

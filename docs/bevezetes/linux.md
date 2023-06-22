@@ -187,6 +187,9 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
   - pl `ssh nvidia@192.168.1.5`: belépés az adott user adott IP címen lévő gépébe.
   - pl `ssh user01@computer4 -X`: belépés `-X` X window használatával, így az esetleges ablakok a mi gépünkön jelennek meg, de a távoli gép hostolja őket.
   - pl `ssh laptop@192.168.0.2 touch hello.txt`: létrehoz az adott gépen egy fájlt, nyilván más parancsokkal is működik. 
+### Gyakran használt parancsok
+- A fájlrendszer állapotáról a `df -h` (disk filesystem, human readable) parancs ad tájékoztatást.
+- Futó folyamatokról a `ps` ad tájékoztatást pl: `ps -A | grep ros`
 
 Az `ssh` alapvetően jelszót is kér, de ha megbízunk egy adott gépben, elmenthetjük a privát-publikus kulcspárt és akkor erre nincs szükség [például így](https://github.com/szenergy/szenergy-public-resources/wiki/H-SSH-no-password).
 
@@ -230,6 +233,12 @@ Terminal alapú szövegszerkesztő. Szerkesztés után `Ctrl+X` a kilépés, ut�
 
 ![](nano01.png)
 
+
+### `htop` / `top`
+
+Az htop egy interaktív folyamatfigyelő parancs (nagyjából a windows task manager funkcionalitása), amely megjeleníti és felügyeli a futó folyamatokat a rendszeren. Memória- és CPU-használat folymatonként részletezve is kilvasható, továbbá van lehetőség a `kill` használatára is.
+
+![](htop01.png)
 
 ### `~/.bashrc` fájl
 

@@ -4,9 +4,26 @@ title: Transzformációk
 has_children: true
 ---
 
-# Transzformációk
+{: .no_toc }
 
-ROS-ben (és álatalában robotikában) a transformok határozzák meg a hogy, mi merre található az adott vonatkozatási ponttól (frame).
+<details open markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+---
+
+
+
+# Bevezetés
+
+ROS-ben (és álatalában robotikában) a transformok határozzák meg a hogy, mi merre található az adott vonatkozatási ponttól (frame). Több transzform leírhatja például egy robotkar mozgását vagy épp egy jármű és szenzorai helyzetét a térben.
+
+# Transzformációk
 Például a Nissan Leaf `base_link` framejéhez képest a következő fontosabb framek találhatóak meg:
 
 ![img](leaf_tf01.png)
@@ -29,13 +46,38 @@ Nagy transzformoknál az RVIZ megjelenítője nem működik pontosan (https://gi
 *4. ábra - Az `rqt_tf_tree` által megjelenített TF fa*
 
 Az ábrán csak a `map` `gps` transzform változó, a többi statikus. Statikus transzformot hirdetni launch fájlban például a `/base_link` és a `left_os1/os1_sensor` következőképp lehet (lásd 3. ábra)
+
+``` python
+Node(
+    package='tf2_ros',
+    executable='static_transform_publisher',
+    name='ouster_left_tf_publisher',
+    output='screen',
+    arguments=['1.769', '0.58', '1.278','3.1415926535', '0', '0', '/base_link', 'left_os1/os1_sensor'],
+),
+
+```
+
+
+Ugyanez régen `ROS 1`-ben:
 ``` xml
 <node args="1.769 0.58 1.278 3.1415926535 0.0 0.0 /base_link left_os1/os1_sensor 50" name="ouster_left_tf_publisher" pkg="tf" type="static_transform_publisher"/>
 ``` 
-Vagy ugyanez parancsként (50 ms = 20 Hz):
+Vagy ugyanez parancsként `ROS 2`-ben statikus transzformként quaternionokkal: 
+``` c
+ros2 run tf2_ros static_transform_publisher --x 1.769 --y 0.58 --z 1.278 --qx 0.0 --qy 0.0 --qz 1.0 --qw 0.0 --frame-id left_os1/os1_sensor --child-frame-id base_link
+``` 
+
+Vagy ugyanez parancsként `ROS 2`-ben(50 ms = 20 Hz) roll/pitch/yaw: 
+``` c
+ros2 run tf2_ros static_transform_publisher --x 1.769 --y 0.58 --z 1.278 --roll 0.0 --pitch 0.0 --yaw 3.1415926535 --frame-id left_os1/os1_sensor --child-frame-id base_link
+``` 
+
+Ugyanez régen `ROS 1`-ben (50 ms = 20 Hz):
 ``` c
 rosrun tf static_transform_publisher 1.769 0.58 1.278 3.1415926535 0.0 0.0 /base_link left_os1/os1_sensor 50  
 ``` 
+Itt az utolsó argumentum 50 ms-el, tehát 20 Hz-en hirdette a uyganazt a transzformációt. Ez nem a legszerencsésebb, az `ROS 2` ebben is fejlődött.
 
 Példa a statikus transzform launch fájlra: [tf_nissanleaf_statictf.launch](https://github.com/szenergy/nissan_leaf_ros/blob/master/nissan_bringup/launch/tf_setup/tf_nissanleaf_statictf.launch)
 

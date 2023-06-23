@@ -276,6 +276,9 @@ Mivel a jármű automatikus irányítási feladata nagyban hasonlít az emberek 
 -	Prediktív modellek (predictive/forward models)
 -	Zárhurkú modellek (closed loop models).
 
+![](https://raw.githubusercontent.com/jkk-research/wayp_plan_tools/main/csv/control_overview01.svg)
+*18. Ábra: járműirányítási megoldások szemléltetése.*
+
 ### Inverz modellek
 Az inverz modelleket angol terminológiában *pursuit* modelleknek is szokás hívni, amely a legjobban talán *előre tekintő*, *előre toló*nak lehet fordítani. A lényege, hogy a kormányzáshoz szükséges célértéket az két információ alapján határozza meg:
 - egy előretekintési pontban mi a jármű célállapota?
@@ -285,7 +288,7 @@ Ezt felfoghatjuk úgy is, mint egy előrecsatolt szabályzási ág, avagy egy ny
 {: .note }
 A pure-pursuit megoldás az egyik legrégebbi irányítási megoldás a járművek terén. Már az 1980as években a Robotics Institute of Pittsburgh fejlesztette ki [4]. A lényege, hogy egy megadott előretekintési távolságban (ami az irányítás legfontosabb paramétere) meghatározzuk a jármű kívánt pozícióját (pl. a korábban tervezett trajektória alapján). 
 
-Ennek a pontnak a koordinátái alapján meg tudjuk határozni, milyen görbületű **köríven** kell haladnunk ahhoz, hogy az aktuális pontból a célpontba érjünk. Fontos, hogy a pure-pursuit megoldás mindig köríveket használ. A geometriai összefüggéseket a 18. Ábra szemlélteti.
+Ennek a pontnak a koordinátái alapján meg tudjuk határozni, milyen görbületű **köríven** kell haladnunk ahhoz, hogy az aktuális pontból a célpontba érjünk. Fontos, hogy a pure-pursuit megoldás mindig köríveket használ. A geometriai összefüggéseket a 19. Ábra szemlélteti.
 Egyszerű trigonometriai megfontolások alapján a következő összefüggést írhatjuk fel az előretekintési pont és a célgörbület között:
 <br>
 $$\kappa_{target}=\frac{2x}{l^2}$$
@@ -299,13 +302,13 @@ Feltételezzük a modellben, hogy a jármű elsőkerék-kormányzású. A kapott
 
 ![](https://raw.githubusercontent.com/sze-info/arj/main/docs/transzformaciok/vehicle_axes01.svg)
 ![](arj_control_18.svg)
-*18. Ábra: a pure pursuit szabályzó geometriai összefüggései.*
+*19. Ábra: a pure pursuit szabályzó geometriai összefüggései.*
 
-A 19. Ábrán láthatjuk, milyen hatással van az előretekintési távolság a jármű viselkedésére. Amennyiben túl közeli pontot választunk, a jármű hajlamos oszcillációra (ez hasonló hatás, mint egy PID szabályzó túl nagy P erősítéssel). A túl nagy előretekintési távolság esetén a reakció lassul, de pl. élesebb kanyarokban a jármű hajlamos lesz *kanyarlevágásra*.
+A 20. Ábrán láthatjuk, milyen hatással van az előretekintési távolság a jármű viselkedésére. Amennyiben túl közeli pontot választunk, a jármű hajlamos oszcillációra (ez hasonló hatás, mint egy PID szabályzó túl nagy P erősítéssel). A túl nagy előretekintési távolság esetén a reakció lassul, de pl. élesebb kanyarokban a jármű hajlamos lesz *kanyarlevágásra*.
 Szokás az előretekintési távot adaptívan, pl. a sebesség függvényében megadni. Ilyenkor gyakorlatilag előretekintési időről beszélünk.
 
 <img src="arj_control_19.png" width="300" height="65" /> <br>
-*19. Ábra: a pure pursuit előretekintési távolságának hatása a jármű viselkedésére*
+*20. Ábra: a pure pursuit előretekintési távolságának hatása a jármű viselkedésére*
 
 A pure-pursuit modellek továbbfejlesztett változatairól pl. a [2] és [3] cikkben olvashatunk.
 
@@ -337,22 +340,22 @@ Ahol:
 
 Ilyen szabályzókra találunk példát [1], [5-7] irodalmakban.
 Az MPC-k előnye, hogy nagyon nagy pontossággal, stabil szabályzást adnak, amennyiben az alkalmazott modell nagy pontosságú. Ugyanakkor ez is a hátránya, hiszen ha a modell nem megfelelő, akkor a hiba exponenciálisan elnőhet. 
-Erre látunk példát a 20-22. Ábrán. Mindegyik szimulációban egy kinematikai bicikli modellt használtunk az MPC megtervezéséhez. A PID szabályzó a pozícióhibát minimalizálja. A szimulációban a jármű dinamikai modelljét alkalmaztuk, mint valós fizikai rendszer. Látható, hogy 5 m/s-on az MPC egyértelműen jobban teljesít, mint a PID szabályzó, sokkal pontosabb és stabilabb is. Azonban 2 m/s-on az MPC szétesik, az alacsony sebesség miatt a modell összefüggések nem lesznek érvényesek. Hasonló figyelhető meg a 22. Ábrán is.
-A 21. Ábrán azt látjuk, hogy 10 m/s-ig az MPC és a PID is jól teljesít, az MPC továbbra is jobb, mint a PID. Azonban 10 m/s felett a dinamikai hatások felerősdnek, és a kinematikai modell nem megfelelő. Így az MPC instabillá válik, míg a PID - bár jelentős hibával - továbbra is stabil működésre képes.
+Erre látunk példát a 21-23. Ábrán. Mindegyik szimulációban egy kinematikai bicikli modellt használtunk az MPC megtervezéséhez. A PID szabályzó a pozícióhibát minimalizálja. A szimulációban a jármű dinamikai modelljét alkalmaztuk, mint valós fizikai rendszer. Látható, hogy 5 m/s-on az MPC egyértelműen jobban teljesít, mint a PID szabályzó, sokkal pontosabb és stabilabb is. Azonban 2 m/s-on az MPC szétesik, az alacsony sebesség miatt a modell összefüggések nem lesznek érvényesek. Hasonló figyelhető meg a 23. Ábrán is.
+A 22. Ábrán azt látjuk, hogy 10 m/s-ig az MPC és a PID is jól teljesít, az MPC továbbra is jobb, mint a PID. Azonban 10 m/s felett a dinamikai hatások felerősdnek, és a kinematikai modell nem megfelelő. Így az MPC instabillá válik, míg a PID - bár jelentős hibával - továbbra is stabil működésre képes.
 
 <img src="arj_control_20.png" width="500" height="350" /> <br>
-*20. Ábra: MPC és PID szabályzó összevetése, kinematikai modell esetén, kanyarodás, alacsony sebességeken*
+*21. Ábra: MPC és PID szabályzó összevetése, kinematikai modell esetén, kanyarodás, alacsony sebességeken*
 
 <img src="arj_control_21.png" width="500" height="350" /> <br>
-*21. Ábra: MPC és PID szabályzó összevetése, kinematikai modell esetén, kanyarodás, magasabb sebességeken*
+*22. Ábra: MPC és PID szabályzó összevetése, kinematikai modell esetén, kanyarodás, magasabb sebességeken*
 
 <img src="arj_control_22.png" width="500" height="350" /> <br>
-*22. Ábra: MPC és PID szabályzó összevetése, kinematikai modell esetén, körpálya, alacsony sebességeken*
+*23. Ábra: MPC és PID szabályzó összevetése, kinematikai modell esetén, körpálya, alacsony sebességeken*
 
 ### Zárthurkú modellek
 
 Az ilyen típusú modellek, ahogy a neve is sugallja, a PID szabályzók logikáján alapszanak. Jellemzően egy vagy több visszacsatolt mennyiség hibáját minimalizálják. Ilyen modellekre találunk példát a [3] és [8] irodalomban. 
-A 23. Ábrán a [3]-ban bemutatott példa illusztrációját látjuk. Eszerint kijelölünk kettő előretekintési pontot: egy közelit (a jármű előtt) és egy távolit (a horizonton). Hasonlóan a pure-pursuit megoldásokhoz, itt is azt vizsgáljuk, hogyan juthatunk el a jelenlegi pozícióból a távoliba. Azonban nem egy egyszerű görbületszámolással, hanem a hiba minimalizálásával érjük ezt el, a következő egyenlet szerint:
+A 24. Ábrán a [3]-ban bemutatott példa illusztrációját látjuk. Eszerint kijelölünk kettő előretekintési pontot: egy közelit (a jármű előtt) és egy távolit (a horizonton). Hasonlóan a pure-pursuit megoldásokhoz, itt is azt vizsgáljuk, hogyan juthatunk el a jelenlegi pozícióból a távoliba. Azonban nem egy egyszerű görbületszámolással, hanem a hiba minimalizálásával érjük ezt el, a következő egyenlet szerint:
 <br>
 $$\phi=k_f\dot\Theta_f + k_n\dot\Theta_n + k_i\Theta_n$$
 <br>
@@ -365,16 +368,16 @@ Ahol:
 Ez az egyenlet felírás voltaképp egy minimalizálása a szög hibáknak, hiszen a cél, hogy mindig *irányba* álljunk. A visszacsatolás a környezet érzékelésből jön. A kimenet az út kerék szög.
 
 <img src="arj_control_23.png" width="300" height="80" /> <br>
-*23. Ábra: a dual-point irányítási megoldás szemléltetése*
+*24. Ábra: a dual-point irányítási megoldás szemléltetése*
 
-A 24. Ábrán a [8]-ban ismertetett megoldást látjuk. A lényege, hogy több egymásba ágyazott PID szabályzó segítségével a pozíció hibát minimalizálja. Ehhez a szabályzási feladatot szétbontja egy alacsony frekvenciás szabályzásra (pozíció hiba) és egy magasfrekvenciás szabályzásra (kormányszög hiba). Az átviteli függvények egy-egy szabályzót testesítenek meg, sorban a következőket jelentik:
+A 25. Ábrán a [8]-ban ismertetett megoldást látjuk. A lényege, hogy több egymásba ágyazott PID szabályzó segítségével a pozíció hibát minimalizálja. Ehhez a szabályzási feladatot szétbontja egy alacsony frekvenciás szabályzásra (pozíció hiba) és egy magasfrekvenciás szabályzásra (kormányszög hiba). Az átviteli függvények egy-egy szabályzót testesítenek meg, sorban a következőket jelentik:
 - $$G_c$$: a pozíció szabályzása egy PI szabályzóval
 - $$G_L$$: az emberi szabályzás késése (reakcióideje)
 - $$G_NM$$: a neuromotoros szabályzás, ahogyan az emberek a kormányt mozgatják. Ennek dinamikája nagyban függ az emberek izomszerkezetétől.
 - $$G_{P1}$$ és $$G_{P2}$$: a visszacsatolásba illesztett *érzékelő modellek*. Ezek reprezentálják az ember érzékelési dinamikáját, sorban a kormányon lévő nyomaték és a kormány szög tekintétben.
 
 <img src="arj_control_24.png" width="500" height="300" /> <br>
-*24. Ábra: egy teljes zárthurkú szabályzó, egyesítve a kormányszög szabályzással*
+*26. Ábra: egy teljes zárthurkú szabályzó, egyesítve a kormányszög szabályzással*
 
 ### Összefoglalás
 

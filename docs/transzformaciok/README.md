@@ -68,7 +68,7 @@ Vagy ugyanez parancsként `ROS 2`-ben statikus transzformként quaternionokkal:
 ros2 run tf2_ros static_transform_publisher --x 1.769 --y 0.58 --z 1.278 --qx 0.0 --qy 0.0 --qz 1.0 --qw 0.0 --frame-id left_os1/os1_sensor --child-frame-id base_link
 ``` 
 
-Vagy ugyanez parancsként `ROS 2`-ben(50 ms = 20 Hz) roll/pitch/yaw: 
+Vagy ugyanez parancsként `ROS 2`-ben roll/pitch/yaw: 
 ``` c
 ros2 run tf2_ros static_transform_publisher --x 1.769 --y 0.58 --z 1.278 --roll 0.0 --pitch 0.0 --yaw 3.1415926535 --frame-id left_os1/os1_sensor --child-frame-id base_link
 ``` 
@@ -77,7 +77,7 @@ Ugyanez régen `ROS 1`-ben (50 ms = 20 Hz):
 ``` c
 rosrun tf static_transform_publisher 1.769 0.58 1.278 3.1415926535 0.0 0.0 /base_link left_os1/os1_sensor 50  
 ``` 
-Itt az utolsó argumentum 50 ms-el, tehát 20 Hz-en hirdette a uyganazt a transzformációt. Ez nem a legszerencsésebb, az `ROS 2` ebben is fejlődött.
+Itt az utolsó argumentum `ROS 1`-nél 50 ms, tehát 20 Hz-en hirdette a ugyanazt a transzformációt. Ez nem a legszerencsésebb, az `ROS 2` ebben is fejlődött, ott elég egyszer hirdetni ugyanezt.
 
 Példa a statikus transzform launch fájlra: [tf_nissanleaf_statictf.launch](https://github.com/szenergy/nissan_leaf_ros/blob/master/nissan_bringup/launch/tf_setup/tf_nissanleaf_statictf.launch)
 

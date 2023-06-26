@@ -96,13 +96,13 @@ Szenzorai: Ouster OS1-128 LIDAR, SICK LMS111 LIDAR, Stereolabs Zed2i
 
 <center><img src="vehicle_szenergy01.png" width="80%" /></center>
 
-A Szenergy csapata európa legnagyobb önvezető versenyén, a Shell Eco-marathon Autonomous Urban Concept (AUC) versenyen 2023-ban elős előtte pedig második helyezést ért el. A doboogó helyezések ezekben az évek ben így alakultak:
+A Szenergy csapata európa legnagyobb önvezető versenyén, a Shell Eco-marathon Autonomous Urban Concept (AUC) versenyen 2023-ban első előtte pedig második helyezést ért el. A doboogó helyezések ezekben az évek ben így alakultak:
 
 
 | 🏆 | 2022 | 2023 |
 |:---:|---|---|
-| 1. | DTU Road Runners, Technical University of Denmark (`Denmark`)  | SZEnergy Team, Szechenyi Istvan University (`Hunagry`) |
-| 2. | SZEnergy Team, Szechenyi Istvan University (`Hunagry`)  | Team EVA,  Hogeschool Van Amsterdam University (`Netherlands`) |
+| 1. | DTU Road Runners, Technical University of Denmark (`Denmark`)  | SZEnergy Team, Szechenyi Istvan University (`Hungary`) |
+| 2. | SZEnergy Team, Szechenyi Istvan University (`Hungary`)  | Team EVA,  Hogeschool Van Amsterdam University (`Netherlands`) |
 | 3. | DNV Fuel Fighter, Norwegian University of Science And Technology (`Norway`) | H2politO,Molecole Urbane Politecnico Di Torino University (`Italy`) |
 
 Forrás: [shellecomarathon.com](https://www.shellecomarathon.com/2023-programme-on-track/autonomous-urban-concept/_jcr_content/root/main/section/simple/link_list_copy/links/item0.stream/1686130984099/008b488668d9f7248319705f60e09fe861737ccd/sem-2023-eu-auc-final-results.pdf)

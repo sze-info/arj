@@ -4,6 +4,21 @@ title: ROS2 humble
 parent: Telepítés
 ---
 
+{: .no_toc }
+
+<details open markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+---
+
+
+
 # ROS2 humble
 
 Alapvetően négy lehetőség adott `ROS 2 Humble` telepítésére:
@@ -34,14 +49,14 @@ Ez a lépés általában kihagyható
 Győződjön meg arról, hogy olyan területi beállítással rendelkezik, amely támogatja az UTF-8 szabványt. 
 
 ``` r
-locale # ellenőrizze az UTF-8-at
+locale # UTF-8 ellenőrzése
 
-sudo apt frissítés && sudo apt telepítési területi beállítások
+sudo apt update && sudo apt install locales
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-locale # ellenőrizze a beállításokat
+locale # beállítások ellenőrzése
 ```
 
 ## Források beállítása

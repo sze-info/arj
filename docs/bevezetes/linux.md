@@ -20,11 +20,11 @@ parent: Bevezetés
 
 # Linux
 
-A leírásban alapvető Linux ismeretek találhatók. Linuxban (ebben a leírásban értsd  Ubuntu, Raspbian) a legtöbb dolgot lehetséges vagy épp célszerű terminálból intézni.
+A leírásban alapvető Linux ismeretek találhatók. Linuxban (ebben a leírásban értsd  Ubuntu, Raspbian) a legtöbb munkamenetet lehetséges, vagy épp célszerű terminálból végrehajtani.
 Ez a tutorial segít a linux terminál alapjainak megismertetésében.
 
 {: .highlight }
-Fontos, hogy a megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`shift`+`c` működik. A `ctr`+`c` pl. egy ROS node (program) befejezésére használható itt. 
+Fontos, hogy a megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`shift`+`c` működik. A `ctr`+`c`(megszakítás billentyűzetről) pl. egy ROS node (program) befejezésére használható itt. 
 
 # Ajánlott terminálprogramok
 
@@ -32,7 +32,7 @@ Számos program választható a szöveges parancssor elérésére. ROS/ROS2 eset
 
 ## Windows Terminal
 
-Ahogy a neve is mutaja ez WSL esetén, Windows-on releváns. Előnye, hogy egy helyen használhatunk több Linux disztribúciót akár Windows parancssorral is. `Ctrl-Shift-P` billentyű kombinációkkal majd a Split down, Split left parancsokkal oszhatjuk szét hasonló módon a terminált:
+Ahogy a neve is mutatja, ez a megoldás WSL esetén, Windows-on releváns. Előnye, hogy egy helyen használhatunk több Linux disztribúciót akár Windows parancssorral is. `Ctrl-Shift-P` billentyű kombinációkkal, majd a Split down, Split left parancsokkal oszhatjuk szét hasonló módon a terminált:
 
 ![Alt text](windows_terminal01.png)
 
@@ -87,11 +87,11 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
 - `ls`: listázás: könyvtárak, fájlok
 - `mkdir`: könyvtár készítése
 - `pwd`: aktuális munkakönyvtár kiíratása (print working directory)
-- `cp`: Ezzel a paranccsal tudunk másolni.(`cp` `/file/helye` `/ahova/másolni/akarod/`, `cp -r` `/a/könyvtár/helye` `/ahova másolni/akarod`)
-- `mv`: Ezzel adott fájlt vagy könyvtárat tudunk mozgatni (áthelyezni) vagy átnevezni. (`mv /a/fájl/helye *fájl új neve`, `mv /a/fájl/helye /a/fájl/új/helye`)
-- `rm`: Fájlok törlése. (`rm /a/fájl/helye, rm -r /a/fájlok/és/mappák/helye`) Az `rm -r` parancsnál minden törlődni fog a meghatározott helyen.
-- `rmdir`: Egy üres könyvtár törlése.
-- `chmod`: (change mode) Arra alkalmas, hogy megváltoztassuk az fájlok / mappák hozzáférési jogait. Thetetjük ezt például karakteres kapcsolókkal (r, w, stb.), vagy oktálisan (számjegyekkel).
+- `cp`: Ezzel a paranccsal tudunk másolni (`cp` `/file/helye` `/ahova/másolni/akarod/`, `cp -r` `/a/könyvtár/helye` `/ahova másolni/akarod`)
+- `mv`: Ezzel adott fájlt vagy könyvtárat tudunk mozgatni (áthelyezni) vagy átnevezni (`mv /a/fájl/helye *fájl új neve`, `mv /a/fájl/helye /a/fájl/új/helye`)
+- `rm`: Fájlok törlése (`rm /a/fájl/helye, rm -r /a/fájlok/és/mappák/helye`) Az `rm -r` parancsnál minden törlődni fog a meghatározott helyen.
+- `rmdir`: Egy üres könyvtár törlése
+- `chmod`: (change mode) Arra alkalmas, hogy megváltoztassuk a fájlok / mappák hozzáférési jogait. Tehetjük ezt például karakteres kapcsolókkal (r, w, stb.), vagy oktálisan (számjegyekkel).
   - pl `chmod +x my_python_node.py`: írási jog hozzáadása
   - pl `chmod 777 everything.py`: minden jog hozzáadása
 
@@ -117,24 +117,24 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
 |`/bin` | A futtatható parancsok, binaries |
 |`/sbin`| A rendszergazda parancsai, superuser/system bin   |
 |`/lib` | Az induláshoz szükséges osztott rendszerkönyvtárak -libraries- illetve, modulok, meghajtóprogramok  |
-|`/dev` | Eszközök, min pl USB (`ttyUSB0`) - devices  |
-|`/etc` | Beállítófájlok, helyi indító parancsok, jelszavak, hálózati-beállítók, etc. helye.  |
-|`/home`| Itt található minden felhasználó saját könyvtárat. Pl. ha, a `sanyi` felhasználóval vagyunk belépve `/home/sanyi` tartalmazza a fájlainkat. A `/home/sanyi/Desktop` vagy röviden `~/Desktop` pl az asztalunk tartalma. |
+|`/dev` | Eszközök, mint például USB (`ttyUSB0`) - devices  |
+|`/etc` | Beállítófájlok, helyi indító parancsok, jelszavak, hálózati beállítók stb. helye.  |
+|`/home`| Itt található minden felhasználó saját könyvtárat. Például ha a `sanyi` felhasználóval vagyunk belépve, `/home/sanyi` tartalmazza a fájljainkat. A `/home/sanyi/Desktop`, vagy röviden `~/Desktop` az asztalunk tartalma. |
 |`/mnt` | A felcsatolt (mountolt) perifériák, fájlrendszerek helye, mount.  |
 |`/proc`| Process information |
 |`/root`| A root user könyvtára  |
 |`/tmp` |  Temp |
 |`/usr` |  Universal system resources, alkalmazások, rendszereszközök |
-|`/var` |  Változó adatok pl.: nyomtatási munkák, emailek |
+|`/var` |  Változó adatok, például nyomtatási munkák, email-ek |
 
 ## Verziókezelés
 - `git clone`: git repo klónozása
 - `git config --global user.name "Sanyika"`: felhsználónév beállítása
 - `git config --global user.email "sanyika@gggmail.com`: email beállítása
 - `git init`: lokális repó inicializálása
-- `git add <file>`: Fájl hozzáadása
+- `git add <file>`: fájl hozzáadása
 - `git status`: aktuális státusz lekérdezése
-- `git commit -m "My beautiful commit"`: Commit, üzenettel
+- `git commit -m "My beautiful commit"`: commit, üzenettel
 - `git push`: push
 - `git pull`: pull
 - `git branch <new_branch_name>`: branch készítése
@@ -144,58 +144,58 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
 {: .important-title }
 > Tipp
 >
-> A legtöbb művelet VS code-al elvégezhető terminál nélkül is.
+> A legtöbb művelet VS code-dal elvégezhető terminál nélkül is.
 
 ## Szöveges fájlok
 - `wget`: webes tartalmak letöltése terminalból
-- `cat`: fájl tartalmának kiiratása
+- `cat`: fájl tartalmának kiíratása
 - `touch`: szöveges fájl létrehozása
-  - pl `touch hello.txt`
-- `echo`: kiíratás, vagy fájlba írás (`>>` operátor). Amennyiben nem létezik a fájl, létrehozza (`touch`).
-  - pl `echo "hello" >> hello.txt`  
-  - pl `echo "n = 5; print('\n'.join(':D ' * i for i in range(1, n + 1)))" >> hello.py` 
-  - pl `rostopic list >> hello.txt` 
-  - pl `rostopic echo -n1 /scan >> hello.txt` 
+  - pl. `touch hello.txt`
+- `echo`: kiíratás, vagy fájlba írás (`>>` operátor). Amennyiben nem létezik a fájl, létrehozza (`touch`)
+  - pl. `echo "hello" >> hello.txt`  
+  - pl. `echo "n = 5; print('\n'.join(':D ' * i for i in range(1, n + 1)))" >> hello.py` 
+  - pl. `rostopic list >> hello.txt` 
+  - pl. `rostopic echo -n1 /scan >> hello.txt` 
 - `nano`: szövegszerkesztő: egyszerű, terminál-alapú
 - `code`: szövegszerkesztő: GUI, VS code
-  - pl `code .` megnyintja az aktuális mappa tartalmát
-  - pl `code ~/.bashrc` megnyintja a  `~/.bashrc` tartalmát szerkesztésre
+  - pl. `code .` megnyintja az aktuális mappa tartalmát
+  - pl. `code ~/.bashrc` megnyintja a  `~/.bashrc` tartalmát szerkesztésre
 - `catkin`: catkin tools: wrapper a `cmake` és `make` parancsok egyszerűbb használatához
 
 
 ## Telepítés
 - `sudo apt install` vagy `sudo apt-get install`: szoftver csomagkezelővel történő telepítés, Advanced Packaging Tool (APT). 
-  - pl `sudo apt install tree mc` - tree és mc programok telepítése 
+  - pl. `sudo apt install tree mc` - tree és mc programok telepítése 
 - `sudo`: (Superuser do) Lehetővé teszi, hogy rendszergazdaként vagy más felhasználó nevében hajtsunk végre parancsokat.
 - `sudo apt update`: csomagindex frissítése, ha új verziók jönnek ki különböző szoftverekből, ezt a paracsot a telepítés (`apt install`) előtt célszerű kiadni.
 - `sudo apt update`: már telepített csomagok frissítése
 - `apt list`: listázza asz összes telepített csomagot
-  - pl `apt list | grep ros`: leszűri csak az ros 
+  - pl. `apt list | grep ros`: leszűri csak az `ROS`-hez kapcsolódó csomagokat
 
-## Egyéb hasznos
+## További hasznos eszközök
 
 ### Navigáció
-- `Ctrl + a` vagy `home`: A sor elejére dob.
-- `Ctrl + e` vagy `end`: A sor végére dob.
-- `Ctrl + ◀` / `Ctrl + ▶`: Az előző / következő szóra ugrik. 
+- `Ctrl + a` vagy `home`: A sor elejére dob
+- `Ctrl + e` vagy `end`: A sor végére dob
+- `Ctrl + ◀` / `Ctrl + ▶`: Az előző / következő szóra ugrik
 ### `grep`
-- `grep`: (Global \ Regular Expression \ Print) fájlokban illetve parancsok kimenetében keres. 
-  - pl `grep 'ROS' ~/.bashrc`: listázza a `bashrc` fájlban az `ROS` szöveget tartalmazó sorokat
-  - pl `rostopic list | grep pose`: listázza az összes topicot, amiben van `pose` string
+- `grep`: (Global \ Regular Expression \ Print) fájlokban illetve parancsok kimenetében keres
+  - pl. `grep 'ROS' ~/.bashrc`: listázza a `bashrc` fájlban az `ROS` szöveget tartalmazó sorokat
+  - pl. `rostopic list | grep pose`: listázza az összes topicot, amiben van `pose` string
 ### `ssh`
 - `ssh`: (Secure Shell Protocol) linux gépektbe távoli terminal bejelentkezést tesz lehetővé
-  - pl `ssh nvidia@192.168.1.5`: belépés az adott user adott IP címen lévő gépébe.
-  - pl `ssh user01@computer4 -X`: belépés `-X` X window használatával, így az esetleges ablakok a mi gépünkön jelennek meg, de a távoli gép hostolja őket.
-  - pl `ssh laptop@192.168.0.2 touch hello.txt`: létrehoz az adott gépen egy fájlt, nyilván más parancsokkal is működik. 
+  - pl. `ssh nvidia@192.168.1.5`: belépés az adott user adott IP címen lévő gépébe
+  - pl. `ssh user01@computer4 -X`: belépés `-X` X window használatával, így az esetleges ablakok a mi gépünkön jelennek meg, de a távoli gép hostolja őket
+  - pl. `ssh laptop@192.168.0.2 touch hello.txt`: létrehoz az adott gépen egy fájlt, nyilván más parancsokkal is működik
 ### Gyakran használt parancsok
-- A fájlrendszer állapotáról a `df -h` (disk filesystem, human readable) parancs ad tájékoztatást.
+- A fájlrendszer állapotáról a `df -h` (disk filesystem, human readable) parancs ad tájékoztatást
 - Futó folyamatokról a `ps` ad tájékoztatást pl: `ps -A | grep ros`
 
-Az `ssh` alapvetően jelszót is kér, de ha megbízunk egy adott gépben, elmenthetjük a privát-publikus kulcspárt és akkor erre nincs szükség [például így](https://github.com/szenergy/szenergy-public-resources/wiki/H-SSH-no-password).
+Az `ssh` alapvetően jelszót is kér, de ha megbízunk egy adott gépben, elmenthetjük a privát-publikus kulcspárt, és akkor erre nincs szükség, [például így](https://github.com/szenergy/szenergy-public-resources/wiki/H-SSH-no-password).
 
 ### `rsync` hálózati másolás
 
-Hálózatba kötött gépek közötti másolás (remote sync), pl az nvidia jetsonról a saját gépünk `/mnt/c/bag/` mappájába történő másolás progress-barral így néz ki:
+Hálózatba kötött gépek közötti másolás (remote sync), pl. egy Nvidia Jetson beágyazott számítógépről a saját gépünk `/mnt/c/bag/` mappájába történő másolás progress-barral így néz ki:
 
 ``` r
 rsync -avzh --progress nvidia@192.168.1.5:/mnt/storage_1tb/2023-07-02/ /mnt/c/bag/2023-07-02/
@@ -203,7 +203,7 @@ rsync -avzh --progress nvidia@192.168.1.5:/mnt/storage_1tb/2023-07-02/ /mnt/c/ba
 
 ### `screen`
 
-Virtuális terminálokat indít, kezel, pl:
+Virtuális terminálokat indít, kezel, például:
 ``` r
 screen -m -d -S roscore bash -c roscore
 screen -m -d -S campfly bash -c 'roslaunch drone_bringup campus_fly.launch'
@@ -310,7 +310,7 @@ ROS_DISTRO=humble
 
 #### Gazebo és WSL 
 
-Gazebo szimulátort és WSL-t használva előfordulhat egy [issue](https://github.com/gazebosim/gz-sim/issues/1841), ami egy egyszerű környezeti változó beállításával javítható. A `~/.bashrc` fájlba a következőt kell beállítani.
+Gazebo szimulátort és WSL-t használva előfordulhat egy [issue](https://github.com/gazebosim/gz-sim/issues/1841), ami egy egyszerű környezeti változó beállításával javítható. A `~/.bashrc` fájlban a következőt kell beállítani.
 
 ``` php
 export LIBGL_ALWAYS_SOFTWARE=1 ### GAZEBO IGNITION 
@@ -332,7 +332,7 @@ fi
 unset color_prompt force_color_prompt
 ```
 
-Miután megvan cseréljük a következő részre:
+Miután megvan, cseréljük a következő részre:
 
 ``` bash
 parse_git_branch() {

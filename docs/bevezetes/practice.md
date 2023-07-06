@@ -43,23 +43,23 @@ Amíg a `.bag` töltődik, röviden bemutatjuk a Foxglove Studio programot. A Fo
 - böngészőben hozzáférhető
 - saját domainen, önállóan hostolható
 
-A natív robotikai eszközök (mint például az ROS ecoszisztéma részei) általában csak Linux rendszeren támogatottak, de a Studio asztali alkalmazás Linuxon, Windowson és macOS-en is működik. Akár az ROS stack más operációs rendszeren fut, a Studio képes kommunikálni a robottal zökkenőmentesen.
+A natív robotikai eszközök (mint például az ROS ökoszisztéma részei) általában csak Linux rendszeren támogatottak, de a Studio asztali alkalmazás Linuxon, Windows-on és macOS-en is működik. Akár az ROS stack más operációs rendszeren fut, a Studio képes kommunikálni a robottal zökkenőmentesen.
 
 A Studio gazdag vizuális elemeket és hibakereső panelokat kínál - interaktív diagramoktól, 3D vizuális elemekig, kameraképektől, és diagnosztikai adatfolyamokig. Legyen szó valós idejű robotkövetésről, vagy `.bag` / `.mcap` fájlban történő hibakeresésről, ezek a panelok segítenek a különböző, általános robotikai feladatok megoldásában.
 
-Ezek a panelok ezután egyedi elrendezésekben konfigurálhatók és összeállíthatók a projekt egyedi igényeinek és munkafolyamatainak meg.
+Ezek a panelok ezután egyedi elrendezésekben konfigurálhatók és összeállíthatók a projekt egyedi igényeinek és munkafolyamatainak megfelelően.
 
 ## Az egytemi Nissan mérésadatainak leírása
 
-ROS rendszerben (de más hasonló robotikai megoldásokban is) az egyes adatok [topic](http://wiki.ros.org/Topics)-okba szerveződve vannak publikálva. Egy topic lehet például egy szenzor kimenete, egy szabályzó bemenete, vizualizációs marker, stb. A topicoknak [típusuk](http://wiki.ros.org/Messages) van, rengeteg előre definiált típus létezik, de létrehozhatunk sajátot is, ha ezek nem lennének elegek. Példaképp pár előre definiált típus:
--  [`sensor_msgs/Image`](http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html) - Tömörítés nélküli képi információ, jellemzően a kamerától jön, de lehet feldolgozott adat, ami pl jelölve vannak a gyalogosok is.
+ROS rendszerben (de más hasonló robotikai megoldásokban is) az egyes adatok [topic](http://wiki.ros.org/Topics)-okba szerveződve vannak publikálva. Egy topic lehet például egy szenzor kimenete, egy szabályzó bemenete, vizualizációs marker stb. A topicoknak [típusuk](http://wiki.ros.org/Messages) van, rengeteg előre definiált típus létezik, de létrehozhatunk sajátot is, ha ezek nem lennének elegek. Példaképp pár előre definiált típus:
+-  [`sensor_msgs/Image`](http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html) - Tömörítés nélküli képi információ, jellemzően a kamerától jön, de lehet feldolgozott adat, amin például jelölve vannak a gyalogosok is.
 -  [`sensor_msgs/CompressedImage`](http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/CompressedImage.html) - Tömörített képi információ.
 -  [`std_msgs/String`](http://docs.ros.org/en/noetic/api/std_msgs/html/msg/String.html) - Egyszerű szöveges üzenettípus.
 -  [`std_msgs/Bool`](http://docs.ros.org/en/noetic/api/std_msgs/html/msg/Bool.html) - Egyszerű bináris üzenettípus.
 -  [`geometry_msgs/Point`](http://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Point.html) - XYZ 3D pont.
 - [`geometry_msgs/Pose`](http://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Pose.html) - 3D pont és a hozzá tartozó orientáció.
 
-Ahogy látszik a típusok különböző kategóriákba esnek, úgy mint: `std_msgs`,  `diagnostic_msgs`, `geometry_msgs`, `nav_msgs`, `sensor_msgs` stb. Nézzük milyen típusú üzenetek találhatók a letöltött fájlban:
+Ahogy látszik, a típusok különböző kategóriákba esnek, úgy mint: `std_msgs`,  `diagnostic_msgs`, `geometry_msgs`, `nav_msgs`, `sensor_msgs` stb. Nézzük, milyen típusú üzenetek találhatók a letöltött fájlban:
 
 | Topic | Típus | Hz | Szenzor |
 | --- | --- | --- | --- |

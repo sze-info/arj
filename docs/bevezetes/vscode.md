@@ -99,4 +99,17 @@ A fejlesztőkörnyezet beépített terminálja, mind Windowson, mind Linuxon mű
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fAkpQ4Q3S2g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+## ROS 2 ajánlott beállítások
+
+ROS 2 C++ fejlesztésnél alapvetően a VS code nem ismeri fel az ROS header fájlokat, így az pl az [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) se működik megfelelően:
+
+<center><img src="includepath_settings01.png" width="60%" /></center>
+
+Erre egyszerű megoldás az `includePath settings`-re kattintva beállítani az `/op/ros/humble/**` elérési utat. (Természetesen ugyanez működik nem `humble` verziónál is, ott a megfelelő elérési utat szükséges megadni). Ez a következőképp néz ki:
+
+<center><img src="includepath_settings02.png" width="60%" /></center>
+
+Amennyiben mentette a VS code, az [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) és egyéb funkciók is ennek megfelelően fognak működni.
+
+
 Források: [code.visualstudio.com/docs/sourcecontrol/overview](https://code.visualstudio.com/docs/sourcecontrol/overview)

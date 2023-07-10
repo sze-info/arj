@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ROS2 koncepciók
+title: ROS 2 alapfogalmak
 parent: Bevezetés
 ---
 

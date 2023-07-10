@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ROS1 koncepciók
+title: ROS 1 alapfogalmak
 parent: Bevezetés
 ---
 

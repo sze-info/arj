@@ -147,3 +147,10 @@ Részletek: [docs.ros.org/en/humble/Tutorials/Demos/Logging-and-logger-configura
 Szintén célszerű beállítani a `colcon_cd` paranccsot, így gyorsan válthatunk munkakönyvtárát egy csomag könyvtárára. Példaként a `colcon_cd some_ros_package` parancsra gyorsan a `~/ros2_ws/src/some_ros_package` könyvtárba ugorhatunk.
 
 Részletek: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#setup-colcon-cd](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#setup-colcon-cd)
+
+## Géptermi telepítés
+``` r
+wget https://raw.githubusercontent.com/sze-info/arj/main/docs/telepites/install_humble.sh
+sudo chmod +x install_humble.sh
+./install_humble.sh
+```

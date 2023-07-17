@@ -37,6 +37,7 @@ echo "" >> ~/.bashrc
 echo "#### ADDED BY INSTALL SCRIPT wget https://raw.githubusercontent.com/sze-info/arj/main/docs/telepites/install_humble.sh" >> ~/.bashrc
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 echo "export RCUTILS_COLORIZED_OUTPUT=1" >> ~/.bashrc
+echo "export LIBGL_ALWAYS_SOFTWARE=1" >> ~/.bashrc
 echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
 echo "export _colcon_cd_root=/opt/ros/humble/" >> ~/.bashrc
 echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
@@ -51,6 +52,7 @@ cd ~/ros2_ws/src
 git clone https://github.com/sze-info/arj_packages
 
 cd ~/ros2_ws
+source ~/.bashrc
 colcon build
 
 echo ""
@@ -64,6 +66,8 @@ sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/p
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 sudo apt-get update -y
 sudo apt-get install ignition-fortress -y
+sudo apt install ros-humble-foxglove-bridge -y
+sudo apt install mc -y
 
 echo ""
 echo "++++ install script end ++++"

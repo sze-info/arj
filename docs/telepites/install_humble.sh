@@ -38,6 +38,8 @@ echo "#### ADDED BY INSTALL SCRIPT wget https://raw.githubusercontent.com/sze-in
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 echo "export RCUTILS_COLORIZED_OUTPUT=1" >> ~/.bashrc
 echo "export LIBGL_ALWAYS_SOFTWARE=1" >> ~/.bashrc
+echo "export ROS_DOMAIN_ID="$(( $RANDOM % 100 + 1 )) >> ~/.bashrc
+echo "export ROS_LOCALHOST_ONLY=1" >> ~/.bashrc
 echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
 echo "export _colcon_cd_root=/opt/ros/humble/" >> ~/.bashrc
 echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc

@@ -18,6 +18,8 @@ Ismert terep/munkaterület | Ismeretlen terület
 Az út tervezés előbb történik mint a mozgás | Az út tervezés és a mozgás egyszerre történik
 Nincs szigorú követelmény a számítási időre | Követelmény hogy valós időben működjön 
 
+A tervezés végeredménye mind lokális és globális esetben egy diszkrét pontokra osztott szakasz, amelynek minden pontja tartalmaz pozíció, orientáció és sebesség információkat:
+![trapez_parameterekkel](img/params_en01.svg)
 
 
 

@@ -110,13 +110,14 @@ Futtassuk és figyeljük meg az eredményeket a beavatkozó jel (`control_value`
 
 [github.com/jkk-research/sim_wayp_plan_tools](https://github.com/jkk-research/sim_wayp_plan_tools)
 
-# Követelmények
+### Követelmények
+A gyakorlat hibamentes lefutásához a következő programok telepítése szükséges: 
 - ROS 2 Humble: [docs.ros.org/en/humble/Installation.html](https://docs.ros.org/en/humble/Installation.html)
 - Gazebo Fortress: [gazebosim.org/docs/fortress/install_ubuntu](https://gazebosim.org/docs/fortress/install_ubuntu), Több információ az integrálásról: [gazebosim.org/docs/fortress/ros2_integration](https://gazebosim.org/docs/fortress/ros2_integration)
 - `ros-gz-bridge` Egy parancsal installálható: `sudo apt install ros-humble-ros-gz-bridge`
 - Ellenőrizük, hogy a [`colcon_cd`](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#setup-colcon-cd) megfelelően van telepítve. A csv fájlok a `colcon_cd`-vel töltődnek be.
 
-## Package-ek és build
+### Package-ek és build
 
  Az alapértelmezett workspace a következő legyen:`~/ros2_ws/`.
 
@@ -132,14 +133,14 @@ git clone https://github.com/jkk-research/sim_wayp_plan_tools
 cd ~/ros2_ws
 colcon build --packages-select wayp_plan_tools sim_wayp_plan_tools
 ```
-# `wayp_plan_tools` használata szimulátorként
+### `wayp_plan_tools` használata szimulátorként
 
-## 1. A gazebo indítása
+#### 1. A gazebo indítása
 ```
 ign gazebo -v 4 -r ackermann_steering.sdf
 ```
 
-## 2. A Gazebo bridge indítása
+#### 2. A Gazebo bridge indítása
 
 Ne felejtsünk el `source`-olni az ROS-es parancsok előtt.
 
@@ -162,13 +163,15 @@ Több információ a bridge-ről: [github.com/gazebosim/ros_gz/blob/ros2/ros_gz_
 
 Ez a `launch` a `PoseArray`-ből egy `/tf`-et is készít a `pose_arr_to_tf`.
 
-## *Opcionális*: A gazebo-ban lévő robot irányítása billentyűzettel:
+#### *Opcionális*: A gazebo-ban lévő robot irányítása billentyűzettel:
 
 ``` r
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/model/vehicle_blue/cmd_vel
 ```
 
-## 3. Waypointok betöltése
+#### 3. Waypointok betöltése
+
+**Megjegyzés:** A waypointok egy ponthalmaz, amely az útvonal pozíció, orientáció és sebesség adatait tartalmazza diszkrét pontokra osztva. Ezeket az adatokat jellemzően úgy nyerjük ki hogy az útunk során ROS-ben rögzítjük a gps-től vagy az odometriától az x,y esetleg z koordinátákat, az aktuálishoz képest a következő pontra mutató orientációt és az éppen aktuális sebesség adatot. Végül az imént felsoroltakat csv fájlokban rögzítjük.  
 
 Használjuk a ROS 2-es workspacet `file_dir`-ként:
 ``` r
@@ -179,7 +182,9 @@ Vagy az alapparaméterekel:
 ``` r
 ros2 launch sim_wayp_plan_tools waypoint_loader.launch.py
 ```
-## 4. Waypoint célként
+#### 4. Waypoint célként
+
+
 
 ``` r
 ros2 run wayp_plan_tools waypoint_to_target --ros-args -p lookahead_min:=2.5 -p lookahead_max:=4.5 -p mps_alpha:=1.5 -p mps_beta:=3.5 -p waypoint_topic:=waypointarray -p tf_frame_id:=base_link -p tf_child_frame_id:=map -r __ns:=/sim1
@@ -189,7 +194,7 @@ Vagy az alapparaméterekel:
 ``` r
 ros2 launch sim_wayp_plan_tools waypoint_to_target.launch.py
 ```
-## 5. A szabályzás indítása:
+#### 5. A szabályzás indítása:
 
 Több lehetőség van:
 - `single_goal_pursuit`: Pure pursuit (for vehicles / robots), a simple cross-track error method
@@ -207,11 +212,11 @@ Vagy az alapparaméterekel:
 ``` r
 ros2 launch sim_wayp_plan_tools single_goal_pursuit.launch.py
 ```
-## 6. Az eredmények vizualizálása `RViz2`-ben:
+#### 6. Az eredmények vizualizálása `RViz2`-ben:
 ``` r
 ros2 launch sim_wayp_plan_tools rviz1.launch.py
 ```
-# Vagy futtasunk mindent együtt egyetlen parancsal:
+**Vagy futtasunk mindent együtt egyetlen parancsal:**
 
 After `ign gazebo -v 4 -r ackermann_steering.sdf` (terminal 1) and `source ~/ros2_ws/install/local_setup.bash` (terminal 2), run this command (also in terminal 2): 
 ``` r

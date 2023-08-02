@@ -175,16 +175,15 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/mo
 
 Használjuk a ROS 2-es workspacet `file_dir`-ként:
 ``` r
-ros2 run wayp_plan_tools waypoint_loader --ros-args -p file_name:=sim_waypoints1.csv -p file_dir:=/home/he/ros2_ws/src/sim_wayp_plan_tools/csv -r __ns:=/sim1
+ros2 run wayp_plan_tools waypoint_loader --ros-args -p file_name:=sim_waypoints1.csv -p file_dir:=$HOME/ros2_ws/src/sim_wayp_plan_tools/csv -r __ns:=/sim1
 ```
 Vagy az alapparaméterekel:
 
 ``` r
 ros2 launch sim_wayp_plan_tools waypoint_loader.launch.py
 ```
-#### 4. Waypoint célként
-
-
+#### 4. Waypoint goal pose-ként
+Ahogy az elméleti rész 4. fejezetben az ábrákon látható, minden szabályozási algoritmushoz tartozik egy vagy több goal pose amire az éppen működő szabálzó szabályoz. 
 
 ``` r
 ros2 run wayp_plan_tools waypoint_to_target --ros-args -p lookahead_min:=2.5 -p lookahead_max:=4.5 -p mps_alpha:=1.5 -p mps_beta:=3.5 -p waypoint_topic:=waypointarray -p tf_frame_id:=base_link -p tf_child_frame_id:=map -r __ns:=/sim1

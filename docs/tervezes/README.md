@@ -79,9 +79,9 @@ Werling és mtsai. ötödfokú polinomot határoztak meg, ez írja le a görbét
 $$ x(s) = c_{0} + c_{1}s + c_{2}s^{2}+c_{3}s^{3}+c_{4}s^{4}+c_{5}s^{5} $$
 
 Láthatjuk, hogy a görbét 6 db paraméter adja meg, a 6 együttható c0-tól c5-ig. Ahhoz, hogy az összes együtthatót meg tudjuk határozni, 6 peremfeltételre van szükségünk:
-- a kezdeti és végpont eltérése a referencia vonaltól (azaz $$ x(0) $$ és $$ x(s_{1}) $$)
-- a kezdeti és végpont orientációjának eltésére a referencia vonaltól (azaz $$ x'(0) $$ és $$ x'(s_{1}) $$), ahol $$'$$ az s-szerinti első deriváltat jelöli,
-- illetve a kezdeti és végpontban a tervezett trajektória görbülete (azaz $$ x''(0)) $$ és $$ x''(s_{1}) $$), ahol $$''$$ az s-szerinti második deriváltat jelöli.
+- a kezdeti és végpont eltérése a referencia vonaltól (azaz $x(0)$ és $x(s_{1})$)
+- a kezdeti és végpont orientációjának eltésére a referencia vonaltól (azaz $x'(0)$ és $x'(s_{1})$), ahol ' az s-szerinti első deriváltat jelöli,
+- illetve a kezdeti és végpontban a tervezett trajektória görbülete (azaz $x''(0))$ és $x''(s_{1})$), ahol '' az s-szerinti második deriváltat jelöli.
 
 Ezeket vektoros formába rendezve:
 $$ [d_{0} d_{1} \theta_{0} \theta_{1} \kappa_{0} \kappa_{1}] $$

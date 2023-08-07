@@ -84,10 +84,10 @@ Láthatjuk, hogy a görbét 6 db paraméter adja meg, a 6 együttható c0-tól c
 - illetve a kezdeti és végpontban a tervezett trajektória görbülete.
 
 Ezeket vektoros formába rendezve:
-$$ [d_{0} d_{1} \theta_{0} \theta_{1} \kappa_{0} \kappa_{1}] $$
+$$ (d_{0} d_{1} \theta_{0} \theta_{1} \kappa_{0} \kappa_{1}) $$
 
 Ezeket tetszőlegesen megválaszthatjuk. A fenti magyarázat alapján legyen:
-$$ [d_{0} d_{1} \theta_{0} \theta_{1} \kappa_{0} \kappa_{1}]  = [d_{0} 0 \theta_{0} 0 0 0] $$, azaz a kezdeti pontban a jármű helyzete a referenciavonaltól, a végpontban a referencia vonal, a görbületek pedig nullák, azaz a referencia vonal görbületei a kezdeti és végpontban.
+$$ (d_{0} d_{1} \theta_{0} \theta_{1} \kappa_{0} \kappa_{1})  = (d_{0} 0 \theta_{0} 0 0 0) $$, azaz a kezdeti pontban a jármű helyzete a referenciavonaltól, a végpontban a referencia vonal, a görbületek pedig nullák, azaz a referencia vonal görbületei a kezdeti és végpontban.
 A peremfeltételek segítségével felírható egy 6 ismeretlent és 6 egyenletet tartalmazó egyenletrendszer:
 $$ x(s=0) = c_{0} = d_{0}$$
 $$ x'(s=0) = c_{1} = \theta_{1}$$

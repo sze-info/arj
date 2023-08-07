@@ -76,32 +76,32 @@ Az, hogy mit tekintünk optimálisnak, a költségfüggvénytől függ. Ebben á
 
 Werling és mtsai. ötödfokú polinomot határoztak meg, ez írja le a görbét. A Frenét-rendszerben így a görbe egyenlete:
 
-$$ x(s) = c_(0) + c_(1)s + c_2s^(2)+c_(3)s^(3)+c_(4)s^(4)+c_(5)s^(5) $$
+$$ x(s) = c_{0} + c_{1}s + c_{2}s^{2}+c_{3}s^{3}+c_{4}s^{4}+c_{5}s^{5} $$
 
 Láthatjuk, hogy a görbét 6 db paraméter adja meg, a 6 együttható c0-tól c5-ig. Ahhoz, hogy az összes együtthatót meg tudjuk határozni, 6 peremfeltételre van szükségünk:
-- a kezdeti és végpont eltérése a referencia vonaltól (azaz $$ x(0) $$ és $$ x(s_(1)) $$)
-- a kezdeti és végpont orientációjának eltésére a referencia vonaltól (azaz $$ x'(0) $$ és $$ x'(s_(1)) $$), ahol $$'$$ az s-szerinti első deriváltat jelöli,
-- illetve a kezdeti és végpontban a tervezett trajektória görbülete (azaz $$ x''(0)) $$ és $$ x''(s_(1)) $$), ahol $$''$ az s-szerinti második deriváltat jelöli.
+- a kezdeti és végpont eltérése a referencia vonaltól (azaz $$ x(0) $$ és $$ x(s_{1}) $$)
+- a kezdeti és végpont orientációjának eltésére a referencia vonaltól (azaz $$ x'(0) $$ és $$ x'(s_{1}) $$), ahol $$'$$ az s-szerinti első deriváltat jelöli,
+- illetve a kezdeti és végpontban a tervezett trajektória görbülete (azaz $$ x''(0)) $$ és $$ x''(s_{1}) $$), ahol $$''$ az s-szerinti második deriváltat jelöli.
 
 Ezeket vektoros formába rendezve:
-$$ [d_(0) d_(1) \theta_(0) \theta_(1) \kappa_(0) \kappa_(1)] $$
+$$ [d_{0} d_{1} \theta_{0} \theta_{1} \kappa_{0} \kappa_{1}] $$
 
 Ezeket tetszőlegesen megválaszthatjuk. A fenti magyarázat alapján legyen:
-$$ [d_(0) d_(1) \theta_(0) \theta_(1) \kappa_(0) \kappa_(1)]  = [d_(0) 0 \theta_(0) 0 0 0] $$, azaz a kezdeti pontban a jármű helyzete a referenciavonaltól, a végpontban a referencia vonal, a görbületek pedig nullák, azaz a referencia vonal görbületei a kezdeti és végpontban.
+$$ [d_{0} d_{1} \theta_{0} \theta_{1} \kappa_{0} \kappa_{1}]  = [d_{0} 0 \theta_{0} 0 0 0] $$, azaz a kezdeti pontban a jármű helyzete a referenciavonaltól, a végpontban a referencia vonal, a görbületek pedig nullák, azaz a referencia vonal görbületei a kezdeti és végpontban.
 A peremfeltételek segítségével felírható egy 6 ismeretlent és 6 egyenletet tartalmazó egyenletrendszer:
-$$ x(s=0) = c_(0) = d_(0)$$
-$$ x'(s=0) = c_(1) = \theta_(0)$$
-$$ x''(s=0) = 2c_(2) = \kappa_(0)$$
-$$ x(s=s_(1)) = c_(0) + c_(1)s + c_2(s_(1))^(2)+c_(3)(s_(1))^(3)+c_(4)(s_(1))^(4)+c_(5)(s_(1))^(5) $$
-$$ x'(s=s_(1)) = c_(1)s + 2c_2(s_(1))+3c_(3)(s_(1))^(2)+4c_(4)(s_(1))^(3)+5c_(5)(s_(1))^(4) $$
-$$ x''(s=s_(1)) = 2c_2+6c_(3)s_(1)+12c_(4)(s_(1))^(2)+20c_(5)(s_(1))^(3) $$
+$$ x(s=0) = c_{0} = d_{0}$$
+$$ x'(s=0) = c_{1} = \theta_{1}$$
+$$ x''(s=0) = 2c_{2} = \kappa_{1}$$
+$$ x(s=s_{1}) = c_{0} + c_{1}s + c_{2}(s_{1})^b2}+c_{3}(s_{1})^{3}+c_{4}(s_{1})^{4}+c_{5}(s_{1})^{5} $$
+$$ x'(s=s_{1}) = c_{1}s + 2c_{2}(s_{1})+3c_{3}(s_{1})^{2}+4c_{4}(s_{1})^{3}+5c_{5}(s_{1})^{4} $$
+$$ x''(s=s_{1}) = 2c_{2}+6c_{3}s_{1}+12c_{4}(s_{1})^{2}+20c_{5}(s_{1})^{3} $$
 
-ahol $$ s_(1) $$ a végpont távolsága. Ez lesz a fenti optimalizációs probléma változója. Ezt a mennyiséget tetszőleges tartományon variálva (pl. $$ s_(1,max) $$ és $$ s_(1,min) $$ között) keressük azt az együttható halmazt, amelyre $$ J $$ költségfüggvény a legkisebb.
+ahol $$ s_(1) $$ a végpont távolsága. Ez lesz a fenti optimalizációs probléma változója. Ezt a mennyiséget tetszőleges tartományon variálva (pl. $$ s_{1,max} $$ és $$ s_{1,min} $$ között) keressük azt az együttható halmazt, amelyre $$ J $$ költségfüggvény a legkisebb.
 Hogyan válasszuk meg a $$J$$ függvényt? Erre Werling és mtsai. a következő formulát ajánlják:
 
-$$ C_(d) = k_(j)J_(t)(d(t)) + k_(t)T + k_(d)(d_(1))^(2) $$
+$$ C_{d} = k_{j}J_{t}(d(t)) + k_{t}T + k_{d}(d_{1})^{2} $$
 
-Ahol $$ T = s_(1) / v_(x) $$ a trajektória hossza időben kifejezve, $$J_(t)$$ az ún. jerk (magyarul rántás) az oldalirányú gyorsulás deriváltja, $$d_(1)$$ a végső pontban a távolság a referencia vonaltól. Mi ezt $$d_(1) = 0 $$ értékre választottuk, így ez a tag kiesik. 
+Ahol $$ T = s_{1} / v_{x}$$ a trajektória hossza időben kifejezve, $$J_{t}$$ az ún. jerk (magyarul rántás) az oldalirányú gyorsulás deriváltja, $$d_{1}$$ a végső pontban a távolság a referencia vonaltól. Mi ezt $$d_{1} = 0 $$ értékre választottuk, így ez a tag kiesik. 
 
 
 # Irodalom jegyzék

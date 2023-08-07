@@ -84,24 +84,27 @@ Láthatjuk, hogy a görbét 6 db paraméter adja meg, a 6 együttható c0-tól c
 - illetve a kezdeti és végpontban a tervezett trajektória görbülete.
 
 Ezeket vektoros formába rendezve:
-$ (d_{0}\ d_{1}\ \theta_{0}\ \theta_{1}\ \kappa_{0}\ \kappa_{1}) $
+$$ [d_{0}\ d_{1}\ \theta_{0}\ \theta_{1}\ \kappa_{0}\ \kappa_{1}]$$
 
 Ezeket tetszőlegesen megválaszthatjuk. A fenti magyarázat alapján legyen:
-$$ (d_{0} d_{1} \theta_{0} \theta_{1} \kappa_{0} \kappa_{1})  = (d_{0} 0 \theta_{0} 0 0 0) $$, azaz a kezdeti pontban a jármű helyzete a referenciavonaltól, a végpontban a referencia vonal, a görbületek pedig nullák, azaz a referencia vonal görbületei a kezdeti és végpontban.
+$$[d_{0}\ d_{1}\ \theta_{0}\ \theta_{1}\ \kappa_{0}\ \kappa_{1}]=[d_{0}\ 0\ \theta_{0}\ 0\ 0\ 0]$$
+azaz a kezdeti pontban a jármű helyzete a referenciavonaltól, a végpontban a referencia vonal, a görbületek pedig nullák, azaz a referencia vonal görbületei a kezdeti és végpontban.
 A peremfeltételek segítségével felírható egy 6 ismeretlent és 6 egyenletet tartalmazó egyenletrendszer:
 $$ x(s=0) = c_{0} = d_{0}$$
 $$ x'(s=0) = c_{1} = \theta_{1}$$
 $$ x''(s=0) = 2c_{2} = \kappa_{1}$$
-$$ x(s=s_{1}) = c_{0} + c_{1}s + c_{2}(s_{1})^b2}+c_{3}(s_{1})^{3}+c_{4}(s_{1})^{4}+c_{5}(s_{1})^{5} $$
-$$ x'(s=s_{1}) = c_{1}s + 2c_{2}(s_{1})+3c_{3}(s_{1})^{2}+4c_{4}(s_{1})^{3}+5c_{5}(s_{1})^{4} $$
-$$ x''(s=s_{1}) = 2c_{2}+6c_{3}s_{1}+12c_{4}(s_{1})^{2}+20c_{5}(s_{1})^{3} $$
+$$ x(s=s_{1}) = c_{0} + c_{1}s + c_{2}s_{1}^{2}+c_{3}s_{1}^{3}+c_{4}s_{1}^{4}+c_{5}s_{1}^{5} $$
+$$ x'(s=s_{1}) = c_{1}s + 2c_{2}s_{1}+3c_{3}s_{1}^{2}+4c_{4}s_{1}^{3}+5c_{5}s_{1}^{4} $$
+$$ x''(s=s_{1}) = 2c_{2}+6c_{3}s_{1}+12c_{4}s_{1}^{2}+20c_{5}s_{1}^{3} $$
 
-ahol $$ s_(1) $$ a végpont távolsága. Ez lesz a fenti optimalizációs probléma változója. Ezt a mennyiséget tetszőleges tartományon variálva (pl. $$ s_{1,max} $$ és $$ s_{1,min} $$ között) keressük azt az együttható halmazt, amelyre $$ J $$ költségfüggvény a legkisebb.
-Hogyan válasszuk meg a $$J$$ függvényt? Erre Werling és mtsai. a következő formulát ajánlják:
+ahol 
+$$ s_{1} $$ 
+a végpont távolsága. Ez lesz a fenti optimalizációs probléma változója. Ezt a mennyiséget tetszőleges tartományon variálva (pl. $s_{1,max}$ és $s_{1,min}$ között) keressük azt az együttható halmazt, amelyre $J$ költségfüggvény a legkisebb.
+Hogyan válasszuk meg a $J$ függvényt? Erre Werling és mtsai. a következő formulát ajánlják:
 
 $$ C_{d} = k_{j}J_{t}(d(t)) + k_{t}T + k_{d}(d_{1})^{2} $$
 
-Ahol $$ T = s_{1} / v_{x}$$ a trajektória hossza időben kifejezve, $$J_{t}$$ az ún. jerk (magyarul rántás) az oldalirányú gyorsulás deriváltja, $$d_{1}$$ a végső pontban a távolság a referencia vonaltól. Mi ezt $$d_{1} = 0 $$ értékre választottuk, így ez a tag kiesik. 
+Ahol $T = \dfrac{s_{1}}{v_{x}}$ a trajektória hossza időben kifejezve, $J_{t}$ az ún. jerk (magyarul rántás) az oldalirányú gyorsulás deriváltja, $d_{1}$ a végső pontban a távolság a referencia vonaltól. Mi ezt $d_{1}=0$ értékre választottuk, így ez a tag kiesik. 
 
 
 # Irodalom jegyzék

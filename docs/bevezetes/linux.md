@@ -156,6 +156,7 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
   - pl. `echo "n = 5; print('\n'.join(':D ' * i for i in range(1, n + 1)))" >> hello.py` 
   - pl. `rostopic list >> hello.txt` 
   - pl. `rostopic echo -n1 /scan >> hello.txt` 
+- `find`: fájl keresése, pl a `find ~/ros2_ws/src/ -name *.txt` minden `txt` fájlt megkeres a `~/ros2_ws/src` könyvtárban.
 - `nano`: szövegszerkesztő: egyszerű, terminál-alapú
 - `code`: szövegszerkesztő: GUI, VS code
   - pl. `code .` megnyintja az aktuális mappa tartalmát
@@ -344,6 +345,18 @@ else
  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\\n$ '
 fi
 ``` 
+vagy ugyanez új sorban kezdés nélkül:
+``` bash
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+if [ "$color_prompt" = yes ]; then
+ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
+else
+ PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
+fi
+``` 
+
 Mentsünk, majd a `source ~/.bashrc`, illetve minden új terminálnyitás hatására git repository-t tartalmazó könyvtárban a következőhöz hasonló bash fogad majd minket:
 
 ![bashrc](bashrc01.png)

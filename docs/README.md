@@ -38,10 +38,41 @@ Szabályzás: zárthurkú modellezett jármű, szabályzó építése (pl PID va
 
 A tárgy összeállítása során olyan nemzetközileg is elismert egyetemek tananyagát vettük alapul, mint az MIT, ETH Zürich, TU München, Univerisity of Virginia vagy a Stanford University. A megfelelő licenc betarása mellett bizonyos tanangyag részeket át is vettünk, másokat inspirációként használtunk, [erről részletesen itt](https://github.com/sze-info/arj#acknowledgement) lehet olvasni. 2023-ban a tantárgy az ROS 2 Humble verzióját használja, ez a disztribúció 2027 májusáig támogatott.
 
+## Elmélet
+| Óra | Dátum | Tananyag
+|---|---|---
+|1| | [Bevezetés](https://sze-info.github.io/arj/bevezetes/README.html)
+| 2 | | [ROS2 koncepciók](https://sze-info.github.io/arj/bevezetes/ros2.html)
+| 3 | | [Érzékelés](https://sze-info.github.io/arj/erzekeles/README.html)
+| 4 | | [Transzformációk](https://sze-info.github.io/arj/transzformaciok/README.html)
+| 5 | | [Észlelés](https://sze-info.github.io/arj/eszleles/README.html)
+| 6 | | [Szimuláció](https://sze-info.github.io/arj/szimulacio/README.html)
+| 7 | | [Féléves beadandó](https://sze-info.github.io/arj/feleves_beadando/)
+| 8 | | [Szabályozás](https://sze-info.github.io/arj/szabalyozas/README.html)
+| 9 | | [Mesterséges intelligencia](https://sze-info.github.io/arj/mesterseges_intelligencia/README.html)
+| 10 | | [Tervezés](https://sze-info.github.io/arj/tervezes/README.html)
+
+
+## Gyakorlat
+| Óra | Dátum | Tananyag
+|---|---|---
+|1| | [Bevezetés](https://sze-info.github.io/arj/bevezetes/practice.html) + [Linux](https://sze-info.github.io/arj/bevezetes/linux.html)
+|2| | [Telepítés, Fejlesztőkörnyezet beállítása, ROS2 kommunikáció](https://sze-info.github.io/arj/telepites/ros_humble.html)
+|3| | [ROS2 koncepciók](https://sze-info.github.io/arj/bevezetes/ros2gyak.html)
+|4| | [Érzékelés gyakorlat](https://sze-info.github.io/arj/erzekeles/practice.html) + [VS code IDE](https://sze-info.github.io/arj/bevezetes/vscode.html)
+|5| | [Transzformációk gyakorlat](https://sze-info.github.io/arj/transzformaciok/practice.html)
+|6| | [Észlelés gyakorlat](https://sze-info.github.io/arj/eszleles/practice.html)
+|7| | [Szimuláció gyakorlat](https://sze-info.github.io/arj/szimulacio/gazebo_fortress.html)
+|8| | [Szabályozás gyakorlat](https://sze-info.github.io/arj/szabalyozas/ros2practice.html)
+|9| | [Mesterséges intelligencia gyakorlat](https://sze-info.github.io/arj/mesterseges_intelligencia/practice.html)
+|10| | [Tervezés gyakorlat](https://sze-info.github.io/arj/tervezes/practice.html)
+
 
 ![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/technology01.svg)
 
 <br><br><br>
-## [sze-info.github.io/arj](https://sze-info.github.io/arj)
+<center>
+<h2><a href="https://sze-info.github.io/arj/">sze-info.github.io/arj</a></h2>
+</center>
 
 <br><br><br>

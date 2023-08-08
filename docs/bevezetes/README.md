@@ -52,6 +52,8 @@ A SAE J3016 szabvány definiálja a sofőr és a jármű rendszere közötti mun
 - **4. szint**: L4 - High Driving Automation, itt már minden felelősség a járművé, de hagyományos üzemmódban is használható még.
 - **5. szint**: L5 - Full Driving Automation, Autonomous, itt is a járműé a feleősség, sőt, nem is lehet hagyományos kormánnyal használni.
 
+A szabvány azonban nem íjra le, hogy milyen "scope" / terület a jármű korlátja. Például egy önvezető reptéri busz nem léphet ki a reptér területéről. Ugyanígy a Waymo, Cruise vagy a Zoox robotaxija jellemzően kisebb régióban, magyar hasonlatként nagyjából 1-2 vármegyényi területen működik csak. Ezt nevezzük "geofencing"-nek is.     
+
 ## Példák
 
 Ahogy láthattuk, önvezető (autonomous) járművekhez (L5) hasonló technológiák találhatók a vezetéstámogató (automated) szinteken (L2/L3) is. Azonban a feladat komplexitásban teljesen más szintet jelent.

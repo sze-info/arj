@@ -97,12 +97,12 @@ $$ x(s=s_{1}) = c_{0} + c_{1}s + c_{2}s_{1}^{2}+c_{3}s_{1}^{3}+c_{4}s_{1}^{4}+c_
 $$ x'(s=s_{1}) = c_{1}s + 2c_{2}s_{1}+3c_{3}s_{1}^{2}+4c_{4}s_{1}^{3}+5c_{5}s_{1}^{4} $$
 $$ x''(s=s_{1}) = 2c_{2}+6c_{3}s_{1}+12c_{4}s_{1}^{2}+20c_{5}s_{1}^{3} $$
 
-ahol $s_{1}$ a végpont távolsága. Ez lesz a fenti optimalizációs probléma változója. Ezt a mennyiséget tetszőleges tartományon variálva (pl. $s_{1,max}$ és $s_{1,min}$ között) keressük azt az együttható halmazt, amelyre $J$ költségfüggvény a legkisebb.
-Hogyan válasszuk meg a $J$ függvényt? Erre Werling és mtsai. a következő formulát ajánlják:
+ahol $$s_{1}$$ a végpont távolsága. Ez lesz a fenti optimalizációs probléma változója. Ezt a mennyiséget tetszőleges tartományon variálva (pl. $$s_{1,max}$$ és $$s_{1,min}$$ között) keressük azt az együttható halmazt, amelyre $$J$$ költségfüggvény a legkisebb.
+Hogyan válasszuk meg a $$J$$ függvényt? Erre Werling és mtsai. a következő formulát ajánlják:
 
 $$ C_{d} = k_{j}J_{t}(d(t)) + k_{t}T + k_{d}(d_{1})^{2} $$
 
-Ahol $T = \dfrac{s_{1}}{v_{x}}$ a trajektória hossza időben kifejezve, $J_{t}$ az ún. jerk (magyarul rántás) az oldalirányú gyorsulás deriváltja, $d_{1}$ a végső pontban a távolság a referencia vonaltól. Mi ezt $d_{1}=0$ értékre választottuk, így ez a tag kiesik. 
+Ahol $$T = \dfrac{s_{1}}{v_{x}}$$ a trajektória hossza időben kifejezve, $$J_{t}$$ az ún. jerk (magyarul rántás) az oldalirányú gyorsulás deriváltja, $$d_{1}$$ a végső pontban a távolság a referencia vonaltól. Mi ezt $$d_{1}=0$$ értékre választottuk, így ez a tag kiesik. 
 
 
 
@@ -129,7 +129,7 @@ Azaz a kezdeti feltételek adottak az objektum távolságából, illetve a sajá
 
 $$ C_t = k_jJ_t + k_tT+k_s[s_1-s_d]^2 $$
 
-Ahol $J_t$ a trajektória befutása során tapasztalt átlagos jerk (azaz rántás), $T$ a trajektória hossza időben $s_1-s_d$ a trajektória végén a távolság az objektumtól. A $k$ tényezők a súlyok.
+Ahol $$J_t$$ a trajektória befutása során tapasztalt átlagos jerk (azaz rántás), $$T$$ a trajektória hossza időben $$s_1-s_d$$ a trajektória végén a távolság az objektumtól. A $$k$$ tényezők a súlyok.
 
 <img src="abrak/longitudinal_planning.png" width="500" height="300" /> <br>
 *5. Ábra: sebességtrajektória tervezése, forrás: [1]*

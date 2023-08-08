@@ -97,9 +97,7 @@ $$ x(s=s_{1}) = c_{0} + c_{1}s + c_{2}s_{1}^{2}+c_{3}s_{1}^{3}+c_{4}s_{1}^{4}+c_
 $$ x'(s=s_{1}) = c_{1}s + 2c_{2}s_{1}+3c_{3}s_{1}^{2}+4c_{4}s_{1}^{3}+5c_{5}s_{1}^{4} $$
 $$ x''(s=s_{1}) = 2c_{2}+6c_{3}s_{1}+12c_{4}s_{1}^{2}+20c_{5}s_{1}^{3} $$
 
-ahol 
-$$ s_{1} $$ 
-a végpont távolsága. Ez lesz a fenti optimalizációs probléma változója. Ezt a mennyiséget tetszőleges tartományon variálva (pl. $s_{1,max}$ és $s_{1,min}$ között) keressük azt az együttható halmazt, amelyre $J$ költségfüggvény a legkisebb.
+ahol $s_{1}$ a végpont távolsága. Ez lesz a fenti optimalizációs probléma változója. Ezt a mennyiséget tetszőleges tartományon variálva (pl. $s_{1,max}$ és $s_{1,min}$ között) keressük azt az együttható halmazt, amelyre $J$ költségfüggvény a legkisebb.
 Hogyan válasszuk meg a $J$ függvényt? Erre Werling és mtsai. a következő formulát ajánlják:
 
 $$ C_{d} = k_{j}J_{t}(d(t)) + k_{t}T + k_{d}(d_{1})^{2} $$
@@ -107,7 +105,37 @@ $$ C_{d} = k_{j}J_{t}(d(t)) + k_{t}T + k_{d}(d_{1})^{2} $$
 Ahol $T = \dfrac{s_{1}}{v_{x}}$ a trajektória hossza időben kifejezve, $J_{t}$ az ún. jerk (magyarul rántás) az oldalirányú gyorsulás deriváltja, $d_{1}$ a végső pontban a távolság a referencia vonaltól. Mi ezt $d_{1}=0$ értékre választottuk, így ez a tag kiesik. 
 
 
-# Irodalom jegyzék
+
+### Hosszirányú tervezés
+
+A hosszirányú tervezés hasonlóan működhet, mint a keresztirányú. Ebben az esetben a globális trajektória felfogható úgy, mint célsebességek sorozata az útvonal mentén. Ezzel szemben a lokális trajektória a helyi viszonyoknak megfelelő tényleges sebesség megtervezése. Figyelembe vesszük másik objektumok mozgását, a cél járműkinetikát, a sebességhatárokat...stb. Ennek szemléltetése látható a 4. ábrán. Látható, hogy normál esetben a maximális sebességet tartjuk. Amikor pl. utolérünk egy másik járművet ami előttünk halad, fékezünk, és felvesszük ennek a járműnek a sebességét. A fékezés során olyan sebességprofilt tervezünk, hogy biztosan kellő távolságot tudjunk tartani a másik járműtől, ne fékezzünk hirtelen de ne is túl hamar. Majd a másik járművet úgy követjük, hogy ezt a távolságot (bizonyos határon belül) tartsuk. Amikor ennél is lassabb járművet látunk (pl. biciklis) tovább csökkentjük a sebességet, ha ez az akadály eltűnt előlünk, visszagyorsítunk a megengedett sebességre. Mindig figyelembe vesszük a saját gyorsítási és lassítási preferenciánkiat. 
+
+<img src="abrak/local_speed_planning.png" width="700" height="350" /> <br>
+*4. Ábra: lokális sebességtrajektória szemléltetése*
+
+Látható, hogy a keresztirányú tervezéshez hasonló feltételek között kell a lehető legjobb profilt megtervezni. Ez szintén egy optimalizációs probléma. Werling és mtsai. ebben az eseben is egy ötödfokú polinomot ajánlanak a célsebesség függvényére, azaz:
+
+$$ v(s(t)) = c_{0} + c_{1}s + c_{2}s^2+c_3s^3+c_4s^4+c_5s^5 $$
+
+A mechanizmus ugyanaz: 6 peremfeltételt fogalmazunk meg és ezek segítségével trajektóriákat tervezünk. A legkisebb költségűt választjuk ki. Másik jármű követése esetében a végfeltételek a következők:
+
+$$ [s_1\ \dot{s_1}\ \ddot{s_1}\ T] = [(s_{target}(T_j)+\delta s_i),\ \dot{s}_{target}(T_j),\ {\ddot{s}}_{target}(T_j),\ T_j] $$
+
+A kezdeti feltételek pedig:
+
+$$ [s_0\ \dot{s_0}\ \ddot{s_0}\ T] = [s_{target}(0),\ \dot{s}_{ego}(0),\ {\ddot{s}}_{ego}(0),\ 0] $$
+
+Azaz a kezdeti feltételek adottak az objektum távolságából, illetve a saját járművünk sebességéből és gyorsulásából. Egy ilyen tervezési ciklus összes trajektóriája az 5. ábrán látható. A feketék az érvényes trajektóriák, a szürkék az érvénytelenek (pl. túl nagy gyorsulás), a kék az objektum mozgása, a zöld az optimális trajektória. A költség függvény lehet a következő:
+
+$$ C_t = k_jJ_t + k_tT+k_s[s_1-s_d]^2 $$
+
+Ahol $J_t$ a trajektória befutása során tapasztalt átlagos jerk (azaz rántás), $T$ a trajektória hossza időben $s_1-s_d$ a trajektória végén a távolság az objektumtól. A $k$ tényezők a súlyok.
+
+<img src="abrak/longitudinal_planning.png" width="500" height="300" /> <br>
+*5. Ábra: sebességtrajektória tervezése, forrás: [1]*
+
+
+# Irodalomjegyzék
 
 [1] Moritz Werling, Julius Ziegler, Sören Kammel, and Sebastian Thrun: Optimal Trajectory Generation for Dynamic Street Scenarios in a
 Frenét Frame, 2010 IEEE International Conference on Robotics and Automation, Anchorage Convention District, May 3-8, 2010, Anchorage, Alaska, USA, pp. 987-993

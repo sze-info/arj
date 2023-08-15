@@ -23,6 +23,9 @@ parent: Bevezetés
 A `VS code` Linux, Windows és Mac rendszerekre készült egyszerű kód és szövegszerkezstő, amely különböző kiegészítésekkel egy teljes értékű IDE (integrált fejlesztőkörnyezet) lehet. Neve a Visual Studio Code rövidítése, ingyenes, nyílt forráskódú, a Microsoft fejleszti.
 Népszerű fejlesztőkörnyezet (pl. 2021-ben a Stack Overflow Developer Survey alapján 82000 válaszadóból 70% használta, így az egyik legnépszerűbb IDE).
 
+## Navigáció a fejlesztőkörnyezetben
+
+![vs code alapok](vscodebasics01.png)
 
 ## Git source control (forráskezelés) használata a VS Code-ban
 

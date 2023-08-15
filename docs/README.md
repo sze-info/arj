@@ -59,8 +59,8 @@ A tárgy összeállítása során olyan nemzetközileg is elismert egyetemek tan
 Óra | Dátum | Tananyag
 -----|-----|-----
 1| - | [Bevezetés](https://sze-info.github.io/arj/bevezetes/practice.html) + [Linux](https://sze-info.github.io/arj/bevezetes/linux.html)
-2| - | [Telepítés, Fejlesztőkörnyezet beállítása, ROS2 kommunikáció](https://sze-info.github.io/arj/telepites/ros_humble.html)
-3| - | [ROS2 koncepciók](https://sze-info.github.io/arj/bevezetes/ros2gyak.html)
+2| - | [Telepítés](https://sze-info.github.io/arj/telepites/ros_humble.html)+ [Fejlesztőkörnyezet beállítása](https://sze-info.github.io/arj/bevezetes/vscode.html) + [ROS2 kommunikáció](https://sze-info.github.io/arj/bevezetes/ros2gyak.html)
+3| - | [ROS2 koncepciók](https://sze-info.github.io/arj/bevezetes/ros2gyak.html) + [Copilot](https://sze-info.github.io/arj/bevezetes/copilot.html)
 4| - | [Érzékelés gyakorlat](https://sze-info.github.io/arj/erzekeles/practice.html) + [VS code IDE](https://sze-info.github.io/arj/bevezetes/vscode.html)
 5| - | [Transzformációk gyakorlat](https://sze-info.github.io/arj/transzformaciok/practice.html)
 6| - | [Észlelés gyakorlat](https://sze-info.github.io/arj/eszleles/practice.html)

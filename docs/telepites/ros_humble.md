@@ -154,3 +154,12 @@ wget https://raw.githubusercontent.com/sze-info/arj/main/docs/telepites/install_
 sudo chmod +x install_humble.sh
 ./install_humble.sh
 ```
+
+## Workspace reset
+
+Ha szeretnénk a teljes `ros2_ws`-t törölni, majd újra klónozni és buildelni (~5 percig eltart), akkor a következő egyetlen hoszú paranccsal megtehetjük:
+
+``` r
+cd ~ ; rm ws_reset.sh; wget https://raw.githubusercontent.com/sze-info/arj/main/docs/telepites/ws_reset.sh; sudo chmod +x ws_reset.sh; ./ws_reset.sh
+```
+

@@ -65,6 +65,7 @@ Steve Macenski et al.](https://arxiv.org/pdf/2211.07752.pdf)
 
 ![Alt text](ros2distros.svg)
 
+Distrok százalékos megoszlása az időben: [metrics.ros.org/rosdistro_rosdistro.html](https://metrics.ros.org/rosdistro_rosdistro.html)
 
 Humble
 {: .label .label-yellow }

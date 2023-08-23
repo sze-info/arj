@@ -4,6 +4,21 @@ title: Tervezés
 has_children: true
 ---
 
+{: .no_toc }
+
+<details markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+---
+
+
+
 
 # Tervezés
 

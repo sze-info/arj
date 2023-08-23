@@ -25,7 +25,11 @@ Népszerű fejlesztőkörnyezet (pl. 2021-ben a Stack Overflow Developer Survey 
 
 ## Navigáció a fejlesztőkörnyezetben
 
+A következőkben a fontosabb feleületeket mutatjuk be.
+
 ![vs code alapok](vscodebasics01.png)
+
+Talán az egyik legfontosabb billentyűkombináció a `Ctrl-Shift-P`, mellyel a Command Palette jön elő, ahol beállítások, fájlok, parancsok között böngészhetünk.
 
 ## Git source control (forráskezelés) használata a VS Code-ban
 

@@ -22,7 +22,7 @@ parent: Bevezetés
 
 Az `ROS` olyan szoftverkönyvtárak és eszközök készlete (middleware), amelyek segítenek robotalkalmazások fejlesztésében. Definíció szerint a middleware egy szoftver komponenseket összekötő szoftver. Olyan réteg, amely az operációs rendszer és az alkalmazások között helyezkedik el az elosztott számítógépes hálózat mindkét oldalán.
 
-A legtöbb robotikai fejlesztő már a robtika hajnalán úgy gondolta, hogy nem célszerű minden robotnak teljesen egyedi szoftvert létrehozni, célszerűbb lenne valamilyen keretrendszerben gondolkozni. Erre az igényre volt az egyik válasz az `ROS`. Az egységes mértékegységek, standardizált kommunkáció, beépített vizualizációs és debug lehetőségek miatt ma az [egyik legnépszerűbb](https://en.wikipedia.org/wiki/Robot_Operating_System) ilyen rendszer.
+A legtöbb robotikai fejlesztő már a robtika hajnalán úgy gondolta, hogy nem célszerű minden robotnak teljesen egyedi szoftvert létrehozni, célszerűbb lenne valamilyen keretrendszerben gondolkozni. Erre az igényre volt az egyik válasz az `ROS`. Az egységes mértékegységek, standardizált kommunkáció, beépített vizualizációs és debug lehetőségek miatt ma az [egyik](https://metrics.ros.org) [legnépszerűbb](https://en.wikipedia.org/wiki/Robot_Operating_System) ilyen rendszer.
 
 
 ## Verziók

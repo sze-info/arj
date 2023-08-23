@@ -6,7 +6,7 @@ parent: Bevezetés
 
 {: .no_toc }
 
-<details open markdown="block">
+<details markdown="block">
   <summary>
     Tartalom
   </summary>
@@ -35,6 +35,8 @@ Számos program választható a szöveges parancssor elérésére. ROS/ROS2 eset
 Ahogy a neve is mutatja, ez a megoldás WSL esetén, Windows-on releváns. Előnye, hogy egy helyen használhatunk több Linux disztribúciót akár Windows parancssorral is. `Ctrl-Shift-P` billentyű kombinációkkal, majd a Split down, Split left parancsokkal oszhatjuk szét hasonló módon a terminált:
 
 ![Alt text](windows_terminal01.png)
+
+A [Windows Terminal release](https://github.com/microsoft/terminal/releases) oldalon letölthető telepítőként vagy zip formátumban portable verzióban. A portable használathoz kitömörítés után egy üres `.portable` fájlt kell elhelyeznünk. Így akár USB pendriveon is a megszokott beállításokkal használhatjuk. Egy ilyen portable verzió található a géptermekben a `K:\` meghajtón is (`\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása`)
 
 ## Terminator
 

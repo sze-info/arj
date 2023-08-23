@@ -30,6 +30,7 @@ Pár alapfogalom az [előző](https://sze-info.github.io/arj/bevezetes/ros2.html
 - **Package** (csomag): ROS programok (node-ok) gyűjteménye (pl. `turtlesim`, `arj_intro_cpp`, `arj_transforms_cpp`)
 - **Launch fájlok**: Több node paraméterezett elindítására alkalmas (pl. `multisim.launch.py`, `foxglove_bridge.launch.xml`, `foxglove_bridge.launch.py`)
 - **Publish / subscribe**: Üzenetekre történő publikálás és feliratkozás. 
+- **Build**: A package forráskódjából futtatható állományok készítésének folyamata. ROS2-ben a `colcon` az alapértelmezett build eszköz. 
 
 # `1.` feladat - Node és publish
 
@@ -95,6 +96,16 @@ ros2 topic echo /turtle1/pose --csv
 ros2 topic echo /turtle1/pose --csv > turtle_data_01.csv
 ```
 
+# Workspace és build tudnivalók
+Első lépésként az `ls | grep ros2` parancs segítségével ellenőrizzük, hoyg létezik-e a workspace a home directoryban. A tantárgyban a workspace-t `ros2_ws`-nek nevezzük. A név igazából nem számít, de a legtöbb tutorial is ezt a nevet használja, így mi is követjük ezt a hagyományt. Ha nem létezne a `mkdir -p gyak_ws/src` parancs segítségével készíthetjük el a workspace és a source mappákat.
+
+## Colcon
+A legfontosabb parancs talaán a `colcon build`. Említésre méltó még a `colcon list` és a `colcon graph`. Előbbi listázza az elérhető packageket, utóbbi pedig a függőségekről ad gyors nézetet.
+A `colcon build` számos hasznos kapcsolóval érkezik:
+- `--symlink-install`
+- `--continue-on-error`
+- `--parallel-workers 2`
+TODO
 
 # `2.` feladat - Package build és használat
 

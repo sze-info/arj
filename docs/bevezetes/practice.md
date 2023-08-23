@@ -24,11 +24,11 @@ A gyakorlat során meg fogunk ismerkedni az önvezető járművek jellemző tula
 
 # Foxglove Studio
 
-Bevezetésképpen nézzük egy önvezető jármű jellemző adatait. Példaképp célszerű az **egyetemünk** egyik ilyen járművével készült adatokat vizsgálni. Foxglove Studio-t fogunk használni, hiszen telepítés nélkül, vagy ~150MB méretű telepíthető állományként is hozzáférhető, valamint képes vizualizálni a számunkra fontos adatokat. A vizsgált adatok hasonló képet fognak mutatni:
+Bevezetésképpen nézzük egy önvezető jármű jellemző adatait. Példaképp célszerű az **egyetemünk** egyik ilyen járművével készült adatokat vizsgálni. [Foxglove Studio](https://foxglove.dev/download)-t fogunk használni, hiszen telepítés nélkül, vagy ~150MB méretű telepíthető állományként is hozzáférhető, valamint képes vizualizálni a számunkra fontos adatokat. A vizsgált adatok hasonló képet fognak mutatni:
 
 ![foxglove01](foxglove01.png)
 
-Töltsük le a fent vizualizált rosbag `.bag` fájlt és a Foxglove Studio layout-ot:
+Órán a `K:\` mehajtóról (`\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása`), otthon a zöld gombot használva töltsük le a fent vizualizált rosbag `.bag` fájlt és a Foxglove Studio layout-ot:
 
 [Rosbag letöltése 3.37 GB](https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EYl_ahy5pgBBhNHt5ZkiBikBoy_j_x95E96rDtTsxueB_A?download=1){: .btn .btn-green .mr-4 } 
 [Layout letöltése](https://jkk-research.github.io/data/leaf01foxglove.json){: .btn .btn-blue }

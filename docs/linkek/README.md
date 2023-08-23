@@ -37,6 +37,8 @@ has_children: false
   -  GitHub Learning Lab - [[eng](https://lab.github.com/)]
 - VS code - [[hun](https://github.com/horverno/sze-academic-rpi/blob/master/vscode.md)], [[vid](https://www.youtube.com/watch?v=QKFjbnWpQ-E)]
 - Python [[hun](https://github.com/horverno/sze-academic-python)]
+- Python freeCodeCamp video [[eng]](https://youtu.be/rfscVS0vtbw)
+- Python 60 days with python videos [[eng]](https://www.youtube.com/playlist?list=PL_mMpzhZWPmJpocdaZdGDHWK2-dOGGJbI)
 - C++ [[hun](https://github.com/hegyhati/ClassRoomExamples)]
 
 Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült segédanyaggal: 
@@ -47,6 +49,7 @@ Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült 
 - Alap robotikai ismeretek [[eng](https://github.com/AtsushiSakai/PythonRobotics)]
 - Kálmán filter [[eng]](https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python)
 - Universitat Politècnica de Catalunya BarcelonaTech (UPC) - [[eng]](https://sir.upc.edu/projects/rostutorials/1-ROS_basic_concepts/index.html)
+- Pozna Tanár Úr és Antonya Csaba által írt angol nyelvű oktatóanyag - Autocarsim [[eng]](https://autocarsim.com/)
 
 ### Stanford University
 - Stanford University - Introduction to Robotics Oussama Khatib - [[eng, video playlist](https://www.youtube.com/watch?v=0yD3uBshJB0&list=PL65CC0384A1798ADF&ab_channel=Stanford)]
@@ -85,6 +88,7 @@ Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült 
 - [edX - Hello (Real) World with ROS](https://www.edx.org/course/hello-real-world-with-ros-robot-operating-system)
 - [ROS.org tutorials](http://wiki.ros.org/ROS/Tutorials)
 - [ROS PCL tutorial](https://github.com/methylDragon/pcl-ros-tutorial/blob/master/PCL%20Reference%20with%20ROS.md)
+- [Felipe Boseong Jeon ROS2 tutorials](https://www.motion-boseong.com/ros2-tutorial/part1/key-concepts)
 
 ### Apex AI
 

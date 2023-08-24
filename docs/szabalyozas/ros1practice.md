@@ -6,7 +6,7 @@ parent: Szabályozás
 
 {: .no_toc }
 
-<details open markdown="block">
+<details markdown="block">
   <summary>
     Tartalom
   </summary>

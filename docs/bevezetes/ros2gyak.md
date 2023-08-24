@@ -6,7 +6,7 @@ parent: Bevezetés
 
 {: .no_toc }
 
-<details open markdown="block">
+<details markdown="block">
   <summary>
     Tartalom
   </summary>
@@ -97,15 +97,25 @@ ros2 topic echo /turtle1/pose --csv > turtle_data_01.csv
 ```
 
 # Workspace és build tudnivalók
-Első lépésként az `ls | grep ros2` parancs segítségével ellenőrizzük, hoyg létezik-e a workspace a home directoryban. A tantárgyban a workspace-t `ros2_ws`-nek nevezzük. A név igazából nem számít, de a legtöbb tutorial is ezt a nevet használja, így mi is követjük ezt a hagyományt. Ha nem létezne a `mkdir -p gyak_ws/src` parancs segítségével készíthetjük el a workspace és a source mappákat.
+Első lépésként az `ls | grep ros2` parancs segítségével ellenőrizzük, hogy létezik-e a workspace a home directoryban. A tantárgyban a workspace-t `ros2_ws`-nek nevezzük. A név igazából nem számít, de a legtöbb tutorial is ezt a nevet használja, így mi is követjük ezt a hagyományt. Több workspace is használható egyidejüleg, külön source-olható, nagyobb rendszereknél ez kényelmes megoldás lehet. Mi egyelőre maradunk az egytelen `ros2_ws`-nél. Ha nem létezne a `mkdir -p gyak_ws/src` parancs segítségével készíthetjük el a workspace és a source mappákat.
 
 ## Colcon
-A legfontosabb parancs talaán a `colcon build`. Említésre méltó még a `colcon list` és a `colcon graph`. Előbbi listázza az elérhető packageket, utóbbi pedig a függőségekről ad gyors nézetet.
+A legfontosabb parancs talán a `colcon build`. Említésre méltó még a `colcon list` és a `colcon graph`. Előbbi listázza az elérhető packageket, utóbbi pedig a függőségekről ad gyors nézetet.
+
 A `colcon build` számos hasznos kapcsolóval érkezik:
-- `--symlink-install`
-- `--continue-on-error`
-- `--parallel-workers 2`
-TODO
+- `--packages-select`: Talán az egyik leggyakrabban használt kapcsoló, utána meggadhatunk több package-t, amit buildelni szeretnénk. Ha nincs megadva, akkor az alapértelmezett, hogy a teljes workspace-t buildeli. A gyakorlatban lesz is egy `colcon build --packages-select arj_intro_cpp arj_transforms_cpp` parancs, ez a két arj package-t buildeli.
+- `--symlink-install`: A fájlok forrásból való másolása helyett használjon szimbolikus hivatkozásokat. Így elkerülhető, hogy pl. minden egyes launch fájl módosítás esetén újra kelljen buildelni a package-t.
+- `--parallel-workers 2`: A párhuzamosan feldolgozható feladatok maximális száma, ebben az esetben `2`. Ha nincs megadva, akkor az alapértelmezett érték a logikai CPU magok száma. Akkor érdemes korlátozni, ha a build nem fut végig erőforrás hiány miatt. 
+- `--continue-on-error`: Nagyobb build esetén, ne álljon meg az első hibás package után. Így ha 100 packageből 1 nem működne, akkor is 99 buildelődik. Ha ez nincs megadva, akkor 0 és 99 közötti package buildelődik, a függőségek és egyéb sorrendiségek alapján. 
+
+## Source
+Ahhoz hogy az ROS2 futtatható fájlainkat valóban el tudjuk indítani, be kell állíani a be a környezetet (úgynevezett source-olás), tehát meg kell adni a bash számára, hogy hol keresse az adott futtatható fájlokat, azoknak milyen függőségei vannak stb. Ez egyszerűbb, mint hangzik, csak egy `source <útvonal>/<név>.bash` parancsot kell kiadni. Korábban írtuk, hogy a worksapce neve nem számít, és valóban, a source megadása után mindegy, hogy fizikailag hol található a futtatható állomány, kényelmesen elindítható egy paranccsal bármelyik mappából. 
+Mivel a packagek különböző workspace-eken belül egymásra is épülhetnek, az ROS2 bevezette az overlay / underlay elvet. Ez azt jelenti, hogy egyik workspace buildelésekor egy másik workspace már be volt source-olva, annak valamely package-e függ a az előzőleg lebuildelt package-től. Tehát annak funkcionalitása, kódja szükséges a ráépülő package-nek. Ennek megfeleően a source-olás is kétféle lehet:
+- A `local_setup.bash` script csak a jelenlegi workspace-ben állítja be a környezetet (source-ol). Tehát nem source-ol szülő (függő) workspace-t.
+- A `setup.bash` szkript viszont a `local_setup.bash` parancsfájlt adja az összes olyan workspace-hez, amely a munkaterület létrehozásakor függőség volt. 
+
+{: .highlight }
+A tantárgyban nem kell ilyen összetett rendszereket használni, legtöbbször egy `ros2_ws` is elég.
 
 # `2.` feladat - Package build és használat
 

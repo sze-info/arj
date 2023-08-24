@@ -6,7 +6,7 @@ has_children: true
 
 {: .no_toc }
 
-<details open markdown="block">
+<details markdown="block">
   <summary>
     Tartalom
   </summary>

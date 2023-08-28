@@ -178,6 +178,7 @@ void loop()
   }
 }
 ```
+
 {: .important-title }
 > Python megfelelője
 >
@@ -211,7 +212,7 @@ A feladat a hivatalos ROS2 dokumentáción alapul: [docs.ros.org/en/humble/Tutor
 {: .important-title }
 > Python megfelelője
 >
-> Jelenleg C++ package-t készítünk, de az [eredeti]((https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)) tutorial is taralmazza a CMake(c++) package Python megfelelőit.
+> Jelenleg C++ package-t készítünk, de az [eredeti](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html) tutorial is taralmazza a CMake(c++) package Python megfelelőit.
 
 Első lépés, hogy a a workspace `src` mappájába lépjünk:
 
@@ -263,7 +264,7 @@ ls -R ~/ros2_ws/src/my_package
   my_node.cpp
 ```
 
-``` r
+```
 tree ~/ros2_ws/src/my_package
 
 my_package

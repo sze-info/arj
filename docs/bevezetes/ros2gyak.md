@@ -37,7 +37,7 @@ Pár alapfogalom az [előző](https://sze-info.github.io/arj/bevezetes/ros2.html
 Nyissunk két terminált. Az első terminálból indítsuk a beépített `turtlesim_node` szimulátort, ami a `turtlesim` package-ben található.
 
 ``` r
-ros2 launch turtlesim turtlesim_node
+ros2 run turtlesim turtlesim_node
 ```
 
 *Megjegyzés*: ha esetleg valamiért hiányozna, telepíthető a `sudo apt install ros-humble-turtlesim` paranccsal.
@@ -140,7 +140,7 @@ A harmadik terminálban futtassuk a `cmd_gen_node` ROS node-ot.
 Először `source`-olnunk kell, ha saját package-ket használunk:
 
 ``` r
-source ~/ros2_ws/install/local_setup.bash
+source ~/ros2_ws/install/setup.bash
 ```
 
 Ezután már futtatható a node:
@@ -153,6 +153,35 @@ A következőképp mozog most a teknős:
 
 <center><img src="turtlesim02.gif" width="80%" /></center>
 
+Forráskódja elérhető a [github.com/sze-info/arj_packages](https://github.com/sze-info/arj_packages/blob/main/arj_intro_cpp/src/cmd_gen_node.cpp) repon.A lényeg, hogy a `loop` függvény 5 Hz (200 ms) frekvencián fut le, és 
+
+``` cpp
+void loop()
+{
+  // Publish transforms
+  auto cmd_msg = geometry_msgs::msg::Twist();
+  if (loop_count_ < 20)
+  {
+    cmd_msg.linear.x = 1.0;
+    cmd_msg.angular.z = 0.0;
+  }
+  else
+  {
+    cmd_msg.linear.x = -1.0;
+    cmd_msg.angular.z = 1.0;
+  }
+  cmd_pub_->publish(cmd_msg);
+  loop_count_++;
+  if (loop_count_ > 40)
+  {
+    loop_count_ = 0;
+  }
+}
+```
+{: .important-title }
+> Python megfelelője
+>
+> A C++ kód python verziója szintén elérhető a [github.com/sze-info/arj_packages](https://github.com/sze-info/arj_packages/blob/main/arj_intro_py/arj_intro_py/cmd_gen_node.py) címen. Érdemes összehasonlítani a C++ és a python kódokat.
 
 Nézzük meg az utolsó terminálban a Foxglove segítségével az élő adatokat (itt se felejtsük a `source`-t):
 
@@ -176,7 +205,92 @@ ros2 launch arj_intro_cpp turtle.launch.py
 
 # `3.` feladat - Saját package készítése
 
-[docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.html)
+A feladat a hivatalos ROS2 dokumentáción alapul: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html). Készítsük el a `my_package` nevű ROS 2 package-t.
+
+
+{: .important-title }
+> Python megfelelője
+>
+> Jelenleg C++ package-t készítünk, de az [eredeti]((https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)) tutorial is taralmazza a CMake(c++) package Python megfelelőit.
+
+Első lépés, hogy a a workspace `src` mappájába lépjünk:
+
+``` r
+cd ~/ros2_ws/src
+```
+
+Készítsünk egy `my_package` nevű package-t és egy `my_node` navű node-ot.
+
+``` r
+ros2 pkg create --build-type ament_cmake --node-name my_node my_package
+```
+
+Buildeljük a szokásos módon:
+
+``` r
+cd ~/ros2_ws
+colcon build --packages-select my_package
+```
+
+
+Majd source:
+
+``` r
+source ~/ros2_ws/install/setup.bash
+```
+
+És már futtatható is:
+
+``` r
+ros2 run my_package my_node
+
+
+hello world my_package package
+```
+
+Vizsgáljuk meg a `my_package` tartalmát!
+
+``` r
+ls -R ~/ros2_ws/src/my_package
+
+/home/he/ros2_ws/src/my_package:
+  CMakeLists.txt  include  package.xml  src
+/home/he/ros2_ws/src/my_package/include:
+  my_package
+/home/he/ros2_ws/src/my_package/include/my_package:
+  [empty]
+/home/he/ros2_ws/src/my_package/src:
+  my_node.cpp
+```
+
+``` r
+tree ~/ros2_ws/src/my_package
+
+my_package
+├── CMakeLists.txt
+├── include
+│   └── my_package
+├── package.xml
+└── src
+    └── my_node.cpp
+```
+
+``` cpp
+cat ~/ros2_ws/src/my_package/src/my_node.cpp
+
+
+#include <cstdio>
+
+int main(int argc, char ** argv)
+{
+  (void) argc;
+  (void) argv;
+
+  printf("hello world my_package package\n");
+  return 0;
+}
+```
 
 # Források
 - [docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
+- [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)

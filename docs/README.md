@@ -12,7 +12,9 @@
 >
 > C++ és python nyelven egyszerűbb ehhez kapcsolódó szoftvermodulokat tudnak fejleszteni. Ezen túlmenően a hallgatók képesek a megfelelő kód alkalmazására, valamint annak funkcióinak értelmezésére és továbbfejlesztésére ROS 2 keretrendszerben.
 
-<br>
+
+A tárgy összeállítása során olyan nemzetközileg is elismert egyetemek tananyagát vettük alapul, mint az MIT, ETH Zürich, TU München, Univerisity of Virginia vagy a Stanford University. A megfelelő licenc betarása mellett bizonyos tanangyag részeket át is vettünk, másokat inspirációként használtunk, [erről részletesen itt](https://github.com/sze-info/arj#acknowledgement) lehet olvasni. 2023-ban a tantárgy az ROS 2 Humble verzióját használja, ez a disztribúció 2027 májusáig támogatott.
+
 
 {: .highlight }
 A tárgyban bemutatott ismeretekre alapozva diplomamunka, szakdolgozat, projektmunka, TDK dolgozat is készíthető, illetve van lehetőség a kötelező szakmai gyakorlat teljesítésére is.
@@ -36,13 +38,13 @@ Szabályzás: zárthurkú modellezett jármű, szabályzó építése (pl PID va
 - Technológiai ismeretek: ROS 2	használata, újdonságai ROS-hez képest				
 - Projektmunka:	Egyéni projektfeladat bemutatása				
 
-A tárgy összeállítása során olyan nemzetközileg is elismert egyetemek tananyagát vettük alapul, mint az MIT, ETH Zürich, TU München, Univerisity of Virginia vagy a Stanford University. A megfelelő licenc betarása mellett bizonyos tanangyag részeket át is vettünk, másokat inspirációként használtunk, [erről részletesen itt](https://github.com/sze-info/arj#acknowledgement) lehet olvasni. 2023-ban a tantárgy az ROS 2 Humble verzióját használja, ez a disztribúció 2027 májusáig támogatott.
+2023/24 őszi félévében az `A2`-es teremben, illetve a `C100`-as gépteremben tartunk órákat.
 
 ## Elmélet
 
 Óra | Dátum | Tananyag
 -----|-----|-----
-1 | - | [Bevezetés](https://sze-info.github.io/arj/bevezetes/README.html)
+1 | szept. 6. | [Bevezetés](https://sze-info.github.io/arj/bevezetes/README.html)
 2 | - | [ROS2 koncepciók](https://sze-info.github.io/arj/bevezetes/ros2.html)
 3 | - | [Érzékelés](https://sze-info.github.io/arj/erzekeles/README.html)
 4 | - | [Transzformációk](https://sze-info.github.io/arj/transzformaciok/README.html)
@@ -58,7 +60,7 @@ A tárgy összeállítása során olyan nemzetközileg is elismert egyetemek tan
 
 Óra | Dátum | Tananyag
 -----|-----|-----
-1| - | [Bevezetés](https://sze-info.github.io/arj/bevezetes/practice.html) + [Linux](https://sze-info.github.io/arj/bevezetes/linux.html)
+1| szept. 6. | [Bevezetés](https://sze-info.github.io/arj/bevezetes/practice.html) + [Linux](https://sze-info.github.io/arj/bevezetes/linux.html) + [Géptermi ismeretek](https://sze-info.github.io/arj/bevezetes/gepterem.html)
 2| - | [Telepítés](https://sze-info.github.io/arj/telepites/ros_humble.html)+ [Fejlesztőkörnyezet beállítása](https://sze-info.github.io/arj/bevezetes/vscode.html) + [ROS2 kommunikáció](https://sze-info.github.io/arj/bevezetes/ros2gyak.html)
 3| - | [ROS2 koncepciók](https://sze-info.github.io/arj/bevezetes/ros2gyak.html) + [Copilot](https://sze-info.github.io/arj/bevezetes/copilot.html)
 4| - | [Érzékelés gyakorlat](https://sze-info.github.io/arj/erzekeles/practice.html) + [VS code IDE](https://sze-info.github.io/arj/bevezetes/vscode.html)

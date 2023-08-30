@@ -73,6 +73,8 @@ A [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation) (global navigation 
 - Sebesség adat lekérdezése, refencia jel
 - Kormányszög adat lekérdezése, refencia jel
 
+![can](can01.svg)
+
 
 [Szenzorok ROS-ben](https://docs.google.com/presentation/d/e/2PACX-1vQbXSe4cb-aYgWNNiUF1PHJBZrwl0keWantbFjTe94zm1A9cVGqmWKC4lHCSUr4y7vfq1PrJ2mP8XqP/pub?start=false&loop=false&delayms=3000) _(online google prezentáció magyarul)_
 

@@ -35,7 +35,7 @@ WSL alól szintén el kellene tudni érni a közös meghajtót mégpedig az `/mn
 Ha esetleg nem működne a közös meghajtó, akkor ezek a parancsok segíthetnek:
 
 ``` r
-sudo sudo mkdir /mnt/kozos
+sudo mkdir /mnt/kozos
 echo "\\\\\\\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása    /mnt/kozos    drvfs defaults,uid=1000,gid=1000    0    0" | sudo tee -a /etc/fstab
 ```
 Majd `wsl --shutdown` windows cmd-ből.
@@ -63,6 +63,10 @@ Az Ubuntu 22.04 fájljai szintén elérhetőek a Windows Fájlkezelőből. Bal o
 A közös meghajtón található egy portable verzió. Ezt a `C:\temp`-be másolva használható a program.
 
 ![win terminal](windows_terminal01.png)
+
+A következő ábra egy **célszerű** (nem kötelező) géptermi elrendezést mutat, bal oldalt a terminal, jobb oldalt a böngésző:
+
+![win layout](gepterem02.png)
 
 ![](https://raw.githubusercontent.com/sze-info/arj/main/docs/telepites/wsl_overview01.svg)
 

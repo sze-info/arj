@@ -71,7 +71,7 @@ sudo apt-get install ignition-fortress -y
 sudo apt install ros-humble-foxglove-bridge -y
 sudo apt install mc -y
 
-sudo sudo mkdir /mnt/kozos
+sudo mkdir /mnt/kozos
 #sudo mount -t drvfs '\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása' /mnt/kozos
 echo "\\\\\\\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása    /mnt/kozos    drvfs defaults,uid=1000,gid=1000    0    0" | sudo tee -a /etc/fstab
 echo ""

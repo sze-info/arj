@@ -4,7 +4,7 @@ title: Copilot
 parent: Bevezetés
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

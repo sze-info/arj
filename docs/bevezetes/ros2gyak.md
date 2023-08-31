@@ -4,7 +4,7 @@ title: ROS 2 gyakrolat
 parent: Bevezetés
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

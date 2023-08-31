@@ -4,7 +4,7 @@ title: ROS2 humble
 parent: Telepítés
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

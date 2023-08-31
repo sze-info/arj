@@ -4,7 +4,7 @@ title: Gazebo Fortress ROS 2
 parent: Szimuláció
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

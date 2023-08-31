@@ -4,7 +4,7 @@ title: ROS1 package és node
 parent: Önálló feladatok
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

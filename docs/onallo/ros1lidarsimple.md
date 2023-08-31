@@ -4,7 +4,7 @@ title: ROS1 egyszerű LIDAR szűrés
 parent: Önálló feladatok
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

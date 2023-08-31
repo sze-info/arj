@@ -4,7 +4,7 @@ title: ROS1 szimuláció
 parent: Önálló feladatok
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

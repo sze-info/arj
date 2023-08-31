@@ -4,7 +4,7 @@ title: Gépterem
 parent: Bevezetés
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

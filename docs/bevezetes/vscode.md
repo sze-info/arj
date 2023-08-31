@@ -4,7 +4,7 @@ title: VS code IDE
 parent: Bevezetés
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

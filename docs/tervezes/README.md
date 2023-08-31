@@ -4,7 +4,7 @@ title: Tervezés
 has_children: true
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

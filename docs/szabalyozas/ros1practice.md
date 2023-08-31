@@ -4,7 +4,7 @@ title: ROS1 Gyakorlat
 parent: Szabályozás
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

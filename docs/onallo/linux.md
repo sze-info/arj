@@ -4,7 +4,7 @@ title: Linux
 parent: Önálló feladatok
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

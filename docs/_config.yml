@@ -39,13 +39,13 @@ callouts:
   highlight:
     color: yellow
   important:
-    title: Important
+    title: Fontos
     color: blue
   new:
     title: New
     color: green
   note:
-    title: Note
+    title: Figyelem
     color: purple
   warning:
     title: Warning
@@ -63,7 +63,7 @@ aux_links:
   "Github":
     - "https://github.com/sze-info/arj"
   "Moodle":
-    - "https://szelearning.sze.hu/"  
+    - "https://szelearning.sze.hu/course/view.php?id=13973"  
 
 
 logo: "https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/arj02.svg"

@@ -4,7 +4,7 @@ title: Linux
 parent: Bevezetés
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

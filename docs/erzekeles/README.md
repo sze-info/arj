@@ -4,7 +4,7 @@ title: Érzékelés
 has_children: true
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

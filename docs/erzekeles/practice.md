@@ -4,7 +4,7 @@ title: Gyakorlat
 parent: Érzékelés
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

@@ -4,7 +4,7 @@ title: Gyakorlat
 parent: Bevezetés
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

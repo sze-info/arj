@@ -4,7 +4,7 @@ title: Linkek
 has_children: false
 ---
 
-{: .no_toc }
+ 
 
 <details markdown="block">
   <summary>

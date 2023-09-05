@@ -201,6 +201,9 @@ Az `ssh` alapvetően jelszót is kér, de ha megbízunk egy adott gépben, elmen
 Hálózatba kötött gépek közötti másolás (remote sync), pl. egy Nvidia Jetson beágyazott számítógépről a saját gépünk `/mnt/c/bag/` mappájába történő másolás progress-barral így néz ki:
 
 ``` r
+rsync -avzh --progress /mnt/kozos/measurement_files/lexus-2023-07-18-campus.mcap  /mnt/c/temp/
+```
+``` r
 rsync -avzh --progress nvidia@192.168.1.5:/mnt/storage_1tb/2023-07-02/ /mnt/c/bag/2023-07-02/
 ```
 

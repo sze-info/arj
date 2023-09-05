@@ -28,10 +28,19 @@ Bevezetésképpen nézzük egy önvezető jármű jellemző adatait. Példaképp
 
 ![foxglove01](foxglove01.png)
 
-Órán a `K:\` mehajtóról (`\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása`), otthon a zöld gombot használva töltsük le a fent vizualizált rosbag `.bag` fájlt és a Foxglove Studio layout-ot:
+Órán a `K:\` mehajtóról (`\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása`), otthon a zöld gombot használva töltsük le a fent vizualizált rosbag `.bag` / `.mcap` fájlt és a Foxglove Studio layout-ot:
 
 [Rosbag letöltése 3.37 GB](https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EYl_ahy5pgBBhNHt5ZkiBikBoy_j_x95E96rDtTsxueB_A?download=1){: .btn .btn-green .mr-4 } 
 [Layout letöltése](https://jkk-research.github.io/data/leaf01foxglove.json){: .btn .btn-blue }
+
+
+
+``` r
+cd /mnt/c/temp
+mkdir /mnt/c/temp # ha nem létezne
+rsync -avzh --progress /mnt/kozos/measurement_files/lexus-2023-07-18-campus.mcap  /mnt/c/temp/
+rsync -avzh --progress /mnt/kozos/measurement_files/lexus01foxglove.json   /mnt/c/temp/
+```
 
 {: .new }
 A [https://jkk-research.github.io/#dataset](https://jkk-research.github.io/#dataset) oldalról további példa adatokat lehet letölteni.

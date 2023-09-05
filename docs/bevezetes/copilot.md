@@ -29,4 +29,8 @@ Az eszköz beépül a fejlesztői környezetekbe, például a Visual Studio Code
 Használata alapértelmezetten fizetős, de hallgató hozzáféréssel ingyenes: [education.github.com/benefits](https://education.github.com/benefits?type=student).
 
 ![vs code alapok](vscodebasics01.png)
-![coplilot chat](copliot01.png)
+![copilot chat](copilot01.png)
+
+Nézzük meg működés közben a copilot-ot:
+
+![copilot in action](copilot02.gif)

@@ -42,6 +42,8 @@ Az alábbi példák nem feltétlenül féléves munkának készültek, de annak 
 {: .new }
 Erősen ajánlott a [GitHub Student Developer Pack](https://education.github.com/pack) beszerzése, többek között [Copilot](https://github.com/features/copilot) is jár hozzá.
 
+![](https://github.blog/wp-content/uploads/2019/08/FBLinkedIn_ALL-PARTNERS.png)
+
 ## Értékelési szempontok
 
 A szempontok kialakításánaál az [Óbudai Egyetem](https://abc-irobotics.github.io/ros_course_materials_hu/#evkozi-jegy_1) hasonló kurzusának értékelési szempontjait vettük alapul.

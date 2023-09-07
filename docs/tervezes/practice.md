@@ -56,28 +56,60 @@ ros2 launch nav2_outdoor_example bringup.launch.py
 
 A második feladat a ROS 2 Navigation stack-jének beüzemelése szimulátorban, a turlebot egyik pályáján. Részletes dokumentáció a [navigation.ros.org](https://navigation.ros.org/) oldalon.
 
+[gz-nav2-tb3.webm](https://user-images.githubusercontent.com/2298371/226628768-818a7c3f-e5e1-49c6-b819-112c2cfa668b.webm)
+
+Megjegyzés: előfordulhat, hogy az `ign_ros_control` package másik feladatban is buildelt package, ha ez már létezik, akkor a build / apt install kihagyható. A helyek, ahol ez lehetséges, hogy megtalálható:
+``` r
+ros2_ws/src/gz_ros2_control/ign_ros2_control
+ros2_ws/src/navigation2_ignition_gazebo_example/src/gz_ros2_control/ign_ros2_control
+/opt/ros/humble/share/ign_ros2_control
+```
+
+
 ## Clone és build
 
 ```r
-sudo apt install ros-humble-navigation2
-sudo apt install ros-humble-nav2-bringup
+sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup
 ```
 
 ```r
 sudo apt install ros-humble-turtlebot3-gazebo
 ```
 
-## Futtatás
 
 ``` r
-export TURTLEBOT3_MODEL=waffle
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
+cd ~/ros2_ws/src
+git clone https://github.com/ros-controls/gz_ros2_control
+git clone https://github.com/art-e-fact/navigation2_ignition_gazebo_example
+cd ~/ros2_ws/src/gz_ros2_control
+git checkout humble
+cd ~/ros2_ws
+rosdep install -y --from-paths src --ignore-src --rosdistro humble
 ```
 
+``` r
+cd ~/ros2_ws
+colcon build --packages-select sam_bot_nav2_gz
+```
+## Futtatás
+
+Gazebo, RViz2 és Navigation2
+``` r
+source ~/ros2_ws/install/setup.bash
+ros2 launch sam_bot_nav2_gz complete_navigation.launch.py
+```
+
+Célpont kijelölése RViz2-ben:
+``` r
+source ~/ros2_ws/install/setup.bash
+ros2 run sam_bot_nav2_gz follow_waypoints.py
+source ~/ros2_ws/install/setup.bash
+ros2 run sam_bot_nav2_gz reach_goal.py
+``` 
 
 ![](https://raw.githubusercontent.com/ros-planning/navigation.ros.org/master/images/rviz/rviz-not-started.png)
 
-![](https://raw.githubusercontent.com/ros-planning/navigation.ros.org/master/images/gazebo/gazebo_turtlebot1.png)
+![](gazebo_turtlebot01.png)
 
 
 
@@ -96,3 +128,5 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gaz
 # Sources
 - [navigation.ros.org/getting_started/index.html](https://navigation.ros.org/getting_started/index.html)
 - [navigation.ros.org](https://navigation.ros.org)
+- [github.com/ros-controls/gz_ros2_control](https://github.com/ros-controls/gz_ros2_control)
+- [github.com/art-e-fact/navigation2_ignition_gazebo_example](https://github.com/art-e-fact/navigation2_ignition_gazebo_example)

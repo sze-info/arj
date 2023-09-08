@@ -44,8 +44,8 @@ Szabályzás: zárthurkú modellezett jármű, szabályzó építése (pl PID va
 
 Óra | Dátum | Tananyag
 -----|-----|-----
-1 | szept. 6. | [Bevezetés](https://sze-info.github.io/arj/bevezetes/README.html)
-2 | - | [ROS2 koncepciók](https://sze-info.github.io/arj/bevezetes/ros2.html)
+1 | szept. 6. | [Bevezetés](https://sze-info.github.io/arj/bevezetes/README.html): A tantárgy felépítése. Robotikai és önvezető járműves ismeretek. Érzékelés, észlelés, tervezés, szabályozás, aktuálás.
+2 | szept 13. | [ROS2 koncepciók](https://sze-info.github.io/arj/bevezetes/ros2.html)
 3 | - | [Érzékelés](https://sze-info.github.io/arj/erzekeles/README.html)
 4 | - | [Transzformációk](https://sze-info.github.io/arj/transzformaciok/README.html)
 5 | - | [Észlelés](https://sze-info.github.io/arj/eszleles/README.html)
@@ -60,8 +60,8 @@ Szabályzás: zárthurkú modellezett jármű, szabályzó építése (pl PID va
 
 Óra | Dátum | Tananyag
 -----|-----|-----
-1| szept. 6. | [Bevezetés](https://sze-info.github.io/arj/bevezetes/practice.html) + [Linux](https://sze-info.github.io/arj/bevezetes/linux.html) + [Géptermi ismeretek](https://sze-info.github.io/arj/bevezetes/gepterem.html)
-2| - | [Telepítés](https://sze-info.github.io/arj/telepites/ros_humble.html)+ [Fejlesztőkörnyezet beállítása](https://sze-info.github.io/arj/bevezetes/vscode.html) + [ROS2 kommunikáció](https://sze-info.github.io/arj/bevezetes/ros2gyak.html)
+1| szept. 6. | [Bevezetés](https://sze-info.github.io/arj/bevezetes/practice.html) + [Linux](https://sze-info.github.io/arj/bevezetes/linux.html) + [Géptermi ismeretek](https://sze-info.github.io/arj/bevezetes/gepterem.html): WSL2 használata Windows operációs rendszeren. Géptermi alapismeretek. Linux parancsok, amelyek szükségesek lehetnek a későbbiekben.
+2| szept 13. | [Telepítés](https://sze-info.github.io/arj/telepites/ros_humble.html)+ [Fejlesztőkörnyezet beállítása](https://sze-info.github.io/arj/bevezetes/vscode.html) + [ROS2 kommunikáció](https://sze-info.github.io/arj/bevezetes/ros2gyak.html)
 3| - | [ROS2 koncepciók](https://sze-info.github.io/arj/bevezetes/ros2gyak.html) + [Copilot](https://sze-info.github.io/arj/bevezetes/copilot.html)
 4| - | [Érzékelés gyakorlat](https://sze-info.github.io/arj/erzekeles/practice.html) + [VS code IDE](https://sze-info.github.io/arj/bevezetes/vscode.html)
 5| - | [Transzformációk gyakorlat](https://sze-info.github.io/arj/transzformaciok/practice.html)

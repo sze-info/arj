@@ -10,7 +10,7 @@ Az alábbi példák nem feltétlenül féléves munkának készültek, de annak 
 -  [github.com/szenergy/rviz_markers](https://github.com/szenergy/rviz_markers)
 -  [github.com/linklab-uva/f1tenth_gtc_tutorial](https://github.com/linklab-uva/f1tenth_gtc_tutorial)
 
-*Megjegyzés*: a tárgyban az ROS 2 Humble verziót használjuk, de a féléves beadandót (indoklással) más vertióban is elfogadjuk.
+*Megjegyzés*: a tárgyban az ROS 2 Humble verziót használjuk, de a féléves beadandót (indoklással) más verzióban is elfogadjuk.
 
 ## A *féléves* feladatnál pozitív hatást kelt:
 - 👍 Jól követhető magyar és/vagy angol nyelvű dokumentáció is, képekkel illusztrálva. [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) használata.

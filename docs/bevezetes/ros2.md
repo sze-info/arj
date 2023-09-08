@@ -26,6 +26,10 @@ parent: Bevezetés
 
 Az `ROS 2`, a `ROS` legújabb kiadása, olyan szoftverkönyvtárak és eszközök készlete (middleware), amelyek segítenek robotalkalmazások fejlesztésében. Definíció szerint a middleware egy szoftver komponenseket összekötő szoftver. Ez egy olyan réteg, amely az operációs rendszer és az alkalmazások között helyezkedik el az elosztott számítógépes hálózat mindkét oldalán. Az `ROS 2` megengedő, nyílt forráskódú, [Apache 2.0](https://choosealicense.com/licenses/apache-2.0/) licenszelést használ. 
 
+
+<center><img src="ros_overview01.svg" width="60%"/></center>
+
+
 A `ROS` 2007-es kiadása óta inkrementális frissítéseken esett át, tehát fundamentális változások nem, nagyobb fejlesztések viszont folyamatosan történtek. 2017-ben jött rá a robotikai közösség, hogy olyan alapvető limitációi vannak az eredeti 2007-es elképzelésnek, amit ilyen inkrementális módon sajnos nem lehet javítani. Így végül a Noetic Ninjemis (2025-ig támogatva) az `ROS 1` utolsó kiadása, helyette párhuzamosan elkezdték fejleszteni az `ROS 2`-t. Ez egyben azt is jelenteti, hogy a korábbi forráskódokat nehezebben lehet portolni az új verzióra, cserébe rengeteg újdonságot, javítást, támogatást kaphatunk a fejlesztendő robotok, járművek számára.
 
 
@@ -36,6 +40,22 @@ A fentiek hatására tehát az `ROS 2` átlépett az akadémiai kutatások vilá
 Kép forrása: [Robot Operating System 2: Design, Architecture, and Uses In The Wild:
 Steve Macenski et al.](https://arxiv.org/pdf/2211.07752.pdf)
 
+## Miért használjak framework-öt robotikai projektemhez?
+
+Első robotikai projektünknél választhatjuk azt az utat, hogy framework nélkül teljesen saját megoldásként feljesztünk. Nyilván ennek is vannak előnyei (tanulás, futási gyorsaság, stb.). De hamarosan kelleni fog olyan algoritmus, amit akár mások implementáltak is, csak nem kompatibilis az eredeti elképzeléssel. Itt már célszerű meggondolni egy framework (pl a `ROS 2`) használatát. *Megjegyzés*, hogy nem a `ROS 2` az egyetlen lehetőség számos hasonló, kisebb framework létezik: <a class="http" href="http://playerstage.sf.net">Player</a>, <a class="http" href="http://eris.liralab.it/yarp/">YARP</a>, <a class="http" href="http://www.orocos.org/">Orocos</a>, <a class="http" href="http://carmen.sourceforge.net">CARMEN</a>, <a class="http" href="http://orca-robotics.sourceforge.net">Orca</a>, <a class="http" href="http://www.robots.ox.ac.uk/~pnewman/TheMOOS/index.html">MOOS</a>, and <a class="http" href="http://msdn.microsoft.com/en-us/robotics/default.aspx">Microsoft Robotics Studio</a>. Niylván mindegyiknek van előnye, ebben a tárgyban a támogatottság miatt mégis az `ROS 2`-re szoríthozunk.
+
+![](https://www.ros.org/imgs/ros-equation.png)
+
+Kép forrása: [ros.org/blog/ecosystem](https://www.ros.org/blog/ecosystem/)
+
+- Plumbing: A ROS alapvetően egy üzenetküldő rendszert biztosít, amelyet gyakran "middleware"-nek vagy "plumbing"-nek neveznek. A kommunikáció az egyik első igény, amely felmerül egy új robotikai alkalmazás vagy bármilyen olyan szoftverrendszer implementálásakor, amelyhez hardverrel is csatlakozik. A ROS beépített és jól tesztelt üzenetküldő rendszere időt takaríthat meg, hiszen kezeli a kommunikáció részleteit a decentralizált csomópontok között, ezt nem kell külön implementálni. Sőt lehetőség van egy gépen Intra-process kommunikáció segítségével direkt memória elérésre is.
+- Eszközök: A hatékony alkalmazások fejlesztéséhez jó fejlesztői eszközökre van szükség. A ROS rendelkezik ilyen az eszközökkel, beleértve: a hibakeresést (`rqt_console`), a vizualizációt (`Rviz2`, `Foxglove Studio`), a diagramokat (`rqt_plot`, `Foxglove Studio`), a logolást (`mcap`) és a visszajátszást. 
+- Képességek: Legyen szó GPS-eszköz-illesztőprogramról, négylábú robothoz való járás- és egyensúlyszabályozóról, vagy mobil robothoz való térképezőrendszerről, a ROS-nak vannak megoldásai a problémára. A driverektől az algoritmusokig, a felhasználói felületekig a ROS biztosítja azokat az építőelemeket, amelyek lehetővé teszik, hogy a saját alkalmazására koncentráljon.
+- Közösség: A ROS közössége nagy, sokszínű és globális. Diákoktól és hobbiból űzőktől kezdve multinacionális vállalatokig és kormányzati ügynökségekig, az emberek és szervezetek minden szegmense működteti az `ROS 2`` projektet.
+
+![áttekintés](ros_overview02.svg)
+Forrás: [husarnet.com/blog/ros2-docker](https://husarnet.com/blog/ros2-docker)
+
 ## Különbségek az `ROS 1` és `ROS 2` között 
 
 - *Változások a Middleware-ben*  
@@ -45,6 +65,8 @@ Steve Macenski et al.](https://arxiv.org/pdf/2211.07752.pdf)
  
 - *Változások az adatformátumban*  
   A `ROS 2` az `MCAP` formátumot használja, ami nem dedikáltan az ROS saját formátuma, hanem egy nyílt forráskódú konténerfájl-formátum multimodális log-adatokhoz. Támogatja az időbélyegzővel ellátott, előre sorba rendezett adatokat, és ideális a pub/sub vagy robotikai alkalmazásokban való használatra. Bővebben: [mcap.dev](https://mcap.dev/)
+
+
 
 ## Pár hasznos újítás
 - *Valós idejű feldolgozás*  
@@ -179,3 +201,10 @@ Több node (ROS program) kötegelt végehajtása. Megtartva az `ROS 1`konvenció
 Erről egy rövid videó:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PqNGvmE2Pv4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+# Források
+- [docs.ros.org/en/humble](https://docs.ros.org/en/humble/)
+- [ros.org/blog/ecosystem](https://www.ros.org/blog/ecosystem/)
+- [husarnet.com/blog/ros2-docker](https://husarnet.com/blog/ros2-docker)
+- [design.ros2.org/articles/intraprocess_communications.html](https://design.ros2.org/articles/intraprocess_communications.html)

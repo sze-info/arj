@@ -132,6 +132,7 @@ A második terminálban klónozzuk, majd buildeljük a példa package-t.
 ``` r
 cd ~/ros2_ws/src
 git clone https://github.com/sze-info/arj_packages
+cd ~/ros2_ws
 colcon build --packages-select arj_intro_cpp
 ```
 

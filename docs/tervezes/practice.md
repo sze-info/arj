@@ -56,7 +56,8 @@ ros2 launch nav2_outdoor_example bringup.launch.py
 
 A második feladat a ROS 2 Navigation stack-jének beüzemelése szimulátorban, a turlebot egyik pályáján. Részletes dokumentáció a [navigation.ros.org](https://navigation.ros.org/) oldalon.
 
-[gz-nav2-tb3.webm](https://user-images.githubusercontent.com/2298371/226628768-818a7c3f-e5e1-49c6-b819-112c2cfa668b.webm)
+<video src="https://user-images.githubusercontent.com/2298371/226628768-818a7c3f-e5e1-49c6-b819-112c2cfa668b.webm" type="video/webm">
+</video>
 
 Megjegyzés: előfordulhat, hogy az `ign_ros_control` package másik feladatban is buildelt package, ha ez már létezik, akkor a build / apt install kihagyható. A helyek, ahol ez lehetséges, hogy megtalálható:
 ``` r
@@ -69,11 +70,7 @@ ros2_ws/src/navigation2_ignition_gazebo_example/src/gz_ros2_control/ign_ros2_con
 ## Clone és build
 
 ```r
-sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup
-```
-
-```r
-sudo apt install ros-humble-turtlebot3-gazebo
+sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup ros-humble-turtlebot3-gazebo
 ```
 
 

@@ -149,6 +149,9 @@ Szintén célszerű beállítani a `colcon_cd` paranccsot, így gyorsan válthat
 Részletek: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#setup-colcon-cd](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#setup-colcon-cd)
 
 ## Géptermi telepítés
+
+Gépteremben a [következő `install_humble.sh`](https://github.com/sze-info/arj/blob/main/docs/telepites/install_humble.sh) fájlt futtatuk minden gépen.
+
 ``` r
 wget https://raw.githubusercontent.com/sze-info/arj/main/docs/telepites/install_humble.sh
 sudo chmod +x install_humble.sh

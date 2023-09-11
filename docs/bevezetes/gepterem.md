@@ -75,3 +75,10 @@ A következő ábra egy **célszerű** (nem kötelező) géptermi elrendezést m
 Telepítve van, az asztalon található ikonnal indítható. Ha mégse lenne telepítve, a közös meghajtón lévő portable verziót kell a `C:\temp`-be másolni. 
 
 ![foxglove](foxglove01.png)
+
+## Géptermi beállítások gyors ellenőrzése
+
+```
+cd /mnt/kozos/script/
+./check_all.sh
+```

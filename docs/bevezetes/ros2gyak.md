@@ -88,16 +88,19 @@ Az összes topic-ot így lehet listázni:
 ros2 topic list
 ```
 
-Az adott topic tartalmát a következőképp lehet kiíratni:
+Az adott topic tartalmát, különböző formátumban, szűrésekkel a következőképp lehet kiíratni vagy fájlba iratni:
 
 ``` r
 ros2 topic echo /turtle1/pose
 ros2 topic echo /turtle1/pose --csv
 ros2 topic echo /turtle1/pose --csv > turtle_data_01.csv
+ros2 topic echo /turtle1/pose --once
+ros2 topic echo /turtle1/pose --once | grep velocity
+ros2 topic echo /turtle1/pose | grep x
 ```
 
 # Workspace és build tudnivalók
-Első lépésként az `ls | grep ros2` parancs segítségével ellenőrizzük, hogy létezik-e a workspace a home directoryban. A tantárgyban a workspace-t `ros2_ws`-nek nevezzük. A név igazából nem számít, de a legtöbb tutorial is ezt a nevet használja, így mi is követjük ezt a hagyományt. Több workspace is használható egyidejüleg, külön source-olható, nagyobb rendszereknél ez kényelmes megoldás lehet. Mi egyelőre maradunk az egytelen `ros2_ws`-nél. Ha nem létezne a `mkdir -p gyak_ws/src` parancs segítségével készíthetjük el a workspace és a source mappákat.
+Első lépésként az `ls ~ | grep ros2` parancs segítségével ellenőrizzük, hogy létezik-e a workspace a home directoryban(`~`). A tantárgyban a workspace-t `ros2_ws`-nek nevezzük. A név igazából nem számít, de a legtöbb tutorial is ezt a nevet használja, így mi is követjük ezt a hagyományt. Több workspace is használható egyidejüleg, külön source-olható, nagyobb rendszereknél ez kényelmes megoldás lehet. Mi egyelőre maradunk az egytelen `ros2_ws`-nél. Ha nem létezne a `mkdir -p ros2_ws/src` parancs segítségével készíthetjük el a workspace és a source mappákat.
 
 ## Colcon
 A legfontosabb parancs talán a `colcon build`. Említésre méltó még a `colcon list` és a `colcon graph`. Előbbi listázza az elérhető packageket, utóbbi pedig a függőségekről ad gyors nézetet.
@@ -127,8 +130,13 @@ Nyissunk négy terminált. Az első terminálból most is indítsuk a beépítet
 ros2 launch turtlesim turtlesim_node
 ```
 
-A második terminálban klónozzuk, majd buildeljük a példa package-t.
+A második terminálban ellenőrizzük a `ros2_ws/src` tartalmát, és **ha szükséges** klónozzuk, majd buildeljük a példa package-t.
 
+``` r
+ls ~/ros2_ws/src | grep arj_
+```
+
+Ha nincs package (az előző `ls` nem ad vissza találatot):
 ``` r
 cd ~/ros2_ws/src
 git clone https://github.com/sze-info/arj_packages
@@ -191,6 +199,12 @@ Nézzük meg az utolsó terminálban a Foxglove segítségével az élő adatoka
 ros2 launch arj_intro_cpp foxglove_bridge.launch.py
 ```
 
+Vizsgáljuk meg Foxglove Studio-val is WebSocketen keresztül (Open connection `ws://localhost:8765`):
+
+![foxglove](foxglove02.png)
+
+*Megjegyzés*: gépteremben fel van téve a `foxglove_bridge`, otthon `sudo apt install ros-humble-foxglove-bridge` paranccsal (előtte update) telepíthető.
+
 ```mermaid
 flowchart LR
 
@@ -204,6 +218,9 @@ Mindehárom node-ot egyben a következőképp indíthatjuk:
 ``` r
 ros2 launch arj_intro_cpp turtle.launch.py
 ```
+
+Vizsgáljuk meg a package tartalmát röviden a `code ~/ros2_ws/src/arj_packages/arj_intro_cpp` parancs után.
+
 
 # `3.` feladat - Saját package készítése
 
@@ -221,7 +238,7 @@ Első lépés, hogy a a workspace `src` mappájába lépjünk:
 cd ~/ros2_ws/src
 ```
 
-Készítsünk egy `my_package` nevű package-t és egy `my_node` navű node-ot.
+Készítsünk egy `my_package` nevű package-t és egy `my_node` nevű node-ot.
 
 ``` r
 ros2 pkg create --build-type ament_cmake --node-name my_node my_package
@@ -291,7 +308,26 @@ int main(int argc, char ** argv)
   printf("hello world my_package package\n");
   return 0;
 }
+
 ```
+Érdemes megfigyelni, hogy a cpp fájl még semmilyen `ros2` headert nem használ.
+
+Futtatása: 
+
+```
+source ~/ros2_ws/install/setup.bash
+ros2 run my_package my_node
+```
+
+
+Alternatívaként VS code-ból is megnyinthatjuk a teljes mappát.
+```r
+code ~/ros2_ws/src/my_package
+```
+
+
+{: .note }
+A `code` parancs után fájlt megadva a fájl niytódik meg, míg mappát (könyvtárat) megadva az adott mappa tartalma nyílik meg. Gyakran forul elő, hogy például egy adott package-ben vagyunk és szeretnénk az aktuális mappát megnyitni. Ezt megtehetjük a `code .` paranccsal, amikoris az aktuális mappa nyitódik meg, hiszen a `.` karakter az aktuális mappát jelenti linuxban. 
 
 # `4.` feladat - C++ publisher / subscriber
 
@@ -299,6 +335,227 @@ A gyakorlat a hivatalos ROS 2 tutorialokon alapszik: [docs.ros.org/en/humble/Tut
 
 - [C++ publisher](https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_publisher/member_function.cpp)
 - [C++ subscriber](https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_subscriber/member_function.cpp)
+
+## Hozzuk létre a `cpp_pubsub` package-t
+
+Nyissunk egy új terminált, és source-oljunk a telepítést, hogy a `ros2` parancsok működjenek.
+
+Navigáljunk az már létrehozott `ros2_ws` könyvtárba.
+
+Fontos, hogy a csomagokat az `src' könyvtárban kell létrehozni, nem a munkaterület gyökerében. Tehát navigáljunk a `ros2_ws/src` fájlba, és futtassuk a package létrehozó parancsot:
+
+```
+ros2 pkg create --build-type ament_cmake cpp_pubsub
+```
+
+A terminál egy üzenetet küld vissza, amely megerősíti a ``cpp_pubsub`` csomag és az összes szükséges fájl és mappa létrehozását.
+
+Lépj a ``ros2_ws/src/cpp_pubsub/src`` mappába.
+Ez az a könyvtár minden CMake package-ben, ahová a forrásfájlok tartoznak (pl `.cpp` kiterjesztéssel).
+
+
+## Írjuk meg a publisher node-ot
+
+Töltsük le a példa talker kódját:
+
+```
+wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
+```
+
+
+Ez a parancs létrehozza a  ``publisher_member_function.cpp`` fájlt. Nyissuk meg pl VS code segítségével a mappát (`code .`)
+
+``` cpp
+
+#include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
+
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
+
+using namespace std::chrono_literals;
+
+/* This example creates a subclass of Node and uses std::bind() to register a
+* member function as a callback from the timer. */
+
+class MinimalPublisher : public rclcpp::Node
+{
+    public:
+    MinimalPublisher()
+    : Node("minimal_publisher"), count_(0)
+    {
+        publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
+        timer_ = this->create_wall_timer(
+        500ms, std::bind(&MinimalPublisher::timer_callback, this));
+    }
+
+    private:
+    void timer_callback()
+    {
+        auto message = std_msgs::msg::String();
+        message.data = "Hello, world! " + std::to_string(count_++);
+        RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
+        publisher_->publish(message);
+    }
+    rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+    size_t count_;
+};
+
+int main(int argc, char * argv[])
+{
+    rclcpp::init(argc, argv);
+    rclcpp::spin(std::make_shared<MinimalPublisher>());
+    rclcpp::shutdown();
+    return 0;
+}
+```
+
+
+## Függőségek hozzáadása
+
+Lépjünk vissza egy szinttel a ``ros2_ws/src/cpp_pubsub`` könyvtárba, ahol a ``CMakeLists.txt`` és a ``package.xml`` fájlok már létrejöttek.
+
+Nyissuk meg a ``package.xml`` fájlt a szövegszerkesztővel.
+
+Mindig érdemes kitölteni a ``<description>``, ``<maintainer>`` és ``<license>`` tag-eket:
+
+``` xml
+<description>Examples of minimal publisher/subscriber using rclcpp</description>
+<maintainer email="you@email.com">Your Name</maintainer>
+<license>Apache License 2.0</license>
+```
+
+Adjunk hozzá egy új sort az ``ament_cmake`` buildtool függősége után, és illessze be a következő függőségeket a node include utasításainak megfelelően:
+
+``` xml
+<depend>rclcpp</depend>
+<depend>std_msgs</depend>
+``` 
+
+Ez deklarálja, hogy a pacakge-nek szükséges az ``rclcpp`` és a ``std_msgs`` fordításkor és futtatáskor.
+
+
+## CMakeLists.txt
+
+Most nyissuk meg a ``CMakeLists.txt`` fájlt.
+A meglévő ``find_package(ament_cmake REQUIRED)`` függőség alá adjuk hozzá a következő sorokat:
+
+``` cmake
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+```
+
+Ezután adjukhozzá a végrehajtható fájlt, és nevezze el ``talker``-nak, hogy a ``ros2 run`` használatával futtassa a node-ot:
+
+``` cmake
+add_executable(talker src/publisher_member_function.cpp)
+ament_target_dependencies(talker rclcpp std_msgs)
+```
+
+Ezután adjuk hozzá a végrehajtható fájlt, és nevezze el ``talker``-nak, hogy a ``ros2 run`` használatával futtassa a node-ot:
+
+
+
+``` cmake
+install(TARGETS
+talker
+DESTINATION lib/${PROJECT_NAME})
+``` 
+
+A ``CMakeLists.txt`` megtisztítható néhány felesleges szakasz és megjegyzés eltávolításával, így a következőképpen néz ki:
+
+``` cmake
+
+
+cmake_minimum_required(VERSION 3.5)
+project(cpp_pubsub)
+
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+set(CMAKE_CXX_STANDARD 14)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+
+add_executable(talker src/publisher_member_function.cpp)
+ament_target_dependencies(talker rclcpp std_msgs)
+
+install(TARGETS
+talker
+DESTINATION lib/${PROJECT_NAME})
+
+ament_package()
+```
+
+Már buildelhető a package, adjuk hozzá a feliratkozó (subscriber) node-ot is, hogy láthassuk a teljes rendszert működés közben.
+## Írjuk meg a subscriber node-ot
+
+A subscriber node elkészítését a következő tutorial 3-a pontja is leírja: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#id8)
+
+Lépjünk vissza a `ros2_ws/src/cpp_pubsub/src` mappába és töltsük le a sunbscriber node-ot is:
+
+```
+wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/humble/rclcpp/topics/minimal_subscriber/member_function.cpp
+```
+
+Ha most `ls`-el listázunk, a következőt kell lássuk:
+
+```
+publisher_member_function.cpp  subscriber_member_function.cpp
+```
+
+A `CMakeList.txt`-hez adjuk hozzá a subscribe node-ot is:
+
+``` cmake
+add_executable(listener src/subscriber_member_function.cpp)
+ament_target_dependencies(listener rclcpp std_msgs)
+
+install(TARGETS
+  talker
+  listener
+  DESTINATION lib/${PROJECT_NAME})
+```
+
+## Fordítsuk a package-t
+
+```
+cd ~/ros2_ws/
+colcon build --packages-select cpp_pubsub
+
+```
+
+
+``` r
+source ~/ros2_ws/install/setup.bash
+ros2 run cpp_pubsub talker
+
+[INFO] [minimal_publisher]: Publishing: "Hello World: 0"
+[INFO] [minimal_publisher]: Publishing: "Hello World: 1"
+[INFO] [minimal_publisher]: Publishing: "Hello World: 2"
+[INFO] [minimal_publisher]: Publishing: "Hello World: 3"
+[INFO] [minimal_publisher]: Publishing: "Hello World: 4"
+```
+
+Egy újabb terminalba:
+``` r
+source ~/ros2_ws/install/setup.bash
+ros2 run cpp_pubsub listener
+
+[INFO] [minimal_subscriber]: I heard: "Hello World: 10"
+[INFO] [minimal_subscriber]: I heard: "Hello World: 11"
+[INFO] [minimal_subscriber]: I heard: "Hello World: 12"
+[INFO] [minimal_subscriber]: I heard: "Hello World: 13"
+[INFO] [minimal_subscriber]: I heard: "Hello World: 14"
+```
 
 # `5.` feladat - Python publisher / subscriber
 

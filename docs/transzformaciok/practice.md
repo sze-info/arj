@@ -27,6 +27,15 @@ cd ~/ros2_ws/src
 git clone https://github.com/sze-info/arj_packages
 ```
 
+Ha már létezik, akkor az előző lépés helyett, csak frissítsük.
+
+``` r
+cd ~/ros2_ws/src/arj_packages/
+git status
+git checkout -- .
+git pull
+```
+
 Ezután már buildelhetünk is:
 
 ``` r

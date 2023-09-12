@@ -53,8 +53,8 @@ Kép forrása: [ros.org/blog/ecosystem](https://www.ros.org/blog/ecosystem/)
 - Képességek: Legyen szó GPS-eszköz-illesztőprogramról, négylábú robothoz való járás- és egyensúlyszabályozóról, vagy mobil robothoz való térképezőrendszerről, a ROS-nak vannak megoldásai a problémára. A driverektől az algoritmusokig, a felhasználói felületekig a ROS biztosítja azokat az építőelemeket, amelyek lehetővé teszik, hogy a saját alkalmazására koncentráljon.
 - Közösség: A ROS közössége nagy, sokszínű és globális. Diákoktól és hobbiból űzőktől kezdve multinacionális vállalatokig és kormányzati ügynökségekig, az emberek és szervezetek minden szegmense működteti az `ROS 2`` projektet.
 
-![áttekintés](ros_overview02.svg)
-Forrás: [husarnet.com/blog/ros2-docker](https://husarnet.com/blog/ros2-docker)
+![áttekintés](ros_overview03.svg)
+Forrás: [Bestmann, Marc & Fakultät, Min & Zhang, Jianwei & Hendrich, N.. (2017). Towards Using ROS in the RoboCup Humanoid Soccer League. Masterthesis](https://www.researchgate.net/publication/337707327_Towards_Using_ROS_in_the_RoboCup_Humanoid_Soccer_League)
 
 ## Különbségek az `ROS 1` és `ROS 2` között 
 
@@ -75,6 +75,9 @@ Forrás: [husarnet.com/blog/ros2-docker](https://husarnet.com/blog/ros2-docker)
   A `ROS 2` lehetővé teszi az adatáramlás konfigurálását, ami befolyásolja az adatok küldésének és fogadásának módját. Ez magában foglalja az üzenetek megbízhatóságára, határidejére és prioritására vonatkozó beállításokat, amelyek biztosíthatják, hogy a kritikus üzenetek időben kézbesítésre kerüljenek. 
 - *Többszálú végrehajtás*  
   A `ROS 2` támogatja a több csomópont valóban párhuzamos futtatását, így a modern többmagos processzorok sokkal jobban kihasználhatók, mint a `ROS 1` esetében. 
+
+![áttekintés](ros_overview02.svg)
+Forrás: [husarnet.com/blog/ros2-docker](https://husarnet.com/blog/ros2-docker)
 
 ## Egyéb változások
 - A Catkin eltűnt, helyére az Ament (Colcon) lépett, mint build rendszer. Az overlay-ek lehetővé teszik egy másodlagos munkaterület létrehozását, amely nem befolyásolja az elsődleges munkaterületet - ez akkor hasznos, ha új csomagokkal kell kísérletezni, de úgy, hogy ez ne befolyásolja az alapkonfigurációt (ezt "underlay"-nek hívják).
@@ -102,7 +105,7 @@ További release-ek: [docs.ros.org/en/humble/Releases.html](https://docs.ros.org
 
 ## Nodes 
 
-A node legegyszerűbben fogalmazva ROS programot (magyarosítva csomópont) jelent. Jellemzőik:
+A node legegyszerűbben fogalmazva ROS programot (magyarosítva csomópont) jelent. Ábrán kerek ⚪ jelöléssel feltünteve. Jellemzőik:
 
 - "Végrehajthatóak" (c++ / py).
 - Minden node egy folyamat
@@ -112,6 +115,8 @@ A node legegyszerűbben fogalmazva ROS programot (magyarosítva csomópont) jele
 - Több node is "közzétehet" egy topicra, és egy node több topicot is "meghallgathat".
 
 ## Topics
+
+A topic-ok felfoghatóak egy nevesített "portnak", ahol a node-ok kommunkálni tudnak. Ábrán szögletes ⬜ jelöléssel feltünteve. Jellemzőik:
 
 - A node-ok közötti információ áramlásért felel.
 - Minden topic típusát az "üzenet" határozza meg
@@ -208,3 +213,5 @@ Erről egy rövid videó:
 - [ros.org/blog/ecosystem](https://www.ros.org/blog/ecosystem/)
 - [husarnet.com/blog/ros2-docker](https://husarnet.com/blog/ros2-docker)
 - [design.ros2.org/articles/intraprocess_communications.html](https://design.ros2.org/articles/intraprocess_communications.html)
+- [Towards Using ROS in the RoboCup Humanoid Soccer League - Masterthesis](https://www.researchgate.net/publication/337707327_Towards_Using_ROS_in_the_RoboCup_Humanoid_Soccer_League)
+

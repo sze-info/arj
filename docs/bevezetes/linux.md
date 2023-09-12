@@ -85,7 +85,7 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
 
 ## Könyvtárak közötti navigáció
 - `cd`: adott könyvtárba / mappába történő belépés
-  - pl `cd ~/catkin_ws/src`, `cd ../..`
+  - pl `cd ~/ros2_ws/src`, `cd ../..`
 - `ls`: listázás: könyvtárak, fájlok
 - `mkdir`: könyvtár készítése
 - `pwd`: aktuális munkakönyvtár kiíratása (print working directory)
@@ -141,12 +141,13 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
 - `git pull`: pull
 - `git branch <new_branch_name>`: branch készítése
 - `git checkout <branch_name>`: új branch
+- `git checkout -- .`: Minden nem staged (unstaged) változás elvetése lokálisan. VS code-ban kb ez a "discard all changes" parancs. (Újabb git verziókban a `git restore .` is hasonló módon működik.)
 - `git merge <branch_name>`: a jelenlegi branch-be mergeli a branch-t
 
 {: .important-title }
 > Tipp
 >
-> A legtöbb művelet VS code-dal elvégezhető terminál nélkül is.
+> A legtöbb művelet VS code-dal elvégezhető terminál nélkül is. [Erről bővebben itt lehet olvasni](https://sze-info.github.io/arj/bevezetes/vscode.html).
 
 ## Szöveges fájlok
 - `wget`: webes tartalmak letöltése terminalból
@@ -156,14 +157,14 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
 - `echo`: kiíratás, vagy fájlba írás (`>>` operátor). Amennyiben nem létezik a fájl, létrehozza (`touch`)
   - pl. `echo "hello" >> hello.txt`  
   - pl. `echo "n = 5; print('\n'.join(':D ' * i for i in range(1, n + 1)))" >> hello.py` 
-  - pl. `rostopic list >> hello.txt` 
-  - pl. `rostopic echo -n1 /scan >> hello.txt` 
+  - pl. `ros2 topic list >> hello.txt` 
+  - pl. `ros2 topic echo --once /scan >> hello.txt` 
 - `find`: fájl keresése, pl a `find ~/ros2_ws/src/ -name *.txt` minden `txt` fájlt megkeres a `~/ros2_ws/src` könyvtárban.
 - `nano`: szövegszerkesztő: egyszerű, terminál-alapú
 - `code`: szövegszerkesztő: GUI, VS code
   - pl. `code .` megnyintja az aktuális mappa tartalmát
   - pl. `code ~/.bashrc` megnyintja a  `~/.bashrc` tartalmát szerkesztésre
-- `catkin`: catkin tools: wrapper a `cmake` és `make` parancsok egyszerűbb használatához
+- `colcon`: wrapper a `cmake` és `make` parancsok egyszerűbb használatához, erről bővebben később
 
 
 ## Telepítés
@@ -257,12 +258,12 @@ code ~/.bashrc
 
 Számunkra fontos környezeti változók pl:
 ``` c
-export ROS_MASTER_URI=http://192.168.1.5:11311
-export ROS_IP=192.168.1.10
-export GAZEBO_IP=127.0.0.1
-export TURTLEBOT3_MODEL=burger
-source /opt/ros/noetic/setup.bash
-source ~/catkin_ws/devel/setup.bash
+export ROS_DOMAIN_ID=4
+export ROS_LOCALHOST_ONLY=1
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
+export TURTLEBOT3_MODEL=waffle
+source /opt/ros/humble/setup.bash
+source ~/ros2_ws/install/setup.bash
 ```
 
 A `bashrc` fájl módosítása után nem kell új terminált nyitni, ha kiadjuk a következő parancsot:
@@ -272,8 +273,9 @@ source ~/.bashrc
 ```
 
 #### ROS 1 
+{: .warning }
+A fejezetben a régi ROS 1-es könyzeteti változókról van szó, az új ROS 2-est a következő fejezet tartalmazza. 
 
-*Figyelem:* a fejezetben a régi ROS 1-es könyzeteti változókról van szó, az új ROS 2-est a következő fejezet tartalmazza. 
 Kiírathatjuk a környezeti változókat (environment variables) `echo`-val / `printenv`-vel pl:
 
 ``` php
@@ -290,6 +292,11 @@ printenv ROS_IP
 ```
 
 #### ROS 2 
+
+{: .important-title }
+> ROS 2 fejezet
+>
+> Ez az új, ROS 2-est tartalmazó fejezet. 
 
 Kiírathatjuk a környezeti változókat (environment variables) `echo`-val / `printenv`-vel pl:
 

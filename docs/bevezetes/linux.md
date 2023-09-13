@@ -273,6 +273,7 @@ source ~/.bashrc
 ```
 
 #### ROS 1 
+
 {: .warning }
 A fejezetben a régi ROS 1-es könyzeteti változókról van szó, az új ROS 2-est a következő fejezet tartalmazza. 
 

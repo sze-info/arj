@@ -127,7 +127,7 @@ A tantárgyban nem kell ilyen összetett rendszereket használni, legtöbbször 
 Nyissunk négy terminált. Az első terminálból most is indítsuk a beépített `turtlesim_node` szimulátort, ami a `turtlesim` package-ben található.
 
 ``` r
-ros2 launch turtlesim turtlesim_node
+ros2 run turtlesim turtlesim_node
 ```
 
 A második terminálban ellenőrizzük a `ros2_ws/src` tartalmát, és **ha szükséges** klónozzuk, majd buildeljük a példa package-t.
@@ -135,14 +135,34 @@ A második terminálban ellenőrizzük a `ros2_ws/src` tartalmát, és **ha szü
 ``` r
 ls ~/ros2_ws/src | grep arj_
 ```
+vagy 
 
-Ha nincs package (az előző `ls` nem ad vissza találatot):
+``` c
+cd ~ && test -d "ros2_ws/src/arj_packages" && echo Letezik || echo Nem letezik
+```
+
+- `A. opció:` Ha nincs package (az előző `ls` nem ad vissza találatot), akkor `git clone` és `colcon` build.
+- `B. opció:` Ha van package, de nem a legfrissebb, akkor `git pull` és `colcon` build.
+- `C. opció:` Ha van package és friss is, akkor nincs külön teendőnk.
+
+`A. opció:`
 ``` r
 cd ~/ros2_ws/src
 git clone https://github.com/sze-info/arj_packages
 cd ~/ros2_ws
 colcon build --packages-select arj_intro_cpp
 ```
+
+`B. opció:`
+``` r
+cd ~/ros2_ws/src/arj_packages
+git checkout -- .
+git pull
+cd ~/ros2_ws
+colcon build --packages-select arj_intro_cpp
+```
+
+A `git checkout -- .` az összes esetleges lokális változás visszavonására jó.
 
 A harmadik terminálban futtassuk a `cmd_gen_node` ROS node-ot.
 

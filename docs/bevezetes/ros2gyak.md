@@ -370,16 +370,17 @@ ros2 pkg create --build-type ament_cmake cpp_pubsub
 
 A terminál egy üzenetet küld vissza, amely megerősíti a ``cpp_pubsub`` csomag és az összes szükséges fájl és mappa létrehozását.
 
-Lépj a ``ros2_ws/src/cpp_pubsub/src`` mappába.
-Ez az a könyvtár minden CMake package-ben, ahová a forrásfájlok tartoznak (pl `.cpp` kiterjesztéssel).
 
 
 ## Írjuk meg a publisher node-ot
 
+Lépjünk a ``ros2_ws/src/cpp_pubsub/src`` mappába.
+Ez az a könyvtár minden CMake package-ben, ahová a forrásfájlok tartoznak (pl `.cpp` kiterjesztéssel).
+
 Töltsük le a példa talker kódját:
 
 ```
-wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
+wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/humble/rclcpp/topics/minimal_publisher/member_function.cpp
 ```
 
 
@@ -438,7 +439,11 @@ int main(int argc, char * argv[])
 
 Lépjünk vissza egy szinttel a ``ros2_ws/src/cpp_pubsub`` könyvtárba, ahol a ``CMakeLists.txt`` és a ``package.xml`` fájlok már létrejöttek.
 
-Nyissuk meg a ``package.xml`` fájlt a szövegszerkesztővel.
+Nyissuk meg a ``package.xml`` fájlt a szövegszerkesztővel (pl. `vs code`). **Tipp**: a teljes könyvtárat is meg lehet, nyitni, ami később pár dolgot egyszerűsít:
+
+``` r
+code ~/ros2_ws/src/cpp_pubsub/
+```
 
 Mindig érdemes kitölteni a ``<description>``, ``<maintainer>`` és ``<license>`` tag-eket:
 
@@ -517,6 +522,11 @@ ament_package()
 ```
 
 Már buildelhető a package, adjuk hozzá a feliratkozó (subscriber) node-ot is, hogy láthassuk a teljes rendszert működés közben.
+
+``` r 
+cd ~/ros2_ws/
+colcon build --packages-select cpp_pubsub
+```
 ## Írjuk meg a subscriber node-ot
 
 A subscriber node elkészítését a következő tutorial 3-a pontja is leírja: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#id8)

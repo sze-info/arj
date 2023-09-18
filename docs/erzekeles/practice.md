@@ -150,7 +150,7 @@ average rate: 20.133
 
 Az `ROS` idő kezelésre a Unix-idő vagy POSIX-időt használja. Ez a UTC (greenwichi idő) szerinti 1970. január 1. 00:00:00 óta eltelt másodpercek és nanoszekundumok számát jelenti (`int32 sec`, `int32 nsec`). Ez egyrészt relatív kis helyet fogla a memóriában, másrészt könnyen számolható két időpont között eltelt idő, mégpedig egy egyszerű kivonással. 
 
-[`ros2time.ipynb`](https://github.com/sze-info/arj/blob/main/docs/erzekeles/ros2time.ipynb){: .btn .btn-purple .mr-4 } 
+[ros2time.ipynb](https://github.com/sze-info/arj/blob/main/docs/erzekeles/ros2time.ipynb){: .btn .btn-purple .mr-4 } 
 
 Hátránya, hogy nem túl intuitív, nem olvasható az ember számára. Pl. a Foxglove Studio ezért is gyakran átalakítja olvashatóbb formátumra. 
 
@@ -233,7 +233,8 @@ A köveztkezőkben átnézünk pár jellemző szenzort (GPS, kamer, LIDAR) és a
 
 # IMU
 
-*Jellemző `ROS 2` topic típusok:* [`sensor_msgs/msg/Imu`](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/Imu.msg)
+*Jellemző `ROS 2` topic típusok:* [`sensor_msgs/msg/Imu`](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/Imu.msg), [`sensor_msgs/msg/MagneticField`](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/MagneticField.msg)
+
 
 
 ``` r
@@ -335,3 +336,188 @@ Alakítsunk ki hasonló elrendezést:
 ![](foxglove04.png)
 
 Forrás: [foxglove.dev/blog/introducing-foxglove-studios-new-navigation](https://foxglove.dev/blog/introducing-foxglove-studios-new-navigation)
+
+## Hozzuk létre a `simple_sub_cpp` package-t
+
+A gyakorlat a hivatalos ROS 2 tutorialokon alapszik: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html)
+
+- [C++ publisher](https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_publisher/member_function.cpp)
+- [C++ subscriber](https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_subscriber/member_function.cpp)
+
+Nyissunk egy új terminált, és source-oljunk a telepítést, hogy a `ros2` parancsok működjenek.
+
+Navigáljunk az már létrehozott `ros2_ws` könyvtárba.
+
+Fontos, hogy a csomagokat az `src' könyvtárban kell létrehozni, nem a munkaterület gyökerében. Tehát navigáljunk a `ros2_ws/src` mappába, és futtassuk a package létrehozó parancsot:
+
+```
+cd ~/ros2_ws/src
+ros2 pkg create --build-type ament_cmake simple_sub_cpp
+```
+
+A terminál egy üzenetet küld vissza, amely megerősíti a `simple_sub_cpp` csomag és az összes szükséges fájl és mappa létrehozását.
+
+
+
+## Írjuk meg a publisher node-ot
+
+Lépjünk a ``ros2_ws/src/simple_sub_cpp/src`` mappába.
+
+``` r
+cd ~/ros2_ws/src/simple_sub_cpp/src
+```
+
+Ez az a könyvtár minden CMake package-ben, ahová a forrásfájlok tartoznak (pl `.cpp` kiterjesztéssel).
+
+Töltsük le a példa feliratkozó kódját:
+
+```
+wget -O print_pose.cpp https://raw.githubusercontent.com/sze-info/arj_packages/main/etc/print_pose.cpp
+```
+
+
+Ez a parancs létrehozza a  ``print_pose.cpp`` fájlt. Nyissuk meg pl VS code segítségével a mappát (`code .`)
+
+``` cpp
+// ros2 topic type /lexus3/gps/duro/current_pose
+// geometry_msgs/msg/PoseStamped
+// ros2 interface show geometry_msgs/msg/PoseStamped
+
+#include <memory>
+#include "rclcpp/rclcpp.hpp"
+#include "geometry_msgs/msg/pose_stamped.hpp"
+
+using std::placeholders::_1;
+
+class SimplePoseSub : public rclcpp::Node
+{
+public:
+  SimplePoseSub() : Node("simple_pose_sub")
+  {
+    sub1_ = this->create_subscription<geometry_msgs::msg::PoseStamped>("/lexus3/gps/duro/current_pose", 10, std::bind(&SimplePoseSub::topic_callback, this, _1));
+  }
+
+private:
+  void topic_callback(const geometry_msgs::msg::PoseStamped &msg) const
+  {
+    RCLCPP_INFO(this->get_logger(), "x: %.3f, y: %.3f", msg.pose.position.x, msg.pose.position.y);
+  }
+  rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr sub1_;
+};
+
+int main(int argc, char *argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<SimplePoseSub>());
+  rclcpp::shutdown();
+  return 0;
+}
+```
+
+{: .important-title }
+> Python megfelelője
+>
+> A [C++ kód](https://github.com/sze-info/arj_packages/blob/main/etc/print_pose.cpp) python verziója szintén elérhető a [github.com/sze-info/arj_packages](https://github.com/sze-info/arj_packages/blob/main/etc/print_pose.py) címen. Érdemes összehasonlítani a C++ és a python kódokat.
+
+
+## Függőségek hozzáadása
+
+Lépjünk vissza egy szinttel a ``ros2_ws/src/simple_sub_cpp`` könyvtárba, ahol a ``CMakeLists.txt`` és a ``package.xml`` fájlok már létrejöttek.
+
+Nyissuk meg a ``package.xml`` fájlt a szövegszerkesztővel (pl. `vs code`). **Tipp**: a teljes könyvtárat is meg lehet, nyitni, ami később pár dolgot egyszerűsít:
+
+``` r
+code ~/ros2_ws/src/simple_sub_cpp/
+```
+
+Mindig érdemes kitölteni a ``<description>``, ``<maintainer>`` és ``<license>`` tag-eket:
+
+``` xml
+<description>Examples of minimal publisher/subscriber using rclcpp</description>
+<maintainer email="you@email.com">Your Name</maintainer>
+<license>Apache License 2.0</license>
+```
+
+Adjunk hozzá egy új sort az ``ament_cmake`` buildtool függősége után, és illessze be a következő függőségeket a node include utasításainak megfelelően:
+
+``` xml
+<depend>rclcpp</depend>
+<depend>geometry_msgs</depend>
+``` 
+
+Ez deklarálja, hogy a pacakge-nek szükséges az ``rclcpp`` és a ``geometry_msgs`` fordításkor és futtatáskor.
+
+
+## CMakeLists.txt
+
+Most nyissuk meg a ``CMakeLists.txt`` fájlt.
+A meglévő ``find_package(ament_cmake REQUIRED)`` függőség alá adjuk hozzá a következő sorokat:
+
+``` cmake
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+```
+
+Ezután adjukhozzá a végrehajtható fájlt, és nevezze el `simple_sub_node`-nak, hogy a `ros2 run` használatával futtassa a node-ot:
+
+``` cmake
+add_executable(simple_sub_cpp src/print_pose.cpp)
+ament_target_dependencies(simple_sub_node rclcpp geometry_msgs)
+```
+
+Ezután adjuk hozzá a végrehajtható fájlt, és nevezze el `simple_sub_node`-nak, hogy a `ros2 run` használatával futtassa a node-ot:
+
+``` cmake
+install(TARGETS
+simple_sub_node
+DESTINATION lib/${PROJECT_NAME})
+``` 
+
+A ``CMakeLists.txt`` megtisztítható néhány felesleges szakasz és megjegyzés eltávolításával, így a következőképpen néz ki:
+
+``` cmake
+
+cmake_minimum_required(VERSION 3.5)
+project(simple_sub_cpp)
+
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+set(CMAKE_CXX_STANDARD 14)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
+add_executable(simple_sub_node src/print_pose.cpp)
+ament_target_dependencies(simple_sub_node rclcpp geometry_msgs)
+
+install(TARGETS
+simple_sub_node
+DESTINATION lib/${PROJECT_NAME})
+
+ament_package()
+```
+
+Már buildelhető a package:
+
+``` r 
+cd ~/ros2_ws/
+colcon build --packages-select simple_sub_cpp
+```
+
+Futtassuk a szokásos módon:
+
+``` r
+source ~/ros2_ws/install/setup.bash
+ros2 run simple_sub_cpp simple_sub_node
+```
+
+# Források
+- [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
+- [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html)
+- [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)

@@ -62,7 +62,7 @@ Az IMU kis méretű elektromechanikus giroszkópokat és gyorsulásmérőket, va
 
 - *Jellemző gyártók:* Lord MicroStrain, Bosch, XSens
 - *Jellemző interfész:* Serial, Ethernet, USB, CAN bus
-- *Jellemző `ROS 2` topic típusok:* [`sensor_msgs/msg/Imu`](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/Imu.msg)
+- *Jellemző `ROS 2` topic típusok:* [`sensor_msgs/msg/Imu`](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/Imu.msg), [`sensor_msgs/msg/MagneticField`](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/MagneticField.msg)
 
 
 ![imu](imu01.png)

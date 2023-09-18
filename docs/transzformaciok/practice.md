@@ -137,7 +137,7 @@ ros2 topic pub --rate 40 /marker_topic2 visualization_msgs/msg/Marker '{header: 
 # További 
 
 [Python notebook](https://nbviewer.org/github/horverno/sze-academic-python/blob/master/eload/ealeshtranszfromaciok.ipynb){: .btn .btn-blue .mr-4 }
-[`gps_utm.ipynb`](https://github.com/sze-info/arj/blob/main/docs/transzformaciok/gps_utm.ipynb){: .btn .btn-purple .mr-4 } 
+[gps_utm.ipynb](https://github.com/sze-info/arj/blob/main/docs/transzformaciok/gps_utm.ipynb){: .btn .btn-purple .mr-4 } 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kYB8IZa5AuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

@@ -51,7 +51,7 @@ Vagy egyszerűbben:
 ls /mnt/c/temp
 ```
 
-- Ha nem létezik (`No such file or directory`) akkor hozzuk létre: `mkdir /mnt/c/temp`
+- Ha nem létezik (`No such file or directory`), akkor hozzuk létre: `mkdir /mnt/c/temp`
 - Ha létezik, akkor nincs teendőnk, lépjünk a következő lépésre, másoljuk át ide az `.mcap` fájlokat
 
 
@@ -65,7 +65,7 @@ rsync -avzh --progress /mnt/kozos/measurement_files/lexus3sample04.mcap  /mnt/c/
 rsync -avzh --progress /mnt/kozos/measurement_files/lexus3sample05.mcap  /mnt/c/temp/
 ```
 
-Otthon a következő linkről (zöld gomb) vagy lehet parancsként `wget`-el lehet letölteni:
+Otthon a következő linkről (zöld gomb), vagy parancsként `wget`-el lehet letölteni:
 
 ```r 
 wget https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EakTOhcjblNInqjRMfaGVmsB0diDv0SWpXw9rwo0MD7f3w?download=1
@@ -73,7 +73,7 @@ wget https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EakTOhcjb
 
 [Rosbag letöltése 300 MB](https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EakTOhcjblNInqjRMfaGVmsB0diDv0SWpXw9rwo0MD7f3w?download=1){: .btn .btn-green .mr-4 } 
 
-Listázzuk a **megfelelő** átásolt `.mcap` fájl alap információit, hasonlóan:  
+Listázzuk a **megfelelő** átmásolt `.mcap` fájl alap információit, hasonlóan:  
 
 ``` r
 ros2 bag info /mnt/c/temp/lexus3sample06.mcap
@@ -103,12 +103,12 @@ Topic information:
 
 # Játsszuk vissza az `.mcap` fájlt
 
-A következőken a mérésadafájlt visszajátsszuk és ellenőrizzük milyen adatok jelennek meg, milyen típusban és sebességben. A `--loop` kapcsoló a végtelen ismétlést a `--clock` kapcsoló pedig egy `/clock` topic hirdetéséért felel, ehhez igazítja a lejátszást.
+A következőken a mérésadatfájlt visszajátsszuk és ellenőrizzük, hogy milyen adatok jelennek meg, milyen típusban és sebességgel. A `--loop` kapcsoló a végtelen ismétlést, a `--clock` kapcsoló pedig egy `/clock` topic hirdetéséért felel, ehhez igazítja a lejátszást.
 
 ``` r
 ros2 bag play /mnt/c/temp/lexus3sample06.mcap --clock --loop
 ```
-Ugyanez, csak lassabban visszajátszva pl:
+Ugyanez, csak lassabban visszajátszva pl.:
 
 ``` r
 ros2 bag play /mnt/c/temp/lexus3sample06.mcap --clock --loop --rate 0.2
@@ -138,7 +138,7 @@ ros2 topic list
 /tf_static
 ```
 
-A `ros2 topic hz` az adott topic frekvenciáját mutatja. A pozíció pl. itt ~20Hz.
+A `ros2 topic hz` az adott topic frekvenciáját mutatja. A pozíció ebben az esetben ~20Hz.
 
 ``` r
 ros2 topic hz /lexus3/gps/duro/current_pose
@@ -148,7 +148,7 @@ average rate: 20.133
 
 # `ROS 2` időkezelés
 
-Az `ROS` idő kezelésre a Unix-idő vagy POSIX-időt használja. Ez a UTC (greenwichi idő) szerinti 1970. január 1. 00:00:00 óta eltelt másodpercek és nanoszekundumok számát jelenti (`int32 sec`, `int32 nsec`). Ez egyrészt relatív kis helyet fogla a memóriában, másrészt könnyen számolható két időpont között eltelt idő, mégpedig egy egyszerű kivonással. 
+Az `ROS` idő kezelésre a Unix-időt, vagy a POSIX-időt használja. Ez a UTC (greenwichi idő) szerinti 1970. január 1. 00:00:00 óta eltelt másodpercek és nanoszekundumok számát jelenti (`int32 sec`, `int32 nsec`). Ez egyrészt relatív kis helyet foglal a memóriában, másrészt könnyen számolható két időpont között eltelt idő, mégpedig egy egyszerű kivonással. 
 
 [ros2time.ipynb](https://github.com/sze-info/arj/blob/main/docs/erzekeles/ros2time.ipynb){: .btn .btn-purple .mr-4 } 
 
@@ -196,7 +196,7 @@ pose:
     w: 0.8976192678279703
 ```
 
-Ha szeretnénk átválatni a másodperceket és nanoszekundumokat, azt pl a következő módon thetjük meg:
+Ha szeretnénk átválatni a másodperceket és nanoszekundumokat, azt a következő módon tehetjük meg:
 
 ``` py
 from datetime import datetime
@@ -213,9 +213,9 @@ ISO format:	2023-09-13T08:52:42.945887
 
 **Emlékeztető**: a nanoszekundum a másodperc egy milliárdodrésze (10^-9 s).
 
-# GNSS (GPS)
+# Global Navigation Satellite System (GNSS) / Global Positioning System (GPS)
 
-A köveztkezőkben átnézünk pár jellemző szenzort (GPS, kamer, LIDAR) és azok topic-jait, node-jait (driver package-ekbe szervezve). Vessünk egy pillantást a saját fejelsztésű Duro GPS (GNSS) driverre: [github.com/szenergy/duro_gps_driver](https://github.com/szenergy/duro_gps_driver/tree/ros2-humble). A GPS-t etherneten a számítógéphez csatlakoztatva, a ROS drivert indítva a következő topicokat fogja hirdetni:
+A köveztkezőkben átnézünk pár jellemző szenzort (GPS, kamera, LIDAR) és azok topic-jait, node-jait (driver package-ekbe szervezve). Vessünk egy pillantást a saját fejlesztésű Duro GPS (GNSS) driverre: [github.com/szenergy/duro_gps_driver](https://github.com/szenergy/duro_gps_driver/tree/ros2-humble). A GPS-t etherneten a számítógéphez csatlakoztatva, az ROS drivert indítva a következő topicokat fogja hirdetni:
 
 
 |Topic|Type
@@ -231,7 +231,7 @@ A köveztkezőkben átnézünk pár jellemző szenzort (GPS, kamer, LIDAR) és a
 `/gps/duro/time_ref` |[`[sensor_msgs/TimeReference]`](http://docs.ros.org/en/api/sensor_msgs/html/msg/TimeReference.html)
 
 
-# IMU
+# Inertial Measurement UNit (IMU)
 
 *Jellemző `ROS 2` topic típusok:* [`sensor_msgs/msg/Imu`](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/Imu.msg), [`sensor_msgs/msg/MagneticField`](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/MagneticField.msg)
 
@@ -344,11 +344,11 @@ A következőkben egy egyszerű subscriber node fog feliratkozni `geometry_msgs/
 - [C++ publisher](https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_publisher/member_function.cpp)
 - [C++ subscriber](https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_subscriber/member_function.cpp)
 
-Nyissunk egy új terminált, és source-oljunk a telepítést, hogy a `ros2` parancsok működjenek.
+Nyissunk egy új terminált, és source-oljuk a telepítést, hogy a `ros2` parancsok működjenek.
 
 Navigáljunk az már létrehozott `ros2_ws` könyvtárba.
 
-Fontos, hogy a csomagokat az `src' könyvtárban kell létrehozni, nem a munkaterület gyökerében. Tehát navigáljunk a `ros2_ws/src` mappába, és futtassuk a package létrehozó parancsot:
+Fontos, hogy a csomagokat az `src` könyvtárban kell létrehozni, nem a munkaterület gyökerében. Tehát navigáljunk a `ros2_ws/src` mappába, és futtassuk a package létrehozó parancsot:
 
 ```
 cd ~/ros2_ws/src
@@ -367,7 +367,7 @@ Lépjünk a ``ros2_ws/src/simple_sub_cpp/src`` mappába.
 cd ~/ros2_ws/src/simple_sub_cpp/src
 ```
 
-Ez az a könyvtár minden CMake package-ben, ahová a forrásfájlok tartoznak (pl `.cpp` kiterjesztéssel).
+Ez az a könyvtár minden CMake package-ben, ahová a forrásfájlok tartoznak (pl. `.cpp` kiterjesztéssel).
 
 Töltsük le a példa feliratkozó kódját:
 
@@ -376,7 +376,7 @@ wget -O print_pose.cpp https://raw.githubusercontent.com/sze-info/arj_packages/m
 ```
 
 
-Ez a parancs létrehozza a  ``print_pose.cpp`` fájlt. Nyissuk meg pl VS code segítségével a mappát (`code .`)
+Ez a parancs létrehozza a  ``print_pose.cpp`` fájlt. Nyissuk meg pl. VS code segítségével a mappát (`code .`)
 
 ``` cpp
 // ros2 topic type /lexus3/gps/duro/current_pose
@@ -424,7 +424,7 @@ int main(int argc, char *argv[])
 
 Lépjünk vissza egy szinttel a ``ros2_ws/src/simple_sub_cpp`` könyvtárba, ahol a ``CMakeLists.txt`` és a ``package.xml`` fájlok már létrejöttek.
 
-Nyissuk meg a ``package.xml`` fájlt a szövegszerkesztővel (pl. `vs code`). **Tipp**: a teljes könyvtárat is meg lehet, nyitni, ami később pár dolgot egyszerűsít:
+Nyissuk meg a ``package.xml`` fájlt szövegszerkesztővel (pl. `vs code`). **Tipp**: a teljes könyvtárat is meg lehet nyitni, ami később pár dolgot egyszerűsít:
 
 ``` r
 code ~/ros2_ws/src/simple_sub_cpp/
@@ -439,7 +439,7 @@ Mindig érdemes kitölteni a ``<description>``, ``<maintainer>`` és ``<license>
 <license>Apache License 2.0</license>
 ```
 
-Adjunk hozzá egy új sort az ``ament_cmake`` buildtool függősége után, és illessze be a következő függőségeket a node include utasításainak megfelelően:
+Adjunk hozzá egy új sort az ``ament_cmake`` buildtool függősége után, és illesszük be a következő függőségeket a node include utasításainak megfelelően:
 
 ``` xml
 <depend>rclcpp</depend>
@@ -459,7 +459,7 @@ find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 ```
 
-Ezután adjuk hozzá a végrehajtható fájlt (ez most a `print_pose.cpp`-ből fog csak állni), és nevezzük el `simple_sub_node`-nak, hogy a `ros2 run` használatával futtassa a node-ot:
+Ezután adjuk hozzá a végrehajtható fájlt (ez most a `print_pose.cpp`-ből fog csak állni), és nevezzük el `simple_sub_node`-nak, hogy az `ros2 run` használatával futtassa a node-ot:
 
 ``` cmake
 add_executable(simple_sub_node src/print_pose.cpp)
@@ -504,7 +504,7 @@ DESTINATION lib/${PROJECT_NAME})
 ament_package()
 ```
 
-Összefoglalásképp a következő módosításokat hajtottuk végre:
+Összefoglalásképp, a következő módosításokat hajtottuk végre:
 
 ![](package_xml01.png)
 

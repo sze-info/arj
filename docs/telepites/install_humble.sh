@@ -70,6 +70,7 @@ sudo apt-get update -y
 sudo apt-get install ignition-fortress -y
 sudo apt install ros-humble-foxglove-bridge -y
 sudo apt install mc -y
+sudo apt install ros-humble-rosbag2-storage-mcap ros-humble-rosbag2 -y
 
 sudo mkdir /mnt/kozos
 #sudo mount -t drvfs '\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása' /mnt/kozos

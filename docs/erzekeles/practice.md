@@ -337,9 +337,9 @@ Alakítsunk ki hasonló elrendezést:
 
 Forrás: [foxglove.dev/blog/introducing-foxglove-studios-new-navigation](https://foxglove.dev/blog/introducing-foxglove-studios-new-navigation)
 
-## Hozzuk létre a `simple_sub_cpp` package-t
+# Hozzuk létre a `simple_sub_cpp` package-t
 
-A gyakorlat a hivatalos ROS 2 tutorialokon alapszik: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html)
+A következőkben egy egyszerű subscriber node fog feliratkozni `geometry_msgs/PoseStamped` üzenetekre, majd kiírni az X és az Y koordinátákat. A gyakorlat a hivatalos ROS 2 tutorialokon alapszik: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html)
 
 - [C++ publisher](https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_publisher/member_function.cpp)
 - [C++ subscriber](https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_subscriber/member_function.cpp)
@@ -359,7 +359,7 @@ A terminál egy üzenetet küld vissza, amely megerősíti a `simple_sub_cpp` cs
 
 
 
-## Írjuk meg a publisher node-ot
+## Írjuk meg a subscriber node-ot (`print_pose.cpp` >> `simple_sub_node`)
 
 Lépjünk a ``ros2_ws/src/simple_sub_cpp/src`` mappába.
 
@@ -429,6 +429,7 @@ Nyissuk meg a ``package.xml`` fájlt a szövegszerkesztővel (pl. `vs code`). **
 ``` r
 code ~/ros2_ws/src/simple_sub_cpp/
 ```
+![](vscode05.png)
 
 Mindig érdemes kitölteni a ``<description>``, ``<maintainer>`` és ``<license>`` tag-eket:
 
@@ -458,14 +459,14 @@ find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 ```
 
-Ezután adjukhozzá a végrehajtható fájlt, és nevezze el `simple_sub_node`-nak, hogy a `ros2 run` használatával futtassa a node-ot:
+Ezután adjuk hozzá a végrehajtható fájlt (ez most a `print_pose.cpp`-ből fog csak állni), és nevezzük el `simple_sub_node`-nak, hogy a `ros2 run` használatával futtassa a node-ot:
 
 ``` cmake
-add_executable(simple_sub_cpp src/print_pose.cpp)
+add_executable(simple_sub_node src/print_pose.cpp)
 ament_target_dependencies(simple_sub_node rclcpp geometry_msgs)
 ```
 
-Ezután adjuk hozzá a végrehajtható fájlt, és nevezze el `simple_sub_node`-nak, hogy a `ros2 run` használatával futtassa a node-ot:
+Végül az `install(TARGETS...)` részt adjuk hozzá, hogy az `ros 2` megtalálja a futtatható állományt, amit lefordítottunk:
 
 ``` cmake
 install(TARGETS
@@ -477,7 +478,7 @@ A ``CMakeLists.txt`` megtisztítható néhány felesleges szakasz és megjegyzé
 
 ``` cmake
 
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.8)
 project(simple_sub_cpp)
 
 # Default to C++14
@@ -503,6 +504,14 @@ DESTINATION lib/${PROJECT_NAME})
 ament_package()
 ```
 
+Összefoglalásképp a következő módosításokat hajtottuk végre:
+
+![](package_xml01.png)
+
+![](cmakelists01.png)
+
+## Build és futtatás
+
 Már buildelhető a package:
 
 ``` r 
@@ -516,6 +525,17 @@ Futtassuk a szokásos módon:
 source ~/ros2_ws/install/setup.bash
 ros2 run simple_sub_cpp simple_sub_node
 ```
+
+Kimenet:
+
+``` r
+[simple_pose_sub]: x: 697201.725, y: 5285679.845
+[simple_pose_sub]: x: 697201.796, y: 5285679.548
+[simple_pose_sub]: x: 697201.838, y: 5285679.251
+[simple_pose_sub]: x: 697201.886, y: 5285678.949
+```
+
+
 
 # Források
 - [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)

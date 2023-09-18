@@ -473,15 +473,14 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 ```
 
-Ezután adjukhozzá a végrehajtható fájlt, és nevezze el ``talker``-nak, hogy a ``ros2 run`` használatával futtassa a node-ot:
+Ezután adjuk hozzá a végrehajtható fájlt, és nevezzük el ``talker``-nak, hogy a ``ros2 run`` használatával futtassa a node-ot:
 
 ``` cmake
 add_executable(talker src/publisher_member_function.cpp)
 ament_target_dependencies(talker rclcpp std_msgs)
 ```
 
-Ezután adjuk hozzá a végrehajtható fájlt, és nevezze el ``talker``-nak, hogy a ``ros2 run`` használatával futtassa a node-ot:
-
+Végül az `install(TARGETS...)` részt adjuk hozzá, hogy az `ros 2` megtalálja a futtatható állományt, amit lefordítottunk
 
 
 ``` cmake

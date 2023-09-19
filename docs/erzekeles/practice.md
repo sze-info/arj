@@ -68,7 +68,7 @@ rsync -avzh --progress /mnt/kozos/measurement_files/lexus3sample05.mcap  /mnt/c/
 Otthon a következő linkről (zöld gomb), vagy parancsként `wget`-el lehet letölteni:
 
 ```r 
-wget https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EakTOhcjblNInqjRMfaGVmsB0diDv0SWpXw9rwo0MD7f3w?download=1
+wget  -O lexus3sample02.mcap https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EakTOhcjblNInqjRMfaGVmsB0diDv0SWpXw9rwo0MD7f3w?download=1
 ```
 
 [Rosbag letöltése 300 MB](https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EakTOhcjblNInqjRMfaGVmsB0diDv0SWpXw9rwo0MD7f3w?download=1){: .btn .btn-green .mr-4 } 
@@ -231,7 +231,7 @@ A köveztkezőkben átnézünk pár jellemző szenzort (GPS, kamera, LIDAR) és 
 `/gps/duro/time_ref` |[`[sensor_msgs/TimeReference]`](http://docs.ros.org/en/api/sensor_msgs/html/msg/TimeReference.html)
 
 
-# Inertial Measurement UNit (IMU)
+# Inertial Measurement Unit (IMU)
 
 *Jellemző `ROS 2` topic típusok:* [`sensor_msgs/msg/Imu`](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/Imu.msg), [`sensor_msgs/msg/MagneticField`](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/MagneticField.msg)
 

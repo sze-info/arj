@@ -8,6 +8,9 @@ parent: Telepítés
 
 A következő lépések végrehajtásával az ROS Melodic változatát fogjuk telepíteni. 
 
+{: .warning }
+> Az ROS melodic 2023 júniusa óta **nem támogatott** (EOL - End of Life disztibúció).
+
 ## Forrás megadása
 
 Adjuk hozzá a packages.ros.org helyet a telepítési források listájához:

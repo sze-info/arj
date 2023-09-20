@@ -86,6 +86,74 @@ A CAN bus (Controller Area Network) egy jellemően autóipari szabvány, mely le
 
 ![can](can01.svg)
 
+# `ROS 2` időkezelés
 
-[Szenzorok ROS-ben](https://docs.google.com/presentation/d/e/2PACX-1vQbXSe4cb-aYgWNNiUF1PHJBZrwl0keWantbFjTe94zm1A9cVGqmWKC4lHCSUr4y7vfq1PrJ2mP8XqP/pub?start=false&loop=false&delayms=3000) _(online google prezentáció magyarul)_
+Az `ROS` idő kezelésre a Unix-időt, vagy a POSIX-időt használja. Ez a UTC (greenwichi idő) szerinti 1970. január 1. 00:00:00 óta eltelt másodpercek és nanoszekundumok számát jelenti (`int32 sec`, `int32 nsec`). Ez egyrészt relatív kis helyet foglal a memóriában, másrészt könnyen számolható két időpont között eltelt idő, mégpedig egy egyszerű kivonással. 
+
+[ros2time.ipynb](https://github.com/sze-info/arj/blob/main/docs/erzekeles/ros2time.ipynb){: .btn .btn-purple .mr-4 } 
+
+Hátránya, hogy nem túl intuitív, nem olvasható az ember számára. Pl. a Foxglove Studio ezért is gyakran átalakítja olvashatóbb formátumra. 
+
+![foxglove](foxglove03.png)
+
+A másodpercek és nanoszekundumok a következőképp képzelhetők el:
+
+``` py
+import rclpy
+current_time = node.get_clock().now()
+print(current_time.to_msg())
+
+Output: 
+sec=1694595162, nanosec=945886859
+```
+
+Az időbélyeg több helyen is szerepet kap:
+
+``` r
+ros2 topic echo /clock --once
+clock:
+  sec: 1689687476
+  nanosec: 770421827
+``` 
+
+``` r
+ros2 topic echo --once /lexus3/gps/duro/current_pose
+
+header:
+  stamp:
+    sec: 1694595162
+    nanosec: 945886859
+  frame_id: map
+pose:
+  position:
+    x: 640142.9676535318
+    y: 5193606.439717201
+    z: 1.7999999523162842
+  orientation:
+    x: 0.008532664424537166
+    y: 0.0018914791588597107
+    z: 0.44068499630505714
+    w: 0.8976192678279703
+```
+
+Ha szeretnénk átválatni a másodperceket és nanoszekundumokat, azt a következő módon tehetjük meg:
+
+``` py
+from datetime import datetime
+current_time_float = current_time.to_msg().sec + current_time.to_msg().nanosec / 1e9 # 1e9 is 1,000,000,000: nanosec to sec
+print("As a float:\t%.5f" % (current_time_float))
+print("ISO format:", end="\t")
+print(datetime.utcfromtimestamp(current_time_float).isoformat())
+
+
+Output:
+As a float:	1694595162.94589
+ISO format:	2023-09-13T08:52:42.945887
+```
+
+# Források
+
+
+- [Szenzorok ROS-ben](https://docs.google.com/presentation/d/e/2PACX-1vQbXSe4cb-aYgWNNiUF1PHJBZrwl0keWantbFjTe94zm1A9cVGqmWKC4lHCSUr4y7vfq1PrJ2mP8XqP/pub?start=false&loop=false&delayms=3000) _(online google prezentáció magyarul)_
+- [docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)
 

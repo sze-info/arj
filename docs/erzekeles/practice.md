@@ -339,10 +339,7 @@ Forrás: [foxglove.dev/blog/introducing-foxglove-studios-new-navigation](https:/
 
 # Hozzuk létre a `simple_sub_cpp` package-t
 
-A következőkben egy egyszerű subscriber node fog feliratkozni `geometry_msgs/PoseStamped` üzenetekre, majd kiírni az X és az Y koordinátákat. A gyakorlat a hivatalos ROS 2 tutorialokon alapszik: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html)
-
-- [C++ publisher](https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_publisher/member_function.cpp)
-- [C++ subscriber](https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_subscriber/member_function.cpp)
+A következőkben egy egyszerű subscriber node fog feliratkozni `geometry_msgs/PoseStamped` üzenetekre, majd kiírni az X és az Y koordinátákat. A gyakorlat a [hivatalos ROS 2 tutorialokon alapszik](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html) felépítését tekintve.
 
 Nyissunk egy új terminált, és source-oljuk a telepítést, hogy a `ros2` parancsok működjenek.
 
@@ -375,8 +372,19 @@ Töltsük le a példa feliratkozó kódját:
 wget -O print_pose.cpp https://raw.githubusercontent.com/sze-info/arj_packages/main/etc/print_pose.cpp
 ```
 
+Ez a parancs létrehozta a  ``print_pose.cpp`` fájlt.
 
-Ez a parancs létrehozza a  ``print_pose.cpp`` fájlt. Nyissuk meg pl. VS code segítségével a mappát (`code .`)
+
+Lépjünk vissza egy szinttel: `cd ~/ros2_ws/src/simple_sub_cpp` könyvtárba, ahol a ``CMakeLists.txt`` és a ``package.xml`` fájlok már létrejöttek.
+Nyissuk meg pl. VS code segítségével a mappát: `code .` parancs. Itt a `.` a `code` után az aktuális mappát jelenti. **Tipp**: ha nem a könyvtárban állnánk, akkor is lehetséges teljes könyvtárat megnyitni, ami később pár dolgot egyszerűsít:
+
+``` r
+code ~/ros2_ws/src/simple_sub_cpp/
+```
+
+
+
+![](vscode05.png)
 
 ``` cpp
 // ros2 topic type /lexus3/gps/duro/current_pose
@@ -421,15 +429,6 @@ int main(int argc, char *argv[])
 
 
 ## Függőségek hozzáadása
-
-Lépjünk vissza egy szinttel a ``ros2_ws/src/simple_sub_cpp`` könyvtárba, ahol a ``CMakeLists.txt`` és a ``package.xml`` fájlok már létrejöttek.
-
-Nyissuk meg a ``package.xml`` fájlt szövegszerkesztővel (pl. `vs code`). **Tipp**: a teljes könyvtárat is meg lehet nyitni, ami később pár dolgot egyszerűsít:
-
-``` r
-code ~/ros2_ws/src/simple_sub_cpp/
-```
-![](vscode05.png)
 
 Mindig érdemes kitölteni a ``<description>``, ``<maintainer>`` és ``<license>`` tag-eket:
 

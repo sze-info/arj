@@ -192,8 +192,9 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
   - pl. `ssh user01@computer4 -X`: belépés `-X` X window használatával, így az esetleges ablakok a mi gépünkön jelennek meg, de a távoli gép hostolja őket
   - pl. `ssh laptop@192.168.0.2 touch hello.txt`: létrehoz az adott gépen egy fájlt, nyilván más parancsokkal is működik
 ### Gyakran használt parancsok
+- Futó folyamatokról a `ps` ad tájékoztatást pl: `ps -A | grep ros` vagy `ps -eo pid,cmd | grep ros2`
 - A fájlrendszer állapotáról a `df -h` (disk filesystem, human readable) parancs ad tájékoztatást
-- Futó folyamatokról a `ps` ad tájékoztatást pl: `ps -A | grep ros`
+![](df01.png)
 
 Az `ssh` alapvetően jelszót is kér, de ha megbízunk egy adott gépben, elmenthetjük a privát-publikus kulcspárt, és akkor erre nincs szükség, [például így](https://github.com/szenergy/szenergy-public-resources/wiki/H-SSH-no-password).
 

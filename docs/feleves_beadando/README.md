@@ -4,6 +4,8 @@
 ## Példák
 
 Az alábbi példák nem feltétlenül féléves munkának készültek, de annak elfogadhatóak lennének:
+-  [github.com/jkk-research/wayp_plan_tools](https://github.com/jkk-research/wayp_plan_tools)
+-  [github.com/jkk-research/sim_wayp_plan_tools](https://github.com/jkk-research/sim_wayp_plan_tools)
 -  [github.com/jkk-research/pointcloud_to_grid](https://github.com/jkk-research/pointcloud_to_grid)
 -  [github.com/jkk-research/urban_road_filter](https://github.com/jkk-research/urban_road_filter)
 -  [github.com/dobaybalazs/curb_detection](https://github.com/dobaybalazs/curb_detection)
@@ -14,7 +16,7 @@ Az alábbi példák nem feltétlenül féléves munkának készültek, de annak 
 
 ## A *féléves* feladatnál pozitív hatást kelt:
 - 👍 Jól követhető magyar és/vagy angol nyelvű dokumentáció is, képekkel illusztrálva. [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) használata.
-- 👍 Alap információk a `README.md`-ben, dokumentáció a `/wiki`-ben.
+- 👍 Alap információk a `README.md`-ben, (opcionális) dokumentáció a `/wiki`-ben.
 - 👍 Issue-k.
 - 👍 Branch-ek.
 - 👍 Gitignore.

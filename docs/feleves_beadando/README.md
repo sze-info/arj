@@ -60,6 +60,18 @@ A szempontok kialakításánaál az [Óbudai Egyetem](https://abc-irobotics.gith
 - Konzultáció
 - A választott feladat nehézsége
 
+## Ajánlott módszer a féléves repo létrhozására: `template`
+
+C++ és Python nyelven is létrehoztunk egy úgynevezett template repo-t, amely megkönnyíti az első pacakage-t tartalmazó repository létrehozását:
+
+- [github.com/sze-info/ros2_cpp_template](https://github.com/sze-info/ros2_cpp_template)
+- [github.com/sze-info/ros2_py_template](https://github.com/sze-info/ros2_py_template)
+
+{: .new }
+Erről [leírás itt](https://sze-info.github.io/arj/onallo/ros2git.html) olvasható.
+
+<img src="https://raw.githubusercontent.com/sze-info/ros2_cpp_template/main/img/use_this_template01.png" width="60%" />
+
 ### Meme
 
 <center><img src="meme01.jpg" width="60%" /></center>

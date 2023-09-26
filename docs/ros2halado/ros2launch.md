@@ -35,14 +35,45 @@ Az ROS 2 launch rendszere segíti a felhasználó által definiált rendszer kon
 
 
 ## Előkészületek
+### Hozzuk létre a `example_launch` package-t
+
+Nyissunk egy új terminált, és source-oljuk a telepítést (ha nincs `bashrc`-ben), hogy a `ros2` parancsok működjenek.
+
+Navigáljunk az már létrehozott `ros2_ws` könyvtárba.
+
+Fontos, hogy a csomagokat az `src` könyvtárban kell létrehozni, nem a munkaterület gyökerében. Tehát navigáljunk a `ros2_ws/src` mappába, és futtassuk a package létrehozó parancsot:
+
+```
+cd ~/ros2_ws/src
+```
+
+```
+ros2 pkg create --build-type ament_cmake example_launch
+```
+
+A terminál egy üzenetet küld vissza, amely megerősíti a `example_launch` csomag és az összes szükséges fájl és mappa létrehozását.
+
+### Launch mappa
 
 Hozzunk létre egy mappát a launch fájlok részére:
+
+``` bashr
+cd ~/ros2_ws/src/example_launch
+```
 
 ``` bash
 mkdir launch
 ```
 
 ## Launch fájl létrehozása
+
+``` bash
+cd launch
+```
+
+``` bash
+code turtlesim_mimc_launch.py
+```
 
 Állítsunk össze egy launch fájlt a ```turtlesim``` csomag elemeivel, Python nyelv alkalmazásával.
 
@@ -135,7 +166,9 @@ Node(
 A létrehozott launch fájl elindítása az alábbi módon történik:
 
 ``` bash
-cd launch # belépünk a launch fájlt tartalmazó mappába
+cd ~/ros2_ws/src/example_launch/launch # belépünk a launch fájlt tartalmazó mappába
+```
+``` bash
 ros2 launch turtlesim_mimc_launch.py
 ```
 
@@ -175,5 +208,53 @@ Ezzel biztosítható, hogy az ```ros2 launch``` parancs elérhető a csomag buil
 rqt_graph
 ```
 
+## Adjuk hozzá a package-hez, hogy bárhonnan indíthassuk
 
+``` bash
+cd ~/ros2_ws/src/example_launch
+```
 
+``` bash
+code .
+```
+
+A package.xml-hez a `<test_depend>` elé szúrjuk be következő sort:
+
+``` xml
+<exec_depend>ros2launch</exec_depend>
+```
+
+A CMakeLists.txt-hez a `install(TARGETS` elé szúrjuk be következő 2 sort:
+
+``` cmake
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME})
+```
+
+Buildeljük a szokáso módon:
+
+``` bash
+cd ~/ros2_ws
+```
+
+``` bash
+colcon build --packages-select example_launch
+```
+
+``` bash
+source ~/ros2_ws/install/setup.bash
+```
+
+Ez a parancs most már __bárhonnan__ kiadható:
+
+``` bash
+ros2 launch example_launch turtlesim_mimc_launch.py
+```
+
+# Források
+- [foxglove.dev/blog/how-to-use-ros2-launch-files](https://foxglove.dev/blog/how-to-use-ros2-launch-files)
+- [youtube.com/watch?v=PqNGvmE2Pv4&t](https://www.youtube.com/watch?v=PqNGvmE2Pv4&t) 
+- [docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
+- [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
+- [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html)
+- [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)

@@ -43,11 +43,11 @@ Navigáljunk az már létrehozott `ros2_ws` könyvtárba.
 
 Fontos, hogy a csomagokat az `src` könyvtárban kell létrehozni, nem a munkaterület gyökerében. Tehát navigáljunk a `ros2_ws/src` mappába, és futtassuk a package létrehozó parancsot:
 
-```
+``` bash
 cd ~/ros2_ws/src
 ```
 
-```
+``` bash
 ros2 pkg create --build-type ament_cmake example_launch
 ```
 
@@ -57,7 +57,7 @@ A terminál egy üzenetet küld vissza, amely megerősíti a `example_launch` cs
 
 Hozzunk létre egy mappát a launch fájlok részére:
 
-``` bashr
+``` bash
 cd ~/ros2_ws/src/example_launch
 ```
 
@@ -217,6 +217,9 @@ cd ~/ros2_ws/src/example_launch
 ``` bash
 code .
 ```
+
+<img src="vscode06.png" width="60%" />
+
 
 A package.xml-hez a `<test_depend>` elé szúrjuk be következő sort:
 

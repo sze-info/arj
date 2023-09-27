@@ -53,7 +53,9 @@ Itt használd a zöld gombot, hozd létre a saját felhasználóddal a `my_aweso
 
 <img src="https://raw.githubusercontent.com/sze-info/ros2_cpp_template/main/img/use_this_template01.png" width="80%" />
 
+Utána ez az oldal fogad, itt ki kell tölteni a repo nevét, utána pedig a zöld gombra kattintva létrejön a repo:
 
+![Alt text](create_repo01.png)
 # Klónozd `git clone` segítségével a saját package-d
 
 Ha a Github userneved `mycoolusername` a repo (és egyben a package) neve pedig `my_awesome_package`, akkor pl így tudod megtenni:
@@ -63,6 +65,9 @@ cd ~/ros2_ws/src
 ```
 ``` r
 git clone https://github.com/mycoolusername/my_awesome_package
+```
+``` r
+git clone https://github.com/horverno/my_awesome_package
 ```
 
 # VS code-ban cserélj ki mindent

@@ -42,8 +42,13 @@ Merevnek tekinthető az a test, mely pontjainak távolsága mozgás során nem v
 
 # Transzformációk
 
-- **Pozíció:** 3 elemű offszet vektor 
-- **Orientáció:** 4 elemű quaternion, 3 elemű Euler-szögek vagy 3 x 3 rotációs matrix
+A pose (póz) a pozíció (elhelyezkedés) és orientáció (irány) összessége. Amennyiben egy térbeli pose-t transzformálunk (mozgatunk és forgatunk) egy másik pose keletkezik. Ez a két pose egymáshoz képest két transzformációs frame. Ilyen transzformációs frame-k írják le a teljes robotikai rendszert.
+
+- **Pozíció:** 3 elemű offszet vektor (`x`, `y` és `z` 3D-ben).
+- **Orientáció:** több reprezentációt használhatunk:
+  - 4 elemű quaternion _(erről később)_
+  - 3 elemű Euler-szögek: roll (dőlés, gurulás, ψ): pitch (bólintás, θ), yaw (legyezőmozgás, φ) [wolfram alpha](https://mathworld.wolfram.com/EulerAngles.html)
+  - 3 x 3 elemű rotációs matrix
 
 Például a Nissan Leaf `base_link` framejéhez képest a következő fontosabb framek találhatóak meg:
 
@@ -124,18 +129,20 @@ A python notebook-ot és a mátrixszozás vizualizációt oktatási céllal link
 A homogén koordináták kényelmes reprezentációt nyújtanak a merevtest transzformációkhoz, mint a lineáris transzformációk egy kibővítéseként a térben. Ráadásul kompaktan reprezentálják a helyzetfüggő és irányfüggő mennyiségek közötti különbséget. Az ötlet az, hogy minden pontot kiegészítünk egy további homogén koordinátával, amely 1, ha helyzetfüggő, és 0, ha irányfüggő. Ezt az műveletet a "hat" (kalap) operátorral (`^`) jelöljük.
 
 # Quaternion (kvaterniók)
-A roll pitch yaw alternatívája, a komplex számokhoz hasonló kiterjesztéssel. 
+A roll pitch yaw (Euler szögek) alternatívája, a komplex számokhoz hasonló kiterjesztéssel. 
 
 Demonstáció: [www.quaternions.online](https://quaternions.online/)
 
 Előnyei:
-- Numerikus stabilitás
-- Gyors számítás
-- Pontosság
-- Gimbal lock
+- __Numerikus stabilitás__:  A lebegőpontos reprezentációból adódó kis numerikus hibák sokszor ismétlődve egyre nagyobb hibákhoz vezethetnek Euler szögek esetén. Például egy forgatás pár század fokos pontatlansága ezrez vagy tízezres ismétléssel komoly hibává adódhat össze. Quaternion-oknál ez a komlex reprezentáció és a normált alak miatt sokkal kisebb.
+- __Gyors számítás__: A kvaterniók hatékonyan reprezentálják a 3D térbeli forgatásokat, és sokszor gyorsabbak és stabilabbak lehetnek, mint más reprezentációs módszerek, például Euler-szögek.
+- __Pontosság__:
+- __Nem érzékeny a "Gimbal lock" prblémára__: Az Euler-szögek esetében előfordulhat egy olyan helyzet, amikor a rotációk szenzitívekké válnak bizonyos irányokban, ami korlátozhatja a számítások pontosságát. A kvaterniók ezt a problémát elkerülik.
+- __Könnyen interpolálhatók__: A kvaterniók segítségével könnyen lehet interpolálni a két rotációt közöttük, ami fontos az animációk simaságának megőrzése szempontjából. Sőt nem lineáris interpolációkhoz is használhatók. A kvaterniók lehetővé teszik a nem lineáris interpolációkat is, ami olyan animációk létrehozásához hasznos, ahol a rotáció nem lineárisan változik az időben.
+
 
 Hátrány:
-- Nem intuitív az ember számára
+- __Nem intuitív az ember számára__: Nehezebben érthetők, mint például az Euler-szögek, amiket megszoktunk a 3 tengely körüli forgatásra.
 
 $$tan(\frac{\pi}{2}) = \infty $$
 
@@ -161,3 +168,4 @@ További információ erről  [itt olvasható](https://docs.ros.org/en/humble/Tu
 - [Óbudai Egyetem ABC-iRobotics](https://abc-irobotics.github.io/ros_course_materials_hu/05_da_vinci/)
 - [docs.ros.org/en/humble/Tutorials/Intermediate/Tf2/Tf2-Main.html](https://docs.ros.org/en/humble/Tutorials/Intermediate/Tf2/Tf2-Main.html)
 - [docs.ros.org/en/humble/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.html](https://docs.ros.org/en/humble/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.html)
+- [mathworld.wolfram.com/EulerAngles.html](https://mathworld.wolfram.com/EulerAngles.html)

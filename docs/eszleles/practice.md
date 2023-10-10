@@ -123,6 +123,44 @@ ros2 run arj_simple_perception lidar_filter_simple
 ros2 bag play /mnt/c/temp/lexus3sample02.mcap --loop --clock --rate 0.5 --read-ahead-queue-size 2048
 ```
 
+Nézzük meg, hogy a következő toicok léteznek-e?
+- `/lexus3/os_center/points`
+- `/lidar_filter_output`
+
+
+``` r
+ros2 topic list
+```
+
+Kérdezzük le a topicok típusát.
+
+``` r
+ros2 topic type /lidar_filter_output
+```
+
+``` r
+ros2 topic type /lexus3/os_center/points
+```
+
+Mindkét esetben `sensor_msgs/msg/PointCloud2` kell, hogy legyen.
+
+Vizsgáljuk meg közelebbről a node-ot.
+
+``` r
+ros2 node info /lidar_filter_simple
+```
+
+``` r
+Subscribers:
+    /lexus3/os_center/points: sensor_msgs/msg/PointCloud2
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+Publishers:
+    /lidar_filter_output: sensor_msgs/msg/PointCloud2
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /rosout: rcl_interfaces/msg/Log
+```
+
+
 Új terminalban vizsgáljuk meg a gráfot:
 
 ``` r 
@@ -132,7 +170,15 @@ ros2 run rqt_graph rqt_graph
 ![Alt text](rqt_graph02.svg)
 
 
+
+
 # `2.` feladat
+
+Nyissuk meg VS code-ban a package-t:
+
+``` r
+code ~/ros2_ws/src/arj_packages/arj_simple_perception
+```
 
 Hasnolítsuk össze a `lidar_filter_simple_param.cpp`-t a `lidar_filter_simple.cpp`-vel. Vs code jobb kilikk a fájlon `Select for compare` és `Compare with Selected`.
 
@@ -171,10 +217,50 @@ source ~/ros2_ws/install/setup.bash
 ros2 launch arj_simple_perception run_all.launch.py
 ```
 
-# Önálló feladat
+Nagyjából így fog kinézni az `rqt_reconfigure` meg az `rviz2`:
+
+![](rqt_rviz01.png)
+
+
+# Önálló feladat 1
 
 Írjunk egy launch fájlt, nevezzük `run_fliter_and_rviz.launch.py`-nak, ami a filtert és az rviz configot indítja. Így lehessen indítani:
 
 ``` r
 ros2 launch arj_simple_perception run_fliter_and_rviz.launch.py
+```
+
+# Önálló feladat 2
+
+Módosítsuk a `lidar_filter_simple_param.cpp`-t, úgy, hogy amennyiben a minimum érték nagyobb, mint a maximum, akkor is működjön. Ebben az esetben kezelje a minimum értéket maximumként és fordítva.
+
+Írjon ki egy `warning` üzenetet.
+
+``` cpp
+if ...
+RCLCPP_WARN_STREAM(this->get_logger(), "Minimum is bigger than maximum, inverse usage.");
+```
+
+# Utolsó lépések
+
+A tanteremben állítsuk vissza az eredeti állapotot. (Otthon commitolhatjuk saját repo-ba, ha szeretnénk.)
+
+``` bash
+cd ~/ros2_ws/src/arj_packages/
+```
+``` bash
+git status
+```
+A `git checkout -- .`: Minden nem staged (unstaged) változás elvetése lokálisan. VS code-ban kb ez a "discard all changes" parancs lenne.
+``` bash
+git checkout -- .
+```
+Nézzük __újra__ a státuszt:
+
+``` bash
+git status
+```
+
+``` bash
+git pull
 ```

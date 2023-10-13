@@ -264,7 +264,7 @@ dir
 ```
 Látjuk, hogy megjelent egy speed_control_loop nevű almappa. Ez a mappa tartalmazza a szabályzáshoz használt járműmodellt és a szabályzót. Nyissuk meg a forráskódot VS Code segítségével.
 
-![](vscode_speed_controller.png)
+![](vscode_speed_controller.PNG)
 
 A mappa tartalmazza a szokásos package xml-t és a CMakeList-et, továbbá két cpp forrásfájlt. A vehicle_model.cpp értelemszerűen a járműmodellt, a speed_controller.cpp a szabályzót tartalmazza. Vizsgáljuk először a jármű modell forráskódját!
 
@@ -425,7 +425,7 @@ ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 Adjunk hozzá 3 plot panelt, majd válasszuk ki a képen látható topicokat.
 Mivel még nem határoztuk meg a célsebességet, így az alapértéken zérus. A jármű gyakorlatilag áll, a szabályzó kimenete is zérus.
 
-![](foxglove_speed_zero.png)
+![](foxglove_speed_zero.PNG)
 
 Hirdessünk kézzel egy topicot, amely megadja a kívánt sebességet (pl. tempomat esetén a kormányon beállított célsebesség)!
 
@@ -435,7 +435,7 @@ ros2 topic pub /vehicle/cmd std_msgs/msg/Float32 "data: 30.0"
 
 Mit látunk? A szabályzó egy ideig a megengedett legnagyobb gyorsulással (kb. 9 m/s^2-el) gyorsítja a járművet, amíg az el nem éri a kívánt 30 m/s-os sebességet. További sebességekkel, illetve paraméter beállításokkal kísérletezhetünk.
 
-![](foxglove_speed_30.png)
+![](foxglove_speed_30.PNG)
 
 Például 
 

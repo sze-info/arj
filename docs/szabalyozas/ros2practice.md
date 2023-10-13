@@ -242,6 +242,210 @@ Ha azonosítva van a PID a folyamat leállításához használd a kill parancsot
 kill 12345
 ```
 
+# Saját fejlesztésű szabályzó és jármű modell
+Ebben a feladatban elkészítjük az elméleten bemutatott sebesség szabályzót, és az ahhoz kapcsolódó egyszerű járműmodellt.
+
+Ha ezt eddig nem tettük meg, frissítsük az arj_packages repository-t:
+
+``` r
+git pull
+```
+
+Navigáljunk a workspace src mappájában a repo gyökérmappájába:
+
+``` r
+cd ~ros2_ws/src/arj_packages
+```
+
+Vizsgáljuk meg a repository tartalmát:
+
+``` r
+dir
+```
+Látjuk, hogy megjelent egy speed_control_loop nevű almappa. Ez a mappa tartalmazza a szabályzáshoz használt járműmodellt és a szabályzót. Nyissuk meg a forráskódot VS Code segítségével.
+
+![](vscode_speed_controller.png)
+
+A mappa tartalmazza a szokásos package xml-t és a CMakeList-et, továbbá két cpp forrásfájlt. A vehicle_model.cpp értelemszerűen a járműmodellt, a speed_controller.cpp a szabályzót tartalmazza. Vizsgáljuk először a jármű modell forráskódját!
+
+## Járműmodell
+
+``` r
+class VehicleModel : public rclcpp::Node
+{
+public:
+    VehicleModel() : Node("vehicle_model")
+    {
+        timer_ = this->create_wall_timer(std::chrono::milliseconds(200), std::bind(&VehicleModel::loop, this));  
+        state_pub_ = this->create_publisher<std_msgs::msg::Float32MultiArray>("/vehicle/state", 10);
+        cmd_sub_ = this->create_subscription<std_msgs::msg::Float32>("/vehicle/propulsion", 10,  std::bind(&VehicleModel::propulsion_callback, this, std::placeholders::_1));
+        RCLCPP_INFO(this->get_logger(), "vehicle_model has been started");
+    }
+```
+
+A szokásos #include-ok és névdefiníciók után a járműmodell osztály konstruktora látható. A node neve "vehicle_model". Egy topic-ra iratkozunk fel, a ```/vehicle/propulsion``` nevűre, amely a nevéből is adódódan a járműre ható hajtóerőt adja meg. Ezen kívül hirdetjük a ```/vehicle/state``` nevű topicot, mely megadja a jármű mozgásállapotát.
+
+Ezt követően definiálunk néhány változót. 
+1. Először egy lokális változót, melyben a bemeneti erőt tároljuk el.
+2. Ezt követi egy tömb, mely tartalmazni fogja a jármű sebességét és gyorsulását, a két állapotváltozót, melyekkel a jármű állapotát leírjuk.
+3. Definiálunk egy Fload nevű változót, amelyben megadhatjuk, milyen extra terhelések hassanak a járműre.
+4. Végül definiálunk néhány nem változtatható paramétert, pl. a jármű súlyát, homlokfelületének nagyságát...stb.
+
+``` r
+private:
+    // input command
+    float Fprop {0.0f};
+
+    // vehicle state array
+    std::vector<float> state; //speed, acceleration
+    float vx{0.0f};
+    float ax{0.0f};
+
+    // load
+    float Fload{0.0f};
+
+    // params
+    float m {1350.0}; // kg
+    float A {1.5f}; // m^2
+    float rho {1.0f}; // kg/m^3
+    float c {0.33f}; // aerodynamic factor
+    float b {0.1f}; // rolling friction, viscosous
+```
+
+A topic callback függvény kizárólag a bejövő adatot másolja a lokális változónkba.
+
+``` r
+void propulsion_callback(const std_msgs::msg::Float32 input_msg)
+{
+    Fprop = input_msg.data;
+}
+```
+
+Végezetül a loop() függvény, melyben először számítjuk az ellenállási erőket (légellenállás és viszkózus súrlódás), majd számítjuk az eredő erőt és ebből a jármű gyorsulását. A jármű gyorsulását integrálva kapjuk a jármű sebességét.
+
+``` r
+void loop()
+{
+    // calculate new state based on load, prop force, mass and aerodynamic drag
+    float Faero = 0.5*A*rho*c*pow(vx,2);
+    float Ffric = b*vx;
+    ax = (Fprop - Ffric - Fload - Faero)/m;
+    vx = std::max(0.0f, vx + ax*0.1f); // 0.1s is the time step of the model
+
+    // Publish state
+    state.clear();
+    std_msgs::msg::Float32MultiArray state_msg;
+    state.push_back(vx); // m/s
+    state.push_back(ax); // m/s^2
+
+    state_msg.data = state;
+    state_pub_->publish(state_msg);
+}
+```
+
+## Szabályzó
+
+A speed_control.cpp-ben a jármű sebességének PID szabályzását láthatjuk.
+A node neve "speed_control", feliratkozik a ```/vehicle/state``` topicra, melyet a jármű modell hirdet.
+Ezen kívül hirdetjük a ```/vehicle/propulsion``` command topicot, egyúttal feliratkozunk a ```/vehicle/cmd``` célsebességet megadó topicra.
+A szabályzó lényege, hogy a user által megadott sebességet szabályozza úgy, hogy előállítja a járműhajtás számára a célerőt. A modell állapotától függően növeljük vagy csökkentjük a célerőt.
+
+``` r
+class SpeedControl : public rclcpp::Node
+{
+public:
+    SpeedControl() : Node("speed_control")
+    {
+        timer_ = this->create_wall_timer(std::chrono::milliseconds(200), std::bind(&SpeedControl::loop, this));  
+
+        cmd_pub_ = this->create_publisher<std_msgs::msg::Float32>("/vehicle/propulsion", 10);
+        state_sub_ = this->create_subscription<std_msgs::msg::Float32MultiArray>("/vehicle/state", 10, std::bind(&SpeedControl::state_callback, this, std::placeholders::_1));
+        cmd_sub_ = this->create_subscription<std_msgs::msg::Float32>("/vehicle/cmd", 10, std::bind(&SpeedControl::cmd_callback, this, std::placeholders::_1));
+
+        this->declare_parameter("/control/P", 100.0f);
+        this->declare_parameter("/control/I", 5.0f);
+        this->declare_parameter("/control/D", 10.0f);
+
+        RCLCPP_INFO(this->get_logger(), "speed_control has been started");
+    }
+```
+
+A szabályzást a loop() függvényben láthatjuk. A P, I és D paraméterek ROS paraméterként állíthatók. A hajtó erő 3 tényezőből tevődik össze: a derivatív tagból (Fprop_D), az arányos tagból (Fprop_P) és az integrált tagból (Fprop_I). Ez egy párhuzamos PID struktúra, tehát a három tag összege adja ki a célerőt.
+
+``` r
+void loop()
+    {
+        P = (float)this->get_parameter("/control/P").as_double();
+        I = (float)this->get_parameter("/control/I").as_double();
+        D = (float)this->get_parameter("/control/D").as_double();
+        // calculate new state based on load, prop force, mass and aerodynamic drag
+        float Fprop_D = D*((vSet-vx)-error)/0.1;
+
+        float error = vSet-vx;
+        float Fprop_P = P*error;
+        float Fprop_I = I*integrated_error;
+
+        Fprop = Fprop_P+Fprop_I+Fprop_D;
+
+        Fprop = std::min(std::max(-Fprop_max, Fprop), Fprop_max);
+
+        // Publish cmd
+        std_msgs::msg::Float32 cmd_msg;
+        cmd_msg.data = Fprop;
+
+        cmd_pub_->publish(cmd_msg);
+
+        integrated_error+= error*0.1f;
+    }
+```
+
+## Teszt
+
+A teszthez először buildeljük a speed_control_loop packaget!
+
+``` r
+colcon build --packages-select speed_control_loop
+```
+
+Egy másik terminálban, source-olás után indítsuk el először a vehicle_model node-ot, majd a speed_control node-ot!
+Ezt megtehetjük egyszerűen az előre elkészített run_all.launch.py launch fájl segítségével is!
+
+``` r
+cd ~/ros2_ws/src/arj_packages/speed_control_loop
+ros2 launch launch/run_all.launch.py
+```
+
+Nyissuk meg a Foxglove studiot. És kapcsolódjunk a local host-hoz. Ahhoz, hogy a kapcsolat létrejöjjön, indítsuk el a megfelelő bridge-et! Tegyük ezt egy újabb terminálból!
+
+``` r
+cd ~ros2_ws/
+ros2 launch foxglove_bridge foxglove_bridge_launch.xml
+```
+
+Adjunk hozzá 3 plot panelt, majd válasszuk ki a képen látható topicokat.
+Mivel még nem határoztuk meg a célsebességet, így az alapértéken zérus. A jármű gyakorlatilag áll, a szabályzó kimenete is zérus.
+
+![](foxglove_speed_zero.png)
+
+Hirdessünk kézzel egy topicot, amely megadja a kívánt sebességet (pl. tempomat esetén a kormányon beállított célsebesség)!
+
+``` r
+ros2 topic pub /vehicle/cmd std_msgs/msg/Float32 "data: 30.0"
+```
+
+Mit látunk? A szabályzó egy ideig a megengedett legnagyobb gyorsulással (kb. 9 m/s^2-el) gyorsítja a járművet, amíg az el nem éri a kívánt 30 m/s-os sebességet. További sebességekkel, illetve paraméter beállításokkal kísérletezhetünk.
+
+![](foxglove_speed_30.png)
+
+Például 
+
+``` r
+rosparam set /speed_control /control/I 200.0
+```
+
+esetén a sebesség felfutása kevésbé lesz egyenletes, továbbá túllendülés is megfigyelhető. 
+
+![](foxglove_speed_30_I.png)
 
 # Források / Sources
 - [github.com/dottantgal/ros2_pid_library](https://github.com/dottantgal/ros2_pid_library/) - [MIT license](https://github.com/dottantgal/ros2_pid_library/blob/main/LICENSE)

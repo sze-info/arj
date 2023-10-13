@@ -445,7 +445,7 @@ rosparam set /speed_control /control/I 200.0
 
 esetén a sebesség felfutása kevésbé lesz egyenletes, továbbá túllendülés is megfigyelhető. 
 
-![](foxglove_speed_30_I.png)
+![](foxglove_speed_30_I.PNG)
 
 # Források / Sources
 - [github.com/dottantgal/ros2_pid_library](https://github.com/dottantgal/ros2_pid_library/) - [MIT license](https://github.com/dottantgal/ros2_pid_library/blob/main/LICENSE)

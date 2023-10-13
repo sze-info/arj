@@ -37,6 +37,16 @@ Az ROS 2 launch rendszere segíti a felhasználó által definiált rendszer kon
 ## Előkészületek
 ### Hozzuk létre a `example_launch` package-t
 
+Ha esetleg már létezne a `example_launch` package akkor töröljük. (Gépteremben elképzelehető, hogy előző félévben valaki létrehozta.)
+
+``` bash
+cd ~ && test -d "ros2_ws/src/example_launch" && echo Letezik || echo Nem letezik
+```
+
+``` bash
+rm -r  ~/ros2_ws/src/example_launch
+```
+
 Nyissunk egy új terminált, és source-oljuk a telepítést (ha nincs `bashrc`-ben), hogy a `ros2` parancsok működjenek.
 
 Navigáljunk az már létrehozott `ros2_ws` könyvtárba.
@@ -227,7 +237,7 @@ A package.xml-hez a `<test_depend>` elé szúrjuk be következő sort:
 <exec_depend>ros2launch</exec_depend>
 ```
 
-A CMakeLists.txt-hez a `install(TARGETS` elé szúrjuk be következő 2 sort:
+A CMakeLists.txt-hez a `ament_package()` elé szúrjuk be következő 2 sort:
 
 ``` cmake
 install(DIRECTORY launch

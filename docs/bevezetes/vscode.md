@@ -112,7 +112,7 @@ ROS 2 C++ fejlesztésnél alapvetően a VS code nem ismeri fel az ROS header fá
 
 <center><img src="includepath_settings01.png" width="60%" /></center>
 
-Erre egyszerű megoldás az `includePath settings`-re kattintva beállítani az `/op/ros/humble/**` elérési utat. (Természetesen ugyanez működik nem `humble` verziónál is, ott a megfelelő elérési utat szükséges megadni). Ez a következőképp néz ki:
+Erre egyszerű megoldás az `includePath settings`-re kattintva beállítani az `/opt/ros/humble/**` elérési utat. (Természetesen ugyanez működik nem `humble` verziónál is, ott a megfelelő elérési utat szükséges megadni). Ez a következőképp néz ki:
 
 <center><img src="includepath_settings02.png" width="60%" /></center>
 

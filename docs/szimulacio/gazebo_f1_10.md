@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Gazebo F1/10
-parent: Szimuláció
+parent: Robotszimulációs szoftverek
 ---
 
 # Gazebo F1/10

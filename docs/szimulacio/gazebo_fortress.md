@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Gazebo Fortress ROS 2
-parent: Szimuláció
+parent: Robotszimulációs szoftverek
 ---
 
  

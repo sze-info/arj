@@ -1,10 +1,10 @@
 ---
 layout: default
-title: LgSVL Nissan
-parent: Szimuláció
+title: LGSVL Nissan
+parent: Robotszimulációs szoftverek
 ---
 
-# LgSVL Nissan
+# LGSVL Nissan
 
 Link: [github.com/szenergy/nissanleaf-lgsvl](https://github.com/szenergy/nissanleaf-lgsvl)
 

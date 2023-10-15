@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Gazebo robotverseny
-parent: Szimuláció
+parent: Robotszimulációs szoftverek
 ---
 
 # Gazebo robotverseny

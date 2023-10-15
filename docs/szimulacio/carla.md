@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Carla
-parent: Szimuláció
+parent: Robotszimulációs szoftverek
 ---
 
 # Carla

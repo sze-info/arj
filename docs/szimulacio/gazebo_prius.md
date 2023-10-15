@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Gazebo Prius
-parent: Szimuláció
+parent: Robotszimulációs szoftverek
 ---
 
 # Gazebo Prius

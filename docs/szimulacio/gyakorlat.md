@@ -6,3 +6,658 @@ parent: Szimuláció
 
 # Ignition Gazebo gyakorlat
 
+## Saját robotszimuláció létrehozása
+
+A következőkben létre fogunk hozni egy egyszerű környezetet (world), valamint egy robot modellt. Ennek érdekében hozzunk létre egy `simulation` mappát, majd ezen belül a `building_robot.sdf` nevű fájlt. A mappa bárhol létrehozható, illetve a fájl neve is szabadon választható, a követhetőség érdekében érdemes a megadott módon eljárni.
+
+```
+mkdir simulation
+```
+```
+cd simulation
+```
+```
+touch building_robot.sdf
+```
+
+## Környezet létrehozása
+
+Nyissuk meg a létrehozott fájlt Visual Studio Code segítségével, majd másoljuk be az alábbi kódrészletet:
+
+```
+<?xml version="1.0" ?>
+<sdf version="1.10">
+    <world name="car_world">
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+        <plugin
+            filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics">
+        </plugin>
+        <plugin
+            filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands">
+        </plugin>
+        <plugin
+            filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster">
+        </plugin>
+
+        <light type="directional" name="sun">
+            <cast_shadows>true</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+            <attenuation>
+                <range>1000</range>
+                <constant>0.9</constant>
+                <linear>0.01</linear>
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+
+        <model name="ground_plane">
+            <static>true</static>
+            <link name="link">
+                <collision name="collision">
+                <geometry>
+                    <plane>
+                    <normal>0 0 1</normal>
+                    </plane>
+                </geometry>
+                </collision>
+                <visual name="visual">
+                <geometry>
+                    <plane>
+                    <normal>0 0 1</normal>
+                    <size>100 100</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <ambient>0.8 0.8 0.8 1</ambient>
+                    <diffuse>0.8 0.8 0.8 1</diffuse>
+                    <specular>0.8 0.8 0.8 1</specular>
+                </material>
+                </visual>
+            </link>
+        </model>
+    </world>
+</sdf>
+```
+A fenti kódrészlet üres környezetet definiál, mindössze egy sík (talaj), valamint alapértelmezett világítás (napfény) található meg benne. Mentsük el a kódot, majd indítsuk el a szimulációt az alábbi módon, a `simulation` mappából:
+
+```
+cd ~/simulation
+```
+```
+gz sim building_robot.sdf
+```
+
+Indítást követően a leírtaknak megfelelő üres környezetet kell látnunk:
+
+![Alt text](empty_world.png)
+
+## Robot modell létrehozása
+
+Folytassuk a `building_robot.sdf` szerkesztését, a `</model>` címkét követően: 
+
+```
+<model name='vehicle_blue' canonical_link='chassis'>
+    <pose relative_to='world'>0 0 0 0 0 0</pose>
+</model>
+```
+A robot modell megnevezése ebben az esetben `vehicle_blue` . A megnevezés szabadon megválasztható, viszont fontos figyelni arra, hogy a név egyedi legyen az azonos környezeten belül használt modellek között.
+
+A modellt felépítő elemeket (pl. karosszéria, kerekek stb.) a továbbiakban linkeknek nevezzük.
+
+Minden modellnek lehet egyetlen ún. `canonical_link` eleme. Minden további modellen belül alkalmazott link ehhez fog csatlakozni. Amennyiben nem definiálunk egyetlen `canonical_link` elemet sem, az első link alapértelmezetten `canonical` típusú lesz.
+
+A `<pose>` címke használatával megadható egy link pozíciója és orientációja. A címke után megadott `relative_to` attribútummal megadható, hogy mihez képest szeretnénk a link pozícióját és orientációját definiálni. Az attribútum megadása nélkül a pozíció megadása a környezethez képest történik. A pozíció és orientáció megadásának formátuma `<pose>X Y Z R P Y</pose>`, ahol X, Y és Z a frame-en belüli pozíció koordinátái, R, P és Y pedig az orientációt adja meg radiánban. A robot definiálása során minden paraméternek zérus értéket adtunk, tehát a robot és a környezet frame-je egybeesik.
+
+Minden modell (robot) `jointok` (ízületek) által összekapcsolt `linkekből` áll.
+
+## A robotot alkotó linkek definiálása
+
+Minden link létrehozása során meg kell adnunk a következőket:
+1. link neve, pozíciója
+2. link inerciális tulajdonságai (tömeg és inerciamátrix)
+3. vizuális és egyszerűsített (collision) geometria
+
+- Karosszéria
+
+Link létrehozása:
+
+```
+<link name='chassis'>
+        <pose relative_to='__model__'>0.5 0 0.4 0 0 0</pose>
+</link>
+```
+
+Inerciális tulajdonságok (a mértékegységek ebben az esetben is SI-ben értendőek):
+
+```
+<inertial>
+    <mass>1.14395</mass>
+    <inertia>
+        <ixx>0.095329</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.381317</iyy>
+        <iyz>0</iyz>
+        <izz>0.476646</izz>
+    </inertia>
+</inertial>
+```
+
+Vizuális és egyszerűsített (ütközési/collision) geometria megadása:
+
+```
+<visual name='visual'>
+    <geometry>
+        <box>
+            <size>2.0 1.0 0.5</size>
+        </box>
+    </geometry>
+    <material>
+        <ambient>0.0 0.0 1.0 1</ambient>
+        <diffuse>0.0 0.0 1.0 1</diffuse>
+        <specular>0.0 0.0 1.0 1</specular>
+    </material>
+</visual>
+```
+
+```
+<collision name='collision'>
+    <geometry>
+        <box>
+            <size>2.0 1.0 0.5</size>
+        </box>
+    </geometry>
+</collision>
+```
+
+Indítsuk el a szimulációt ismét:
+
+
+```
+cd ~/simulation
+```
+```
+gz sim building_robot.sdf
+```
+
+Ezt követően a szimulátorban a robot karosszériáját kell látnunk:
+
+![Alt text](chassis.png)
+
+- Jobb és bal kerék
+
+Hozzuk létre a robot jobb és bal (hajtott) kerekét képező linkeket. Ezt a robotot definiáló `<model>` címkék között kell megtennünk, ugyanis ide kerül minden olyan link definíciója, amely azonos modellen (a roboton) belül értendő.
+
+A kerekeket hengerek (sphere) segítségével fogjuk létrehozni. A kerekeknek az Y tengely mentén kell elfordulniuk, ezért meg kell adnunk a helyes orientációjukat. 
+
+```
+<link name='left_wheel'>
+    <pose relative_to="chassis">-0.5 0.6 0 -1.5707 0 0</pose>
+    <inertial>
+        <mass>1</mass>
+        <inertia>
+            <ixx>0.043333</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.043333</iyy>
+            <iyz>0</iyz>
+            <izz>0.08</izz>
+        </inertia>
+    </inertial>
+```
+
+Vizuális és egyszerűsített (ütközési/collision) geometria megadása:
+
+```
+<visual name='visual'>
+        <geometry>
+            <cylinder>
+                <radius>0.4</radius>
+                <length>0.2</length>
+            </cylinder>
+        </geometry>
+        <material>
+            <ambient>1.0 0.0 0.0 1</ambient>
+            <diffuse>1.0 0.0 0.0 1</diffuse>
+            <specular>1.0 0.0 0.0 1</specular>
+        </material>
+    </visual>
+    <collision name='collision'>
+        <geometry>
+            <cylinder>
+                <radius>0.4</radius>
+                <length>0.2</length>
+            </cylinder>
+        </geometry>
+    </collision>
+</link>
+```
+
+A bal kerék megadása analóg módon történik, csak a pozíció tekintetében (és természetesen a link nevében) tér el a jobb kerék megadásától: 
+
+```
+<link name='right_wheel'>
+    <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+    <inertial>
+        <mass>1</mass>
+        <inertia>
+            <ixx>0.043333</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.043333</iyy>
+            <iyz>0</iyz>
+            <izz>0.08</izz>
+        </inertia>
+    </inertial>
+    <visual name='visual'>
+        <geometry>
+            <cylinder>
+                <radius>0.4</radius>
+                <length>0.2</length>
+            </cylinder>
+        </geometry>
+        <material>
+            <ambient>1.0 0.0 0.0 1</ambient>
+            <diffuse>1.0 0.0 0.0 1</diffuse>
+            <specular>1.0 0.0 0.0 1</specular>
+        </material>
+    </visual>
+    <collision name='collision'>
+        <geometry>
+            <cylinder>
+                <radius>0.4</radius>
+                <length>0.2</length>
+            </cylinder>
+        </geometry>
+    </collision>
+</link>
+```
+
+- Támasztógörgő hozzáadása
+
+Van lehetőség enyéni frame-ek létrehozására is, a támasztógörgő felépítése során ezt fogjuk tenni:
+
+```
+<frame name="caster_frame" attached_to='chassis'>
+    <pose>0.8 0 -0.2 0 0 0</pose>
+</frame>
+```
+A létrehozott frame neve `caster_frame`, amely a `chassis` linkhez csatlakozik. A `<pose>` címke megadja a pozícióját és orientációját ehhez a linkhez képest, viszont a `relative_to` attribútumra az egyéni frame esetében nem volt szükség. 
+
+Folytatódhad a támasztógörgő definiálása:
+
+```
+<!--caster wheel-->
+<link name='caster'>
+    <pose relative_to='caster_frame'/>
+    <inertial>
+        <mass>1</mass>
+        <inertia>
+            <ixx>0.016</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.016</iyy>
+            <iyz>0</iyz>
+            <izz>0.016</izz>
+        </inertia>
+    </inertial>
+    <visual name='visual'>
+        <geometry>
+            <sphere>
+                <radius>0.2</radius>
+            </sphere>
+        </geometry>
+        <material>
+            <ambient>0.0 1 0.0 1</ambient>
+            <diffuse>0.0 1 0.0 1</diffuse>
+            <specular>0.0 1 0.0 1</specular>
+        </material>
+    </visual>
+    <collision name='collision'>
+        <geometry>
+            <sphere>
+                <radius>0.2</radius>
+            </sphere>
+        </geometry>
+    </collision>
+</link>
+```
+
+## Ízületek (joints) definiálása
+
+A korábban definiált linkek között összefüggéseket kell definiálnunk. Ezek az összefüggések fogják megadni, hogy a linkek milyen módon mozdulhatnak el egymáshoz képest. Ebből ered a definíció módjának neve is.
+
+- Bal kerék joint
+
+Megadjuk a joint nevét és típusát. A keréknek el kell fordulnia, ezért a `revolute` típust választjuk.
+
+```
+<joint name='left_wheel_joint' type='revolute'>
+    <pose relative_to='left_wheel'/>
+```
+Ezt követően megadjuk az alá-fölé rendelő viszonyt:
+```
+    <parent>chassis</parent>
+    <child>left_wheel</child>
+```
+Végül meg kell adnunk a linkek közötti kényszerek definícióját. Ezek a definíciók bármely frame-re vonatkozóan megadhatóak, nem csak a szülő-gyerek frame-ek között. 
+
+Jelen esetben a keréknek az Y tengely körül kell elfordulnia. Teljesen, többször is körbefordulhat, ezért a mozgás korlátjai pozitív és negatív végtelen lesz.
+
+```
+ <axis>
+        <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
+        <limit>
+            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+            <upper>1.79769e+308</upper>     <!--positive infinity-->
+        </limit>
+    </axis>
+</joint>
+```
+
+- Jobb kerék joint
+
+A jobb kerék joint definiálása a bal kerékéhez hasonló módon történik:
+
+```
+<joint name='right_wheel_joint' type='revolute'>
+    <pose relative_to='right_wheel'/>
+    <parent>chassis</parent>
+    <child>right_wheel</child>
+    <axis>
+        <xyz expressed_in='__model__'>0 1 0</xyz>
+        <limit>
+            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+            <upper>1.79769e+308</upper>     <!--positive infinity-->
+        </limit>
+    </axis>
+</joint>
+```
+
+- Támasztókerék joint
+
+Mivel a támasztókerék gömb, minden tengely mentén elfordulhat. Ebből adódóan esetében eltérő típusú joint kerül alkalmazásra: 
+
+```
+<joint name='caster_wheel' type='ball'>
+    <parent>chassis</parent>
+    <child>caster</child>
+</joint>
+```
+
+Indítsuk el a szimulációt ismét:
+
+```
+cd ~/simulation
+```
+```
+gz sim building_robot.sdf
+```
+
+Ezt követően a szimulátorban a robotot kell látnunk:
+
+![Alt text](robot.png)
+
+
+Az eddig bemutatottakat tartalmazó XML leíró fájl tartalma:
+
+```
+<?xml version="1.0" ?>
+<sdf version="1.8">
+    <world name="car_world">
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+        <plugin
+            filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics">
+        </plugin>
+        <plugin
+            filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands">
+        </plugin>
+        <plugin
+            filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster">
+        </plugin>
+
+        <light type="directional" name="sun">
+            <cast_shadows>true</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+            <attenuation>
+                <range>1000</range>
+                <constant>0.9</constant>
+                <linear>0.01</linear>
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+
+        <model name="ground_plane">
+            <static>true</static>
+            <link name="link">
+                <collision name="collision">
+                <geometry>
+                    <plane>
+                    <normal>0 0 1</normal>
+                    </plane>
+                </geometry>
+                </collision>
+                <visual name="visual">
+                <geometry>
+                    <plane>
+                    <normal>0 0 1</normal>
+                    <size>100 100</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <ambient>0.8 0.8 0.8 1</ambient>
+                    <diffuse>0.8 0.8 0.8 1</diffuse>
+                    <specular>0.8 0.8 0.8 1</specular>
+                </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name='vehicle_blue' canonical_link='chassis'>
+            <pose relative_to='world'>0 0 0 0 0 0</pose>   <!--alapbeállítás szerint a megadott póz a világ koordinátáihoz képest értendő-->
+
+            <!--karosszéria-->
+            <link name='chassis'>
+                <pose relative_to='__model__'>0.5 0 0.4 0 0 0</pose>
+                <inertial>
+                    <mass>1.14395</mass>
+                    <inertia>
+                        <ixx>0.095329</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.381317</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.476646</izz>
+                    </inertia>
+                </inertial>
+                <visual name='visual'>
+                    <geometry>
+                        <box>
+                            <size>2.0 1.0 0.5</size>
+                        </box>
+                    </geometry>
+                    <!--Az összetevő anyagjellemzői (színe)-->
+                    <material>
+                        <ambient>0.0 0.0 1.0 1</ambient>
+                        <diffuse>0.0 0.0 1.0 1</diffuse>
+                        <specular>0.0 0.0 1.0 1</specular>
+                    </material>
+                </visual>
+                <collision name='collision'>
+                    <geometry>
+                        <box>
+                            <size>2.0 1.0 0.5</size>
+                        </box>
+                    </geometry>
+                </collision>
+            </link>
+            
+            <!--Bal kerék-->
+            <link name='left_wheel'>
+                <pose relative_to="chassis">-0.5 0.6 0 -1.5707 0 0</pose>
+                <inertial>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>0.043333</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.043333</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.08</izz>
+                    </inertia>
+                </inertial>
+                <visual name='visual'>
+                    <geometry>
+                        <cylinder>
+                            <radius>0.4</radius>
+                            <length>0.2</length>
+                        </cylinder>
+                    </geometry>
+                    <material>
+                        <ambient>1.0 0.0 0.0 1</ambient>
+                        <diffuse>1.0 0.0 0.0 1</diffuse>
+                        <specular>1.0 0.0 0.0 1</specular>
+                    </material>
+                </visual>
+                <collision name='collision'>
+                    <geometry>
+                        <cylinder>
+                            <radius>0.4</radius>
+                            <length>0.2</length>
+                        </cylinder>
+                    </geometry>
+                </collision>
+            </link>
+
+            <!--Jobb kerék (ugyanaz, mint a bal kerék, a pozíció tükrözésével)-->
+            <link name='right_wheel'>
+                <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose>
+                <inertial>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>0.043333</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.043333</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.08</izz>
+                    </inertia>
+                </inertial>
+                <visual name='visual'>
+                    <geometry>
+                        <cylinder>
+                            <radius>0.4</radius>
+                            <length>0.2</length>
+                        </cylinder>
+                    </geometry>
+                    <material>
+                        <ambient>1.0 0.0 0.0 1</ambient>
+                        <diffuse>1.0 0.0 0.0 1</diffuse>
+                        <specular>1.0 0.0 0.0 1</specular>
+                    </material>
+                </visual>
+                <collision name='collision'>
+                    <geometry>
+                        <cylinder>
+                            <radius>0.4</radius>
+                            <length>0.2</length>
+                        </cylinder>
+                    </geometry>
+                </collision>
+            </link>
+
+            <!--Tetszőleges frame-->
+            <frame name="caster_frame" attached_to='chassis'>
+                <pose>0.8 0 -0.2 0 0 0</pose>
+            </frame>
+
+            <!--Támasztógörgő-->
+            <link name='caster'>
+                <pose relative_to='caster_frame'/>
+                <inertial>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>0.016</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.016</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.016</izz>
+                    </inertia>
+                </inertial>
+                <visual name='visual'>
+                    <geometry>
+                        <sphere>
+                            <radius>0.2</radius>
+                        </sphere>
+                    </geometry>
+                    <material>
+                        <ambient>0.0 1 0.0 1</ambient>
+                        <diffuse>0.0 1 0.0 1</diffuse>
+                        <specular>0.0 1 0.0 1</specular>
+                    </material>
+                </visual>
+                <collision name='collision'>
+                    <geometry>
+                        <sphere>
+                            <radius>0.2</radius>
+                        </sphere>
+                    </geometry>
+                </collision>
+            </link>
+
+            <!--Bal kerék joint-->
+            <joint name='left_wheel_joint' type='revolute'>
+                <pose relative_to='left_wheel'/>
+                <parent>chassis</parent>
+                <child>left_wheel</child>
+                <axis>
+                    <xyz expressed_in='__model__'>0 1 0</xyz> 
+                    <limit>
+                        <lower>-1.79769e+308</lower>    <!--negatív végtelen-->
+                        <upper>1.79769e+308</upper>     <!--pozitív végtelen-->
+                    </limit>
+                </axis>
+            </joint>
+
+            <!--Jobb kerék joint-->
+            <joint name='right_wheel_joint' type='revolute'>
+                <pose relative_to='right_wheel'/>
+                <parent>chassis</parent>
+                <child>right_wheel</child>
+                <axis>
+                    <xyz expressed_in='__model__'>0 1 0</xyz>
+                    <limit>
+                        <lower>-1.79769e+308</lower>    <!--negatív végtelen-->
+                        <upper>1.79769e+308</upper>     <!--pozitív végtelen-->
+                    </limit>
+                </axis>
+            </joint>
+
+            <!--Támasztógörgő joint-->
+            <joint name='caster_wheel' type='ball'>
+                <parent>chassis</parent>
+                <child>caster</child>
+            </joint>
+        </model>
+    </world>
+</sdf>
+```

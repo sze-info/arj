@@ -34,7 +34,7 @@ Az észlelés (perception) az érzékelt nyers adatokból történő informáci�
 - Objektum követés és predikció: 
     - Merre haladtak eddig a járművek, gyalogosok illetve becslés, hogy merre haladnak majd a jövőben. Ez összefügghet a klasszifikációval, hiszen bár egy lovaskocsi méretre hasonló egy utánfutós autóhoz, mégis egész más gyorsulásra képes. Az így gyűjtött infromációnak megfeleően lehet útvonalat, tarjektóriát tevezni.   
 - Lokalizáció és térképépítés
-    - [SLAM](https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping): nem illetve nem csak GNSS alapú helymeghatározás kiegészítve lokális térképpel, ami segít megkülönböztetni a 
+    - [SLAM](https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping): nem illetve nem csak GNSS alapú helymeghatározás kiegészítése lokális térképp készítéssel. LOAM: LIDAR alapú odometria.
 
 A felhasznált szenzorok alapján lehet:
 - LIDAR
@@ -50,7 +50,7 @@ Magyar nyelven könnyű összekeverni az érzékelés (sensing) és az észlelé
 
 Ez a tananyagrész a TU München Autonomous Driving Software Engineering tantárgy tananyagán alapszik, amit az Institute of Automotive Technology intézet munkatársai állítottak össze. Az órai videó elérhető német nyelven:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mffK5EbNLos?si=g1BJhjlVpJe3mrG8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mffK5EbNLos?si=g1BJhjlVpJe3mrG8?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Kihívások, nehézségek
 
@@ -69,7 +69,7 @@ Mivel az észlelés minden egyes aspektusát nehéz lenne bemutani, inkább pár
 
 Mesterséges intelligencia (neurális háló: YOLOv7) segítségével kamerakép feldolgozás. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2AQy0-QckMk?si=FHxRsQ5S4m-T5rK-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2AQy0-QckMk?si=FHxRsQ5S4m-T5rK-?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## LIDAR-alapú egyszerű magasság szűrés
 
@@ -81,29 +81,33 @@ A gyakorlaton is előkerülő feladat egyszerű LIDAR szűrés, X, Y és Z koord
 
 Miután az út szintjét kiszűrtük a LIDAR adatból (ground-segmentation), út pontok (ground) és maradék pontok (non-ground) keletkeztek. A non-ground pontokat természetesen klaszterezni (cluster) kell, hogy kialakuljanak az objektumokat leíró pontok. A klaszterezés lényege, hogy egy adott objektum (pl egy autó) pontjai egymáshoz közel állnak.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Y0bmX5s6ojk?si=waCecpMidjLI19_N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+![](https://codeahoy.com/img/kmeans/kmeans-animated.gif)
+
+Forrás: [codeahoy.com](https://codeahoy.com/img/kmeans/kmeans-animated.gif)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y0bmX5s6ojk?si=waCecpMidjLI19_N?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Szenzorfúzió
 
 A következő videó egy való életből vett példán keresztül mutatja be az észlelést.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5E2NYmgvo3E?si=n7lpvnjh2LGBzEC_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5E2NYmgvo3E?si=n7lpvnjh2LGBzEC_?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## LIDAR-alapú útfelület / padka detekció
 
 Egyetemünk egyik saját fejlesztésű algoritmusa.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T2qi4pldR-E?si=9p4mxITiHcwxk4HL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T2qi4pldR-E?si=9p4mxITiHcwxk4HL?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## LIDAR-alapú objektum követés és predikció
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/si9gamz07LA?si=uG4gJHcaTnfOMpfv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/si9gamz07LA?si=uG4gJHcaTnfOMpfv?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## SLAM LIDAR és kamera fúzió
 
 A Simultaneous Localization and Mapping (SLAM) lényege, hogy egy mozgó rendszer (robot vagy jármű) pozícióját és a környezetét térképezze egyszerre, miközben navigál.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oRzH-grBsKY?si=UPFX2vd85StR6MLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oRzH-grBsKY?si=UPFX2vd85StR6MLY?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Források
 - [github.com/TUMFTM/Lecture_ADSE](https://github.com/TUMFTM/Lecture_ADSE)

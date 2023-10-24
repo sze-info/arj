@@ -11,6 +11,7 @@ parent: Észlelés
 
 [github.com/MohamedHussein736/patchwork-plusplus-ros/tree/ROS2](https://github.com/MohamedHussein736/patchwork-plusplus-ros/tree/ROS2)
 
+[github.com/jkk-research/patchwork-plusplus-ros](https://github.com/jkk-research/patchwork-plusplus-ros)
 ``` r
 cd ~/ros2_ws
 ```

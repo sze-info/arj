@@ -24,7 +24,7 @@ parent: Önálló feladatok
 
 A gyakorlat a jobb érthetőség és az otthoni feldolgozás miatt akár videóként is megtekinthető. A videó szöveges magyarázat nélküli, rövidített, cserébe mutatja a parancsok kiadásától elvárható működést: [youtu.be/Hu7YseOh3qk](https://www.youtube.com/watch?v=Hu7YseOh3qk)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Hu7YseOh3qk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hu7YseOh3qk?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 ## Előkészületek
@@ -60,7 +60,7 @@ ls -l --block-size=M
 
 Nézzük meg a következő videót, ez a Turtlebot `.bag` fájl rögzítésekor készült: [youtu.be/QwagQFvhbNU](https://www.youtube.com/watch?v=QwagQFvhbNU) 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QwagQFvhbNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QwagQFvhbNU?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 _Megjegyzés_: [jkk-research.github.io/](https://jkk-research.github.io/) illetve a [www.sze.hu/~herno/PublicDataAutonomous](http://www.sze.hu/~herno/PublicDataAutonomous) linken további `.bag` fájlok találhatóak.
 

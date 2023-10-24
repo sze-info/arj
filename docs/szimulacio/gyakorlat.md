@@ -4,6 +4,22 @@ title: Gyakorlat
 parent: Szimuláció
 ---
 
+ 
+
+<details markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+---
+
+
+
+
 # Ignition Gazebo gyakorlat
 
 ## Saját robotszimuláció létrehozása
@@ -24,7 +40,7 @@ touch building_robot.sdf
 
 Nyissuk meg a létrehozott fájlt Visual Studio Code segítségével, majd másoljuk be az alábbi kódrészletet:
 
-```
+``` xml
 <?xml version="1.0" ?>
 <sdf version="1.10">
     <world name="car_world">
@@ -93,7 +109,7 @@ A fenti kódrészlet üres környezetet definiál, mindössze egy sík (talaj), 
 cd ~/simulation
 ```
 ```
-gz sim building_robot.sdf
+ign gazebo building_robot.sdf
 ```
 
 Indítást követően a leírtaknak megfelelő üres környezetet kell látnunk:
@@ -104,7 +120,7 @@ Indítást követően a leírtaknak megfelelő üres környezetet kell látnunk:
 
 Folytassuk a `building_robot.sdf` szerkesztését, a `</model>` címkét követően: 
 
-```
+``` xml
 <model name='vehicle_blue' canonical_link='chassis'>
     <pose relative_to='world'>0 0 0 0 0 0</pose>
 </model>
@@ -130,7 +146,7 @@ Minden link létrehozása során meg kell adnunk a következőket:
 
 Link létrehozása:
 
-```
+``` xml
 <link name='chassis'>
         <pose relative_to='__model__'>0.5 0 0.4 0 0 0</pose>
 </link>
@@ -138,7 +154,7 @@ Link létrehozása:
 
 Inerciális tulajdonságok (a mértékegységek ebben az esetben is SI-ben értendőek):
 
-```
+``` xml
 <inertial>
     <mass>1.14395</mass>
     <inertia>
@@ -154,7 +170,7 @@ Inerciális tulajdonságok (a mértékegységek ebben az esetben is SI-ben érte
 
 Vizuális és egyszerűsített (ütközési/collision) geometria megadása:
 
-```
+``` xml
 <visual name='visual'>
     <geometry>
         <box>
@@ -186,7 +202,7 @@ Indítsuk el a szimulációt ismét:
 cd ~/simulation
 ```
 ```
-gz sim building_robot.sdf
+ign gazebo building_robot.sdf
 ```
 
 Ezt követően a szimulátorban a robot karosszériáját kell látnunk:
@@ -199,7 +215,7 @@ Hozzuk létre a robot jobb és bal (hajtott) kerekét képező linkeket. Ezt a r
 
 A kerekeket hengerek (sphere) segítségével fogjuk létrehozni. A kerekeknek az Y tengely mentén kell elfordulniuk, ezért meg kell adnunk a helyes orientációjukat. 
 
-```
+``` xml
 <link name='left_wheel'>
     <pose relative_to="chassis">-0.5 0.6 0 -1.5707 0 0</pose>
     <inertial>
@@ -217,7 +233,7 @@ A kerekeket hengerek (sphere) segítségével fogjuk létrehozni. A kerekeknek a
 
 Vizuális és egyszerűsített (ütközési/collision) geometria megadása:
 
-```
+``` xml
 <visual name='visual'>
         <geometry>
             <cylinder>
@@ -244,7 +260,7 @@ Vizuális és egyszerűsített (ütközési/collision) geometria megadása:
 
 A bal kerék megadása analóg módon történik, csak a pozíció tekintetében (és természetesen a link nevében) tér el a jobb kerék megadásától: 
 
-```
+``` xml
 <link name='right_wheel'>
     <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
     <inertial>
@@ -295,7 +311,7 @@ A létrehozott frame neve `caster_frame`, amely a `chassis` linkhez csatlakozik.
 
 Folytatódhad a támasztógörgő definiálása:
 
-```
+``` xml
 <!--caster wheel-->
 <link name='caster'>
     <pose relative_to='caster_frame'/>
@@ -340,7 +356,7 @@ A korábban definiált linkek között összefüggéseket kell definiálnunk. Ez
 
 Megadjuk a joint nevét és típusát. A keréknek el kell fordulnia, ezért a `revolute` típust választjuk.
 
-```
+``` xml
 <joint name='left_wheel_joint' type='revolute'>
     <pose relative_to='left_wheel'/>
 ```
@@ -353,7 +369,7 @@ Végül meg kell adnunk a linkek közötti kényszerek definícióját. Ezek a d
 
 Jelen esetben a keréknek az Y tengely körül kell elfordulnia. Teljesen, többször is körbefordulhat, ezért a mozgás korlátjai pozitív és negatív végtelen lesz.
 
-```
+``` xml
  <axis>
         <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
         <limit>
@@ -368,7 +384,7 @@ Jelen esetben a keréknek az Y tengely körül kell elfordulnia. Teljesen, több
 
 A jobb kerék joint definiálása a bal kerékéhez hasonló módon történik:
 
-```
+``` xml
 <joint name='right_wheel_joint' type='revolute'>
     <pose relative_to='right_wheel'/>
     <parent>chassis</parent>
@@ -387,7 +403,7 @@ A jobb kerék joint definiálása a bal kerékéhez hasonló módon történik:
 
 Mivel a támasztókerék gömb, minden tengely mentén elfordulhat. Ebből adódóan esetében eltérő típusú joint kerül alkalmazásra: 
 
-```
+``` xml
 <joint name='caster_wheel' type='ball'>
     <parent>chassis</parent>
     <child>caster</child>
@@ -400,7 +416,7 @@ Indítsuk el a szimulációt ismét:
 cd ~/simulation
 ```
 ```
-gz sim building_robot.sdf
+ign gazebo building_robot.sdf
 ```
 
 Ezt követően a szimulátorban a robotot kell látnunk:
@@ -410,7 +426,7 @@ Ezt követően a szimulátorban a robotot kell látnunk:
 
 Az eddig bemutatottakat tartalmazó XML leíró fájl tartalma:
 
-```
+``` xml
 <?xml version="1.0" ?>
 <sdf version="1.8">
     <world name="car_world">
@@ -661,3 +677,7 @@ Az eddig bemutatottakat tartalmazó XML leíró fájl tartalma:
     </world>
 </sdf>
 ```
+
+# Források
+- [gazebosim.org/docs/fortress/sdf_worlds](https://gazebosim.org/docs/fortress/sdf_worlds)
+- [gazebosim.org/docs/fortress/building_robot](https://gazebosim.org/docs/fortress/building_robot)

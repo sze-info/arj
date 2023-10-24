@@ -24,9 +24,9 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 A WSL telepítését bemutató videó [itt](https://youtu.be/S1U-f5pzO7s) érhető el: 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/S1U-f5pzO7s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/S1U-f5pzO7s?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 A VS Code telepítéséhez [itt](https://youtu.be/fAkpQ4Q3S2g) találtok útmutatót: 
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fAkpQ4Q3S2g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fAkpQ4Q3S2g?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

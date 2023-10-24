@@ -33,7 +33,7 @@ Melodic
 
 A gyakorlatról készült [videó](https://www.youtube.com/watch?v=wdRD2X2hpKI) itt tekinthtó meg:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wdRD2X2hpKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wdRD2X2hpKI?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Telepítés F1/10
 

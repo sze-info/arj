@@ -23,9 +23,9 @@ parent: ROS 2 haladó
 
 Számos tutorial és leírás érhető el a Docker használatáról, ebből viszont kevés fókuszál a robotikára.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XcJzOYe3E6M?si=6VwFLobMc8A1kxZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XcJzOYe3E6M?si=6VwFLobMc8A1kxZE?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RbP5cARP-SM?si=xsYB9RRNqRmUn99L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RbP5cARP-SM?si=xsYB9RRNqRmUn99L?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 # Források

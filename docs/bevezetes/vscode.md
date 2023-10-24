@@ -35,7 +35,7 @@ Talán az egyik legfontosabb billentyűkombináció a `Ctrl-Shift-P`, mellyel a 
 
 A Visual Studio Code integrált forráskezeléssel (SCM) rendelkezik, és tartalmazza a [Git](https://git-scm.com/) támogatást. Sok más forráskezelő szolgáltató érhető el a [extensions](https://code.visualstudio.com/docs/editor/extension-marketplace.md) oldalon a VS Code Marketplace-en.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/i_23KUAEtUM" title="A Git használata Visual Studio kóddal (hivatalos kezdő oktatóanyag)" frameborder="0" engedélyezi ="gyorsulásmérő; autoplay; clipboard-write; encrypted-media; giroszkóp; kép a képben" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i_23KUAEtUM?rel=0" title="A Git használata Visual Studio kóddal (hivatalos kezdő oktatóanyag)" frameborder="0" engedélyezi ="gyorsulásmérő; autoplay; clipboard-write; encrypted-media; giroszkóp; kép a képben" allowfullscreen></iframe>
 
 ### Git repository 
 
@@ -69,7 +69,7 @@ A pontosabb **Commit** műveletek a forráskezelés nézet tetején található 
 
 > **Tipp:** Ha rossz ágon (branch) hajtja végre a módosítást, vonja vissza a véglegesítést a **Command Palette** **Git: Undo Last Commit (Utolsó commit visszavonása)** paranccsal (`Ctrl+Shift+P`).
 
-<iframe src="https://www.youtube.com/embed/E6ADS2k8oNQ" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Git: Végrehajtás a Visual Studio Code-ban" ></iframe>
+<iframe src="https://www.youtube.com/embed/E6ADS2k8oNQ" width="640" height="320" allowFullScreen="true" frameBorder="0?rel=0" title="Git: Végrehajtás a Visual Studio Code-ban" ></iframe>
 
 ### Repo klónozása
 
@@ -104,7 +104,7 @@ A fejlesztőkörnyezet beépített terminálja, mind Windowson, mind Linuxon mű
 
 ## WSL VS code videó
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fAkpQ4Q3S2g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fAkpQ4Q3S2g?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## ROS 2 ajánlott beállítások
 

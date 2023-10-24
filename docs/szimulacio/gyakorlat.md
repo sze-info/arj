@@ -677,7 +677,110 @@ Az eddig bemutatottakat tartalmazó XML leíró fájl tartalma:
     </world>
 </sdf>
 ```
+## A robotplatform mozgatása
+
+A korábbiakban összeállított robot mozgatásához egy plugint, pontosabban a `diff_drive` plugint fogunk alkalmazni. 
+
+Nyissuk meg a korábban létrehozott `building_robot.sdf` fájlt, és a `vehicle_blue` `<model>` címkéin belül hívjuk meg a plugint, valamint definiáljuk a használatához szükséges alapvető paramétereket:
+
+``` xml
+<plugin
+    filename="libignition-gazebo-diff-drive-system.so"
+    name="ignition::gazebo::systems::DiffDrive">
+    <left_joint>left_wheel_joint</left_joint>
+    <right_joint>right_wheel_joint</right_joint>
+    <wheel_separation>1.2</wheel_separation>
+    <wheel_radius>0.4</wheel_radius>
+    <odom_publish_frequency>1</odom_publish_frequency>
+    <topic>cmd_vel</topic>
+</plugin>
+```
+
+A `<plugin>` címkének két attribútuma van. Az egyik a könyvtár megnevezése, amelyből a plugin származik (`filename`), a másik a plugin neve (`name`). A további címkék a differenciálhajtású robot jellemzői:
+- `<left_joint>` és `<right_joint>`: azok a jointok, amelyek kapcsolatot definiálnak a robot bal- illetve jobboldali kereke, és a robot karosszériája között.
+- `<wheel_separation>`: a hajtott kerekek közötti távolság, vagyis a nyomtáv. Mivel korábban úgy adtuk meg, hogy a jobb és bal kerék pozíciója az Y tengely mentén -0,6m és 0,6m, a kerekek távolsága 1,2m. 
+- `<wheel_radius>`: a hajtott kerekek sugara.
+- `<odom_publish_frequency>`: az a frekvencia, amellyel a plugin által számolt odometriát publish-olni szeretnénk.
+
+A paraméterek beállításával a modellünk kész a mozgatásra. A következő lépés az, hogy utasításokat küldjünk neki, ami a `cmd_vel` topic segítségével hajtható végre.
+
+1. Indítsuk el a robotot kézi parancsmegadással
+
+- Az egyik terminálban indítsuk el a szimulációt:
+```bash
+ign gazebo building_robot.sdf
+```
+
+- Egy másik terminálból küldjünk utasítást a robotnak:
+```bash
+ign topic -t "/cmd_vel" -m ignition.msgs.Twist -p "linear: {x: 0.5}, angular: {z: 0.05}"
+```
+
+- Nyomjuk meg a lejátszás gombot a szimulátorban. 
+
+A fenti lépéseket követően a robotmodellnek mozognia kell.
+
+2. Mozgassuk a robotot a billentyűzet segítségével
+
+Most a billentyűzet olvasásával, szintén ROS2 topic által fogjuk irányítani a robotot. Ehhez további két plugin alkalmazása lesz szükséges: `KeyPublisher` és `TriggeredPublisher`.
+
+A `KeyPublisher` egy `ign-gui` plugin, amely beolvassa a billentyűzet billentyűinek lenyomását, és a `/keyboard/keypress` topic-ra küldi. Próbáljuk ki ezt a plugint:
+
+- Egyik terminálban ismét indítsuk el a szimulátort: 
+
+```bash
+ign gazebo building_robot.sdf
+```
+
+- A szimulátor ablakának jobb felső sarkában klikkeljünk a `plugins` legördülő listára, majd a `Key Publisher` opcióra.
+
+- Egy másik terminálban adjuk meg a következőt, ezzel kiírva az összes billentyűzet-lenyomást:
+
+```bash
+ign topic -e -t /keyboard/keypress
+```
+
+A következő lépés az, hogy a billentyűzet leütéseit megfeleltessük a robot irányítására alkalmas parancsoknak. Erre fogjuk használni a `TriggeredPublisher` plugint. 
+
+A `TriggeredPublisher` plugin általunk definiált módon hoz létre kimenetet egy adott bemenetnek megfelelően. A `building_robot.sdf` fájlban a `<world>` címkéken belül adjuk meg a következő megfeleltetést:
+
+```xml
+<plugin filename="libignition-gazebo-triggered-publisher-system.so"
+        name="ignition::gazebo::systems::TriggeredPublisher">
+    <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+        <match field="data">16777235</match>
+    </input>
+    <output type="ignition.msgs.Twist" topic="/cmd_vel">
+        linear: {x: 0.5}, angular: {z: 0.0}
+    </output>
+</plugin>
+```
+
+Próbáljuk ki a robot irányítását:
+
+- Indítsuk el a szimulátort ismét:
+
+```bash
+ign gazebo building_robot.sdf
+```
+
+- Válasszuk ki a `Key Publisher` plugint. 
+
+- Győződjünk meg róla, hogy fut a szimuláció, szükség esetén nyomjuk le a Lejátszás gombot.
+
+- Nyomjuk le a `Fel` (↑) nyílbillentyűt. A robotnak el kell indulnia előre.
+
+# Önálló feladat
+
+Készítsük el az összes nyílbillentyű funkcióját a korábbi kódrészlet kibővítésével. A feladat analóg módon, csak a paraméterek módosításával megoldható, az alábbi megfeleltetések segítségével:
+
+- Balra nyíl, értéke: `16777234`, paraméterek: `linear: {x: 0.0}, angular: {z: 0.5}`
+- Fel nyíl, értéke: `16777235`, paraméterek: `linear: {x: 0.5}, angular: {z: 0.0}`
+- Jobbra nyíl, értéke: `16777236`, paraméterek: `linear: {x: 0.0}, angular: {z: -0.5}`
+- Le nyíl, értéke: `16777237`, paraméterek: `linear: {x: 0.5}, angular: {z: 0.0}`
+
 
 # Források
 - [gazebosim.org/docs/fortress/sdf_worlds](https://gazebosim.org/docs/fortress/sdf_worlds)
 - [gazebosim.org/docs/fortress/building_robot](https://gazebosim.org/docs/fortress/building_robot)
+- [gazebosim.org/docs/fortress/moving_robot](https://gazebosim.org/docs/fortress/moving_robot)

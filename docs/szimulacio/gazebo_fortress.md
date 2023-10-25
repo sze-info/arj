@@ -91,9 +91,33 @@ ign gazebo -v 4 -r ackermann_steering.sdf
 
 Az Ignition Gazebo ROS 2-től független, de jól támogatott, így `ros_gz_bridge` package segítségével indítható az a bridge, amin a szimmulációs topicok ROS 2 topicként látszanak, pl:
 
-``` r
+``` bash
+sudo apt update
+```
+
+``` bash
+sudo apt install ros-humble-ros-gz -y
+```
+
+Tanteremben pedig:
+
+```
+cd /mnt/kozos/script
+```
+
+```
+./gz_bridge.sh
+```
+
+``` bash
 ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
+```
+
+``` bash
 ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/odometry@nav_msgs/msg/Odometry[ignition.msgs.Odometry --ros-args -r /model/vehicle_blue/odometry:=/odom
+```
+
+``` bash
 ros2 run ros_gz_bridge parameter_bridge /world/ackermann_steering/pose/info@tf2_msgs/msg/TFMessage[ignition.msgs.Pose_V  --ros-args -r /world/ackermann_steering/pose/info:=/tf
 ```
 
@@ -105,9 +129,15 @@ ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msg
 
 Hogy pontosan milyen szimulációs topicok vannak, az ezekkel a parancsokkal ellenőrizhatő:
 
-``` r
+``` bash
 ign topic -l
+```
+
+``` bash
 ign topic -et /model/vehicle_blue/tf
+```
+
+``` bash
 ign topic -i --topic /model/vehicle_blue/tf
 ```
 

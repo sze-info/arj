@@ -42,8 +42,11 @@ A következő leírás azzal a feltételezéssel él, hogy a ROS 2 workspace a `
 
 Klónozzuk a repositoryt:
 
-```
+``` bash
 cd ~/ros2_ws/src
+```
+
+``` bash
 git clone https://github.com/dottantgal/ros2_pid_library
 ```
 
@@ -51,8 +54,11 @@ git clone https://github.com/dottantgal/ros2_pid_library
 
 Lépjünk vissza a workspace gyökerébe és build:
 
-```
+``` bash
 cd ~/ros2_ws
+```
+
+``` bash
 colcon build --packages-select use_library pid_library example_system
 ```
 
@@ -60,8 +66,11 @@ colcon build --packages-select use_library pid_library example_system
 
 Új terminált nyissunk és futtassuk a következő parancsokat:
 
-```
+``` bash
 source ~/ros2_ws/install/local_setup.bash && source ~/ros2_ws/install/setup.bash
+```
+
+``` bash
 ros2 launch example_system example_sys_launch.py
 ```
 
@@ -69,8 +78,17 @@ ros2 launch example_system example_sys_launch.py
 
 ```
 ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 0.0"
+```
+
+```
 ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 1.0"
+```
+
+```
 ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 1.4"
+```
+
+```
 ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 0.6"
 ```
 
@@ -83,6 +101,8 @@ sudo apt install ros-humble-foxglove-bridge
 Maga bridge így indítható:
 ```
 source ~/ros2_ws/install/local_setup.bash && source ~/ros2_ws/install/setup.bash
+```
+```
 ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 ```
 Ezután Foxglove Studió segítségével `ws://localhost:8765` címen elérhető minden adat.
@@ -119,18 +139,28 @@ A gyakorlat hibamentes lefutásához a következő programok telepítése szüks
 
 ### Package-ek és build
 
- Az alapértelmezett workspace a következő legyen:`~/ros2_ws/`.
+Az alapértelmezett workspace a következő legyen:`~/ros2_ws/`.
 
 ### Klónozuk le a package-eket
-```
+
+``` bash
 cd ~/ros2_ws/src
+```
+
+```
 git clone https://github.com/jkk-research/wayp_plan_tools
+```
+
+```
 git clone https://github.com/jkk-research/sim_wayp_plan_tools
 ```
 
 ### ROS 2 -es package-ek buildelése
-```
+
+``` bash
 cd ~/ros2_ws
+```
+```
 colcon build --packages-select wayp_plan_tools sim_wayp_plan_tools
 ```
 ### `wayp_plan_tools` használata szimulátorként
@@ -141,6 +171,25 @@ ign gazebo -v 4 -r ackermann_steering.sdf
 ```
 
 #### 2. A Gazebo bridge indítása
+
+Ha esetleg nem lenne telepítve a bridge, a következő parancsok segítenek:
+``` bash
+sudo apt update
+```
+
+``` bash
+sudo apt install ros-humble-ros-gz -y
+```
+
+Tanteremben pedig:
+
+```
+cd /mnt/kozos/script
+```
+
+```
+./gz_bridge.sh
+```
 
 Ne felejtsünk el `source`-olni az ROS-es parancsok előtt.
 
@@ -156,7 +205,11 @@ Ez a `launch` fájl a következő node-okat indítja el egyben:
 
 ``` r
 ros2 run ros_gz_bridge parameter_bridge /world/ackermann_steering/pose/info@geometry_msgs/msg/PoseArray[ignition.msgs.Pose_V
+```
+``` r
 ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
+```
+``` r
 ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/odometry@nav_msgs/msg/Odometry[ignition.msgs.Odometry --ros-args -r /model/vehicle_blue/odometry:=/odom
 ```
 Több információ a bridge-ről: [github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md)
@@ -410,15 +463,20 @@ colcon build --packages-select speed_control_loop
 Egy másik terminálban, source-olás után indítsuk el először a vehicle_model node-ot, majd a speed_control node-ot!
 Ezt megtehetjük egyszerűen az előre elkészített run_all.launch.py launch fájl segítségével is!
 
-``` r
+``` bash
 cd ~/ros2_ws/src/arj_packages/speed_control_loop
+```
+
+``` r
 ros2 launch launch/run_all.launch.py
 ```
 
 Nyissuk meg a Foxglove studiot. És kapcsolódjunk a local host-hoz. Ahhoz, hogy a kapcsolat létrejöjjön, indítsuk el a megfelelő bridge-et! Tegyük ezt egy újabb terminálból!
 
 ``` r
-cd ~ros2_ws/
+cd ~/ros2_ws/
+```
+```
 ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 ```
 

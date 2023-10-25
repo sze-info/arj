@@ -262,7 +262,7 @@ A bal kerék megadása analóg módon történik, csak a pozíció tekintetében
 
 ``` xml
 <link name='right_wheel'>
-    <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+    <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose> <!--szögek radiánban-->
     <inertial>
         <mass>1</mass>
         <inertia>
@@ -312,7 +312,6 @@ A létrehozott frame neve `caster_frame`, amely a `chassis` linkhez csatlakozik.
 Folytatódhad a támasztógörgő definiálása:
 
 ``` xml
-<!--caster wheel-->
 <link name='caster'>
     <pose relative_to='caster_frame'/>
     <inertial>
@@ -371,10 +370,10 @@ Jelen esetben a keréknek az Y tengely körül kell elfordulnia. Teljesen, több
 
 ``` xml
  <axis>
-        <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
+        <xyz expressed_in='__model__'>0 1 0</xyz>
         <limit>
-            <lower>-1.79769e+308</lower>    <!--negative infinity-->
-            <upper>1.79769e+308</upper>     <!--positive infinity-->
+            <lower>-1.79769e+308</lower>    <!--negatív végtelen-->
+            <upper>1.79769e+308</upper>     <!--pozitív végtelen-->
         </limit>
     </axis>
 </joint>
@@ -392,8 +391,8 @@ A jobb kerék joint definiálása a bal kerékéhez hasonló módon történik:
     <axis>
         <xyz expressed_in='__model__'>0 1 0</xyz>
         <limit>
-            <lower>-1.79769e+308</lower>    <!--negative infinity-->
-            <upper>1.79769e+308</upper>     <!--positive infinity-->
+            <lower>-1.79769e+308</lower>    <!--negatív végtelen-->
+            <upper>1.79769e+308</upper>     <!--pozitív végtelen-->
         </limit>
     </axis>
 </joint>
@@ -770,7 +769,7 @@ ign gazebo building_robot.sdf
 
 - Nyomjuk le a `Fel` (↑) nyílbillentyűt. A robotnak el kell indulnia előre.
 
-# Önálló feladat
+## Önálló feladat
 
 Készítsük el az összes nyílbillentyű funkcióját a korábbi kódrészlet kibővítésével. A feladat analóg módon, csak a paraméterek módosításával megoldható, az alábbi megfeleltetések segítségével:
 
@@ -778,6 +777,46 @@ Készítsük el az összes nyílbillentyű funkcióját a korábbi kódrészlet 
 - Fel nyíl, értéke: `16777235`, paraméterek: `linear: {x: 0.5}, angular: {z: 0.0}`
 - Jobbra nyíl, értéke: `16777236`, paraméterek: `linear: {x: 0.0}, angular: {z: -0.5}`
 - Le nyíl, értéke: `16777237`, paraméterek: `linear: {x: 0.5}, angular: {z: 0.0}`
+
+## Környezet kibővítése
+
+Az eddig létrehozott szimulált környezet csak egy talajsíkot és napfényt tartalmaz. Hozzunk létre további környezeti elemeket primitív statikus elemek hozzáadásával. Kezdjük egyetlen téglatest, "fal" létrehozásával:
+
+```xml
+<model name='wall'>
+    <static>true</static>
+    <pose>5 0 0 0 0 0</pose><!--póz a világhoz képest-->
+    <link name='box'>
+        <pose/>
+        <visual name='visual'>
+            <geometry>
+                <box>
+                    <size>0.5 10.0 2.0</size>
+                </box>
+            </geometry>
+            <!--adjunk hozzá anyagot (színt)-->
+            <material>
+                <ambient>0.0 0.0 1.0 1</ambient>
+                <diffuse>0.0 0.0 1.0 1</diffuse>
+                <specular>0.0 0.0 1.0 1</specular>
+            </material>
+        </visual>
+        <collision name='collision'>
+            <geometry>
+                <box>
+                    <size>0.5 10.0 2.0</size>
+                </box>
+            </geometry>
+        </collision>
+    </link>
+</model>
+```
+## Szenzor hozzáadása
+
+Az előző részekben kialakítottunk egy mozgatható robotszimulációt, viszont az autonóm működtetéséhez mindenképp szükséges valamilyen szenzor(ok) szimulációja is. A következő lépésekben IMU (Inertial Measurement Unit) szenzort, valamint LiDAR szenzort fogunk hozzáadni a korábban kialakított robothoz. 
+
+- IMU szenzor
+
 
 
 # Források

@@ -811,13 +811,71 @@ Az eddig létrehozott szimulált környezet csak egy talajsíkot és napfényt t
     </link>
 </model>
 ```
+
+## Önálló feladat
+
+Adjunk hozzá a környezethez további két elemet az alábbi paraméterekkel:
+1. elem
+    - neve (name): wall1
+    - helyzete (pose): (0 12 0 0 0 1.5707)
+    - mérete: (0.5 10.0 2.0)
+    - anyaga, színe tetszőleges
+
+2. elem
+    - neve (name): wall2
+    - helyzete (pose): (0 -12 0 0 0 1.5707)
+    - mérete: (0.5 10.0 2.0)
+    - anyaga, színe tetszőleges
+
 ## Szenzor hozzáadása
 
 Az előző részekben kialakítottunk egy mozgatható robotszimulációt, viszont az autonóm működtetéséhez mindenképp szükséges valamilyen szenzor(ok) szimulációja is. A következő lépésekben IMU (Inertial Measurement Unit) szenzort, valamint LiDAR szenzort fogunk hozzáadni a korábban kialakított robothoz. 
 
 - IMU szenzor
 
+Az IMU szenzor három elkülöníthető információt ad:
+- A szenzor orientációja kvaternion formátumban.
+- A szenzor szögsebessége (X, Y, Z) tengelyek körül.
+- A szenzor lineáris gyorsulása (X, Y, Z) tengelyek mentén.
 
+Az IMU szenzor szintén plugin segítségével adható hozzá. Definiáljuk az IMU szenzort a korábban létrehozott fájl szerkesztésével, a `<world>` címkék között:
+
+```xml
+<plugin filename="libignition-gazebo-imu-system.so"
+        name="ignition::gazebo::systems::Imu">
+</plugin>
+```
+
+A plugin definiálását követően definiáljuk a szenzorra vonatkozó paramétereket. A szenzor azon link paramétereit adja vissza, amelyhez hozzárendeljük. Mivel a robotra, vagyis a robot karosszériájára vonatkozó méréseket szeretnénk végezni, ezt a linket adjuk meg:
+
+```xml
+<sensor name="imu_sensor" type="imu">
+    <always_on>1</always_on>
+    <update_rate>1</update_rate>
+    <visualize>true</visualize>
+    <topic>imu</topic>
+</sensor>
+```
+
+Az alkalmazott paraméterek a következőek:
+- `<always_on>`: ha az értéke 1, a szenzor mindig frissíteni fogja a kimenő adatát a frissítési rátának megfelelően.
+- `<update_rate>`: a kimenő adat frissítési frekvenciája.
+- `<vizualize>`: ha az értéke 1, a szenzor reprezentációja vizuálisan megjelenítésre kerül.
+- `<topic>`: a kimenő adatokat tartalmazó topic neve.
+
+Próbáljuk ki a létrehozott szenzort. 
+
+- Mentés után indítsuk el a szimulátort:
+
+```bash
+ign gazebo building_robot.sdf
+```
+
+- Egy másik terminálban írjuk ki az IMU adatait. Ha a billentyűzettel mozgatjuk a robotot, változás lesz megfigyelhető a szenzoradatokban:
+
+```bash
+ign topic -e -t /imu
+```
 
 # Források
 - [gazebosim.org/docs/fortress/sdf_worlds](https://gazebosim.org/docs/fortress/sdf_worlds)

@@ -47,6 +47,38 @@ export LIBGL_ALWAYS_SOFTWARE=1 ### GAZEBO IGNITION
 Új terminál vagy `source` után a `echo $LIBGL_ALWAYS_SOFTWARE` parancsra `1`-et fog kiíni.
 
 
+# Példa: Gazebo Fortress beépített világok (world)
+
+WSL elsetén első lépésként ellenőrizzük a beállítások helyességét:
+
+``` bash
+echo $LIBGL_ALWAYS_SOFTWARE 
+```
+
+Amennyiben a parancsra `1`-et ír válaszként, akkor helyes a beállításunk. 
+
+Nézzük meg a telepített verziót:
+
+``` bash
+ign param --versions
+```
+
+A válasz pl `11.4.1` lehet.
+
+Indítsuk el a Gazebo-t:
+
+``` bash
+ign gazebo
+```
+
+![gazebo](ign_gazebo_02.png)
+
+
+Nyissuk meg a `shapes.sdf` világot. Az SDF (Simulation Description Format), egy beépített  XML leírás. AKár egy parancsként is indítható: `ign gazebo shapes.sdf`.
+
+![](https://api.gazebosim.org/1.0/images/fortress/img/snap.gif)
+
+
 # Példa: Ackermann robot
 
 Ackermann robotnak a "személyautó-szerű" elől két kormányzott, hátul pedig két nem kormányzott kerékkel rendelkező járművet / robotot. Ebben a példában egy ilyen robotot szeretnénk mozgatni ROS 2-ből. Az `ign gazebo` parancsra a szimuláció-választó felület indul. Egy paranccsal indítható az Ackermann robot szimuláció:
@@ -88,3 +120,4 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/mo
 
 # Linkek
 - [gazebosim.org/docs/fortress](https://gazebosim.org/docs/fortress)
+- [gazebosim.org/docs/fortress/manipulating_models](https://gazebosim.org/docs/fortress/manipulating_models)

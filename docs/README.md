@@ -50,7 +50,7 @@ Szabályzás: zárthurkú modellezett jármű, szabályzó építése (pl PID va
 4 | szept. 27. | [Féléves beadandó](https://sze-info.github.io/arj/feleves_beadando/): féléves beadandó ismertetése, osztályzási szempontok, ötletek, kérdések-válaszok
 5 | okt. 4. | [Transzformációk](https://sze-info.github.io/arj/transzformaciok/README.html): Merev test mozgása, mátrix szorzás ismétlése, homogén koordináták szemléltetése rövid progamkódokkal, quaternion (kvaterniók) fogalma.
 6 | okt. 11. | [Észlelés](https://sze-info.github.io/arj/eszleles/README.html): objektumfelismerés, objektumklasszifikáció, objektum követés és predikció, SLAM és LOAM
-7 | okt. 25. | [Szimuláció](https://sze-info.github.io/arj/szimulacio/README.html)
+7 | okt. 25. | [Szimuláció](https://sze-info.github.io/arj/szimulacio/README.html): ROS 2 kompatibilis szimulátorok áttekintése (pl [Gazebo](http://gazebosim.org/), [Carla](https://carla.org/), [SVL](https://www.lgsvlsimulator.com/), [OSSDC SIM](https://github.com/OSSDC/OSSDC-SIM), [AirSim](https://microsoft.github.io/AirSim), [AWSIM](https://tier4.github.io/AWSIM), [CoppeliaSim](https://www.coppeliarobotics.com/coppeliaSim), [MVSim](https://mvsimulator.readthedocs.io/))
 8 | nov. 8. | [Szabályozás](https://sze-info.github.io/arj/szabalyozas/README.html)
 9 | - | [Mesterséges intelligencia](https://sze-info.github.io/arj/mesterseges_intelligencia/README.html)
 10 | - | [Tervezés](https://sze-info.github.io/arj/tervezes/README.html)
@@ -65,8 +65,8 @@ Szabályzás: zárthurkú modellezett jármű, szabályzó építése (pl PID va
 3| szept. 20. | [Érzékelés gyakorlat](https://sze-info.github.io/arj/erzekeles/practice.html): Szenzor adatok jellemzőbb formátumai: `sensor_msgs/PointCloud2`, `sensor_msgs/Image`, `geometry_msgs/Pose`, stb. Bag `.mcap` fájlok kezelése, lejátszása. Egyszerű pacakge készítése, amely pozíció adatokra iratkozik fel. 
 4| szept. 27. | [Verziókezelés, Git](https://sze-info.github.io/arj/onallo/ros2git.html), [Copilot](https://sze-info.github.io/arj/bevezetes/copilot.html), [vs code](https://sze-info.github.io/arj/bevezetes/vscode.html), [ROS 2 launch](https://sze-info.github.io/arj/ros2halado/ros2launch.html): Copilot használata ROS 2 fejlesztéshez, Template repo ismertetése, használata, launch fájlok írása python nyelven
 5| okt. 4. | [Transzformációk gyakorlat](https://sze-info.github.io/arj/transzformaciok/practice.html): Node létrehozása, amely transzformációkat hirdet. Markerek megjelenítése, launch önálló feladat.
-6| okt. 11. | [Észlelés gyakorlat](https://sze-info.github.io/arj/eszleles/practice.html)
-7| okt. 25. | [Szimuláció gyakorlat](https://sze-info.github.io/arj/szimulacio/gazebo_fortress.html)
+6| okt. 11. | [Észlelés gyakorlat](https://sze-info.github.io/arj/eszleles/practice.html): egyszerű LIDAR szűrés, X, Y és Z koordináták szerint.
+7| okt. 25. | [Szimuláció bevezetés](https://sze-info.github.io/arj/szimulacio/gazebo_fortress.html): Gazebo Fortress és ROS 2, [szimuláció gyakorlat](https://sze-info.github.io/arj/szimulacio/gyakorlat.html): saját robotszimuláció létrehozása.
 8| nov. 8. | [Szabályozás gyakorlat](https://sze-info.github.io/arj/szabalyozas/ros2practice.html)
 9| - | [Mesterséges intelligencia gyakorlat](https://sze-info.github.io/arj/mesterseges_intelligencia/practice.html)
 10| - | [Tervezés gyakorlat](https://sze-info.github.io/arj/tervezes/practice.html)

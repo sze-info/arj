@@ -257,3 +257,26 @@ ROS 2
 
 - [Youtube playlist](https://www.youtube.com/playlist?list=PLLSegLrePWgJudpPUof4-nVFHGkB62Izy)
 - [roboticsbackend.com](https://roboticsbackend.com/category/ros2/)
+
+
+### Foxglove ROS 2 tutorials
+
+- [foxglove.dev/tutorials](https://foxglove.dev/tutorials)
+- [Install ROS 2 Galactic on Ubuntu](https://foxglove.dev/blog/installing-ros2-galactic-on-ubuntu)
+- [Install ROS 2 Galactic on Ubuntu](https://foxglove.dev/blog/installing-ros2-galactic-on-ubuntu)
+- [Install ROS 2 Humble on Ubuntu](https://foxglove.dev/blog/installing-ros2-humble-on-ubuntu)
+- [Install ROS 2 Humble on macOS with Docker](https://foxglove.dev/blog/installing-ros2-on-macos-with-docker)
+- [Introduction to ROS 2](https://foxglove.dev/blog/the-building-blocks-of-ros2)
+- [Use a Rosbridge connection](https://foxglove.dev/blog/using-rosbridge-with-ros2)
+- [Create services](https://foxglove.dev/blog/creating-ros2-services)
+- [Create actions](https://foxglove.dev/blog/creating-ros2-actions)
+- [Use parameters](https://foxglove.dev/blog/how-to-use-ros2-parameters)
+- [Use launch files](https://foxglove.dev/blog/how-to-use-ros2-launch-files)
+- [Understand transforms](https://foxglove.dev/blog/understanding-ros-transforms)
+- [Publish and visualize transforms](https://foxglove.dev/blog/publishing-and-visualizing-ros2-transforms)
+- [Calculate object positions across frames](https://foxglove.dev/blog/using-ros2-transforms-to-calculate-object-positions)
+
+### Official ROS 2 documentation
+
+- [docs.ros.org/en/humble](https://docs.ros.org/en/humble/)
+- [docs.ros.org](https://docs.ros.org)

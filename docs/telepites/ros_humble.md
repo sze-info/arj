@@ -152,9 +152,13 @@ Részletek: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-T
 
 Gépteremben a [következő `install_humble.sh`](https://github.com/sze-info/arj/blob/main/docs/telepites/install_humble.sh) fájlt futtatuk minden gépen.
 
-``` r
+``` bash
 wget https://raw.githubusercontent.com/sze-info/arj/main/docs/telepites/install_humble.sh
+```
+``` bash
 sudo chmod +x install_humble.sh
+```
+``` bash
 ./install_humble.sh
 ```
 
@@ -162,7 +166,7 @@ sudo chmod +x install_humble.sh
 
 Ha szeretnénk a teljes `ros2_ws`-t törölni, majd újra klónozni és buildelni (~5 percig eltart), akkor a következő egyetlen hoszú paranccsal megtehetjük:
 
-``` r
+``` bash
 cd ~ ; rm ws_reset.sh; wget https://raw.githubusercontent.com/sze-info/arj/main/docs/telepites/ws_reset.sh; sudo chmod +x ws_reset.sh; ./ws_reset.sh
 ```
 

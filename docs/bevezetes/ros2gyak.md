@@ -62,13 +62,13 @@ C[ /turtle1/cmd_vel] -->|geometry_msgs/msg/Twist| S(turtlesim_node)
 
 Ahogy a flowcharton is látszik, a `/turtle1/cmd_vel` típusa `geometry_msgs/msg/Twist`. Ezt a következő parancsból tudhatjuk meg:
 
-``` r
+``` bash
 ros2 topic type /turtle1/cmd_vel
 ```
 
 A `geometry_msgs/msg/Twist` a üzenet strutúráját pedig ez a parancs adja:
 
-``` r
+``` bash
 ros2 interface show geometry_msgs/msg/Twist
 ```
 
@@ -84,7 +84,7 @@ Vector3  angular
 ```
 Az összes topic-ot így lehet listázni:
 
-``` r
+``` bash
 ros2 topic list
 ```
 
@@ -146,19 +146,34 @@ cd ~ && test -d "ros2_ws/src/arj_packages" && echo Letezik || echo Nem letezik
 - `C. opció:` Ha van package és friss is, akkor nincs külön teendőnk.
 
 `A. opció:`
-``` r
+``` bash
 cd ~/ros2_ws/src
+```
+``` bash
 git clone https://github.com/sze-info/arj_packages
+```
+``` bash
 cd ~/ros2_ws
+```
+``` bash
 colcon build --packages-select arj_intro_cpp
 ```
 
 `B. opció:`
-``` r
+``` bash
 cd ~/ros2_ws/src/arj_packages
+```
+``` bash
 git checkout -- .
+```
+``` bash
 git pull
+```
+``` bash
 cd ~/ros2_ws
+```
+
+``` bash
 colcon build --packages-select arj_intro_cpp
 ```
 
@@ -266,8 +281,10 @@ ros2 pkg create --build-type ament_cmake --node-name my_node my_package
 
 Buildeljük a szokásos módon:
 
-``` r
+``` bash
 cd ~/ros2_ws
+```
+``` bash
 colcon build --packages-select my_package
 ```
 
@@ -282,7 +299,9 @@ source ~/ros2_ws/install/setup.bash
 
 ``` r
 ros2 run my_package my_node
-
+```
+``` py
+# output:
 
 hello world my_package package
 ```
@@ -291,7 +310,9 @@ Vizsgáljuk meg a `my_package` tartalmát!
 
 ``` r
 ls -R ~/ros2_ws/src/my_package
-
+```
+``` py
+# output:
 /home/he/ros2_ws/src/my_package:
   CMakeLists.txt  include  package.xml  src
 /home/he/ros2_ws/src/my_package/include:
@@ -304,7 +325,9 @@ ls -R ~/ros2_ws/src/my_package
 
 ```
 tree ~/ros2_ws/src/my_package
-
+```
+``` py
+# output:
 my_package
 ├── CMakeLists.txt
 ├── include
@@ -316,8 +339,8 @@ my_package
 
 ``` cpp
 cat ~/ros2_ws/src/my_package/src/my_node.cpp
-
-
+```
+``` cpp
 #include <cstdio>
 
 int main(int argc, char ** argv)
@@ -328,14 +351,15 @@ int main(int argc, char ** argv)
   printf("hello world my_package package\n");
   return 0;
 }
-
 ```
 Érdemes megfigyelni, hogy a cpp fájl még semmilyen `ros2` headert nem használ.
 
 Futtatása: 
 
-```
+``` bash
 source ~/ros2_ws/install/setup.bash
+```
+```
 ros2 run my_package my_node
 ```
 
@@ -387,7 +411,6 @@ wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/exa
 Ez a parancs létrehozza a  ``publisher_member_function.cpp`` fájlt. Nyissuk meg pl VS code segítségével a mappát (`code .`)
 
 ``` cpp
-
 #include <chrono>
 #include <functional>
 #include <memory>
@@ -492,8 +515,6 @@ DESTINATION lib/${PROJECT_NAME})
 A ``CMakeLists.txt`` megtisztítható néhány felesleges szakasz és megjegyzés eltávolításával, így a következőképpen néz ki:
 
 ``` cmake
-
-
 cmake_minimum_required(VERSION 3.5)
 project(cpp_pubsub)
 
@@ -522,8 +543,10 @@ ament_package()
 
 Már buildelhető a package, adjuk hozzá a feliratkozó (subscriber) node-ot is, hogy láthassuk a teljes rendszert működés közben.
 
-``` r 
+``` bash
 cd ~/ros2_ws/
+```
+``` bash
 colcon build --packages-select cpp_pubsub
 ```
 ## Írjuk meg a subscriber node-ot
@@ -556,17 +579,23 @@ install(TARGETS
 
 ## Fordítsuk a package-t
 
-```
+``` bash
 cd ~/ros2_ws/
+```
+```
 colcon build --packages-select cpp_pubsub
-
 ```
 
+Futtatás:
+
+``` bash
+source ~/ros2_ws/install/setup.bash
+```
+``` bash
+ros2 run cpp_pubsub talker
+```
 
 ``` r
-source ~/ros2_ws/install/setup.bash
-ros2 run cpp_pubsub talker
-
 [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
 [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
 [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
@@ -575,10 +604,14 @@ ros2 run cpp_pubsub talker
 ```
 
 Egy újabb terminalba:
-``` r
+``` bash
 source ~/ros2_ws/install/setup.bash
+```
+``` bash
 ros2 run cpp_pubsub listener
+```
 
+``` r
 [INFO] [minimal_subscriber]: I heard: "Hello World: 10"
 [INFO] [minimal_subscriber]: I heard: "Hello World: 11"
 [INFO] [minimal_subscriber]: I heard: "Hello World: 12"

@@ -133,7 +133,7 @@ Minden modellnek lehet egyetlen ún. `canonical_link` eleme. Minden további mod
 
 A `<pose>` címke használatával megadható egy link pozíciója és orientációja. A címke után megadott `relative_to` attribútummal megadható, hogy mihez képest szeretnénk a link pozícióját és orientációját definiálni. Az attribútum megadása nélkül a pozíció megadása a környezethez képest történik. A pozíció és orientáció megadásának formátuma `<pose>X Y Z R P Y</pose>`, ahol X, Y és Z a frame-en belüli pozíció koordinátái, R, P és Y pedig az orientációt adja meg radiánban. A robot definiálása során minden paraméternek zérus értéket adtunk, tehát a robot és a környezet frame-je egybeesik.
 
-Minden modell (robot) `jointok` (ízületek) által összekapcsolt `linkekből` áll.
+Minden modell (robot) `jointok` (csuklók / ízületek) által összekapcsolt `linkekből` áll.
 
 ## A robotot alkotó linkek definiálása
 
@@ -347,7 +347,7 @@ Folytatódhad a támasztógörgő definiálása:
 </link>
 ```
 
-## Ízületek (joints) definiálása
+## Csuklók / ízületek (joints) definiálása
 
 A korábban definiált linkek között összefüggéseket kell definiálnunk. Ezek az összefüggések fogják megadni, hogy a linkek milyen módon mozdulhatnak el egymáshoz képest. Ebből ered a definíció módjának neve is.
 

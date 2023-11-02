@@ -9,21 +9,32 @@ parent: Észlelés
 
 <img src="https://raw.githubusercontent.com/url-kaist/patchwork-plusplus/master/pictures/demo_000000.png" width="80%" />
 
-[github.com/MohamedHussein736/patchwork-plusplus-ros/tree/ROS2](https://github.com/MohamedHussein736/patchwork-plusplus-ros/tree/ROS2)
+Elérhető:
+- [github.com/MohamedHussein736/patchwork-plusplus-ros/tree/ROS2](https://github.com/MohamedHussein736/patchwork-plusplus-ros/tree/ROS2)
+- [github.com/jkk-research/patchwork-plusplus-ros](https://github.com/jkk-research/patchwork-plusplus-ros) az eredeti repo forkja, ami csak az ROS 2-es brenchet tartalmazza
 
-[github.com/jkk-research/patchwork-plusplus-ros](https://github.com/jkk-research/patchwork-plusplus-ros)
-``` r
-cd ~/ros2_ws
+``` bash
+cd ~/ros2_ws/src
 ```
 
-``` r
+``` bash
+git clone https://github.com/jkk-research/patchwork-plusplus-ros
+``` 
+
+``` bash
+cd ~/ros2_ws/src
+```
+
+``` bash
 colcon build --packages-select patchworkpp
 ```
 
-``` r
+``` bash
 ros2 launch patchworkpp demo.launch
 ```
 
-``` r
+TODO
+
+``` bash
 ros2 bag play kitti_00_sample.db3
 ```

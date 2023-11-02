@@ -78,6 +78,14 @@ Oktatók | | | .
 <img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/okt_kr01.png" width="80px"/> | Krecht Rudolf <br/> <i>Szimuláció, robotika</i> <br/> [github.com/rudolfkrecht](http://github.com/rudolfkrecht) | <img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/okt_um01.png" width="80px"/> | Unger Miklós <br/> <i>Környezetérzékelés</i> <br/> [github.com/umiklos](http://github.com/umiklos)
 <img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/okt_ig01.png" width="80px"/>| Ignéczi Gergő <br/> <i>Szabályozástechnika</i> <br/> [github.com/gfigneczi1](http://github.com/gfigneczi1)|<img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/okt_mn01.png" width="80px"/> | Markó Norbert <br/> <i>AI, neurális hálók</i>  <br/> [github.com/norbertmarko](http://github.com/norbertmarko)
 
+## Érdemjegy
+
+- **1 (elégtelen)**: ZH átlag 0% felett
+- **2 (elégséges)**: ZH átlag 60% felett
+- **3 (közepes)**: ZH átlag 85% felett
+- **4 (jó)**: féléves beadandó a [megadott irányelvek](https://sze-info.github.io/arj/feleves_beadando/) mentén, nagyobb hibákkal teljesítve
+- **5 (jeles)**: féléves beadandó a [megadott irányelvek](https://sze-info.github.io/arj/feleves_beadando/) mentén, csak néhány kisebb hibával teljesítve
+
 
 ![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/technology01.svg)
 

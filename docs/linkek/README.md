@@ -22,7 +22,7 @@ has_children: false
 
 ## Linux ismeretek
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZtqBQ68cfJc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZtqBQ68cfJc?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - Egyszerű linux parancsok - [[hun](https://github.com/horverno/sze-academic-rpi/blob/master/linuxtut.md)]
 - ROS training - 0.1 Intro to Ubuntu GUI - [[eng](https://industrial-training-master.readthedocs.io/en/melodic/_source/prerequisites/Navigating-the-Ubuntu-GUI.html)]
@@ -54,7 +54,7 @@ Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült 
 ### Stanford University
 - Stanford University - Introduction to Robotics Oussama Khatib - [[eng, video playlist](https://www.youtube.com/watch?v=0yD3uBshJB0&list=PL65CC0384A1798ADF&ab_channel=Stanford)]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0yD3uBshJB0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0yD3uBshJB0?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### TU München
 
@@ -74,7 +74,7 @@ Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült 
 |  10  | Teleoperated driving | How to send and receive data via MQTT over network is shown in this practice session. | [YouTube](https://youtu.be/Z95BMnuFSio) | [ResearchGate](https://www.researchgate.net/publication/352322590_Autonomous_Driving_Software_Engineering_-_Lecture_10_Teleoperated_Driving)    |
 |  11  | End-to-End | The exemplary pipeline of data collection from expert demonstration, training and application are treated in this session. This lecture has its own dependencies, please refer to the local | [YouTube](https://youtu.be/CobI-h1wRAs) | [ResearchGate](https://www.researchgate.net/publication/352322925_Autonomous_Driving_Software_Engineering_-_Lecture_11_End-to-End_Combined_Modules)    |
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ekOfzdQnPZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ekOfzdQnPZw?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Magyar nyelvű ROS oktatóanyagok
 - ROS-gyakorlatok kezdőoldal: [horverno.github.io/ros-gyakorlatok](https://horverno.github.io/ros-gyakorlatok/)
@@ -109,12 +109,12 @@ Ezek nagy részét a legegyszerűbb elsajátítani a Raspberry Pi-hez készült 
   - [14: HD Maps](https://www.youtube.com/watch?v=cl9m6O4Yt0Y&amp;list=PLL57Sz4fhxLpCXgN0lvCF7aHAlRA5FoFr&amp;index=14&amp;ab_channel=ApexAI)
 - [F1/10 ROS](https://linklab-uva.github.io/autonomousracing/page3.html#content10-u)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XTmlhvlmcf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XTmlhvlmcf8?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### ETH Zürich
 - Programming for Robotics - ROS: Péter Fankhauser, Dominic Jud, Martin Wermelinger, Prof. Dr. Marco Hutter. [rsl.ethz.ch/education-students/lectures/ros.html](https://rsl.ethz.ch/education-students/lectures/ros.html)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0BxVPCInS3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0BxVPCInS3M?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 <table><!----> <thead class=""><tr><th id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-0" scope="col" style="text-align: left; vertical-align: middle;"><div><span style="font-size: 12px; font-weight: normal;"><b>2021</b></span></div></th><th id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-1" scope="col" style="text-align: left;"><div><span style="font-size: 12px; font-weight: normal;">Topics</span></div></th><th id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-2" scope="col" style="text-align: left;"><div><span style="font-size: 12px; font-weight: normal;">Material</span></div></th></tr></thead> <tbody><tr><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-0-cell-0" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-0">22.02.<br></td><td id="t-8b934858-0cb0-47c2-b668-3493c2cf3726-tbody-row-0-cell-1" headers="t-8b934858-0cb0-47c2-b668-3493c2cf3726-thead-row-0-cell-1"><ul> 
@@ -202,7 +202,7 @@ Link: [ipb.uni-bonn.de/sdc-2021](https://www.ipb.uni-bonn.de/sdc-2021/)
 
 Self-Driving Cars: An Introduction (Cyrill Stachniss)
 Introduction lecture for the course “Techniques for Self-Driving Cars” taught at the University of Bonn. A course by Cyrill Stachniss, Jens Behley, Nived Chebrolu, Benedikt Mersch, Igor Bogoslavskyi.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EBFlmHqgezM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EBFlmHqgezM?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 Self-Driving Cars: Localization (Daniel Wilbers)
@@ -246,7 +246,7 @@ Lecture giving a view from practice for the course “Techniques for Self-Drivin
 
 ROS 2
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jkoGkAd0GYk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jkoGkAd0GYk?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - [Youtube playlist](https://www.youtube.com/watch?v=2lIV3dRvHmQ&list=PLunhqkrRNRhYYCaSTVP-qJnyUPkTxJnBt&ab_channel=ArticulatedRobotics)
 - [articulatedrobotics.xyz](https://articulatedrobotics.xyz/)
@@ -257,3 +257,26 @@ ROS 2
 
 - [Youtube playlist](https://www.youtube.com/playlist?list=PLLSegLrePWgJudpPUof4-nVFHGkB62Izy)
 - [roboticsbackend.com](https://roboticsbackend.com/category/ros2/)
+
+
+### Foxglove ROS 2 tutorials
+
+- [foxglove.dev/tutorials](https://foxglove.dev/tutorials)
+- [Install ROS 2 Galactic on Ubuntu](https://foxglove.dev/blog/installing-ros2-galactic-on-ubuntu)
+- [Install ROS 2 Galactic on Ubuntu](https://foxglove.dev/blog/installing-ros2-galactic-on-ubuntu)
+- [Install ROS 2 Humble on Ubuntu](https://foxglove.dev/blog/installing-ros2-humble-on-ubuntu)
+- [Install ROS 2 Humble on macOS with Docker](https://foxglove.dev/blog/installing-ros2-on-macos-with-docker)
+- [Introduction to ROS 2](https://foxglove.dev/blog/the-building-blocks-of-ros2)
+- [Use a Rosbridge connection](https://foxglove.dev/blog/using-rosbridge-with-ros2)
+- [Create services](https://foxglove.dev/blog/creating-ros2-services)
+- [Create actions](https://foxglove.dev/blog/creating-ros2-actions)
+- [Use parameters](https://foxglove.dev/blog/how-to-use-ros2-parameters)
+- [Use launch files](https://foxglove.dev/blog/how-to-use-ros2-launch-files)
+- [Understand transforms](https://foxglove.dev/blog/understanding-ros-transforms)
+- [Publish and visualize transforms](https://foxglove.dev/blog/publishing-and-visualizing-ros2-transforms)
+- [Calculate object positions across frames](https://foxglove.dev/blog/using-ros2-transforms-to-calculate-object-positions)
+
+### Official ROS 2 documentation
+
+- [docs.ros.org/en/humble](https://docs.ros.org/en/humble/)
+- [docs.ros.org](https://docs.ros.org)

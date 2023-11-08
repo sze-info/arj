@@ -52,6 +52,9 @@ echo ""
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 git clone https://github.com/sze-info/arj_packages
+git clone https://github.com/jkk-research/wayp_plan_tools
+git clone https://github.com/jkk-research/sim_wayp_plan_tools
+git clone https://github.com/dottantgal/ros2_pid_library
 
 cd ~/ros2_ws
 source ~/.bashrc
@@ -71,6 +74,7 @@ sudo apt-get install ignition-fortress -y
 sudo apt install ros-humble-foxglove-bridge -y
 sudo apt install mc -y
 sudo apt install ros-humble-rosbag2-storage-mcap ros-humble-rosbag2 -y
+sudo apt install ros-humble-ros-gz -y
 
 sudo mkdir /mnt/kozos
 #sudo mount -t drvfs '\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása' /mnt/kozos

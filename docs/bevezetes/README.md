@@ -36,7 +36,7 @@ A fenti beosztás megfigyelhető nagyobb rendszerek, például az [Autoware öss
 
 Nézzünk minden részfeladatra egy szemléltetést, az egyetemünk egyik önvezető funkciókkal rendelkező autóján, a zalaegerszegi tesztpályán:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9eFqsei1J70" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9eFqsei1J70?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ![Alt text](explain_video01.png)
 
@@ -75,7 +75,7 @@ Ahogy láthattuk, önvezető (autonomous) járművekhez (L5) hasonló technológ
 
 Nézzünk egy példát, ami a Zoox önvezető robotaxit mutaja be működés közben:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2sGf_3cAwjA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2sGf_3cAwjA?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Egyetemi járművek
 

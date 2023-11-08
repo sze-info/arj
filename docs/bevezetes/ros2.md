@@ -101,7 +101,7 @@ A `Humble Hawksbill` vagy röviden `Humble` egy long term support (LTS) release,
 
 További release-ek: [docs.ros.org/en/humble/Releases.html](https://docs.ros.org/en/humble/Releases.html)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0aPbWsyENA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0aPbWsyENA8?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Koncepciók
 
@@ -207,7 +207,7 @@ Több node (ROS program) kötegelt végehajtása. Megtartva az `ROS 1`konvenció
 
 Erről egy rövid videó:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PqNGvmE2Pv4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PqNGvmE2Pv4?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 # Források

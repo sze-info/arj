@@ -48,7 +48,7 @@ source ~/.bashrc
 
 Az ROS Melodic telepítését bemutató videó [itt](https://youtu.be/e-VjpK5mYOI) tekinthető meg:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/e-VjpK5mYOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/e-VjpK5mYOI?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Megjegyzés
 

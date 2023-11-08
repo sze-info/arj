@@ -337,7 +337,7 @@ def generate_launch_description():
 
 [gps_utm.ipynb](https://github.com/sze-info/arj/blob/main/docs/transzformaciok/quaternion.ipynb){: .btn .btn-purple .mr-4 } 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kYB8IZa5AuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kYB8IZa5AuE?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ![rh](right_hand_rule01.svg)
 

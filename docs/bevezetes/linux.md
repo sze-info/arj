@@ -94,7 +94,7 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
 - `rm`: Fájlok törlése (`rm /a/fájl/helye, rm -r /a/fájlok/és/mappák/helye`) Az `rm -r` parancsnál minden törlődni fog a meghatározott helyen.
 - `rmdir`: Egy üres könyvtár törlése
 - `chmod`: (change mode) Arra alkalmas, hogy megváltoztassuk a fájlok / mappák hozzáférési jogait. Tehetjük ezt például karakteres kapcsolókkal (r, w, stb.), vagy oktálisan (számjegyekkel).
-  - pl `chmod +x my_python_node.py`: írási jog hozzáadása
+  - pl `chmod +x my_python_node.py`: végrehajtási (execute) jog hozzáadása
   - pl `chmod 777 everything.py`: minden jog hozzáadása
 
 ### `chmod`
@@ -208,6 +208,15 @@ rsync -avzh --progress /mnt/kozos/measurement_files/lexus-2023-07-18-campus.mcap
 ``` r
 rsync -avzh --progress nvidia@192.168.1.5:/mnt/storage_1tb/2023-07-02/ /mnt/c/bag/2023-07-02/
 ```
+
+### `scp` hálózati másolás
+
+Hálózatba kötött gépek közötti másolás (az `rsync` alternatívája). A progress-bar sajnos nem minden rendszeren jelenik meg:
+
+``` r
+scp /mnt/kozos/measurement_files/lexus3sample02.mcap  /mnt/c/temp/
+```
+
 
 ### `screen`
 

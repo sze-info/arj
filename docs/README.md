@@ -49,9 +49,9 @@ Szabályzás: zárthurkú modellezett jármű, szabályzó építése (pl PID va
 3 | szept. 20. | [Érzékelés](https://sze-info.github.io/arj/erzekeles/README.html): Kamera, LIDAR, GNSS (GPS), IMU, CAN szenzorok működése, jelfeldolgozása, főbb `ROS 2` topicok, `ROS 2` időkezelés.
 4 | szept. 27. | [Féléves beadandó](https://sze-info.github.io/arj/feleves_beadando/): féléves beadandó ismertetése, osztályzási szempontok, ötletek, kérdések-válaszok
 5 | okt. 4. | [Transzformációk](https://sze-info.github.io/arj/transzformaciok/README.html): Merev test mozgása, mátrix szorzás ismétlése, homogén koordináták szemléltetése rövid progamkódokkal, quaternion (kvaterniók) fogalma.
-6 | okt. 11. | [Észlelés](https://sze-info.github.io/arj/eszleles/README.html)
-7 | - | [Szimuláció](https://sze-info.github.io/arj/szimulacio/README.html)
-8 | - | [Szabályozás](https://sze-info.github.io/arj/szabalyozas/README.html)
+6 | okt. 11. | [Észlelés](https://sze-info.github.io/arj/eszleles/README.html): objektumfelismerés, objektumklasszifikáció, objektum követés és predikció, SLAM és LOAM
+7 | okt. 25. | [Szimuláció](https://sze-info.github.io/arj/szimulacio/README.html): ROS 2 kompatibilis szimulátorok áttekintése (pl [Gazebo](http://gazebosim.org/), [Carla](https://carla.org/), [SVL](https://www.lgsvlsimulator.com/), [OSSDC SIM](https://github.com/OSSDC/OSSDC-SIM), [AirSim](https://microsoft.github.io/AirSim), [AWSIM](https://tier4.github.io/AWSIM), [CoppeliaSim](https://www.coppeliarobotics.com/coppeliaSim), [MVSim](https://mvsimulator.readthedocs.io/))
+8 | nov. 8. | [Szabályozás](https://sze-info.github.io/arj/szabalyozas/README.html)
 9 | - | [Mesterséges intelligencia](https://sze-info.github.io/arj/mesterseges_intelligencia/README.html)
 10 | - | [Tervezés](https://sze-info.github.io/arj/tervezes/README.html)
 
@@ -65,9 +65,9 @@ Szabályzás: zárthurkú modellezett jármű, szabályzó építése (pl PID va
 3| szept. 20. | [Érzékelés gyakorlat](https://sze-info.github.io/arj/erzekeles/practice.html): Szenzor adatok jellemzőbb formátumai: `sensor_msgs/PointCloud2`, `sensor_msgs/Image`, `geometry_msgs/Pose`, stb. Bag `.mcap` fájlok kezelése, lejátszása. Egyszerű pacakge készítése, amely pozíció adatokra iratkozik fel. 
 4| szept. 27. | [Verziókezelés, Git](https://sze-info.github.io/arj/onallo/ros2git.html), [Copilot](https://sze-info.github.io/arj/bevezetes/copilot.html), [vs code](https://sze-info.github.io/arj/bevezetes/vscode.html), [ROS 2 launch](https://sze-info.github.io/arj/ros2halado/ros2launch.html): Copilot használata ROS 2 fejlesztéshez, Template repo ismertetése, használata, launch fájlok írása python nyelven
 5| okt. 4. | [Transzformációk gyakorlat](https://sze-info.github.io/arj/transzformaciok/practice.html): Node létrehozása, amely transzformációkat hirdet. Markerek megjelenítése, launch önálló feladat.
-6| okt. 11. | [Észlelés gyakorlat](https://sze-info.github.io/arj/eszleles/practice.html)
-7| - | [Szimuláció gyakorlat](https://sze-info.github.io/arj/szimulacio/gazebo_fortress.html)
-8| - | [Szabályozás gyakorlat](https://sze-info.github.io/arj/szabalyozas/ros2practice.html)
+6| okt. 11. | [Észlelés gyakorlat](https://sze-info.github.io/arj/eszleles/practice.html): egyszerű LIDAR szűrés, X, Y és Z koordináták szerint.
+7| okt. 25. | [Szimuláció bevezetés](https://sze-info.github.io/arj/szimulacio/gazebo_fortress.html): Gazebo Fortress és ROS 2, [szimuláció gyakorlat](https://sze-info.github.io/arj/szimulacio/gyakorlat.html): saját robotszimuláció létrehozása.
+8| nov. 8. | [Szabályozás gyakorlat](https://sze-info.github.io/arj/szabalyozas/ros2practice.html)
 9| - | [Mesterséges intelligencia gyakorlat](https://sze-info.github.io/arj/mesterseges_intelligencia/practice.html)
 10| - | [Tervezés gyakorlat](https://sze-info.github.io/arj/tervezes/practice.html)
 
@@ -77,6 +77,14 @@ Oktatók | | | .
 <img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/okt_he01.png" width="80px"/> | Dr. Horváth Ernő <br/> <i>Tárgyfelelős</i> <br/>[github.com/horverno](http://github.com/horverno) | <img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/okt_ba01.png" width="80px"/>| Dr. Ballagi Áron <br/> <i>Tematika, nem oktat</i><br/> [github.com/aronball](http://github.com/aronball)
 <img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/okt_kr01.png" width="80px"/> | Krecht Rudolf <br/> <i>Szimuláció, robotika</i> <br/> [github.com/rudolfkrecht](http://github.com/rudolfkrecht) | <img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/okt_um01.png" width="80px"/> | Unger Miklós <br/> <i>Környezetérzékelés</i> <br/> [github.com/umiklos](http://github.com/umiklos)
 <img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/okt_ig01.png" width="80px"/>| Ignéczi Gergő <br/> <i>Szabályozástechnika</i> <br/> [github.com/gfigneczi1](http://github.com/gfigneczi1)|<img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/okt_mn01.png" width="80px"/> | Markó Norbert <br/> <i>AI, neurális hálók</i>  <br/> [github.com/norbertmarko](http://github.com/norbertmarko)
+
+## Érdemjegy
+
+- **1 (elégtelen)**: ZH átlag 0% felett
+- **2 (elégséges)**: ZH átlag 60% felett
+- **3 (közepes)**: ZH átlag 85% felett
+- **4 (jó)**: féléves beadandó a [megadott irányelvek](https://sze-info.github.io/arj/feleves_beadando/) mentén, nagyobb hibákkal teljesítve
+- **5 (jeles)**: féléves beadandó a [megadott irányelvek](https://sze-info.github.io/arj/feleves_beadando/) mentén, csak néhány kisebb hibával teljesítve
 
 
 ![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/technology01.svg)

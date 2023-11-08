@@ -42,7 +42,7 @@ source ~/.bashrc
 ```
 A csomagok telepítését és a workspace létrehozását bemutató videó itt érhető el: [youtu.be/cXABl5jbmVc](https://youtu.be/cXABl5jbmVc)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cXABl5jbmVc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cXABl5jbmVc?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 Képek a szimulátroból:

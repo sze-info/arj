@@ -124,6 +124,48 @@ ros2 run sam_bot_nav2_gz reach_goal.py
    
 ![](https://raw.githubusercontent.com/ros-planning/navigation.ros.org/master/images/navigation_with_recovery_behaviours.gif)
 
+# `3.` feladat
+
+Ebben a feladatban az elméleti órán bemutatott polinom alapú lokális tervező megvalósítását fogjuk bemutatni.
+Ehhez elsőként frissítsük az arj_packages repository-t!
+
+``` r
+cd ros2_ws/src/arj_packages/
+git pull
+```
+Ezek után buildeljük az arj_local_planner nevű package-t!
+
+``` r
+cd ~/ros2_ws
+colcon build --packages-select arj_local_planner
+```
+
+Ezek után futtassuk a planner-t a launch fájl segítségével, source-olás után.
+
+``` r
+source install/setup.bash
+ros2 launch arj_local_planner run_all.launch.py
+```
+
+Nézzük meg, milyen topicok jöttek létre (új terminálban)!
+
+``` r
+ros2 topic list
+```
+
+Létrejött a /goal_pose topic illetve a /planner/trajectory topic. A goal_pose az a célpozíció, amelyre a tervező tervez, a planner/trajectory pedig a waypoint list, maga a tervezett trajektória.
+Indítsünk egy rviz-t!
+
+``` r
+ros2 run rviz2 rviz2
+```
+
+Válasszuk ki a map frame-t, illetve adjuk hozzá a /planner/trajectory topicot. Ezek után a fenti sávból a 2D Goal Pose opciót használva vegyünk fel egy goal pose-t a griden úgy, hogy az a pozitív koordináták irányában helyezkedjen el! Ekkor a tervező automatikusan ráilleszt egy polinomot a célpozícióra.
+
+![](abrak/polinomial_traj.PNG)
+
+Ezt az egyszerű tervezőt használhatjuk pl. mozgó célpontra (másik jármű, sáv közepe, globális trajektória egy pontja...stb) illetve statikus célpontra (pl. parkolóhely).
+
 # Sources
 - [navigation.ros.org/getting_started/index.html](https://navigation.ros.org/getting_started/index.html)
 - [navigation.ros.org](https://navigation.ros.org)

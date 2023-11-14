@@ -149,6 +149,20 @@ Ahol $$J_t$$ a trajektória befutása során tapasztalt átlagos jerk (azaz rán
 <img src="abrak/longitudinal_planning.png" width="500" height="300" /> <br>
 *5. Ábra: sebességtrajektória tervezése, forrás: [1]*
 
+# ROS 2 megoldások
+
+## Nav2
+
+A [Nav2](https://navigation.ros.org/) az ROS Navigation Stack támogatott szellemi utódja, amely ugyanazt a technológiát alkalmazza, amely például a mobil robotikára, autonóm járművekre alkalmazható, optimalizált és átdolgozott megoldások gyűjteménye. A Nav2 projekt arra törekszik, hogy megtalálja a biztonságos módot arra, hogy egy mobil robot bonyolult feladatokat hajtson végre sokféle környezeten és robotkinematikai osztályon keresztül. Nemcsak mozoghat A pontból B pontba, de lehetnek közbenső pózok (pozíció + orientáció) is, és más típusú feladatokat is képviselhet, például objektumkövetést, teljes lefedettség-navigációt stb. A Nav2 egy gyártási szintű és jó minőségű navigációs keretrendszer, amelyben világszerte több mint 50 vállalat bízik meg.
+
+A [Nav2](https://github.com/ros-planning/navigation2) architektúra áttekintése:
+![](https://navigation.ros.org/_images/nav2_architecture.png)
+
+## Autoware tervező
+
+Szintén ROS 2 támogatott az [Autoware](https://autowarefoundation.github.io/autoware-documentation/main/) keretrendszer [tervező (planning) komponense](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/planning/). Az Autoware tervezés komponens fő funkciója, hogy létrehozza azt a trajektóriát, amelyre a Szabályzás (control) komponens feliratkozik a Lokalizáció (Localization) és az Észlelés (Perception) komponensekből kapott környezeti állapot alapján.
+
+![](https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/planning/image/high-level-planning-diagram.drawio.svg)
 
 # Irodalomjegyzék
 

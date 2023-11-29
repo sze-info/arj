@@ -9,6 +9,7 @@ Az alábbi példák nem feltétlenül féléves munkának készültek, de annak 
 -  [github.com/jkk-research/pointcloud_to_grid](https://github.com/jkk-research/pointcloud_to_grid)
 -  [github.com/jkk-research/urban_road_filter](https://github.com/jkk-research/urban_road_filter)
 -  [github.com/dobaybalazs/curb_detection](https://github.com/dobaybalazs/curb_detection)
+-  [github.com/kkira07/Szakdolgozat](https://github.com/kkira07/Szakdolgozat)
 -  [github.com/szenergy/rviz_markers](https://github.com/szenergy/rviz_markers)
 -  [github.com/linklab-uva/f1tenth_gtc_tutorial](https://github.com/linklab-uva/f1tenth_gtc_tutorial)
 

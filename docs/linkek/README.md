@@ -6,7 +6,7 @@ has_children: false
 
  
 
-<details markdown="block">
+<details open markdown="block">
   <summary>
     Tartalom
   </summary>

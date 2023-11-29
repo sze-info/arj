@@ -31,14 +31,12 @@ Az első három opció szemléltetése:
 | Windows 11 (WSL2)|ROS melodic | ROS noetic | ROS2 humble|
 
 
-Melodic
-{: .label .label-green }
 
-Noetic
-{: .label .label-purple }
+[![Static Badge](https://img.shields.io/badge/ROS_1-Melodic-ef4638)](https://docs.ros.org/en/humble/)
 
-Humble
-{: .label .label-yellow }
+[![Static Badge](https://img.shields.io/badge/ROS_1-Noetic-ef4638)](https://docs.ros.org/en/humble/)
+
+[![Static Badge](https://img.shields.io/badge/ROS_2-Humble-34aec5)](https://docs.ros.org/en/humble/)
 
 
 {: .warning }

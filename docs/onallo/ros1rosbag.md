@@ -31,8 +31,9 @@ A gyakorlat a jobb érthetőség és az otthoni feldolgozás miatt akár videók
 
 A következő példák egy Turtlebot3 robot és egy Nissan Leaf önvezető autó `.bag` fájlait használják majd. A `.bag` az ROS log fájtípusa, méréseket mentésére, visszajátszására, szerkeztésére stb. szolgál.
 
-Melodic
-{: .label .label-green }
+**Vigyázat**: ROS 1-es feladat.
+
+[![Static Badge](https://img.shields.io/badge/ROS_1-Melodic-ef4638)](https://docs.ros.org/en/humble/)
 
 ![turtle-leaf](https://raw.githubusercontent.com/horverno/ros-gyakorlatok/master/1-rosbag-es-topicok/turtle-leaf.png)
 

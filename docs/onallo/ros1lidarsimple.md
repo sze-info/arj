@@ -21,6 +21,9 @@ parent: Önálló feladatok
 
 # ROS szenzoradatok feldolgozása C++ node-al
 
+**Vigyázat**: ROS 1-es feladat.
+
+[![Static Badge](https://img.shields.io/badge/ROS_1-Melodic-ef4638)](https://docs.ros.org/en/humble/) [![Static Badge](https://img.shields.io/badge/ROS_1-Noetic-ef4638)](https://docs.ros.org/en/humble/)
 
 ## A feladat leírása
 

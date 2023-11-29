@@ -27,8 +27,9 @@ Két Gazebo alapú szimulációt fogunk megismerni. A Gazebo az ROS-által legin
 
 Első esetben szimuláció alapjául a következő tutorial szolgál: https://github.com/linklab-uva/f1tenth_gtc_tutorial. Itt azonban nem csak szimuláció, hanem valós jármű is van, sokkal több témát érintve. Mi most ebből csak a szimulátort használjuk. A szimulátorban egy kis méretű (F1 jármű tizede) robotjárművet fogunk navigálni.
 
-Melodic
-{: .label .label-green }
+**Vigyázat**: ROS 1-es feladat.
+
+[![Static Badge](https://img.shields.io/badge/ROS_1-Melodic-ef4638)](https://docs.ros.org/en/humble/) 
 
 
 A gyakorlatról készült [videó](https://www.youtube.com/watch?v=wdRD2X2hpKI) itt tekinthtó meg:

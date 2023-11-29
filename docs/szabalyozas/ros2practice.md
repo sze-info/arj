@@ -19,111 +19,21 @@ parent: Szabályozás
 
 
 
+
 # Gyakorlat
 
 A gyakorlat első részében egy példa első illetve másodrendű rendszert fogunk használni, erre fogunk PID szabályzót alkalmazni, majd hangolni.
 A gyakorlat második részében egy szimulált trajektóriakövető robot / jármű működését nézzük át és hangoljuk.
 
-Humble
-{: .label .label-yellow }
+[![Static Badge](https://img.shields.io/badge/ROS_2-Humble-34aec5)](https://docs.ros.org/en/humble/)
+
+- [`1. feladat`: Trajektóriakövetés szimulációval](#1-feladat-trajektóriakövetés-szimulációval)
+- [`2. feladat`:  Saját fejlesztésű szabályzó és jármű modell](#2-feladat--saját-fejlesztésű-szabályzó-és-jármű-modell)
+- [`3. feladat`: PID hangolás](#3-feladat-pid-hangolás)
 
 
-## Videó
 
-A videóhoz hasonló módon szeretnénk szemléltetni a szabályozás kérdéskörét, azonban mi Plotjuggler helyett Foxglove Studio-t használunk.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/G-f2eyPifbc?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-## `1. feladat`: PID hangolás
-
-A következő leírás azzal a feltételezéssel él, hogy a ROS 2 workspace a `~/ros2_ws/` helyen található.
-
-### `Terminal 1` clone
-
-Klónozzuk a repositoryt:
-
-``` bash
-cd ~/ros2_ws/src
-```
-
-``` bash
-git clone https://github.com/dottantgal/ros2_pid_library
-```
-
-### `Terminal 1` build
-
-Lépjünk vissza a workspace gyökerébe és build:
-
-``` bash
-cd ~/ros2_ws
-```
-
-``` bash
-colcon build --packages-select use_library pid_library example_system
-```
-
-### `Terminal 2` run
-
-Új terminált nyissunk és futtassuk a következő parancsokat:
-
-``` bash
-source ~/ros2_ws/install/local_setup.bash && source ~/ros2_ws/install/setup.bash
-```
-
-``` bash
-ros2 launch example_system example_sys_launch.py
-```
-
-### `Terminal 3` set point
-
-```
-ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 0.0"
-```
-
-```
-ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 1.0"
-```
-
-```
-ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 1.4"
-```
-
-```
-ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 0.6"
-```
-
-### `Terminal 4` foxglove
-
-Ha esetleg eddig nem lett volna telepítve:
-```
-sudo apt install ros-humble-foxglove-bridge
-```
-Maga bridge így indítható:
-```
-source ~/ros2_ws/install/local_setup.bash && source ~/ros2_ws/install/setup.bash
-```
-```
-ros2 launch foxglove_bridge foxglove_bridge_launch.xml
-```
-Ezután Foxglove Studió segítségével `ws://localhost:8765` címen elérhető minden adat.
-
-![](pid_plot02.png)
-
-### VS code
-
-Szerkesszük a `example_sys_launch.py` fájlt, majd `colcon build` (terminal 1) `source` és futtatás.
-
-```
-code ~/ros2_ws/src/ros2_pid_library/
-```
-
-![](vs_code01.png)
-
-Futtassuk és figyeljük meg az eredményeket a beavatkozó jel (`control_value`) enyhén más jelleget mutat:
-
-![](pid_plot03.png)
-
-## `2. feladat`: Trajektóriakövetés
+## `1. feladat`: Trajektóriakövetés szimulációval
 
 ![](https://raw.githubusercontent.com/jkk-research/sim_wayp_plan_tools/main/img/gz_rviz01.gif)
 
@@ -275,7 +185,7 @@ After `ign gazebo -v 4 -r ackermann_steering.sdf` (terminal 1) and `source ~/ros
 ros2 launch sim_wayp_plan_tools all_in_once.launch.py
 ```
 
-# Hibaelhárítás:
+### Hibaelhárítás
 
 A `ign gazebo server` leállítása:
 
@@ -295,7 +205,7 @@ Ha azonosítva van a PID a folyamat leállításához használd a kill parancsot
 kill 12345
 ```
 
-# Saját fejlesztésű szabályzó és jármű modell
+## `2. feladat`:  Saját fejlesztésű szabályzó és jármű modell
 Ebben a feladatban elkészítjük az elméleten bemutatott sebesség szabályzót, és az ahhoz kapcsolódó egyszerű járműmodellt.
 
 Ha ezt eddig nem tettük meg, frissítsük az arj_packages repository-t:
@@ -321,7 +231,7 @@ Látjuk, hogy megjelent egy speed_control_loop nevű almappa. Ez a mappa tartalm
 
 A mappa tartalmazza a szokásos package xml-t és a CMakeList-et, továbbá két cpp forrásfájlt. A vehicle_model.cpp értelemszerűen a járműmodellt, a speed_controller.cpp a szabályzót tartalmazza. Vizsgáljuk először a jármű modell forráskódját!
 
-## Járműmodell
+### Járműmodell
 
 ``` r
 class VehicleModel : public rclcpp::Node
@@ -396,7 +306,7 @@ void loop()
 }
 ```
 
-## Szabályzó
+### Szabályzó
 
 A speed_control.cpp-ben a jármű sebességének PID szabályzását láthatjuk.
 A node neve "speed_control", feliratkozik a ```/vehicle/state``` topicra, melyet a jármű modell hirdet.
@@ -452,7 +362,7 @@ void loop()
     }
 ```
 
-## Teszt
+### Teszt
 
 A teszthez először buildeljük a speed_control_loop packaget!
 
@@ -504,6 +414,105 @@ rosparam set /speed_control /control/I 200.0
 esetén a sebesség felfutása kevésbé lesz egyenletes, továbbá túllendülés is megfigyelhető. 
 
 ![](foxglove_speed_30_I.PNG)
+
+
+## `3. feladat`: PID hangolás
+
+### Videó
+
+A videóhoz hasonló módon szeretnénk szemléltetni a szabályozás kérdéskörét, azonban mi Plotjuggler helyett Foxglove Studio-t használunk.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G-f2eyPifbc?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+A következő leírás azzal a feltételezéssel él, hogy a ROS 2 workspace a `~/ros2_ws/` helyen található.
+
+### `Terminal 1` clone
+
+Klónozzuk a repositoryt:
+
+``` bash
+cd ~/ros2_ws/src
+```
+
+``` bash
+git clone https://github.com/dottantgal/ros2_pid_library
+```
+
+### `Terminal 1` build
+
+Lépjünk vissza a workspace gyökerébe és build:
+
+``` bash
+cd ~/ros2_ws
+```
+
+``` bash
+colcon build --packages-select use_library pid_library example_system
+```
+
+### `Terminal 2` run
+
+Új terminált nyissunk és futtassuk a következő parancsokat:
+
+``` bash
+source ~/ros2_ws/install/local_setup.bash && source ~/ros2_ws/install/setup.bash
+```
+
+``` bash
+ros2 launch example_system example_sys_launch.py
+```
+
+### `Terminal 3` set point
+
+```
+ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 0.0"
+```
+
+```
+ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 1.0"
+```
+
+```
+ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 1.4"
+```
+
+```
+ros2 topic pub -r 1  /set_point_topic std_msgs/msg/Float32 "data: 0.6"
+```
+
+### `Terminal 4` foxglove
+
+Ha esetleg eddig nem lett volna telepítve:
+```
+sudo apt install ros-humble-foxglove-bridge
+```
+Maga bridge így indítható:
+```
+source ~/ros2_ws/install/local_setup.bash && source ~/ros2_ws/install/setup.bash
+```
+```
+ros2 launch foxglove_bridge foxglove_bridge_launch.xml
+```
+Ezután Foxglove Studió segítségével `ws://localhost:8765` címen elérhető minden adat.
+
+![](pid_plot02.png)
+
+### VS code
+
+Szerkesszük a `example_sys_launch.py` fájlt, majd `colcon build` (terminal 1) `source` és futtatás.
+
+```
+code ~/ros2_ws/src/ros2_pid_library/
+```
+
+![](vs_code01.png)
+
+Futtassuk és figyeljük meg az eredményeket a beavatkozó jel (`control_value`) enyhén más jelleget mutat:
+
+![](pid_plot03.png)
+
+
 
 # Források / Sources
 - [github.com/dottantgal/ros2_pid_library](https://github.com/dottantgal/ros2_pid_library/) - [MIT license](https://github.com/dottantgal/ros2_pid_library/blob/main/LICENSE)

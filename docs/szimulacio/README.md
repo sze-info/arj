@@ -4,6 +4,20 @@ title: Szimuláció
 has_children: true
 ---
 
+ 
+
+<details markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+---
+
+
 # Szimuláció
 
 A szimuláció lényege, hogy a kezdeti, akár komoly tesztelés nélküli programkódunkat **ne** a való világban az önvezető autónkon / robotunkon kezdjük el kipróbálni. Ennek ugyanis értelemszerű hátrányai lehetnek. Fontos azonban megjegyezni, hogy a szimulátor mindig a valóság egyszerűsített modelljét szimulálja csupán, így a szimulátorban jól működő kód nem mindig fog teljesen működni a való életben is.
@@ -19,6 +33,11 @@ Az ROS-által leginkább támogatott szimulátor a Gazebo, de érdemes megemlít
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QD9iCauN0K8?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# Áttekintő videó a szimulátorokról
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/879001753?h=80b62256e1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<p><a href="https://vimeo.com/879001753">Simulate robots like never before with Open 3D Engine</a> from <a href="https://vimeo.com/osrfoundation">Open Robotics</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 # További szimulátorok
 
@@ -44,6 +63,9 @@ Az ROS-által leginkább támogatott szimulátor a Gazebo, de érdemes megemlít
 - [MVSim](https://mvsimulator.readthedocs.io/)
    - [GitHub repository](https://github.com/MRPT/mvsim)
    - [YouTube video](https://www.youtube.com/watch?v=OzOG9V1h11g&list=PLOJ3GF0x2_eWvaxrKFb4BPzd4W9ss8jyc&index=6&ab_channel=JoseLuisBlanco)
+- [AutoDRIVE](https://autodrive-ecosystem.github.io/)
+  - [GitHub repository](https://github.com/Tinker-Twins/AutoDRIVE)
+  - [YouTube channel](https://www.youtube.com/@AutoDRIVE-Ecosystem)
 
 ![](https://mrpt.github.io/mvsim-models/anims/warehouse-demo-mvsim.gif)
 

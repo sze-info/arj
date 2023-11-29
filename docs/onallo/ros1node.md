@@ -31,8 +31,9 @@ cd ~/rosbag-gyak
 wget www.sze.hu/~herno/PublicDataAutonomous/leaf-2019-03-13-a-no-lidar.bag
 ```
 
-Melodic
-{: .label .label-green }
+**Vigyázat**: ROS 1-es feladat.
+
+[![Static Badge](https://img.shields.io/badge/ROS_1-Melodic-ef4638)](https://docs.ros.org/en/humble/) [![Static Badge](https://img.shields.io/badge/ROS_1-Noetic-ef4638)](https://docs.ros.org/en/humble/)
 
 ## Catkin workspace készítése
 Nyissuk meg, a home folderban lévő `.bashrc` fájlt (pl VS code segítségével) és ellenőrizzük, hogy tartalmaz-e egy `source /opt/ros/melodic/setup.bash` sort valahol a fájl végén.

@@ -4,7 +4,23 @@ title: Gyakorlat
 parent: Mesterséges intelligencia
 ---
 
-# Gyakorlat
+ 
+
+<details markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+---
+
+
+
+
+# Mesterséges intelligencia gyakorlat
 
 ## Gyakrolati anyag letöltése
 A gyakorlati anyag frissítéséhez adjuk ki a következő parancsokat:

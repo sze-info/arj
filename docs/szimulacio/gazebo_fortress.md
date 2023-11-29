@@ -23,8 +23,7 @@ parent: Szimuláció
 
 Az Ignition Gazebo Fortress egy long-term support (LTS) release 2026 szeptemberéig támogatva. ROS 2 Humble kiadással kompatibilis, [lásd a kompatibiltási mátrixot](https://sze-info.github.io/arj/szimulacio/README.html#gazebo-%C3%A9s-ros-kompatibilit%C3%A1s).
 
-Humble
-{: .label .label-yellow }
+[![Static Badge](https://img.shields.io/badge/ROS_2-Humble-34aec5)](https://docs.ros.org/en/humble/)
 
 # Telepítés
 

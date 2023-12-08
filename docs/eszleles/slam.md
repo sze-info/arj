@@ -4,6 +4,21 @@ title: SLAM és LOAM
 parent: Észlelés
 ---
 
+ 
+
+<details markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+---
+
+
+
 # SLAM és LOAM
 
 Simultaneous localization and mapping (SLAM) és LIDAR-based odometry and or mapping (LOAM).
@@ -99,3 +114,5 @@ colcon build --packages-select kiss_icp
 ros2 launch kiss_icp odometry.launch.py topic:=/lexus3/os_left/points
 ```
 
+## fastcampus_slam_codes oktatóanyag
+[github.com/changh95/fastcampus_slam_codes](https://github.com/changh95/fastcampus_slam_codes/)

@@ -58,6 +58,28 @@ A következő ábra egy egyszerű vonalkövető robot node-jait (programjait) é
 ![áttekintés](ros_overview03.svg)
 Forrás: [Bestmann, Marc & Fakultät, Min & Zhang, Jianwei & Hendrich, N.. (2017). Towards Using ROS in the RoboCup Humanoid Soccer League. Masterthesis](https://www.researchgate.net/publication/337707327_Towards_Using_ROS_in_the_RoboCup_Humanoid_Soccer_League)
 
+
+
+``` mermaid
+graph TD;
+
+    camd([/cam_driver]):::red --> im1[ /image1<br/>sensor_msgs/Image]:::light
+    im1 --> li1([ /line_detect_node]):::red
+    im1 --> st1([ /stop_detect_node]):::red
+    li1 --> li2[ /line<br/>example_msgs/Line]:::light
+    st1 --> st2[ /stop<br/>example_msgs/Stop]:::light
+    li2 --> nav([ /line_detect_node]):::red
+    st2 --> nav
+    nav --> cmd[ /cmd_vel<br/>geometry_msgs/Twist]:::light
+    cmd --> control([ /robot_control]):::red
+    n([ /node]):::white -- publishes --> t[ /topic<br/>msg_type]:::white
+    t -- subscribes --> n
+    classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
+    classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
+    classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
+    classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
+```
+
 ## Különbségek az `ROS 1` és `ROS 2` között 
 
 - *Változások a Middleware-ben*  

@@ -114,12 +114,20 @@ A következőkben az `urban_road_filt` nevű node a `points` adatokra iratkozik 
 ```mermaid
 flowchart LR
 
-P[points] -->|sensor_msgs/PointCloud2| U(urban_road_filt)
-U --> |sensor_msgs/PointCloud2| A[curb]
-U --> |sensor_msgs/PointCloud2| B[road] 
-U --> |sensor_msgs/PointCloud2| C[road_probably]
-U --> |sensor_msgs/PointCloud2| D[roi]
-U --> |visualization_msgs/MarkerArray| E[road_marker]
+P[points]:::light -->|sensor_msgs/PointCloud2| U([urban_road_filt]):::red
+U --> |sensor_msgs/PointCloud2| A[curb]:::light
+U --> |sensor_msgs/PointCloud2| B[road]:::light 
+U --> |sensor_msgs/PointCloud2| C[road_probably]:::light
+U --> |sensor_msgs/PointCloud2| D[roi]:::light
+U --> |visualization_msgs/MarkerArray| E[road_marker]:::light
+
+n1([ /node]):::white -- publishes</br>topic_type --> t[ /topic]:::white
+t -- subscribes</br>topic_type --> n2([ /node]):::white
+
+classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
+classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
+classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
+classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
 
 ```
 

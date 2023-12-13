@@ -56,7 +56,12 @@ A háttérben a `turtlesim_node` node (kerek jelölés) feliratkozik a `/turtle1
 ```mermaid
 flowchart LR
 
-C[ /turtle1/cmd_vel] -->|geometry_msgs/msg/Twist| S(turtlesim_node)
+C[ /turtle1/cmd_vel]:::light -->|geometry_msgs/msg/Twist| S([turtlesim_node]):::red
+
+classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
+classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
+classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
+classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
 
 ```
 
@@ -243,9 +248,14 @@ Vizsgáljuk meg Foxglove Studio-val is WebSocketen keresztül (Open connection `
 ```mermaid
 flowchart LR
 
-C[ /turtle1/cmd_vel] --> S(turtlesim_node)
-C[ /turtle1/cmd_vel] --> F(foxglove_bridge)
-G(cmd_gen_node)--> C
+C[ /turtle1/cmd_vel]:::light --> S([turtlesim_node]):::red
+C[ /turtle1/cmd_vel] --> F([foxglove_bridge]):::red
+G([cmd_gen_node]):::red--> C
+
+classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
+classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
+classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
+classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
 
 ```
 Mindehárom node-ot egyben a következőképp indíthatjuk:

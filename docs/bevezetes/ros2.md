@@ -55,11 +55,6 @@ Kép forrása: [ros.org/blog/ecosystem](https://www.ros.org/blog/ecosystem/)
 
 A következő ábra egy egyszerű vonalkövető robot node-jait (programjait) és topic-jait (~kommunkáció) szemléltei:
 
-![áttekintés](ros_overview03.svg)
-Forrás: [Bestmann, Marc & Fakultät, Min & Zhang, Jianwei & Hendrich, N.. (2017). Towards Using ROS in the RoboCup Humanoid Soccer League. Masterthesis](https://www.researchgate.net/publication/337707327_Towards_Using_ROS_in_the_RoboCup_Humanoid_Soccer_League)
-
-
-
 ``` mermaid
 graph TD;
 
@@ -72,13 +67,37 @@ graph TD;
     st2 --> nav
     nav --> cmd[ /cmd_vel<br/>geometry_msgs/Twist]:::light
     cmd --> control([ /robot_control]):::red
-    n([ /node]):::white -- publishes --> t[ /topic<br/>msg_type]:::white
-    t -- subscribes --> n
+    n1([ /node]):::white -- publishes --> t[ /topic<br/>msg_type]:::white
+    t -- subscribes --> n2([ /node]):::white
     classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
     classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
     classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
     classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
 ```
+
+Forrás: [Bestmann, Marc & Fakultät, Min & Zhang, Jianwei & Hendrich, N.. (2017). Towards Using ROS in the RoboCup Humanoid Soccer League. Masterthesis](https://www.researchgate.net/publication/337707327_Towards_Using_ROS_in_the_RoboCup_Humanoid_Soccer_League)
+
+
+Nézzünk egy másik példát, ami sebességadatokból, IMU-ból, távolságadatokból készít térképeket.
+
+``` mermaid
+graph LR;
+
+    odom[ /odom<br/>nav_msgs/Odometry]:::light --> slam([ /slam_node]):::red
+    speed[ /speed<br/>geometry_msgs/Twist]:::light --> slam
+    imu[ /imu<br/>sensor_msgs/Imu]:::light --> slam
+    scan[ /scan<br/>sensor_msgs/PointCloud2]:::light --> slam
+    n1([ /node]):::white -- publishes --> t[ /topic<br/>msg_type]:::white
+    slam --> pose[ /global_pose<br/>geometry_msgs/Pose]:::light
+    slam --> map_g[ /map_grid<br/>nav_msgs/OccupancyGrid]:::light
+    slam --> map_p[ /map_points<br/>sensor_msgs/PointCloud2]:::light
+    t -- subscribes --> n2([ /node]):::white
+    classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
+    classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
+    classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
+    classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
+```
+
 
 ## Különbségek az `ROS 1` és `ROS 2` között 
 
@@ -205,12 +224,20 @@ A következőkben az `urban_road_filt` nevű node a `points` adatokra iratkozik 
 ```mermaid
 flowchart LR
 
-P[points] -->|sensor_msgs/PointCloud2| U(urban_road_filt)
-U --> |sensor_msgs/PointCloud2| A[curb]
-U --> |sensor_msgs/PointCloud2| B[road] 
-U --> |sensor_msgs/PointCloud2| C[road_probably]
-U --> |sensor_msgs/PointCloud2| D[roi]
-U --> |visualization_msgs/MarkerArray| E[road_marker]
+P[points]:::light -->|sensor_msgs/PointCloud2| U([urban_road_filt]):::red
+U --> |sensor_msgs/PointCloud2| A[curb]:::light
+U --> |sensor_msgs/PointCloud2| B[road]:::light 
+U --> |sensor_msgs/PointCloud2| C[road_probably]:::light
+U --> |sensor_msgs/PointCloud2| D[roi]:::light
+U --> |visualization_msgs/MarkerArray| E[road_marker]:::light
+
+n1([ /node]):::white -- publishes</br>topic_type --> t[ /topic]:::white
+t -- subscribes</br>topic_type --> n2([ /node]):::white
+
+classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
+classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
+classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
+classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
 
 ```
 

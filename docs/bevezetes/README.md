@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 1. Bevezetés
+title: Bevezetés
 has_children: true
 nav_order: 1
 ---

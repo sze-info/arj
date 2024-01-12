@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 7. Szimuláció
+title: Szimuláció
 has_children: true
 nav_order: 7
 ---

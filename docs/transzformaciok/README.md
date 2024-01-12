@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 5. Transzformációk
+title: Transzformációk
 has_children: true
 nav_order: 5
 ---

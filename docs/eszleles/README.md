@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Észlelés
+title: 6. Észlelés
+nav_order: 6
 has_children: true
 ---
 

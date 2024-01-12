@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Tervezés
+title: 8. Tervezés
 has_children: true
+nav_order: 8
 ---
 
  

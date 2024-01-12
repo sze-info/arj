@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Érzékelés
+title: 3. Érzékelés
+nav_order: 3
 has_children: true
 ---
 

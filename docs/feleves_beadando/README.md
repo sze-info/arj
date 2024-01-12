@@ -1,4 +1,12 @@
-# Féléves beadandó
+---
+layout: default
+title: 4. Kis beadandó és nagy féléves
+nav_order: 4
+has_children: true
+---
+
+
+# Kis beadandó és nagy féléves
 
 
 ## Példák

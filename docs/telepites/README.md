@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Telepítés
+title: 2. Telepítés
+nav_order: 2
 has_children: true
 ---
 

@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Mesterséges intelligencia
+title: 10. Mesterséges intelligencia
 has_children: true
+nav_order: 10
 ---
 
 # Mesterséges intelligencia

@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Szabályozás
+title: 9. Szabályozás
 has_children: true
+nav_order: 9
 ---
 
  

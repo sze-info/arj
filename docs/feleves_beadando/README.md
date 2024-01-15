@@ -2,11 +2,31 @@
 layout: default
 title: Kis beadandó és nagy féléves
 nav_order: 4
-has_children: true
+has_children: false
+permalink: /feleves_beadando/
+---
+
+ 
+
+<details markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
 ---
 
 
+
+
+
+
+
 # Kis beadandó és nagy féléves
+
 
 
 ## Példák

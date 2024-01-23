@@ -3,6 +3,7 @@ layout: default
 title: Szimuláció
 has_children: true
 nav_order: 7
+permalink: /szimulacio/
 ---
 
  

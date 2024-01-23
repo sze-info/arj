@@ -20,7 +20,7 @@ parent: Bevezetés
 
 # `ROS 2` alapfoglamak
 
-[ROS verziók és telepítés](https://sze-info.github.io/arj/telepites/README.html)
+[ROS verziók és telepítés](https://sze-info.github.io/arj/telepites/)
 
 
 
@@ -129,7 +129,7 @@ Forrás: [husarnet.com/blog/ros2-docker](https://husarnet.com/blog/ros2-docker)
 
 ## Verziók
 
-[ROS verziók és telepítés](https://sze-info.github.io/arj/telepites/README.html)
+[ROS verziók és telepítés](https://sze-info.github.io/arj/telepites/)
 
 ![Alt text](ros2distros.svg)
 

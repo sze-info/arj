@@ -3,6 +3,7 @@ layout: default
 title: Szabályozás
 has_children: true
 nav_order: 9
+permalink: /szabalyozas/
 ---
 
  

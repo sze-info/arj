@@ -3,6 +3,7 @@ layout: default
 title: Érzékelés
 nav_order: 3
 has_children: true
+permalink: /erzekeles/
 ---
 
  

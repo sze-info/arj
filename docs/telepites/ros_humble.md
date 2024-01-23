@@ -148,7 +148,7 @@ Szintén célszerű beállítani a `colcon_cd` paranccsot, így gyorsan válthat
 
 Részletek: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#setup-colcon-cd](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#setup-colcon-cd)
 
-## Géptermi telepítés
+# Otthoni / géptermi telepítés
 
 Gépteremben a [következő `install_humble.sh`](https://github.com/sze-info/arj/blob/main/docs/telepites/install_humble.sh) fájlt futtatuk minden gépen.
 
@@ -158,11 +158,17 @@ wget https://raw.githubusercontent.com/sze-info/arj/main/docs/telepites/install_
 ``` bash
 sudo chmod +x install_humble.sh
 ```
+
+Otthon:
 ``` bash
 ./install_humble.sh
 ```
+Gépteremben:
+``` bash
+./install_humble.sh campus
+```
 
-## Workspace reset
+# Workspace reset
 
 Ha szeretnénk a teljes `ros2_ws`-t törölni, majd újra klónozni és buildelni (~5 percig eltart), akkor a következő egyetlen hoszú paranccsal megtehetjük:
 

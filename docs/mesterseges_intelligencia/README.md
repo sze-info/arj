@@ -3,6 +3,7 @@ layout: default
 title: Mesterséges intelligencia
 has_children: true
 nav_order: 10
+permalink: /mesterseges_intelligencia/
 ---
 
 # Mesterséges intelligencia

@@ -44,16 +44,16 @@ Szabályzás: zárthurkú modellezett jármű, szabályzó építése (pl PID va
 
 Óra | Dátum | Tananyag
 -----|-----|-----
-1 | szept. 6. | [Bevezetés](https://sze-info.github.io/arj/bevezetes/README.html): A tantárgy felépítése. Robotikai és önvezető járműves ismeretek. Érzékelés, észlelés, tervezés, szabályozás, aktuálás.
+1 | szept. 6. | [Bevezetés](https://sze-info.github.io/arj/bevezetes/): A tantárgy felépítése. Robotikai és önvezető járműves ismeretek. Érzékelés, észlelés, tervezés, szabályozás, aktuálás.
 2 | szept. 13. | [ROS2 koncepciók](https://sze-info.github.io/arj/bevezetes/ros2.html): Egyetemi robotok és járművek ismertetése. `ROS 2` alapismeretek.
-3 | szept. 20. | [Érzékelés](https://sze-info.github.io/arj/erzekeles/README.html): Kamera, LIDAR, GNSS (GPS), IMU, CAN szenzorok működése, jelfeldolgozása, főbb `ROS 2` topicok, `ROS 2` időkezelés.
+3 | szept. 20. | [Érzékelés](https://sze-info.github.io/arj/erzekeles/): Kamera, LIDAR, GNSS (GPS), IMU, CAN szenzorok működése, jelfeldolgozása, főbb `ROS 2` topicok, `ROS 2` időkezelés.
 4 | szept. 27. | [Féléves beadandó](https://sze-info.github.io/arj/feleves_beadando/): féléves beadandó ismertetése, osztályzási szempontok, ötletek, kérdések-válaszok
-5 | okt. 4. | [Transzformációk](https://sze-info.github.io/arj/transzformaciok/README.html): Merev test mozgása, mátrix szorzás ismétlése, homogén koordináták szemléltetése rövid progamkódokkal, quaternion (kvaterniók) fogalma.
-6 | okt. 11. | [Észlelés](https://sze-info.github.io/arj/eszleles/README.html): objektumfelismerés, objektumklasszifikáció, objektum követés és predikció, SLAM és LOAM.
-7 | okt. 25. | [Szimuláció](https://sze-info.github.io/arj/szimulacio/README.html): ROS 2 kompatibilis szimulátorok áttekintése (pl [Gazebo](http://gazebosim.org/), [Carla](https://carla.org/), [SVL](https://www.lgsvlsimulator.com/), [OSSDC SIM](https://github.com/OSSDC/OSSDC-SIM), [AirSim](https://microsoft.github.io/AirSim), [AWSIM](https://tier4.github.io/AWSIM), [CoppeliaSim](https://www.coppeliarobotics.com/coppeliaSim), [MVSim](https://mvsimulator.readthedocs.io/))
-8 | nov. 8. | [Tervezés](https://sze-info.github.io/arj/tervezes/README.html): Globális tervezés, lokális tervezés. Lokális tervezés: keresztirányú és hosszirányú tervezés.
-9 | nov. 15. | [Szabályozás](https://sze-info.github.io/arj/szabalyozas/README.html): Járműirányítási megoldások (inverz-modellek, prediktív modellek, zárhurkú modellek).
-10 | nov. 22. | [Mesterséges intelligencia](https://sze-info.github.io/arj/mesterseges_intelligencia/README.html): Neurális hálózatok járműves és robotikai fókusszal.
+5 | okt. 4. | [Transzformációk](https://sze-info.github.io/arj/transzformaciok/): Merev test mozgása, mátrix szorzás ismétlése, homogén koordináták szemléltetése rövid progamkódokkal, quaternion (kvaterniók) fogalma.
+6 | okt. 11. | [Észlelés](https://sze-info.github.io/arj/eszleles/): objektumfelismerés, objektumklasszifikáció, objektum követés és predikció, SLAM és LOAM.
+7 | okt. 25. | [Szimuláció](https://sze-info.github.io/arj/szimulacio/): ROS 2 kompatibilis szimulátorok áttekintése (pl [Gazebo](http://gazebosim.org/), [Carla](https://carla.org/), [SVL](https://www.lgsvlsimulator.com/), [OSSDC SIM](https://github.com/OSSDC/OSSDC-SIM), [AirSim](https://microsoft.github.io/AirSim), [AWSIM](https://tier4.github.io/AWSIM), [CoppeliaSim](https://www.coppeliarobotics.com/coppeliaSim), [MVSim](https://mvsimulator.readthedocs.io/))
+8 | nov. 8. | [Tervezés](https://sze-info.github.io/arj/tervezes/): Globális tervezés, lokális tervezés. Lokális tervezés: keresztirányú és hosszirányú tervezés.
+9 | nov. 15. | [Szabályozás](https://sze-info.github.io/arj/szabalyozas/): Járműirányítási megoldások (inverz-modellek, prediktív modellek, zárhurkú modellek).
+10 | nov. 22. | [Mesterséges intelligencia](https://sze-info.github.io/arj/mesterseges_intelligencia/): Neurális hálózatok járműves és robotikai fókusszal.
 
 
 ## Gyakorlat

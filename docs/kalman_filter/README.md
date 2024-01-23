@@ -2,6 +2,7 @@
 layout: default
 title: Kálmán filter
 has_children: true
+permalink: /kalman_filter/
 ---
 
 

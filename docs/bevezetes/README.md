@@ -3,6 +3,7 @@ layout: default
 title: Bevezetés
 has_children: true
 nav_order: 1
+permalink: /bevezetes/
 ---
 
  

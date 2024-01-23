@@ -3,6 +3,7 @@ layout: default
 title: Tervezés
 has_children: true
 nav_order: 8
+permalink: /tervezes/
 ---
 
  

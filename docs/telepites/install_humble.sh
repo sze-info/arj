@@ -1,3 +1,13 @@
+
+echo "First arg: $1"
+if [ "$1" != "campus" ]
+then
+    echo "++++ home install settings ++++"
+else
+    echo "!!!! campus settings !!!!"
+    sleep 2
+fi
+
 echo "++++ install script start ++++"
 echo ""
 
@@ -76,9 +86,17 @@ sudo apt install mc -y
 sudo apt install ros-humble-rosbag2-storage-mcap ros-humble-rosbag2 -y
 sudo apt install ros-humble-ros-gz -y
 
-sudo mkdir /mnt/kozos
-#sudo mount -t drvfs '\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása' /mnt/kozos
-echo "\\\\\\\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása    /mnt/kozos    drvfs defaults,uid=1000,gid=1000    0    0" | sudo tee -a /etc/fstab
+echo "First arg: $1"
+if [ "$1" != "campus" ]
+then
+    echo ""
+else
+    echo "!!!! campus settings !!!!"
+    sudo mkdir /mnt/kozos
+    #sudo mount -t drvfs '\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása' /mnt/kozos
+    echo "\\\\\\\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása    /mnt/kozos    drvfs defaults,uid=1000,gid=1000    0    0" | sudo tee -a /etc/fstab
+fi
+
 echo ""
 echo "++++ install script end ++++"
 echo ""

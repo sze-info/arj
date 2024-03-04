@@ -20,7 +20,12 @@ parent: Bevezetés
 
 # Linux
 
-A leírásban alapvető Linux ismeretek találhatók. Linuxban (ebben a leírásban értsd  Ubuntu, Raspbian) a legtöbb munkamenetet lehetséges, vagy épp célszerű terminálból végrehajtani.
+A leírásban alapvető Linux ismeretek találhatók. 
+
+
+![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/overview16.svg)
+
+Linuxban (ebben a leírásban értsd  Ubuntu, Raspbian) a legtöbb munkamenetet lehetséges, vagy épp célszerű terminálból végrehajtani.
 Ez a tutorial segít a linux terminál alapjainak megismertetésében.
 
 {: .highlight }

@@ -22,7 +22,11 @@ permalink: /erzekeles/
 
 # Érzékelés
 
-Az érzékelés nyers adatok beolvasását jelenti, fontos, hogy még nem jelent magas szintű adatfeldolgozást. Szenzorai lehtnek kamerák, mikrofonok, LIDAR-ok stb.
+Az érzékelés nyers adatok beolvasását jelenti.
+
+![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/overview10.svg)
+
+Érzékelés esetében fontos felhívi a figyelmet, hogy ez még nem jelent magas szintű adatfeldolgozást. Szenzorai lehetnek kamerák, mikrofonok, LIDAR-ok stb. Ahogy az ábra is mutatja a tananyagban az érzékeléssel együtt tárgyaljuk az aktuálást is.
 
 {: .note }
 Magyar nyelven könnyű összekeverni az érzékelés (sensing) és az észlelés (perception) foglamakat. Az érzékelés egyszerű driver szintű nyers adatok előállításával foglakozik.

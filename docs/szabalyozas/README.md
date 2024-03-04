@@ -23,6 +23,10 @@ permalink: /szabalyozas/
 
 # Szabályozás
 
+A szabályozás célja a megtervezett trajektória kivitelezése.
+
+![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/overview14.svg)
+
 ## 1. Motiváció a zárthurkú szabályozás mögött - bevezetés
 
 Egy rendszer tervezett célállapotát úgy érhetjük el, ha célérték figyelembevételével a rendszerbe beavatkozunk. Például egy jármű esetén a célsebességet a gáz és fékpedál mozgatásával, közvetetten a motor nyomatékának és a fékerőnek a változtatásával érhetjük el. Kezdeti példának tekintsünk egy járművezetőt: a vezető általában tisztában van a megengedett legnagyobb sebességgel, ekörül alkalmaz egy számára megfelelő tűrési sávot. Ezen belül meghatároz egy számára biztonságos és kényelmes sebességet, amit tartani szeretne. A vezető addig gyorsít, amíg el nem éri a kívánt sebességet, majd a gázpedált kicsit visszábbengedve tartja a sebességet.

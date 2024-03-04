@@ -22,7 +22,11 @@ permalink: /szimulacio/
 
 # Szimuláció
 
-A szimuláció lényege, hogy a kezdeti, akár komoly tesztelés nélküli programkódunkat **ne** a való világban az önvezető autónkon / robotunkon kezdjük el kipróbálni. Ennek ugyanis értelemszerű hátrányai lehetnek. Fontos azonban megjegyezni, hogy a szimulátor mindig a valóság egyszerűsített modelljét szimulálja csupán, így a szimulátorban jól működő kód nem mindig fog teljesen működni a való életben is.
+A szimuláció során számítógépes modellen tanulmányozzuk a rendszer várható viselkedésését.
+
+![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/overview01.svg)
+
+A szimuláció lényege tehát, hogy a kezdeti, akár komoly tesztelés nélküli programkódunkat **ne** a való világban az önvezető autónkon / robotunkon kezdjük el kipróbálni. Ennek ugyanis értelemszerű hátrányai lehetnek. Fontos azonban megjegyezni, hogy a szimulátor mindig a valóság egyszerűsített modelljét szimulálja csupán, így a szimulátorban jól működő kód nem mindig fog teljesen működni a való életben is.
 
 Eddig egyedül a [Turtlesim](https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html) nevű 2D szimulátort használtuk. Egyszerűsége, oktatási jellege miatt közkedvelt, de a 3D világ természtesen ennnél sokkal összetettebb. Célszerű lehet tehát 3D szimulátorokat használni. 
 

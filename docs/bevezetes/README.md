@@ -34,7 +34,7 @@ Irodalom: [[TU München](https://github.com/TUMFTM/Lecture_ADSE)], [[Autoware](h
 4. **Szabályozás**: a tervező által előállított útvonal, vagy tarjektória lekövetése, például Pure-Pursuit szabályzó, Modell Prediktív Szabályzó (Model Predictive Control, MPC) stb. segítségével.
 5. **Aktuálás**: a rendszer által előállított referenciajelek (kormányszög, gáz és fékpedál) kiadása (pl. [CAN bus](https://en.wikipedia.org/wiki/CAN_bus) rendszeren).
 
-A fenti beosztás megfigyelhető nagyobb rendszerek, például az [Autoware összefoglaló rendszerábráján is](https://app.diagrams.net/?lightbox=1#Uhttps://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/node-diagram/overall-node-diagram-autoware-universe.drawio.svg).
+A fenti beosztás megfigyelhető nagyobb rendszerek, például az [Autoware összefoglaló rendszerábráján is](https://app.diagrams.net/?lightbox=1#Uhttps://autowarefoundation.github.io/autoware-documentation/main/design/autoware-architecture/node-diagram/overall-node-diagram-autoware-universe.drawio.svg). Robotikában ismeretes még a sense-think-act paradigma is. Itt a gondolkodás (think) foglalja össze az észlelést, a tervezést és valamennyire a szabályozást is.
 
 Nézzünk minden részfeladatra egy szemléltetést, az egyetemünk egyik önvezető funkciókkal rendelkező autóján, a zalaegerszegi tesztpályán:
 

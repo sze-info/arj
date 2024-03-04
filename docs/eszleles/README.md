@@ -26,7 +26,11 @@ permalink: /eszleles/
 
 # Észlelés
 
-Az észlelés (perception) az érzékelt nyers adatokból történő információ kinyerése. Célja lehet:
+Az észlelés (perception) az érzékelt nyers adatokból történő információ kinyerése. 
+
+![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/overview11.svg)
+
+Az észlelés célja lehet:
 - Objektumfelismerés, pl: 
     - Gyalogos, biciklis jármű felimerés 
     - Tábla felismerés, jelzőlámpa felismerés

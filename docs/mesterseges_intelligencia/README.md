@@ -8,7 +8,14 @@ permalink: /mesterseges_intelligencia/
 
 # Mesterséges intelligencia
 
-Az órai prezentáció itt található meg: [Link](assets/arj-ai.pptx)
+Az AI az észlelés mellett akár a tervezésnél vagy a szabályozásnál is megjelenhet.
+
+![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/overview15.svg)
+
+
+Bár legfontosabb autonóm alkamazási köre az észlelés, ahogy a fenti ábrán is látszik: tervezési illetve szabályozási felhasználása is van.
+
+A mesterséges intelligencia (AI) órai prezentáció itt található meg: [Link](assets/arj-ai.pptx)
 
 
 Példa videók:

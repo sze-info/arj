@@ -24,6 +24,10 @@ permalink: /tervezes/
 
 # Tervezés
 
+Megkülönböztethetünk globális tervezés és lokális tervezést.
+
+![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/overview13.svg)
+
 A tervezés mint fogalom arra a kérdésre ad választ, hogy hogyan jutunk el A-ból B pontba a megfelelő kritériumok mellett. A tervezésnek két alrésze van a **pálya-** vagy **útvonaltervezés**, amely megmondja hogy az adott szakaszon merre kell menni illetve a **trajektóriatervezés**, amely azt mondja meg hogy az adott szakaszon milyen sebességel kell haladnia az adott járműnek. 
 
 A tervezési feladat jellege szerint megkülönböztettünk globális és lokális tervezést. A két tervezési módszer különbségeit az alábbi táblázat foglalja össze: 

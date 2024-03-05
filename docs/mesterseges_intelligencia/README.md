@@ -6,6 +6,20 @@ nav_order: 10
 permalink: /mesterseges_intelligencia/
 ---
 
+ 
+
+<details markdown="block">
+  <summary>
+    Tartalom
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
+---
+
+
 # Mesterséges intelligencia
 
 Az AI az észlelés mellett akár a tervezésnél vagy a szabályozásnál is megjelenhet.

@@ -282,3 +282,9 @@ ROS 2
 
 - [docs.ros.org/en/humble](https://docs.ros.org/en/humble/)
 - [docs.ros.org](https://docs.ros.org)
+
+### Egyéb
+
+- VS code és ROS 2 ajánlott beállítások: [picknik.ai/vscode/docker/ros2/2024/01/23/ROS2-and-VSCode.html](https://picknik.ai/vscode/docker/ros2/2024/01/23/ROS2-and-VSCode.html)
+- ROS felhasználók a világban: [metrorobots.com/rosmap.html](http://metrorobots.com/rosmap.html)
+- Colcon cheatsheet: [github.com/ubuntu-robotics/ros2_cheats_sheet/blob/master/colcon%2Fcolcon_cheats_sheet.pdf](https://github.com/ubuntu-robotics/ros2_cheats_sheet/blob/master/colcon%2Fcolcon_cheats_sheet.pdf)

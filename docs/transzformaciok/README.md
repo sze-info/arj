@@ -3,7 +3,7 @@ layout: default
 title: Transzformációk
 has_children: true
 nav_order: 5
-permalink: /transzfromaciok/
+permalink: /transzformaciok/
 ---
 
  
@@ -119,7 +119,7 @@ Forrás: [Robotic Systems, University of Illinois](http://motion.cs.illinois.edu
 
 [matrixmultiplication.xyz](http://matrixmultiplication.xyz/){: .btn .btn-blue .mr-4 }
 
-[Python notebook](https://nbviewer.org/github/horverno/sze-academic-python/blob/master/eload/ealeshtranszfromaciok.ipynb){: .btn .btn-blue .mr-4 }
+[Python notebook](https://nbviewer.org/github/horverno/sze-academic-python/blob/master/eload/ealeshtranszformaciok.ipynb){: .btn .btn-blue .mr-4 }
 
 
 

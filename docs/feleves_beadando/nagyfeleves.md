@@ -101,10 +101,10 @@ Erről [leírás itt](https://sze-info.github.io/arj/onallo/ros2git.html) olvash
 
 ### Meme
 
-<center><img src="meme01.jpg" width="60%" /></center>
+<center><img src="https://sze-info.github.io/arj/feleves_beadando/meme01.jpg" width="60%" /></center>
 
 Credit: [pycoders](https://www.instagram.com/pycoders/)
 
-<center><img src="meme02.jpg" width="60%" /></center>
+<center><img src="https://sze-info.github.io/arj/feleves_beadando/meme02.jpg" width="60%" /></center>
 
 Credit: [knowyourmeme](https://knowyourmeme.com/memes/but-its-honest-work)

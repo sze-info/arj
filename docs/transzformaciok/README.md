@@ -42,6 +42,11 @@ Merevnek tekinthető az a test, mely pontjainak távolsága mozgás során nem v
 
 *Rotáció szemléltetése [Forrás: University of Illinois](http://motion.cs.illinois.edu/RoboticSystems/CoordinateTransformations.html)*
 
+
+Az alábbiakban egy rövid (~9 perc), de hasznos videó látható a témáról:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NGPn9nvLPmg?si=nd182aJPvKvUjxhk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 # Transzformációk
 
 A pose (póz) a pozíció (elhelyezkedés) és orientáció (irány) összessége. Amennyiben egy térbeli pose-t transzformálunk (mozgatunk és forgatunk) egy másik pose keletkezik. Ez a két pose egymáshoz képest két transzformációs frame. Ilyen transzformációs frame-k írják le a teljes robotikai rendszert.

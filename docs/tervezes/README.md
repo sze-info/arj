@@ -51,6 +51,15 @@ Az utazó ügynök probléma egy jól ismert kombinatorikus optimalizációs pro
 Formálisan megfogalmazva, legyen adott egy irányított súlyozott gráf, ahol a csomópontok reprezentálják a városokat, az élek a városok közötti utakat jelölik, és a súlyok az élek hosszát jelölik. A cél az, hogy találjunk egy olyan Hamilton-kört (kör, amely minden csomópontot pontosan egyszer érint), amelynek összsúlya minimális. A probléma az NP-nehéz osztályba tartozik, ami azt jelenti, hogy nincs ismert hatékony algoritmus, amely mindig garantáltan megtalálja a legoptimálisabb megoldást polinomiális időben a városok számával arányosan.
 
 
+Ismertebb globális tervező algoritmusok: 
+- RRT (Rapidly exploring random tree) [en.wikipedia.org/wiki/Rapidly_exploring_random_tree](https://en.wikipedia.org/wiki/Rapidly_exploring_random_tree)
+- Informed-RRT
+- A-star [en.wikipedia.org/wiki/A*_search_algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm)
+- D-star [en.wikipedia.org/wiki/D*](https://en.wikipedia.org/wiki/D*)
+- Dijkstra [en.wikipedia.org/wiki/Dijkstra%27s_algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
+
+
 # Lokális tervezés
 
 ## Motiváció
@@ -69,6 +78,13 @@ Ebben a fejezetben a lokális trajektória megtervezéséhéz szükséges alapok
 
 Ahhoz, hogy ezeket a célokat teljesíteni tudjuk, tudni kell, pontosan a globális útvonalat, mérni kell a dinamikus változókat, ismernünk kell a járművet illetve tudnunk kell, pontosan mit jelent az utasok számára a "komfort".
 Emellett fontos kiemelni, hogy a lokális útvonal a legtöbbször nem kizárólag pontok halmaza. A trajektória reprezentálására valamilyen modellt használunk, azaz geometriailag kompakt formában írjuk le. Ez a gyakorlatban jelenthet pl. polinomiális formát, Euler-görbét, Spline-t...stb. Ezek a görbe leírások mind véges számú paraméterrel írnak le egy görbét. Ahhoz, hogy a görbe egy pontját megkapjuk, a görbét leíró függvényt kiértékeljük egy adott X távolságon. Ez a megközelítés azért hasznos, mert így hosszú görbéket is kevés paraméter segítségével tudunk leírni, és így a megvalósítás során memóriát és futásidőt spórolunk. Továbbá az egyenlet deriváltjai további mennyiségeket (pl. orientáció, görbület) adnak meg, és így a szabályzás számára ezeket könnyen elő tudjuk állítani.
+
+Ismertebb lokális tervező algoritmusok: 
+- PID (Proportional–integral–derivative) [en.wikipedia.org/wiki/Proportional-integral-derivative_controller](https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller)
+- LQR (Linear–quadratic regulator) [en.wikipedia.org/wiki/Linear-quadratic_regulator](https://en.wikipedia.org/wiki/Linear%E2%80%93quadratic_regulator)
+- DWA (Dynamic Window Approach) [en.wikipedia.org/wiki/Dynamic_window_approach](https://en.wikipedia.org/wiki/Dynamic_window_approach)
+- TEB (Timed Elastic Band)
+- MPC (Model Predictive Control) [en.wikipedia.org/wiki/Model_predictive_control](https://en.wikipedia.org/wiki/Model_predictive_control)
 
 ## Tervezési példa
 
@@ -172,9 +188,9 @@ Szintén ROS 2 támogatott az [Autoware](https://autowarefoundation.github.io/au
 
 # Irodalomjegyzék
 
-[1] Moritz Werling, Julius Ziegler, Sören Kammel, and Sebastian Thrun: Optimal Trajectory Generation for Dynamic Street Scenarios in a
+- [1] Moritz Werling, Julius Ziegler, Sören Kammel, and Sebastian Thrun: Optimal Trajectory Generation for Dynamic Street Scenarios in a
 Frenét Frame, 2010 IEEE International Conference on Robotics and Automation, Anchorage Convention District, May 3-8, 2010, Anchorage, Alaska, USA, pp. 987-993
-
+- [2] [github.com/ai-winter/ros_motion_planning](https://github.com/ai-winter/ros_motion_planning): ROS 1, de tervezetten ROS 2 **Globális** tervezők: Dijkstra, A-star, D-star, RRT, INformed-RRT, GBFS **Lokális** tervezők: PID, LQR (Linear–quadratic regulator), DWA (Dynamic Window Approach), APF, RPP, TEB (Timed Elastic Band), MPC (Model Predictive Control)
 
 
 

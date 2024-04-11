@@ -23,6 +23,10 @@ parent: Észlelés
 
 Simultaneous localization and mapping (SLAM) és LIDAR-based odometry and or mapping (LOAM).
 
+Egy győri mérésből összeállított gobális pontfelhő:
+
+![](kossuthhid01.png)
+
 ## Direct LIDAR-Inertial Odometry
 
 A DLIO egy könnyűsúlyú LIDAR-inerciális odometra algoritmus, amely újszerű coarse-to-fine (durva-finom) megközelítéssel folytonos idejű trajektóriát generál.

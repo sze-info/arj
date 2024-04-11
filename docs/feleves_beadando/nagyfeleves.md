@@ -22,22 +22,25 @@ permalink: /nagy_feleves/
 
 # Nagy féléves
 
+A nagy féléves projekt elkészítése több időt igényel, azonban lehetőség van sokkal érdekesebb feladatokat kidolgozni, ráadásul jóval több hét alatt. A félévesre alapozva, a tárgy *teljesítése után* akár diplomamunka, szakdolgozat, projektmunka, TDK dolgozat is készíthető, illetve van lehetőség a kötelező szakmai gyakorlat teljesítésére is.
+
 
 ## Példák
 
 Példa a nagy félévesre, amit az oktatók készítettek:
-- [github.com/horverno/simple_random_trees](https://github.com/horverno/simple_random_trees)
+- [github.com/horverno/simple_random_trees](https://github.com/horverno/simple_random_trees): A package egy egyszerű útvonaltervezésre használható véletlenszerű fa algoritmus. Ez a megvalósítása a vizualizációra összpontosít, nem pedig egy átfogó véletlenszerű fa-alapú útvonal tervező rendszer. A `/display_tree
+node` egy `/path_marker_topic`-ot hirdet, ami `visualization_msgs/marker_array` típusú. A faadatstrukúrát megvalósító függvények külön header fájlban kaptak helyet. Megvalósítás `ROS 2 Humble` alatt.
 
 Az alábbi példák nem feltétlenül féléves munkának készültek, de annak elfogadhatóak lennének:
--  [github.com/jkk-research/wayp_plan_tools](https://github.com/jkk-research/wayp_plan_tools)
--  [github.com/jkk-research/sim_wayp_plan_tools](https://github.com/jkk-research/sim_wayp_plan_tools)
--  [github.com/jkk-research/pointcloud_to_grid](https://github.com/jkk-research/pointcloud_to_grid)
--  [github.com/jkk-research/urban_road_filter](https://github.com/jkk-research/urban_road_filter)
--  [github.com/dobaybalazs/curb_detection](https://github.com/dobaybalazs/curb_detection)
--  [github.com/kkira07/Szakdolgozat](https://github.com/kkira07/Szakdolgozat)
--  [github.com/szenergy/rviz_markers](https://github.com/szenergy/rviz_markers)
--  [github.com/linklab-uva/f1tenth_gtc_tutorial](https://github.com/linklab-uva/f1tenth_gtc_tutorial)
--  [github.com/Farraj007/Jkk-task](https://github.com/Farraj007/Jkk-task)
+- [github.com/jkk-research/wayp_plan_tools](https://github.com/jkk-research/wayp_plan_tools)
+- [github.com/jkk-research/sim_wayp_plan_tools](https://github.com/jkk-research/sim_wayp_plan_tools)
+- [github.com/jkk-research/pointcloud_to_grid](https://github.com/jkk-research/pointcloud_to_grid)
+- [github.com/jkk-research/urban_road_filter](https://github.com/jkk-research/urban_road_filter)
+- [github.com/dobaybalazs/curb_detection](https://github.com/dobaybalazs/curb_detection)
+- [github.com/kkira07/Szakdolgozat](https://github.com/kkira07/Szakdolgozat)
+- [github.com/szenergy/rviz_markers](https://github.com/szenergy/rviz_markers)
+- [github.com/linklab-uva/f1tenth_gtc_tutorial](https://github.com/linklab-uva/f1tenth_gtc_tutorial)
+- [github.com/Farraj007/Jkk-task](https://github.com/Farraj007/Jkk-task)
 
 *Megjegyzés*: a tárgyban az ROS 2 Humble verziót használjuk, de a féléves beadandót (indoklással) más verzióban is elfogadjuk.
 
@@ -101,10 +104,10 @@ Erről [leírás itt](https://sze-info.github.io/arj/onallo/ros2git.html) olvash
 
 ### Meme
 
-<center><img src="https://sze-info.github.io/arj/feleves_beadando/meme01.jpg" width="60%" /></center>
+<center><img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/feleves_beadando/meme01.jpg" width="60%" /></center>
 
 Credit: [pycoders](https://www.instagram.com/pycoders/)
 
-<center><img src="https://sze-info.github.io/arj/feleves_beadando/meme02.jpg" width="60%" /></center>
+<center><img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/feleves_beadando/meme02.jpg" width="60%" /></center>
 
 Credit: [knowyourmeme](https://knowyourmeme.com/memes/but-its-honest-work)

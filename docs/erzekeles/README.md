@@ -82,6 +82,8 @@ A [GNSS](https://en.wikipedia.org/wiki/Satellite_navigation) (global navigation 
 
 ![gnss](gps01.png)
 
+Rövid, de jó leírás a GNSS pontosságról: [www.sbg-systems.com/news/mastering-accurac-gnss-and-its-errors-sources/](https://www.sbg-systems.com/news/mastering-accurac-gnss-and-its-errors-sources/)
+
 ## CAN bus
 
 A CAN bus (Controller Area Network) egy jellemően autóipari szabvány, mely lehetővé teszi a mikrokontrollerek és az eszközök számára, hogy központi egység (host) nélkül kommunikáljanak egymással. Az ethernet kommunkációval összevetve egyszerűbb megvalósítás, alacsonyabb sávszélességű, robosztus.

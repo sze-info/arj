@@ -39,28 +39,85 @@ Ismert terep/munkaterület | Ismeretlen terület
 Az út tervezés előbb történik mint a mozgás | Az út tervezés és a mozgás egyszerre történik
 Nincs szigorú követelmény a számítási időre | Követelmény hogy valós időben működjön 
 
-A tervezés végeredménye mind lokális és globális esetben egy diszkrét pontokra osztott szakasz, amelynek minden pontja tartalmaz pozíció, orientáció és sebesség információkat:
+A tervezés végeredménye mind lokális és globális esetben egy diszkrét pontokra osztott szakasz, amelynek minden pontja tartalmaz pozíció, orientáció és sebesség információkat, amit röviden **trajektóriának** hívunk:
 ![trajektoria](params_en01.svg).
+
+
+```mermaid
+flowchart LR
+subgraph Plan [Tervezés]
+  G[Globális<br/>tervezés]:::red -->|útvonal| L[Lokális<br/>tervezés]:::red
+end
+subgraph Perception [Észlelés]
+  T[Térképezés<br/>/észlelés/]:::light 
+  H[Lokalizáció<br/>/észlelés/]:::light
+  P[Predikció<br/>/észlelés/]:::light 
+end
+T --->|térkép| L
+H --->|pose| L
+P --->|prediktált objektumok| L
+subgraph Control [Szabályozás]
+  L --> |trajektória| S[Szabályozás]:::light 
+end
+
+
+classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
+classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
+classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
+classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
+
+```
 
 # Globális tervezés
 
-## utazó ügynök probléma
+## Bevezetés
+
+Az alábbi német nyelvű, de angol PPT-t és feliratot tartalmazó videó a [TU München](https://github.com/TUMFTM/Lecture_ADSE) tananyagának része, a témában jó összefoglaló:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5OVplZVy544?si=-de0bR_VUOSeXso3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+A Videóhoz tartozó [PDF fájl elérhető itt](https://www.researchgate.net/profile/Phillip-Karle-2/publication/352350798_Autonomous_Driving_Software_Engineering_-_Lecture_06_Planning_I_-_Global_Planning/links/60c48a9f4585157774cd45d0/Autonomous-Driving-Software-Engineering-Lecture-06-Planning-I-Global-Planning.pdf)
+
+| Módszerek | Tulajdonságok | Korlátok |
+|-----------------------|-------------------------| -----------------------------------|
+| Inkrementális módszerek (pl. RRT) | Valószínűleg teljes | A véges időn belüli megoldás nem garantált |
+| Variációs módszerek | Nincs diszkretizálás | Helyi optimumot talál |
+|                  | Alacsony számítási idő | Költségfüggő solver |
+| Gráf alapú módszerek (pl A*)| Megtalálja a globális optimumot | A dimenzionalitás átka |
+|                 | Rugalmas költségfüggvény | Diskretizált megoldás |
+
+| Methods               | Properties             | Limitations                      |
+|-----------------------|------------------------|----------------------------------|
+| Incremental Methods (eg. RRT) | Probabilistically complete |  Solution in finite time not guaranteed | 
+| Variational Methods   | No discretization      | Finds local optimum              |
+|                       | Low computation time   | Cost dependent solver            |
+| Graph-Based Methods  (eg. A*) | Finds global optimum   | Curse of dimensionality          |
+|                       | Flexible cost function | Discretized solution             |
+
+
+Ismertebb globális tervező algoritmusok: 
+- RRT (Rapidly exploring random tree) [en.wikipedia.org/wiki/Rapidly_exploring_random_tree](https://en.wikipedia.org/wiki/Rapidly_exploring_random_tree)
+- Informed-RRT
+- A-star [hu.wikipedia.org/wiki/A%2A_algoritmus](https://hu.wikipedia.org/wiki/A%2A_algoritmus)
+- D-star [en.wikipedia.org/wiki/D* ](https://en.wikipedia.org/wiki/D%2A)
+- Dijkstra [en.wikipedia.org/wiki/Dijkstra's_algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
+## Utazó ügynök probléma
 
 Az utazó ügynök probléma egy jól ismert kombinatorikus optimalizációs probléma, amely a számítástudomány és a matematika területén jelent meg. A probléma lényege az, hogy az utazó ügynöknek egy adott városokból álló halmazt kell meglátogatnia, és vissza kell térnie a kiindulási városba a lehető legrövidebb úton úgy, hogy minden várost pontosan egyszer látogat meg.
 
 Formálisan megfogalmazva, legyen adott egy irányított súlyozott gráf, ahol a csomópontok reprezentálják a városokat, az élek a városok közötti utakat jelölik, és a súlyok az élek hosszát jelölik. A cél az, hogy találjunk egy olyan Hamilton-kört (kör, amely minden csomópontot pontosan egyszer érint), amelynek összsúlya minimális. A probléma az NP-nehéz osztályba tartozik, ami azt jelenti, hogy nincs ismert hatékony algoritmus, amely mindig garantáltan megtalálja a legoptimálisabb megoldást polinomiális időben a városok számával arányosan.
 
 
-Ismertebb globális tervező algoritmusok: 
-- RRT (Rapidly exploring random tree) [en.wikipedia.org/wiki/Rapidly_exploring_random_tree](https://en.wikipedia.org/wiki/Rapidly_exploring_random_tree)
-- Informed-RRT
-- A-star [en.wikipedia.org/wiki/A*_search_algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm)
-- D-star [en.wikipedia.org/wiki/D*](https://en.wikipedia.org/wiki/D*)
-- Dijkstra [en.wikipedia.org/wiki/Dijkstra%27s_algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
-
-
-
 # Lokális tervezés
+
+## Bevezetés
+
+Az alábbi német nyelvű, de angol PPT-t és feliratot tartalmazó videó a [TU München](https://github.com/TUMFTM/Lecture_ADSE) tananyagának része, a témában jó összefoglaló:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/B3WuUnivDMg?si=p-YMEGUkhzb0wKGL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+A Videóhoz tartozó [PDF fájl elérhető itt](https://www.researchgate.net/profile/Phillip-Karle-2/publication/352322244_Autonomous_Driving_Software_Engineering_-_Lecture_07_Planning_II_-_Local_Planning/links/60c36805299bf1949f4aaefb/Autonomous-Driving-Software-Engineering-Lecture-07-Planning-II-Local-Planning.pdf).
 
 ## Motiváció
 

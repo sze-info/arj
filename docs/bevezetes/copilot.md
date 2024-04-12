@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Copilot
+title: GitHub Copilot
 parent: Bevezetés
 ---
 

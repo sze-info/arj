@@ -98,7 +98,7 @@ A Videóhoz tartozó [PDF fájl elérhető itt](https://www.researchgate.net/pro
 Ismertebb globális tervező algoritmusok: 
 - RRT (Rapidly exploring random tree) [en.wikipedia.org/wiki/Rapidly_exploring_random_tree](https://en.wikipedia.org/wiki/Rapidly_exploring_random_tree)
 - Informed-RRT
-- A-star [hu.wikipedia.org/wiki/A%2A_algoritmus](https://hu.wikipedia.org/wiki/A%2A_algoritmus)
+- A-star [hu.wikipedia.org/wiki/A*_algoritmus](https://hu.wikipedia.org/wiki/A%2A_algoritmus)
 - D-star [en.wikipedia.org/wiki/D* ](https://en.wikipedia.org/wiki/D%2A)
 - Dijkstra [en.wikipedia.org/wiki/Dijkstra's_algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 

@@ -26,19 +26,19 @@ A gyakorlat során meg fogunk ismerkedni az önvezető járművek jellemző tula
 
 Bevezetésképpen nézzük egy önvezető jármű jellemző adatait. Példaképp célszerű az **egyetemünk** egyik ilyen járművével készült adatokat vizsgálni. [Foxglove Studio](https://foxglove.dev/download)-t fogunk használni, hiszen telepítés nélkül, vagy ~150MB méretű telepíthető állományként is hozzáférhető, valamint képes vizualizálni a számunkra fontos adatokat. A vizsgált adatok hasonló képet fognak mutatni:
 
-![foxglove01](foxglove01.png)
+![foxglove03](foxglove03.png)
 
 Órán a `K:\` meghajtóról (`\\fs-kab.eik.sze.hu\C100\kozos\GKNB_AUTM078_Autonóm_robotok_és_járművek_programozása`), otthon a zöld gombot használva töltsük le a fent vizualizált rosbag `.bag` / `.mcap` fájlt és a Foxglove Studio layout-ot:
 
-[Rosbag letöltése 3.37 GB](https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/EYl_ahy5pgBBhNHt5ZkiBikBoy_j_x95E96rDtTsxueB_A?download=1){: .btn .btn-green .mr-4 } 
-[Layout letöltése](https://jkk-research.github.io/data/leaf01foxglove.json){: .btn .btn-blue }
+[MCAP letöltése 553 MB](https://laesze-my.sharepoint.com/:u:/g/personal/herno_o365_sze_hu/Eclwzn42FS9GunGay5LPq-EBA6U1dZseBFNDrr6P0MwB2w?download=1){: .btn .btn-green .mr-4 } 
+[Layout letöltése](https://raw.githubusercontent.com/sze-info/arj/main/docs/bevezetes/lexus01foxglove.json){: .btn .btn-blue }
 
 
 
 ``` r
 cd /mnt/c/temp
 mkdir /mnt/c/temp # ha nem létezne
-rsync -avzh --progress /mnt/kozos/measurement_files/lexus-2023-07-18-campus.mcap  /mnt/c/temp/
+rsync -avzh --progress /mnt/kozos/measurement_files/lexus3-2024-04-05-gyor.mcap /mnt/c/temp/
 rsync -avzh --progress /mnt/kozos/measurement_files/lexus01foxglove.json   /mnt/c/temp/
 ```
 
@@ -47,7 +47,7 @@ A [https://jkk-research.github.io/#dataset](https://jkk-research.github.io/#data
 
 ## A Foxglove bemutatása
 
-Amíg a `.bag` töltődik, röviden bemutatjuk a Foxglove Studio programot. A Foxglove Studio egy nyílt forráskódú, robotikai adatokat vizualizáló és hibakereső eszköz. Elérhető számos módon:
+Amíg az `.mcap` töltődik, röviden bemutatjuk a Foxglove Studio programot. A Foxglove Studio egy nyílt forráskódú, robotikai adatokat vizualizáló és hibakereső eszköz. Egész pontosan a `v1.87.0`-ig bezárólag nyílt forráskódu volt, a `v2.0.0`-tól pedig ingyenesen hazsnálható, de zárt forráskódú. Elérhető számos módon:
 - önálló asztali alkalmazásként futtatható
 - böngészőben hozzáférhető
 - saját domainen, önállóan hostolható

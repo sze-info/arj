@@ -54,7 +54,7 @@ callouts:
 mermaid:
   # Version of mermaid library
   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
-  version: "9.2.2"
+  version: "10.9.0"
 
 # Sort order for navigation links
 # nav_sort: case_insensitive # default, equivalent to nil

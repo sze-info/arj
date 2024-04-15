@@ -78,35 +78,24 @@ Az alábbi német nyelvű, de angol PPT-t és feliratot tartalmazó videó a [TU
 
 A Videóhoz tartozó [PDF fájl elérhető itt](https://www.researchgate.net/profile/Phillip-Karle-2/publication/352350798_Autonomous_Driving_Software_Engineering_-_Lecture_06_Planning_I_-_Global_Planning/links/60c48a9f4585157774cd45d0/Autonomous-Driving-Software-Engineering-Lecture-06-Planning-I-Global-Planning.pdf)
 
-| Módszerek | Tulajdonságok | Korlátok |
-|-----------------------|-------------------------| -----------------------------------|
-| Inkrementális módszerek (pl. RRT) | Valószínűleg teljes | A véges időn belüli megoldás nem garantált |
-| Variációs módszerek | Nincs diszkretizálás | Helyi optimumot talál |
-|                  | Alacsony számítási idő | Költségfüggő solver |
-| Gráf alapú módszerek (pl A*)| Megtalálja a globális optimumot | A dimenzionalitás átka |
-|                 | Rugalmas költségfüggvény | Diskretizált megoldás |
-
-| Methods               | Properties             | Limitations                      |
-|-----------------------|------------------------|----------------------------------|
-| Incremental Methods (eg. RRT) | Probabilistically complete |  Solution in finite time not guaranteed | 
-| Variational Methods   | No discretization      | Finds local optimum              |
-|                       | Low computation time   | Cost dependent solver            |
-| Graph-Based Methods  (eg. A*) | Finds global optimum   | Curse of dimensionality          |
-|                       | Flexible cost function | Discretized solution             |
-
 
 Ismertebb globális tervező algoritmusok: 
-- RRT (Rapidly exploring random tree) [en.wikipedia.org/wiki/Rapidly_exploring_random_tree](https://en.wikipedia.org/wiki/Rapidly_exploring_random_tree)
-- Informed-RRT
-- A-star [hu.wikipedia.org/wiki/A*_algoritmus](https://hu.wikipedia.org/wiki/A%2A_algoritmus)
-- D-star [en.wikipedia.org/wiki/D* ](https://en.wikipedia.org/wiki/D%2A)
-- Dijkstra [en.wikipedia.org/wiki/Dijkstra's_algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+- **RRT (Rapidly exploring random tree)**: Az RRT egy mintavételezés alapú módszer bejárandó globális tér felderítésére és útvonalak tervezésére. *Megjegyzés*: bizonyos esetekben lokális tervezőként is használják. Az algoritmus random (véletlenszerű) módon választ ki pontokat és növekvő irányban kiterjeszti a fát azáltal, hogy a legközelebbi már meglévő pontokhoz kapcsolja az új pontokat. További információ: [en.wikipedia.org/wiki/Rapidly_exploring_random_tree](https://en.wikipedia.org/wiki/Rapidly_exploring_random_tree).
+- **Informed-RRT**: Az Informed-RRT az alap RRT kiterjesztése, amely heurisztikát használ a cél felé történő hatékonyabb felderítésre. Az algoritmus úgy tervezi az útvonalakat, hogy először a közelebbi területeket fedezze fel, majd a későbbi fázisokban elmozduljon a távolabbi területek felé.
+- **A-star**: Az A* algoritmus (ejtsd "A csillag") gráfbejáró és útvonalkeresési algoritmus, amelyet teljessége,  hatékonysága miatt gyakran régen előszeretettel használtak. Az egyik fő gyakorlati hátránya az $$ O(b^{d}) $$ tárhelybonyolultsága, mivel az összes generált csomópontot eltárolja a memóriában. Így a gyakorlati útkereső rendszerekben általában jobban teljesítenek nála olyan algoritmusok, amelyek képesek a gráf előfeldolgozására a jobb teljesítmény érdekében. További információ: [hu.wikipedia.org/wiki/A*_algoritmus](https://hu.wikipedia.org/wiki/A%2A_algoritmus).
+- **D-star**: A D* algoritmus (ejtsd "D csillag") a "Dynamic A-star" rövidítése. Ez az algoritmus egy módosított változata az A* algoritmusnak, amely dinamikus környezetekben használható. A Dynamic A-star algoritmus folyamatosan frissíti az útvonalat, miközben a robot halad az úton, hogy alkalmazkodjon a változó körülményekhez vagy akadályokhoz.  További információ: [en.wikipedia.org/wiki/D* ](https://en.wikipedia.org/wiki/D%2A).
+- **Dijkstra**: A Dijkstra algoritmus az egyik legismertebb és leggyakrabban használt algoritmus a legrövidebb út keresésére egy gráfban. Ez egy szélességi keresőalgoritmus, amely iteratívan bővíti a fát a kezdőpontból kiindulva, és kiválasztja a legközelebbi még nem látogatott csúcsot. További információ: [en.wikipedia.org/wiki/Dijkstra's_algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm).
+
+Jó tudni, hogy a fenti algoritmusokanak számos változata, továbbfejlesztése ismert.
+
 
 ## Utazó ügynök probléma
 
-Az utazó ügynök probléma egy jól ismert kombinatorikus optimalizációs probléma, amely a számítástudomány és a matematika területén jelent meg. A probléma lényege az, hogy az utazó ügynöknek egy adott városokból álló halmazt kell meglátogatnia, és vissza kell térnie a kiindulási városba a lehető legrövidebb úton úgy, hogy minden várost pontosan egyszer látogat meg.
+Az utazó ügynök probléma (TSP traveling salesman problem) egy jól ismert kombinatorikus optimalizációs probléma, amely a számítástudomány és a matematika területén jelent meg. A probléma lényege az, hogy az utazó ügynöknek egy adott városokból álló halmazt kell meglátogatnia, és vissza kell térnie a kiindulási városba a lehető legrövidebb úton úgy, hogy minden várost pontosan egyszer látogat meg. Tobábbi információ: [hu.wikipedia.org/wiki/Az_utazó_ügynök_problémája](https://hu.wikipedia.org/wiki/Az_utaz%C3%B3_%C3%BCgyn%C3%B6k_probl%C3%A9m%C3%A1ja).
 
-Formálisan megfogalmazva, legyen adott egy irányított súlyozott gráf, ahol a csomópontok reprezentálják a városokat, az élek a városok közötti utakat jelölik, és a súlyok az élek hosszát jelölik. A cél az, hogy találjunk egy olyan Hamilton-kört (kör, amely minden csomópontot pontosan egyszer érint), amelynek összsúlya minimális. A probléma az NP-nehéz osztályba tartozik, ami azt jelenti, hogy nincs ismert hatékony algoritmus, amely mindig garantáltan megtalálja a legoptimálisabb megoldást polinomiális időben a városok számával arányosan.
+Formálisan megfogalmazva, legyen adott egy irányított súlyozott **gráf**, ahol a csomópontok reprezentálják a városokat, az élek a városok közötti utakat jelölik, és a súlyok az élek hosszát jelölik. A cél az, hogy találjunk egy olyan Hamilton-kört (kör, amely minden csomópontot pontosan egyszer érint), amelynek összsúlya minimális. A probléma az NP-nehéz osztályba tartozik, ami azt jelenti, hogy nincs ismert hatékony algoritmus, amely mindig garantáltan megtalálja a legoptimálisabb megoldást polinomiális időben a városok számával arányosan. 
+
+Autonóm járművek és robotika vonatkozásában legtöbbször **nem a klasszikus TSP** probléma merül fel, hanem annak derivátuma, hiszen például egy autonóm jármű esetében pontosan tudjuk honnan indulunk és hova érkezünk. Ez a klasszikus utazó ügynök probléma esetén nem ismert feltétel.
 
 
 # Lokális tervezés
@@ -136,12 +125,41 @@ Ebben a fejezetben a lokális trajektória megtervezéséhéz szükséges alapok
 Ahhoz, hogy ezeket a célokat teljesíteni tudjuk, tudni kell, pontosan a globális útvonalat, mérni kell a dinamikus változókat, ismernünk kell a járművet illetve tudnunk kell, pontosan mit jelent az utasok számára a "komfort".
 Emellett fontos kiemelni, hogy a lokális útvonal a legtöbbször nem kizárólag pontok halmaza. A trajektória reprezentálására valamilyen modellt használunk, azaz geometriailag kompakt formában írjuk le. Ez a gyakorlatban jelenthet pl. polinomiális formát, Euler-görbét, Spline-t...stb. Ezek a görbe leírások mind véges számú paraméterrel írnak le egy görbét. Ahhoz, hogy a görbe egy pontját megkapjuk, a görbét leíró függvényt kiértékeljük egy adott X távolságon. Ez a megközelítés azért hasznos, mert így hosszú görbéket is kevés paraméter segítségével tudunk leírni, és így a megvalósítás során memóriát és futásidőt spórolunk. Továbbá az egyenlet deriváltjai további mennyiségeket (pl. orientáció, görbület) adnak meg, és így a szabályzás számára ezeket könnyen elő tudjuk állítani.
 
-Ismertebb lokális tervező algoritmusok: 
-- PID (Proportional–integral–derivative) [en.wikipedia.org/wiki/Proportional-integral-derivative_controller](https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller)
-- LQR (Linear–quadratic regulator) [en.wikipedia.org/wiki/Linear-quadratic_regulator](https://en.wikipedia.org/wiki/Linear%E2%80%93quadratic_regulator)
-- DWA (Dynamic Window Approach) [en.wikipedia.org/wiki/Dynamic_window_approach](https://en.wikipedia.org/wiki/Dynamic_window_approach)
-- TEB (Timed Elastic Band)
-- MPC (Model Predictive Control) [en.wikipedia.org/wiki/Model_predictive_control](https://en.wikipedia.org/wiki/Model_predictive_control)
+## Lokális tervező algoritmusok 
+
+A lokális megoldásokat, ahogy a bevezető videóban is láthattuk nehéz csoportosítani, rendszerezni, a megoldások gyakran nem tiszán egy módszertant használnak. Példa erre a State Lattice tervező, ami grid-szerű rács szerkezeten dolgozik, de gráf-szerű keresést használ. Ide többnyire olyan ismertebb lokális tervező algoritmusokat, algoritmuscsaládokat sorolunk fel, amiknek van nyílt forrás kódú implementációjuk:
+
+- **DWA (Dynamic Window Approach)**: A robotikai / autonóm mozgástervezésben a DWA megközelítés egy online ütközés elkerülési stratégia, útvonaltervezéséhez és navigációjához dinamikus környezetben. Ahogy a neve is mutatja az előrehaladás során egy dinamikus ablakot tol maga előtt a robot / jármű. Több lehetséges irányt (pontosabban trajaktóriát) vesz számba, majd ebből azt az állapotot választásztja, amit a lekisebb költségűnek ítél. További információ: [en.wikipedia.org/wiki/Dynamic_window_approach](https://en.wikipedia.org/wiki/Dynamic_window_approach).
+- **TEB (Timed Elastic Band)**: Szintén online, mozgó robotok trajektóriájának tervezésére és követésére szolgál dinamikus környezetben. A TEB algoritmus különösen hasznos nem-holonóm robotok (mint például az autók) számára, amelyeknek korlátozott a mozgási szabadságuk. A módszer lokálisan optimalizálja a robot pályáját a pályafutási idő, az akadályoktól való elválasztás és a futás közbeni kinodinamikai korlátok betartása tekintetében. Neve az gumi / elasztikus szalagra utal, ami könnyedén hajtogatható a megfeleő irányba. További információ: [github.com/rst-tu-dortmund/teb_local_planner](https://github.com/rst-tu-dortmund/teb_local_planner/tree/foxy-devel).
+- **State Lattice**: A robot / jármű kinodinamikai korlátai az állapotrács gráfban vannak kódolva, és ebben a gráfban bármely útvonal megvalósítható. A gráf felépítése után bármilyen gráfkereső algoritmus használható a tervezéshez. [navigation.ros.org/configuration/packages/smac/configuring-smac-lattice.html](https://navigation.ros.org/configuration/packages/smac/configuring-smac-lattice.html)
+- **RRT (Rapidly exploring random tree)**: RRT-ről már volt szó a globális tervezéskor is, de lokális módszereknél is használják. 
+
+Algroitmuscsaládok:
+
+- **Gráf alapú megoldások**: A folytonos térben gráf segítségével kereső megoldások tartoznak ide. Gyakran segítségképpen valamilyen lokális térképmodellt használnak, mint a [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2). Ide tartozik pl. az Autoware [obstacle_avoidance_planner](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_dynamic_avoidance_module/).
+- **Grid alapú megoldások**: A folytonos tér rácsszerű diszkretizálásával keletkező grid-et használó algoritmusok tartoznak ide. Gyakran használjuk a voxel grid, illetve az occupancy grid (foglatsági rács) kifejezést a diszkrét tér leírására. Előnye, hogy bizonyos algoritmusok könnyebben További információ: [github.com/jkk-research/pointcloud_to_grid](https://github.com/jkk-research/pointcloud_to_grid), [https://github.com/ANYbotics/grid_map](https://github.com/ANYbotics/grid_map/tree/ros2). Bizonyos DWA megoldások ebbe családba tartoznak.
+- **Potential field alapú megoldások**: A potenciáltér alapú tervezés (APF) során a robotot vonzó és taszító erőkkel modellezik a környezetben lévő objektumoktól. A grid alapú módszerekkel ellentétben itt maga a mező mondja meg, hogy milyen távol kerüljünk egy objektumot, míg a grid alapon a tervező határozza ezt meg. Másik különbség, hogy a potenciáltér folytonos (nincs diszkretizálás), míg a grid tér diszkrét. További információ: [en.wikipedia.org/wiki/Motion_planning#Artificial_potential_fields](https://en.wikipedia.org/wiki/Motion_planning#Artificial_potential_fields), illetve [itt](https://github.com/ai-winter/ros_motion_planning) is található egy APF (artificial potential field) alapú megoldás.
+- **Frenét rendszer alapú megoldások**: A Frenét-koordinátarendszerben a robot állapota két dimenzióban van megadva: a hosszanti és a laterális pozíció. A hosszanti tengelyen a robot aktuális helyzete és sebessége található, míg a laterális tengelyen a robot pozíciója az útvonalhoz képest. További információ: [roboticsknowledgebase.com/wiki/planning/frenet-frame-planning/](https://roboticsknowledgebase.com/wiki/planning/frenet-frame-planning/)
+
+*Megjegyzés*: TU München tananyaga hasonlóképpen, de más hangsúlyokkal osztja fel a lokális tervező algoritmusokak: Graph-Based methods, Variational methods, Incremental Methods, Hybrid Methods.
+
+| Módszerek | Tulajdonságok | Korlátok |
+|-----------------------|-------------------------| -----------------------------------|
+| Inkrementális módszerek (pl. DWA) | Valószínűleg teljes | A véges időn belüli megoldás nem garantált |
+| Variációs módszerek (pl. APF) | Nincs diszkretizálás | Helyi optimumot talál |
+|                  | Alacsony számítási idő | Költségfüggő solver |
+| Gráf alapú módszerek (pl Lanelet2-alapú)| Megtalálja a globális optimumot | A dimenzionalitás átka |
+|                 | Rugalmas költségfüggvény | Diskretizált megoldás |
+
+| Methods               | Properties             | Limitations                      |
+|-----------------------|------------------------|----------------------------------|
+| Incremental Methods (eg. DWA) | Probabilistically complete |  Solution in finite time not guaranteed | 
+| Variational Methods  (eg. APF) | No discretization      | Finds local optimum              |
+|                       | Low computation time   | Cost dependent solver            |
+| Graph-Based Methods  (eg. pl Lanelet2-based) | Finds global optimum   | Curse of dimensionality          |
+|                       | Flexible cost function | Discretized solution             |
+
+
 
 ## Tervezési példa
 
@@ -245,9 +263,9 @@ Szintén ROS 2 támogatott az [Autoware](https://autowarefoundation.github.io/au
 
 # Irodalomjegyzék
 
-- [1] Moritz Werling, Julius Ziegler, Sören Kammel, and Sebastian Thrun: Optimal Trajectory Generation for Dynamic Street Scenarios in a
+- `[1]` Moritz Werling, Julius Ziegler, Sören Kammel, and Sebastian Thrun: Optimal Trajectory Generation for Dynamic Street Scenarios in a
 Frenét Frame, 2010 IEEE International Conference on Robotics and Automation, Anchorage Convention District, May 3-8, 2010, Anchorage, Alaska, USA, pp. 987-993
-- [2] [github.com/ai-winter/ros_motion_planning](https://github.com/ai-winter/ros_motion_planning): ROS 1, de tervezetten ROS 2 **Globális** tervezők: Dijkstra, A-star, D-star, RRT, INformed-RRT, GBFS **Lokális** tervezők: PID, LQR (Linear–quadratic regulator), DWA (Dynamic Window Approach), APF, RPP, TEB (Timed Elastic Band), MPC (Model Predictive Control)
+- `[2]` [github.com/ai-winter/ros_motion_planning](https://github.com/ai-winter/ros_motion_planning): ROS 1, de tervezetten ROS 2 **Globális** tervezők: Dijkstra, A-star, D-star, RRT, Informed-RRT, GBFS **Lokális** tervezők: LQR (Linear–quadratic regulator), DWA (Dynamic Window Approach), APF, RPP, TEB (Timed Elastic Band)
 
 
 

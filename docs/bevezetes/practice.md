@@ -47,7 +47,7 @@ A [https://jkk-research.github.io/#dataset](https://jkk-research.github.io/#data
 
 ## A Foxglove bemutatása
 
-Amíg az `.mcap` töltődik, röviden bemutatjuk a Foxglove Studio programot. A Foxglove Studio egy nyílt forráskódú, robotikai adatokat vizualizáló és hibakereső eszköz. Egész pontosan a `v1.87.0`-ig bezárólag nyílt forráskódu volt, a `v2.0.0`-tól pedig ingyenesen hazsnálható, de zárt forráskódú. Elérhető számos módon:
+Amíg az `.mcap` töltődik, röviden bemutatjuk a Foxglove Studio programot. A Foxglove Studio egy nyílt forráskódú, robotikai adatokat vizualizáló és hibakereső eszköz. Egész pontosan a `v1.87.0`-ig bezárólag nyílt forráskódu volt, a `v2.0.0`-tól pedig ingyenesen használható, de zárt forráskódú. Elérhető számos módon:
 - önálló asztali alkalmazásként futtatható
 - böngészőben hozzáférhető
 - saját domainen, önállóan hostolható

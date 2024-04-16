@@ -34,7 +34,7 @@ Elvárt kvalitások:
 - Minél több commit, hogy a munkafolyamatot is lássuk
 - Terjedelem 30-100 kódsor node-onként + CMakeLists.txt, package.xml, README.md, launch fájlok (nem baj, ha hosszabb, de nem elvárt)
 - Lehetőleg képpel illusztrálva (lásd [példák](#példák))
-- Lehetőleg [mermaid](https://mermaid.js.org/intro/) diagram a node-ok, topic-ok viszonyáról (lásd [példák](#példák))
+- Lehetőleg [mermaid](https://mermaid.js.org/intro/) diagram a node-ok, topic-ok viszonyáról (lásd [példák](#példák), [leírás](https://sze-info.github.io/arj/onallo/mermaid.html)) 
 
 
 ## Példák

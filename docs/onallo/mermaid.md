@@ -47,7 +47,7 @@ graph LR;
 node1 --> topic --> node2
 ```
 
-Az első sor a gráf típusa, a második (vagy további) sorok pedig a kapcsolatokat `-->` pedig a nyilak definiálják.
+Az első sor a gráf típusa, a második (vagy további) sorokban a kapcsolatokat `-->` a nyilak definiálják.
 
 ```mermaid
 graph LR;
@@ -56,7 +56,7 @@ node1 --> topic --> node2
 
 ## Téglalap helyett formákkal
 
-Az `LR` a left-right rövidítése. A fomák lehetnek lekerekítettek `([ ])`, szögletesek `[ ]`,  hexagonok `{{ }}` paralellogrammák `[/ /]` és [továbbiak is](https://mermaid.js.org/syntax/flowchart.html#node-shapes). ROS-ben megtanultuk, hogy a **node** lekerekített, míg a **topic** szögletes. Az azonosítókat itt pl: `id1`, `id2`, `id3` a zárójel elé lehet írni. 
+Az `LR` a left-right rövidítése. A formák lehetnek lekerekítettek `([ ])`, szögletesek `[ ]`,  hexagonok {`{ }`} paralellogrammák `[/ /]` és [továbbiak is](https://mermaid.js.org/syntax/flowchart.html#node-shapes). ROS-ben megtanultuk, hogy a **node** lekerekített, míg a **topic** szögletes. Az azonosítókat itt pl: `id1`, `id2`, `id3` a zárójel elé lehet írni. A kapcsolatkoat vagy külön sorban (mint itt) vagy egy sorban (későbbi példa) is definiálhatjuk.
 
 ``` ruby
 graph LR;
@@ -255,7 +255,7 @@ classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
 
 ## Paraméterek
 
-Gyakran jól jön a definiált paraméterek viszualizálása. Erre jelen tudásunk szerint nincs szabványos jelölés hexagonok `{{ }}` vagy paralellogrammák `[/ /]` lehetnek az opciók.
+Gyakran jól jön a definiált paraméterek vizualizálása. Erre jelen tudásunk szerint nincs szabványos jelölés hexagonok {`{ }`} vagy paralellogrammák `[/ /]` lehetnek az opciók.
 
 ```mermaid
 flowchart LR

@@ -30,9 +30,33 @@ Bal oldalt az Extension ikonra kattintva vagy a `Ctrl` + `Shift` + `X` után a m
 <img src="mermaid02.png" width="90%" />
 </center>
 
+Célszerű a *Mermaid Markdown Syntax Highlighting* és a *Color Highlight* extension-t is használni, ekkor a következőképp jelenik meg a gráf kódja:
+
+<center>
+<img src="mermaid03.png" width="90%" />
+</center>
 # Példák
 
-Az `LR` a left-right rövidítése:
+
+## Egyszerű példa
+
+Ay egyik legegyszerűbb flowchart kódja következő 2 sorból áll:
+
+```ruby
+graph LR;
+node1 --> topic --> node2
+```
+
+Az első sor a gráf típusa, a második (vagy további) sorok pedig a kapcsolatokat `-->` pedig a nyilak definiálják.
+
+```mermaid
+graph LR;
+node1 --> topic --> node2
+```
+
+## Téglalap helyett formákkal
+
+Az `LR` a left-right rövidítése. A fomák lehetnek lekerekítettek `([ ])`, szögletesek `[ ]`,  hexagonok `{{ }}` paralellogrammák `[/ /]` és [továbbiak is](https://mermaid.js.org/syntax/flowchart.html#node-shapes). ROS-ben megtanultuk, hogy a **node** lekerekített, míg a **topic** szögletes. Az azonosítókat itt pl: `id1`, `id2`, `id3` a zárójel elé lehet írni. 
 
 ``` ruby
 graph LR;
@@ -52,6 +76,8 @@ id3[topic]
 
 id1 --> id3 --> id2
 ```
+
+## Balról jobbra helyett fentről lefele
 
 Az `TD` a top-down rövidítése:
 
@@ -73,6 +99,10 @@ id3[topic]
 id1 --> id3 --> id2
 ```
 
+## Színek használata
+
+`classDef` segítségével színeket, vonalakat, definálhatunk, majd 3 db kettőspont után `:::` azonosíthatjuk a megfelelő osztályhoz:
+
 ```ruby
 graph TD;
 id1([node1]):::red
@@ -100,6 +130,10 @@ classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
 classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
 ```
 
+## Több node és topic 
+
+További, több node-ot és topicot tartalmazó példa:
+
 ```ruby
 graph LR;
 
@@ -122,6 +156,8 @@ sum --> out[ /out<br/>std_msgs/Float32]
 rand --> sum
 in[ /in<br/>std_msgs/Float32] --> sum
 ```
+
+## Az előbbi példa, csak színekkel
 
 ```ruby
 graph LR
@@ -156,9 +192,11 @@ classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
 classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
 
 ```
+## Alternatív verzió `class` használatára
 
+A három `:::` pont helyett egyszerűen a `class` kulcsszó után felsorolhatjuk az osztályokat:
 
-```ruby
+```python
 graph LR
 
 gen([ /gen_node]) --> sine
@@ -202,9 +240,9 @@ class rand,sine,in,out light
 ```ruby
 flowchart LR
 
-A{{max_deg</br>param}}:::gray --> D([display_tree</br>node]):::gray
-B{{max_dist</br>param}}:::gray --> D
-C{{seed_size</br>param}}:::gray --> D
+A[/ max_deg</br>param /]:::gray --> D([display_tree</br>node]):::gray
+B[/ max_dist</br>param /]:::gray --> D
+C[/ seed_size</br>param /]:::gray --> D
 D --> |visualization_msgs/marker_array| P[ /path_marker_topic</br>topic]:::gray
 
 
@@ -213,16 +251,18 @@ classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
 classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
 classDef gray fill:#f6f8fa,stroke:#152742,stroke-width:2px,color:#152742
 classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
-
 ```
 
+## Paraméterek
+
+Gyakran jól jön a definiált paraméterek viszualizálása. Erre jelen tudásunk szerint nincs szabványos jelölés hexagonok `{{ }}` vagy paralellogrammák `[/ /]` lehetnek az opciók.
 
 ```mermaid
 flowchart LR
 
-A{{max_deg</br>param}}:::gray --> D([display_tree</br>node]):::gray
-B{{max_dist</br>param}}:::gray --> D
-C{{seed_size</br>param}}:::gray --> D
+A[/ max_deg</br>param /]:::gray --> D([display_tree</br>node]):::gray
+B[/ max_dist</br>param /]:::gray --> D
+C[/ seed_size</br>param /]:::gray --> D
 D --> |visualization_msgs/marker_array| P[ /path_marker_topic</br>topic]:::gray
 
 
@@ -231,10 +271,12 @@ classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
 classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
 classDef gray fill:#f6f8fa,stroke:#152742,stroke-width:2px,color:#152742
 classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
-
+classDef green fill:#138b7b,stroke:#152742,stroke-width:2px,color:#fff
 ```
 
-``` ruby
+## Rendszerterv
+
+``` python
 flowchart TD
     S[State Machine <br>/plan_state_machine] -.->|/plan_state*| LS[LIDAR segementation<br>/prcp_ground_obstacle_segm_lidar]
     S -.-> CS[Cone detection camera<br> and de-projection]
@@ -255,7 +297,7 @@ flowchart TD
     classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#15274
     classDef dash fill:#ffffff,stroke:#152742,stroke-width:2px,color:#15274, stroke-dasharray: 5 5
     classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
-
+    classDef green fill:#138b7b,stroke:#152742,stroke-width:2px,color:#fff
     class CS,LS,L,T,M,C white
     class O light
     class S dash
@@ -282,11 +324,34 @@ flowchart TD
     classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#15274
     classDef dash fill:#ffffff,stroke:#152742,stroke-width:2px,color:#15274, stroke-dasharray: 5 5
     classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
+    classDef green fill:#138b7b,stroke:#152742,stroke-width:2px,color:#fff
     class CS,LS,L,T,M,C white
     class O light
     class S dash
     class CAN red
  ``` 
+
+## Körcikk
+
+Az [metrics.ros.org/rosdistro_rosdistro.html](https://metrics.ros.org/rosdistro_rosdistro.html) alapján egy körcikk diagram:
+
+``` python
+pie title ROS distros used
+    "Melodic (ROS 1)" : 0.0010
+    "Noetic (ROS 1)" : 0.0951
+    "Humble" : 0.3333
+    "Iron" : 0.1905
+    "Rolling" : 0.1904
+```
+
+``` mermaid
+pie title ROS distros used
+    "Melodic (ROS 1)" : 0.001
+    "Noetic (ROS 1)" : 0.095
+    "Humble" : 0.33
+    "Iron" : 0.19
+    "Rolling" : 0.19
+```
 
 # Linkek
 - [Mermaid flowchart](https://mermaid.js.org/syntax/flowchart.html)

@@ -269,3 +269,28 @@ Frenét Frame, 2010 IEEE International Conference on Robotics and Automation, An
 
 
 
+## További cikkek
+
+A bemutatott algoritmusokhoz tartozó cikkek és (python_motion_planning)[https://github.com/ai-winter/python_motion_planning] repository-ból kigyűjtött cikkek gyűteménye:
+
+### Globális tervezők
+- [A* - A-star](https://ieeexplore.ieee.org/document/4082128): A Formal Basis for the heuristic Determination of Minimum Cost Paths
+- [Modified A-Star](https://www.sciencedirect.com/science/article/pii/S0019057822004050): Efficient and optimal penetration path planning for stealth unmanned aerial vehicle using minimal radar cross-section tactics and modified A-Star algorithm
+- [Lifelong Planning A*](https://www.cs.cmu.edu/~maxim/files/aij04.pdf): Lifelong Planning A*
+- [D* - D-star](http://web.mit.edu/16.412j/www/html/papers/original_dstar_icra94.pdf): Optimal and Efficient Path Planning for Partially-Known Environments
+- [D* Lite](http://idm-lab.org/bib/abstracts/papers/aaai02b.pdf): D* Lite
+- [JPS](https://ojs.aaai.org/index.php/AAAI/article/view/7994): Online Graph Pruning for Pathfinding On Grid Maps
+- [Theta*](https://www.jair.org/index.php/jair/article/view/10676): Theta*: Any-Angle Path Planning on Grids
+- [Lazy Theta*](https://ojs.aaai.org/index.php/AAAI/article/view/7566): Lazy Theta*: Any-Angle Path Planning and Path Length Analysis in 3D
+- [S-Theta*](https://link.springer.com/chapter/10.1007/978-1-4471-4739-8_8): S-Theta*: low steering path-planning algorithm
+- [RRT](http://msl.cs.uiuc.edu/~lavalle/papers/Lav98c.pdf): Rapidly-Exploring Random Trees: A New Tool for Path Planning
+- [RRT-Connect](http://www-cgi.cs.cmu.edu/afs/cs/academic/class/15494-s12/readings/kuffner_icra2000.pdf): RRT-Connect: An Efficient Approach to Single-Query Path Planning
+- [RRT*](https://journals.sagepub.com/doi/abs/10.1177/0278364911406761): Sampling-based algorithms for optimal motion planning
+- [Informed RRT*](https://arxiv.org/abs/1404.2334): Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal heuristic
+- [ACO](http://www.cs.yale.edu/homes/lans/readings/routing/dorigo-ants-1999.pdf): Ant Colony Optimization: A New Meta-Heuristic
+
+## Lokális tervezők
+
+* [DWA](https://www.ri.cmu.edu/pub_files/pub1/fox_dieter_1997_1/fox_dieter_1997_1.pdf): The Dynamic Window Approach to Collision Avoidance
+* [APF](https://ieeexplore.ieee.org/document/1087247):Real-time obstacle avoidance for manipulators and mobile robots
+* [RPP](https://arxiv.org/pdf/2305.20026.pdf):Regulated Pure Pursuit for Robot Path Tracking

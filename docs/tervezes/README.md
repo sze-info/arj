@@ -289,7 +289,7 @@ A bemutatott algoritmusokhoz tartozó cikkek és (python_motion_planning)[https:
 - [Informed RRT*](https://arxiv.org/abs/1404.2334): Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal heuristic
 - [ACO](http://www.cs.yale.edu/homes/lans/readings/routing/dorigo-ants-1999.pdf): Ant Colony Optimization: A New Meta-Heuristic
 
-## Lokális tervezők
+### Lokális tervezők
 
 * [DWA](https://www.ri.cmu.edu/pub_files/pub1/fox_dieter_1997_1/fox_dieter_1997_1.pdf): The Dynamic Window Approach to Collision Avoidance
 * [APF](https://ieeexplore.ieee.org/document/1087247):Real-time obstacle avoidance for manipulators and mobile robots

@@ -31,7 +31,7 @@ Az észlelés (perception) az érzékelt nyers adatokból történő informáci�
 ![](https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/overview11.svg)
 
 Az észlelés célja lehet:
-- Objektumfelismerés, pl: 
+- Objektumfelismerés (detekció), pl: 
     - Gyalogos, biciklis jármű felimerés 
     - Tábla felismerés, jelzőlámpa felismerés
     - Vezethető felület és fogalmi sáv felismerés (lokalizációhoz és tervezéshez is)
@@ -53,6 +53,50 @@ A felhasznált szenzorok alapján lehet:
 
 {: .note }
 Magyar nyelven könnyű összekeverni az érzékelés (sensing) és az észlelés (perception) foglamakat. Az észlelés összetett funkció a nyers adatokból feldolgozott, értelmezett kimenet előállításával foglakozik.
+
+```mermaid
+flowchart LR
+
+L[Tervezés]:::light
+
+subgraph Perception [Észlelés]
+  T[Térképezés]:::light 
+  H[Lokalizáció]:::light
+  P[Objektum
+  predikció]:::light 
+  D[Objektum
+  detekció]:::light
+  K[Objektum 
+  klasszifikáció]:::light
+  D-->K
+end
+subgraph Sensing [Érzékelés]
+  GPS[GPS/GNSS]:::light -.-> T
+  GPS -.-> H
+  LIDAR[LIDAR]:::light
+  KAM[Kamera]:::light
+  IMU[IMU]:::light
+  LIDAR -.-> D
+  LIDAR -.-> P
+  LIDAR -.-> T
+  KAM-.-> P
+  KAM-.-> D
+  IMU-.-> T
+  D-.->P
+end
+
+T -->|térkép| L
+H -->|pose| L
+P -->|obj.| L
+K -->|obj.| L
+
+
+classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
+classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
+classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
+classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
+
+```
 
 Ez a tananyagrész a TU München Autonomous Driving Software Engineering tantárgy tananyagán alapszik, amit az Institute of Automotive Technology intézet munkatársai állítottak össze. Az órai videó elérhető német nyelven:
 

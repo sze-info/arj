@@ -56,7 +56,123 @@ Ahogyan azt a korábbi fejezetekben is láttuk, a teljes járműirányítási l�
 
 Ez a fejezet a szabályzásról szól. A szabályzások alapjairól a 3. alfejezetben olvashatunk. A szabályzó rétegnek a tervezés biztosítja a bemenetet. Így - némileg kiegészítve - vessünk egy pillantást az architektúrára! Ezt a 2. Ábra mutatja.
 
-![image info](arj_control_02.svg)
+
+```mermaid
+flowchart LR
+
+GP1[Globális tervezés
+   Bemenetek:
+   - Sofőrprofil
+   - Térkép
+   Kimenet:
+   - Útvonalterv
+   Cél: globális terv megtervezése
+   útvonalon, amely A-ból vezet
+   B-be, figyelembe véve pl.
+   forgalmi adatok, üzemanyag
+   fogyasztás… stb.]:::light
+
+GP2[Szeretnék eljutni
+   A-ból B-be
+   robotaxival]:::dark
+
+BP1[Magatartás tervezés
+     Bemenetek:
+     - Útvonalterv
+     -Érzékelési információ
+     a környezetről
+     Kimenet:
+     - Viselkedési stratégia
+     Cél: megtervezni, hogy
+     viselkedjen, 
+     milyen mozgási
+     karakterisztikát
+     kövessen a jármű]:::light
+
+BP2[Követni szeretném
+  a középső sávot,
+  majd váltani a 
+  belső sávra]:::dark
+
+LP1[Lokális tervezés
+     Bemenetek:
+     - Viselkedési stratégia
+     - Térkép
+     - Pose
+     - Prediktált objektumok
+     Kimenet:
+     - Lokális trajektória
+     Cél: kinematikailag 
+     megvalósítható,
+     biztonságos trajektória
+     előállítása]:::light
+LP2[A sávon belül
+  biztonságos és
+  sima pálya tervezése]:::dark
+
+
+VC1[Járműszintű szabályzás
+     Magas szintű szabályozás
+     Bemenetek:
+     - Lokális trajektória
+     - A jármű állapotának változói
+     - Lokalizációs információ
+     Kimenetek:
+     - Járműszintű cél
+     mennyiségek
+     - Ellenőrzési korlátok
+     Cél: kiszámítani a
+     jármű célállapotát, amit 
+     az alacsony szintű
+     szabályzás megvalósít]:::light
+VC2[A járművet a 
+  tervezett trajektórián
+  végigvezesse a 
+  megfelelő sebességgel]:::dark
+
+
+AC1[Aktuátor szabályozás
+  Alacsony szintű szabályozás
+  Bemenetek:
+  - Járműszintű cél
+  mennyiségek
+  - Ellenőrzési korlátok
+  - Aktuátor
+  állapotváltozói
+  Kimenet:
+  - Aktuátor célállapotai
+  Cél: A járműszintű 
+  mennyiségeket lebontsa
+  és megvalósítsa 
+  az aktuátorokon keresztül]:::light
+  AC2[Kiszámolni a
+szükséges motor
+nyomaték és kormányzási
+szög referenciát]:::dark
+
+
+
+
+subgraph Plan [Tervezés]
+  GP1
+  BP1
+  LP1
+end
+subgraph Control [Szabályozás]
+  VC1
+  AC1
+end
+GP1-->BP1-->LP1-->VC1-->AC1
+GP2-.-BP2-.-LP2-.-VC2-.-AC2
+
+
+
+classDef light fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742  
+classDef dark fill:#152742,stroke:#34aec5,stroke-width:2px,color:#34aec5
+classDef white fill:#ffffff,stroke:#152742,stroke-width:2px,color:#152742
+classDef red fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
+
+```
 *2. Ábra: a legfőbb tervezési és szabályzási rétegek az architektúrában.*
 
 A szabályzó réteg általában több szinre bomlik. Minimum két ilyen szintet megkülönböztetünk:

@@ -62,6 +62,11 @@ LIDAR gyártókat, dataseteket, algoritmusokat tartlamazó gyűjtemény: [github
 - *Jellemző `ROS 2` topic típusok:* [`radar_msgs/msg/RadarTrack`](https://github.com/ros-perception/radar_msgs/blob/ros2/msg/RadarTrack.msg)
 
 
+![](lidar_camera01.svg)
+
+A LIDAR és a kamera jellemzőinek összehasonlítása
+
+
 ## IMU
 
 Az IMU kis méretű elektromechanikus giroszkópokat és gyorsulásmérőket, valamint jelfeldolgozó processzorokat tartalmazó szenzor. Gyakran kombinálják további szenzorokkal, pl. barometrikus magasságmérővel, magnetométerrel, iránytűvel. Némely GPS (GNSS) rendszerben is megtalálhatók.

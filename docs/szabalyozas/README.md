@@ -429,7 +429,10 @@ Feltételezzük a modellben, hogy a jármű elsőkerék-kormányzású. A kapott
 A 20. Ábrán láthatjuk, milyen hatással van az előretekintési távolság a jármű viselkedésére. Amennyiben túl közeli pontot választunk, a jármű hajlamos oszcillációra (ez hasonló hatás, mint egy PID szabályzó túl nagy P erősítéssel). A túl nagy előretekintési távolság esetén a reakció lassul, de pl. élesebb kanyarokban a jármű hajlamos lesz *kanyarlevágásra*.
 Szokás az előretekintési távot adaptívan, pl. a sebesség függvényében megadni. Ilyenkor gyakorlatilag előretekintési időről beszélünk.
 
-<img src="arj_control_19.png" width="300" height="65" /> <br>
+<center>
+<img src="arj_control_19_look_ahead.svg" width="300"/>
+</center>
+
 *20. Ábra: a pure pursuit előretekintési távolságának hatása a jármű viselkedésére*
 
 A pure-pursuit modellek továbbfejlesztett változatairól pl. a [2] és [3] cikkben olvashatunk.

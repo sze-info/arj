@@ -169,6 +169,14 @@ További információ erről  [itt olvasható](https://docs.ros.org/en/humble/Tu
 ![rh](right_hand_rule01.svg)
 ![va](vehicle_axes01.svg)
 
+# Koordinátarendszerek (GPS/GNSS)
+
+A `WGS84` vagy World Geodetic System 1984 egy globális referencia rendszer a térképészetben, geolokációban, navigációban és a GPS (Global Positioning System) rendszerben történő használatra. Ez egy szabványos koordináta rendszer, amelyet a földrajzi szélesség, hosszúság és tengerszint feletti magasság megadására használnak. A földrajzi szélességi (latitude) körök vízszintesen futnak, és fokokban adják meg egy pont helyét a Föld felszínén az egyenlítőtől (0 fok szélesség) északra vagy délre. A hosszúsági körök (longitude) függőlegesen futnak, és fokokban adják meg egy pont helyét a Föld felszínén a keleti vagy nyugati nullameridiántól (0 fok hosszúság). A nullameridián a 0 fok hosszúságánál található, és Londonon Greenwich városrészén keresztül halad. A hosszúsági értékek -180 foktól +180 fokig terjednek, az 180 foknál pedig az Északi és Dél-Keleti hosszúságok összekapcsolódnak. A mérésadat fájl navsatfix topicja (sensor_msgs/msg/NavSatFix) ebben a formátumban került mentésre.
+Ennek alternatívája az `UTM` vetületi rendszer, amely nem fokokban, hanem méterekben számol. Az `UTM`, vagyis az Egyesített Térképi Projekció (Universal Transverse Mercator), egy térképi projekciós rendszer, amelyet a térképek készítésére és a navigációhoz használnak. A világ különböző zónáit egy sor speciális hengertérképen ábrázolják, ahol a hosszúsági és szélességi vonalak egyenesek. Ahogy lejjebb látható, Magyarország 4 `UTM` zónába esik: `33U`, `34U`, `33T` és `34T`. Az UTM zónák 6 fokos szélességi sávokra oszlanak szét, ahol minden sávban az ábrázolás egy transzverzális Merkátor-projekción alapuló hengertérképen történik. Az UTM rendszer előnye, hogy egyszerű koordináta-rendszert biztosít, ami kis torzulással rendelkezik a zónákon belül. Ezért sokszor használják katonai térképek, topográfiai térképek, navigációs rendszerek és más térképkészítési alkalmazásoknál. Például a mérésadatoknál a jellemzően current_pose végződésű topicja (`geometry_msgs/msg/PoseStamped`) ebben a formátumban érkező adat.
+
+![utm](utm01.svg)
+
+
 # Források
 - [articulatedrobotics.xyz/ready-for-ros-6-tf](https://articulatedrobotics.xyz/ready-for-ros-6-tf/)
 - [Kris Hauser: Robotic Systems University of Illinois at Urbana-Champaign](http://motion.cs.illinois.edu/RoboticSystems/CoordinateTransformations.html)

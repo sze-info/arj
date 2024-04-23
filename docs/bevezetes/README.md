@@ -118,10 +118,20 @@ Leírás [itt](https://github.com/jkk-research/loomo_base).
 
 <center><img src="vehcile_segway01.png" width="40%" /></center>
 
+## F1/10 (Ackermann robot)
+
+F1tenth jármű, [leírás itt](https://f1tenth.org/build.html).
+
+<center><img src="f1tenth01.png" width="80%" /></center>
+
+_Kép forrása_: Varundev Suresh Babu and Prof. Madhur Behl, Computer Science | Link Lab | University of Virginia
+
 ## Roboworks Rosbot mini Ackermann (robot)
 Leírás [itt](https://robotverseny.github.io/megoldas_zala23/)
 
 <center><img src="vehcile_rosbot01.png" width="60%" /></center>
+
+
 
 ## Husarion ROSbot 2 Pro (robot)
 Leírás [itt](https://husarion.com/manuals/rosbot/).

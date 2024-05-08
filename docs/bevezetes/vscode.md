@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VS code IDE
+title: VS code, git
 parent: Bevezetés
 ---
 

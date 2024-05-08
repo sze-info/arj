@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ROS2 humble
+title: ROS 2 humble
 parent: Telepítés
 ---
 
@@ -19,13 +19,19 @@ parent: Telepítés
 
 
 
-# ROS2 humble
+# ROS 2 humble
 
-Alapvetően négy lehetőség adott `ROS 2 Humble` telepítésére:
-1. Dual boot, Windows mellé telepített natív Linux (leginkább Ubuntu 22.04)
-2. WSL2, könnyűsúlyú Linux virtuális gép Windowsra
-3. Virtuális gép Windowsra
-4. Windows build
+{: .note-title }
+> Egyszerű telepítés
+>
+> A telepítés lépésről-lépésre is végrehajtható, de készítettünk egy [egyszerű shell script alapú telepítést](#otthoni--géptermi-telepítés) is.
+
+Ahogy abevezetőben írtuk, alapvetően négy lehetőség adott `ROS 2 Humble` telepítésére:
+
+1. Dual boot, Windows mellé telepített natív Linux (leginkább Ubuntu) ✅ [leírás](https://sze-info.github.io/arj/telepites/ubuntu.html)
+2. Windows WSL2, könnyűsúlyú Linux virtuális gép ✅ [leírás](https://sze-info.github.io/arj/telepites/win10.html)
+3. Virtuális gép Windowsra 🟠
+4. Windows build 🟠
 
 Ebből a 4 lehetőségből az első kettőt ajánljuk, de telmészetesen a többi sem tiltott. A dual boot betekintést nyújt a Linux világba, ami egy mérnöknél hasznos tudást jelent manapság. Telepítésnél körültekintően kell eljárni, hiszen egy rossz beállítás adatvesztést okoz, így a biztonsági mentés is ajánlott. A WSL (Windows Subsystem for Linux) egy könnyűsúlyú kompatibilitási réteg Linux-alapú elemek futtatásához Windows 10, vagy Windows 11 alapú rendszereken. Ahogy a következő ábrán is látszik, a Linux kernel ugyanolyan egyszerűen érheti el a hardverelemeket (CPU, memória, GPU stb), mint a Windows kernel. Ehhez képest a virtuális gép (3. lehetőség) egy jóval lassabb, több absztrakciós réteget használó megoldás, annak ajánlott, akinek vagy nagyon modern, gyors gépe van, vagy már eleve telepített ilyen rendszereket. A natív Windows build (4. lehetőség) elvileg adott, de mivel a dokumenátió túlnyomó része Linuxra érhető el, így nagyon sok extra munkát fog jelenteni.
 
@@ -150,7 +156,7 @@ Részletek: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-T
 
 # Otthoni / géptermi telepítés
 
-Gépteremben a [következő `install_humble.sh`](https://github.com/sze-info/arj/blob/main/docs/telepites/install_humble.sh) fájlt futtatuk minden gépen.
+Gépteremben a [következő `install_humble.sh`](https://github.com/sze-info/arj/blob/main/docs/telepites/install_humble.sh) fájlt (shell scriptet) futtatuk minden gépen.
 
 ``` bash
 wget https://raw.githubusercontent.com/sze-info/arj/main/docs/telepites/install_humble.sh

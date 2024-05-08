@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Linux
+title: Linux, git
 parent: Bevezetés
 ---
 
@@ -153,6 +153,12 @@ A megszokott `ctrl`+`v`, `ctrl`+`c` helyett itt a `ctrl`+`shift`+`v`, `ctrl`+`sh
 > Tipp
 >
 > A legtöbb művelet VS code-dal elvégezhető terminál nélkül is. [Erről bővebben itt lehet olvasni](https://sze-info.github.io/arj/bevezetes/vscode.html).
+
+
+<center><img src="https://raw.githubusercontent.com/sze-info/arj/main/docs/_images/gitworkflow01.gif" width="100%" /></center>
+
+*Forrás*: [link](https://www.linkedin.com/posts/chaima-haj-taher-1093881ba_git-softwaredevelopment-workflow-activity-7177685446787751936-atW_)
+
 
 ## Szöveges fájlok
 - `wget`: webes tartalmak letöltése terminalból

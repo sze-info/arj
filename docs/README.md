@@ -1,8 +1,13 @@
 
 # Start
 
-- Tantárgy neve magyarul: **Autonóm robotok és járművek programozása**
-- Tantárgy neve angolul: **Autonomous robots and vehicles software engineering**
+{: .warning }
+> A tananyag elérhetősége megváltozott új link: [https://sze-info.github.io/ajr/](https://sze-info.github.io/ajr/). A régi link még egy ideig elérhető, de nem frissül. A tantágy nevének rövidítése alapján tehát a link vége `ajr`, nem `arj`.
+
+{: .warning }
+
+- Tantárgy neve magyarul: **Autonóm járművek és robotok programozása**
+- Tantárgy neve angolul: **Autonomous vehicles and robots software engineering**
 - Neptun tárgykód: `GKNB_AUTM078`
 
 {: .important-title }

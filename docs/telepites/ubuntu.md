@@ -6,4 +6,9 @@ parent: Telepítés
 
 # Ubuntu dual boot
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GXxTxBPKecQ?si=XDETin5TdhI0Uml3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+{: .warning }
+The availability of the course material has changed to a new link: [https://sze-info.github.io/ajr/](https://sze-info.github.io/ajr/). The old link will still be available for a while, but will not be updated. 
+
+{: .warning }
+> A tananyag elérhetősége megváltozott új link: [https://sze-info.github.io/ajr/](https://sze-info.github.io/ajr/). A régi link még egy ideig elérhető, de nem frissül. A tantágy nevének rövidítése alapján tehát a link vége `ajr`, nem `arj`.

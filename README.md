@@ -1,4 +1,4 @@
-# [sze-info.github.io/arj](https://sze-info.github.io/arj)
+# new link: [sze-info.github.io/arj](https://sze-info.github.io/ajr)
 
 🚘 Autonóm robotok és járművek programozása || Autonomous robots and vehicles software engineering
 
